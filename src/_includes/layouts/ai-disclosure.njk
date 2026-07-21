@@ -1,0 +1,46 @@
+---
+layout: "layouts/base.njk"
+extraCss:
+  - "/assets/css/ai-disclosure.css"
+---
+<h1>{{ title }}</h1>
+
+<div class="ai-disclosure-intro">
+  {{ content | safe }}
+</div>
+
+{% set entries = aidisclosure.entries %}
+<p class="ai-disclosure-updated">
+  Last updated: <strong>{{ entries[entries.length - 1].date }}</strong>
+</p>
+
+<h2>Work log</h2>
+<p class="ai-disclosure-log-intro">
+  Most recent entry first. Older entries stay as a record even after
+  they're summarized elsewhere.
+</p>
+
+<ol class="ai-disclosure-log">
+  {% for entry in entries | reverse %}
+  <li class="ai-disclosure-log__item">
+    <p class="ai-disclosure-log__date">{{ entry.date }}</p>
+    <div class="ai-disclosure-log__cols">
+      <div>
+        <h3>AI did</h3>
+        <ul>
+          {% for task in entry.ai_did %}<li>{{ task }}</li>{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3>Human did</h3>
+        <ul>
+          {% for task in entry.human_did %}<li>{{ task }}</li>{% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% if entry.notes %}
+    <p class="ai-disclosure-log__notes">{{ entry.notes }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>

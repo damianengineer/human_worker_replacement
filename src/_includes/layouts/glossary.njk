@@ -1,0 +1,38 @@
+---
+layout: "layouts/base.njk"
+extraCss:
+  - "/assets/css/glossary.css"
+---
+<h1>{{ title }}</h1>
+
+<div class="glossary-intro">
+  {{ content | safe }}
+</div>
+
+{% for cat in glossary.categories %}
+<section class="glossary-category" aria-labelledby="{{ cat.category | slugify }}-heading">
+  <h2 id="{{ cat.category | slugify }}-heading">{{ cat.category }}</h2>
+  <dl class="glossary-list">
+    {% for item in cat.terms %}
+    <div class="glossary-list__item" id="{{ item.term | slugify }}">
+      <dt>
+        <a href="#{{ item.term | slugify }}">{{ item.term }}</a>
+      </dt>
+      <dd>
+        <p>{{ item.definition }}</p>
+        <p class="glossary-list__source">
+          <span class="glossary-list__source-label">Origin:</span>
+          {% for id in item.origin %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+        </p>
+        {% if item.current %}
+        <p class="glossary-list__source">
+          <span class="glossary-list__source-label">Current:</span>
+          {% for id in item.current %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+        </p>
+        {% endif %}
+      </dd>
+    </div>
+    {% endfor %}
+  </dl>
+</section>
+{% endfor %}

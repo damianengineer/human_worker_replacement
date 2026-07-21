@@ -1,0 +1,108 @@
+# Glossary terms, grouped into categories. Structured as data (not prose) so
+# the page can render a consistent, accessible term list and so a
+# non-technical editor can add a term without touching any template or CSS.
+#
+# Each term:
+#   term: the word or phrase (as it should display)
+#   definition: plain-language explanation (8th-10th grade reading level —
+#     see CLAUDE.md Section 2a)
+#   origin: list of citation IDs (from content/citations.yaml) for where the
+#     term/concept comes from
+#   current: list of citation IDs for the current authoritative source(s)
+#     on the term
+#
+# Keep terms within each category in the order they should display.
+
+categories:
+  - category: "Core AI Terms"
+    terms:
+      - term: "Artificial Intelligence (AI)"
+        definition: >-
+          Computer systems that perform tasks normally requiring human
+          thinking — understanding language, recognizing images, solving
+          problems, and making decisions.
+        origin: ["mccarthy1955"]
+        current: ["russellnorvig2021"]
+
+      - term: "Generative AI"
+        definition: >-
+          AI that creates new content — text, images, code, audio — by
+          learning patterns from enormous amounts of existing human-made
+          material.
+        origin: ["goodfellow2014"]
+        current: ["feuerriegel2024"]
+
+      - term: "Artificial General Intelligence (AGI)"
+        definition: >-
+          A hypothetical AI matching capable humans at most mental tasks —
+          not just one specialty. Doesn't exist yet; experts disagree on
+          when, or whether.
+        origin: ["gubrud1997"]
+        current: ["morris2024"]
+
+      - term: "Artificial Superintelligence (ASI)"
+        definition: >-
+          A hypothetical AI far smarter than the best humans at virtually
+          everything — science, strategy, creativity, and social skill.
+          Purely theoretical today.
+        origin: ["bostrom1998", "good1965"]
+        current: ["bostrom2014"]
+
+      - term: "Technological Singularity"
+        definition: >-
+          A predicted point where AI improves itself faster than humans can
+          follow, changing society unpredictably. One famous forecast says
+          2045; many experts doubt it.
+        origin: ["ulam1958"]
+        current: ["shanahan2015", "kurzweil2005", "mitchell2019"]
+
+  - category: "Terms About AI and Jobs"
+    terms:
+      - term: "Automation (of work)"
+        definition: >-
+          When technology performs a task instead of a person. Current
+          research finds that automated-task jobs are losing entry-level
+          positions.
+        origin: ["diebold1952"]
+        current: ["acemoglu2019", "brynjolfsson2025"]
+
+      - term: "Augmentation"
+        definition: >-
+          When technology helps a person do their job better or faster,
+          rather than replacing them. Augmented jobs have stayed stable or
+          grown.
+        origin: ["engelbart1962"]
+        current: ["brynjolfsson2025"]
+
+      - term: "AI Exposure"
+        definition: >-
+          How many of a job's tasks could AI potentially do? High exposure
+          means possible change — not guaranteed job loss.
+        origin: ["freyosborne2017", "felten2021"]
+        current: ["eloundou2023"]
+
+      - term: "Job Displacement"
+        definition: >-
+          Losing a job because technology now performs the work.
+          Displacement is what actually happens; exposure is only what's
+          theoretically possible.
+        origin: ["jacobson1993"]
+        current: ["blsdisplacedworkers"]
+
+  - category: "Policy Terms"
+    terms:
+      - term: "Universal Basic Income (UBI)"
+        definition: >-
+          Regular, unconditional cash payments from the government to
+          everyone, regardless of employment. Proposed as a safety net if
+          AI eliminates many jobs.
+        origin: ["paine1797"]
+        current: ["vanparijsvanderborght2017", "vivalt2024"]
+
+      - term: "Sovereign Wealth Fund"
+        definition: >-
+          A government-owned investment fund whose profits benefit the
+          public, like Alaska's fund, which pays residents yearly dividends
+          from oil wealth.
+        origin: ["rozanov2005"]
+        current: ["iwgswf2008", "sanders2026"]

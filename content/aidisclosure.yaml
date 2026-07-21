@@ -1,0 +1,283 @@
+# Running work log for the AI Disclosure page (CLAUDE.md Section 7).
+#
+# Add a NEW entry each time the AI assistant substantially drafts or edits
+# site content — don't rewrite old entries. This is the running record the
+# disclosure page is built from. Once the log gets long, older entries can
+# be condensed into a single summarized entry (e.g. "entries from
+# 2026-07 through 2026-09, summarized") without losing the overall picture
+# — just keep the most recent, detailed entries expanded.
+#
+# Each entry:
+#   date: "YYYY-MM-DD"
+#   ai_did: [tasks the AI assistant performed]
+#   human_did: [tasks the human performed]
+#   notes: optional — caveats, especially verification status. Be honest
+#     here rather than asserting review happened if it hasn't yet.
+
+entries:
+  - date: "2026-07-21"
+    ai_did:
+      - "Scaffolded the Eleventy project: build config, page templates/layouts, and CSS."
+      - "Drafted the glossary page's plain-language term definitions from source text the human supplied."
+      - "Organized citation data into content/citations.yaml, including looking up publicly available bibliographic details for sources the human named."
+      - "Flagged citations with missing bibliographic details, a source-year/venue mismatch, and possible conflicts of interest (Anthropic and OpenAI as cited sources), instead of inventing missing details."
+      - "Drafted this AI Disclosure page and its work-log format."
+    human_did:
+      - "Directed the project's scope, page build order, and priorities."
+      - "Supplied the glossary's term list and the source reference list."
+      - "Reviewed and approved each step before the next one started."
+    notes: >-
+      Citation verification is not yet complete. As of this entry, several
+      citations in content/citations.yaml are marked TODO(citation-needed)
+      because full bibliographic details weren't available yet, and even
+      the complete entries have not yet been independently checked by a
+      human against their original primary sources. Treat citation links
+      on this site as provisional until that review happens and this note
+      is updated.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Drafted the History page: three historical technology-and-jobs disruption cases (Luddite Rebellion, telephone operator automation, office computerization) from source text the human supplied."
+      - "Added full citations for the three new sources to content/citations.yaml."
+      - "Flagged a likely working-paper-vs-final-publication mismatch on one new citation (Feigenbaum & Gross) instead of guessing which version to cite."
+    human_did:
+      - "Directed the History page's scope, required structure (named example, years, impact, cited source), and page order."
+      - "Supplied the three historical cases' text and their reference details."
+      - "Reviewed and approved each step before the next one started."
+    notes: >-
+      Same verification status as the entry above: none of the History
+      page's three new citations have yet been independently checked by a
+      human against their original primary sources.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Added a fourth History case (Amazon Warehouse Robotics, 2012–present) from source text the human supplied, condensed to match the other cases' length and style."
+      - "Added four new citations spanning different tiers (a peer-reviewed study, and three press sources) to content/citations.yaml."
+      - "Introduced an \"unverified\" citation status (distinct from TODO/citation-needed) for a source the human themselves flagged as having an uncertain byline/date, and a `note` field for editorial context that isn't a gap."
+      - "Flagged that one press source's claim about academic research on algorithmic management is sourced only via secondary paraphrase, with no underlying publication identified yet."
+    human_did:
+      - "Directed this case's scope and supplied its research memo, including its own steelman/counter-evidence structure and its own flags about two unverified details."
+      - "Reviewed and approved each step before the next one started."
+    notes: >-
+      Same verification status as prior entries: none of this case's four
+      citations have yet been independently checked by a human against
+      their original primary sources. Two are explicitly flagged
+      uncertain by the human who supplied them (see the "unverified"
+      Weise & Metz citation, and the Dissent Magazine citation's todo
+      about its Bessemer/algorithmic-management source).
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Revised the Luddite Rebellion case's second impact point for historical accuracy — replacing a vague summary with specifics on the Frame Breaking Act of 1812, the York Special Commission hangings, and the distinction between on-the-spot killings and the judicial death sentences."
+      - "Added a new citation (The National Archives, UK Government) to content/citations.yaml and attached it to this case."
+    human_did:
+      - "Identified the inaccuracy and supplied the corrected, more specific text and its source."
+      - "Reviewed and approved the change."
+    notes: >-
+      Same verification status as prior entries: this new citation has not
+      yet been independently checked by a human against the original
+      source page.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Scaffolded The Evidence page (content/the-evidence.md, content/evidence.yaml, its layout, and CSS) covering four sections: current state of displacement, at-risk industries/jobs, protective factors, and counterarguments."
+      - "Added it to the site nav."
+    human_did:
+      - "Directed the scope of the four required sections and explicitly asked for scaffolding only, no actual copy yet."
+    notes: >-
+      This page currently contains ONLY placeholder text ("PLACEHOLDER —
+      ...") in every title, intro, and item — no real claims, statistics,
+      or sources have been written yet, and none are needed until real
+      copy replaces the placeholders. Do not deploy this page live until
+      that content is written and cited.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Wrote the \"Current State of Displacement\" section's real content (title, intro, and five cited claims), replacing its placeholders, from source text the human supplied."
+      - "Added a primary/corroborating dual-citation shape to this section (most claims here cite two independent sources), plus template and CSS support for it."
+      - "Resolved two prior TODO(citation-needed) placeholders (brynjolfsson2025 and the entry now renamed massenkoff2026) using full bibliographic details supplied with this content."
+      - "Added two new citations (richmond2026, shrm2026), and flagged that richmond2026 shares a title with the existing eloundou2023 entry under different authors/years — unresolved, needs the human's confirmation."
+      - "Lightly condensed a few of the densest sentences for reading level, without changing the reported statistics or methodology."
+    human_did:
+      - "Supplied this section's content, including the specific stats, corroboration methodology notes, and source details."
+      - "Reviewed and approved the change."
+    notes: >-
+      Reading level: parts of this content (e.g. "percentage points,"
+      "theoretical capacity," corroboration-methodology framing) are
+      likely above the 8th-10th grade target in CLAUDE.md Section 2a —
+      flagged to the human rather than silently rewritten, since the
+      precise stats and methodology framing matter here. Citation
+      verification is also still not complete: none of this entry's
+      citations (including the two newly resolved ones) have been
+      independently checked by a human against their original sources.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Moved two chart images the human dropped in a temporary scratch folder (temp/) into src/assets/img/ with clean filenames, since that scratch folder is gitignored and meant to be emptied, not the site's actual asset storage."
+      - "Added a two-column figure grid to the \"Industries & Jobs Most at Risk\" section (currently the only real content in that section; its title/intro/items are still placeholder) with a one-sentence intro, and per-image captions that pull author/date/publisher/source-link directly from content/citations.yaml rather than hand-typing credit text."
+      - "Added a `date` field (day-level precision) to the massenkoff2026 citation to support the caption's publication date, reusing the more precise date supplied earlier in the project rather than only the year already on file."
+      - "Wrote alt text for both chart images (CLAUDE.md Section 9)."
+    human_did:
+      - "Supplied the two chart images and their sources, and specified the two-column layout, caption requirements, and the intro sentence's framing."
+      - "Reviewed and approved the change."
+    notes: >-
+      Both chart images are reused from existing, already-cited sources
+      (massenkoff2026, eloundou2023) rather than new ones — no new
+      citation-verification gap introduced by this entry.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Replaced the \"Industries & Jobs Most at Risk\" section's placeholder intro with the human-supplied lead-in paragraph describing what the two charts show."
+      - "Removed the shorter figures_intro sentence written earlier, since the new intro now covers that ground in more depth (avoided leaving two redundant chart-framing paragraphs back to back)."
+      - "Made the figures_intro template block conditional again, since the field is now unused but the section could reintroduce a shorter one later."
+    human_did:
+      - "Supplied this section's lead-in paragraph verbatim, describing specific patterns visible in the two charts (by occupation category, and a legal-work discrepancy between the two sources)."
+      - "Reviewed and approved the change."
+    notes: >-
+      Inserted verbatim as supplied, not edited for reading level — several
+      phrases here (e.g. "methodologically similar," "materialized,"
+      "ceiling" used abstractly) are likely above the 8th-10th grade
+      target in CLAUDE.md Section 2a. Flagged to the human rather than
+      rewritten, since this was given as exact copy to insert, not a draft
+      to edit. This paragraph's claims are treated as covered by the two
+      citations already attached to the adjacent charts (massenkoff2026,
+      eloundou2023) rather than needing a separate inline citation, since
+      it's directly describing what those two charts show.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Added a CSS-only, no-JS click-to-zoom lightbox for the two at-risk charts, since the human reported the charts were too small to read details in their current display size — a thumbnail links to a same-page overlay showing the image larger, with a close link and clickable backdrop."
+      - "Rewrote the at-risk section's intro paragraph for 8th-10th grade reading level, per the human's follow-up request, replacing phrases like \"methodologically similar,\" \"materialized,\" and abstract \"ceiling\" with plainer wording while keeping the same claims."
+      - "Added a methodology note (with its own citations, kept out of the main paragraph to protect the reading-level rewrite) describing that both charts share Eloundou et al.'s underlying measure and are backed by peer-reviewed econometric research, per the human's request."
+      - "Added 4 new TODO(citation-needed) entries (acemoglu2022, autordornhanson2013, borusyakhulljaravel2022, graetzmichaels2018) for methodology papers the human named by author/year/journal only. For each, offered a specific best-guess title based on recognizing the paper from that combination, explicitly labeled as an unconfirmed guess rather than fact, rather than leaving the field blank or asserting a title as certain."
+    human_did:
+      - "Reported the charts were too zoomed out to read and asked for a way to view them larger."
+      - "Asked for the intro paragraph to be rewritten for reading-level compliance, and for a note on the shared Eloundou et al. methodology and five peer-reviewed econometric sources to be worked in."
+      - "Reviewed and approved the change."
+    notes: >-
+      The 4 new methodology citations are unverified TODOs, including the
+      AI-guessed titles offered for each — none of this should be treated
+      as confirmed until the human supplies or confirms the real
+      title/URL for each. The lightbox is a CSS/HTML-only mechanism (no
+      JavaScript at all), which keeps it fully functional with JS
+      disabled per CLAUDE.md Section 3/10, but it does not implement full
+      modal-dialog behavior (no focus trap, no Escape-key close) — flagged
+      as a known accessibility trade-off rather than presented as a
+      complete WCAG-compliant dialog.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Removed \"PLACEHOLDER — \" from the at-risk section's title, since it already had real content."
+      - "Split the at-risk section into two labeled subsections (h3 headings under the section's existing h2): \"Theoretical versus Observed\" (the existing intro, methodology note, and charts) and \"Most Exposed Occupations\" (the industry-by-industry list, still placeholder)."
+      - "Restructured content/evidence.yaml's at_risk key to nest these under theoretical_vs_observed/most_exposed objects, and bumped each industry item's heading from h3 to h4 so heading order stays sequential now that it sits under a new h3."
+    human_did:
+      - "Asked for the placeholder text removed from the title and for the section split into these two labeled subsections."
+      - "Reviewed and approved the change."
+    notes: >-
+      Purely structural — no new claims, citations, or reading-level
+      concerns introduced by this entry.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Wrote the \"Most Exposed Occupations\" subsection's real content: a two-paragraph intro, a two-column figure grid (same zoom/lightbox pattern as \"Theoretical versus Observed,\" Anthropic chart left, OpenAI chart right), and six cited occupation items, replacing the earlier single placeholder item."
+      - "Moved two more chart images the human dropped in temp/ into src/assets/img/ with clean filenames, emptying the dropbox again."
+      - "Reused the existing massenkoff2026 and eloundou2023 citations for both new charts and all six occupation items (all six are corroborated by both companies' data, per the human's text), rather than adding new citation entries."
+      - "Found and fixed a bug this reuse exposed: both subsections' charts share the same two citation ids, so anchoring the zoom/lightbox off the citation id would have produced duplicate HTML ids and made the wrong lightbox pop up. Added an explicit unique `id` field per figure and refactored the figure-grid markup into a shared macro instead of duplicating it a second time."
+      - "Split the intro into a list of two paragraphs (rather than one folded string) so the page renders them as two actual paragraphs, matching how the source text reads."
+      - "Upgraded most_exposed's items to the same primary/corroborating/note citation shape as current_state's items, since these six jobs are each backed by both companies, not just one."
+    human_did:
+      - "Supplied the two new chart images, specified their left/right order and citation sources, wrote the intro paragraph and all six occupation descriptions verbatim, and asked for the same pattern (zoom, two-column layout) used in \"Theoretical versus Observed.\""
+      - "Reviewed and approved the change."
+    notes: >-
+      No new citation-verification gaps: both charts and all six items
+      reuse already-flagged citations (massenkoff2026, eloundou2023),
+      neither of which has been independently checked by a human against
+      its original source yet.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Reordered the \"Most Exposed Occupations\" subsection so the six-job list renders immediately after the intro paragraph's \"...include:\" line, with the chart pair moved after the list instead of between the intro and the list."
+    human_did:
+      - "Reported the job list wasn't appearing where the lead-in paragraph's \"include:\" promised it, since the charts had been placed in between."
+    notes: "Purely a layout/ordering fix — no content or citation changes."
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Added a third at-risk subsection, \"Stark State College Majors Most Exposed to AI Replacement,\" with a generated one-sentence lead-in, a new citation (the Stark State College academic catalog), and ~55 catalog programs sorted into confidence groups exactly as the human described them (highest-confidence, category-level, documented-complications)."
+      - "Classified each program against the human's explicit category descriptions using a strict rule: only placed a program in a group if its title contained one of the named keywords/phrases, or was an explicit \"variant\" of one the human named. Did not guess at thematically-adjacent-but-unnamed programs."
+      - "Put 10 programs the human's description didn't clearly cover (the four non-Tax/non-Data-Analytics Accounting majors, Computer Graphics Arts, Computer Technology, Digital Video and Media Technology, Microsoft Applications Professional, Microsoft Networking, Quickbooks/Payroll) into a visibly flagged \"Not yet classified\" group instead of assigning them a guessed confidence rating."
+    human_did:
+      - "Supplied the full program list, the confidence-tier logic and its two named tiers plus the Legal/Court Reporting caveat, and the new citation."
+      - "Reviewed and approved the change."
+    notes: >-
+      Two things worth the human's attention: (1) about 10 of ~55 programs
+      are sitting in "Not yet classified" because the supplied
+      confidence-tier description didn't name them or an obvious variant
+      of them — they need a human confidence rating before this
+      subsection is complete. (2) This subsection names one specific
+      institution (Stark State College), which is a shift from CLAUDE.md's
+      stated general "American community college students" audience
+      framing to one specific school — flagging in case that's meant to
+      be broadened, or paired with a note about why this school was
+      chosen, before publishing.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Replaced the protective_factors section's placeholder with real content: four \"barriers\" that make some jobs harder to replace, plus a closing \"looking ahead\" section, from source text the human supplied."
+      - "Added 4 new citations (Huang/Macklin/State 2025 on NVIDIA's Newton physics engine, Lu et al. 2026 on AI research automation in Nature, Myers 2026 on Stanford HAI's QuantiPhy physics benchmark, NVIDIA Newsroom 2026), and completed the previously-incomplete richmond2026 citation now that its full subtitle was supplied."
+      - "Flagged a possible undisclosed conflict of interest on the new Lu et al. 2026 citation: one listed author (David Ha) is publicly known to be a co-founder of Sakana AI, a commercial AI company, though the citation itself doesn't state author affiliations — noted as an unconfirmed flag rather than asserted as fact, consistent with how OpenAI/Anthropic-affiliated sources are already disclosed elsewhere in this file."
+      - "Inserted the barrier and outlook copy close to verbatim — it read within the site's 8th-10th grade reading-level target already, so no rewrite was needed this time (unlike the at-risk section's earlier passes)."
+    human_did:
+      - "Supplied all four barriers' content, the outlook section, the five references, and the specific citation-to-barrier mapping."
+      - "Reviewed and approved the change."
+    notes: >-
+      Citation verification is still not complete for any of the five new
+      or updated citations here — none have been independently checked by
+      a human against their original sources yet. The Lu et al. 2026 COI
+      flag specifically needs the human's confirmation of author
+      affiliations before it's treated as settled either way.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Replaced the Stark State subsection's 4-group classification (which had ~10 programs flagged \"not yet classified\") with the human's complete, reviewed 3-tier classification covering all 55 programs, using the human's exact tier labels, descriptions, and per-program caveat notes verbatim."
+      - "Removed the \"— needs review\" text that had been auto-appended to the old \"Not yet classified\" heading via CSS, since the human asked for it removed and that tier no longer exists."
+      - "Added support for per-program notes (used by Tier 3's six programs) to the confidence-group template and data shape."
+    human_did:
+      - "Reviewed the previously-unclassified programs and produced a complete 3-tier classification for all 55 programs, including individual caveats for the six Tier 3 programs."
+      - "Asked for the injected \"needs review\" note removed since it wasn't something stated in the subheading."
+      - "Reviewed and approved the change."
+    notes: >-
+      All 55 Stark State programs now have a human-reviewed confidence
+      tier — no programs remain unclassified in this subsection.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Replaced the counterarguments section's placeholder with the final content for The Evidence page: three numbered skeptical arguments (the 2016 Hinton radiology prediction, new-job creation offsetting displacement, Jed Kolko's Brookings review of AI-jobs research) plus a closing \"Honest Middle Ground\" section, from source text the human supplied."
+      - "Added 5 new citations (Byju 2024 and Stempniak 2026 on the Hinton radiology story, Autor/Chin/Salomons/Seegmiller 2024 in QJE on new work creation, Kolko 2026 Brookings review, Eckhardt & Goldschlag 2025 Economic Innovation Group)."
+      - "Attached the Eckhardt & Goldschlag 2025 citation to the \"different studies disagree\" point as an inference, since it wasn't named by author in the prose — flagged explicitly as unconfirmed in that citation's note rather than presented as certain."
+      - "Removed the now-unused sourceLine template macro, since protective_factors and counterarguments — its only two callers — have both moved to richer, custom-shaped content."
+      - "Inserted the content close to verbatim — like the protective_factors barriers, it already read within the site's 8th-10th grade target, so no rewrite was needed."
+    human_did:
+      - "Supplied all three counterargument points, the closing section, and the five references."
+      - "Reviewed and approved the change."
+    notes: >-
+      With this entry, The Evidence page has real, drafted content in all
+      four sections for the first time — none of it should be considered
+      publish-ready yet. Outstanding items across the whole page: no
+      citation has been independently verified by a human against its
+      original source; the eloundou2023/richmond2026 possible source-mixup
+      is still unresolved; the Lu et al. 2026 (David Ha/Sakana AI) possible
+      COI is still unconfirmed; and the Eckhardt & Goldschlag 2025 citation
+      attachment in this entry is an AI-made inference, not a confirmed
+      match to the prose.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Reviewed all four of The Evidence page's sections (current state, at-risk industries, protective factors, counterarguments) and wrote a two-sentence page-level intro synthesizing and linking them, replacing the placeholder."
+    human_did:
+      - "Asked for the page reviewed and a synthesizing intro written, then to replace the placeholder with it."
+      - "Reviewed and approved the change."
+    notes: >-
+      The page's meta description (content/the-evidence.md front matter)
+      is still a PLACEHOLDER — only the visible intro paragraph was in
+      scope for this request.

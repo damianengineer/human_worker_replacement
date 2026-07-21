@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ title }} | {{ site.title }}</title>
+  {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+
+  {# CSP/referrer meta-tag fallback (CLAUDE.md Section 8). X-Content-Type-Options
+     and Permissions-Policy can only be set via a real HTTP header, not a meta
+     tag — that still needs to be configured in the GitHub Pages deploy step. #}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'self'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <link rel="stylesheet" href="/assets/css/tokens.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  {% for href in extraCss %}
+  <link rel="stylesheet" href="{{ href }}">
+  {% endfor %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  {% include "partials/header.njk" %}
+
+  <main id="main">
+    {{ content | safe }}
+  </main>
+
+  {% include "partials/footer.njk" %}
+</body>
+</html>

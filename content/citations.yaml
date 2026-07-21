@@ -1,0 +1,834 @@
+# Structured citation data (CLAUDE.md Section 6). Every factual/statistical
+# claim in content/*.md must cite an entry here by ID. Prose can reference
+# a citation with the `{% cite "id" %}` shortcode; the glossary references
+# entries directly by id in its `origin`/`current` fields. Either way, the
+# same entry also drives the auto-generated references page (content/references.md)
+# — do not hand-format citations in a second place, that causes drift.
+#
+# Schema for each entry:
+#
+# citation_id:
+#   authors: "Author Name(s) or Organization"
+#   year: 2024                      # or a string like "1955/2006" for reprints
+#   date: "2024-03-05"              # optional — only when a full publication
+#     date (not just year) is known and needed, e.g. for an image/chart
+#     credit line. Most entries only need `year`.
+#   title: "Title of the work"
+#   publisher: "Publisher, journal + volume/pages, or venue"
+#   url: "https://example.com/..."  # omit/null if none is verified yet
+#   type: "article" | "book" | "report" | "conference paper" | "news article" |
+#         "primary source" | "government data" | "website"
+#   potential_conflict: "None disclosed"  # or a description of the COI
+#   status: "TODO(citation-needed)"  # only on entries with no usable citation
+#     yet — named in copy but a full citation wasn't supplied. Renders as
+#     "source needed", never a link. Do not invent the missing fields; ask
+#     the user for them instead.
+#   status: "unverified"  # only on entries with a real citation that still
+#     needs double-checking (e.g. the user themselves flagged the exact date
+#     or byline as uncertain). Renders with the citation shown but marked
+#     "unverified" — distinct from TODO, which has no usable citation at all.
+#   todo: "what's missing/uncertain and where it's used"  # on TODO or
+#     unverified entries — the specific thing to confirm.
+#   note: "editorial context"  # optional, on any entry — not an action item
+#     (contrast with `todo`), just useful guidance, e.g. which of several
+#     sources for the same claim is the primary one to cite.
+
+# --- Complete entries (full bibliographic data supplied) ---
+
+acemoglu2019:
+  authors: "Acemoglu, D., & Restrepo, P."
+  year: 2019
+  title: "Automation and new tasks: How technology displaces and reinstates labor"
+  publisher: "Journal of Economic Perspectives, 33(2), 3–30"
+  url: "https://doi.org/10.1257/jep.33.2.3"
+  type: "article"
+  potential_conflict: "None disclosed"
+
+acemoglu2020:
+  authors: "Acemoglu, D., & Restrepo, P."
+  year: 2020
+  title: "Robots and jobs: Evidence from US labor markets"
+  publisher: "Journal of Political Economy, 128(6), 2188–2244"
+  url: "https://doi.org/10.1086/705716"
+  type: "article"
+  potential_conflict: "None disclosed"
+  note: >-
+    This is the primary empirical source behind the "400,000 jobs lost"
+    figure that circulates in Amazon automation coverage — cite this
+    directly rather than a press summary of it.
+
+aiengineerconf:
+  authors: "AI Engineer"
+  year: "n.d."
+  title: "AI Engineer World's Fair conference talks"
+  publisher: "AI Engineer"
+  url: "https://www.ai.engineer/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  status: "unverified"
+  todo: >-
+    Confirm this is the correct URL, and that it links to the free
+    YouTube channel with all major talks referenced by the human — did
+    not guess an exact YouTube channel handle.
+
+autor2003:
+  authors: "Autor, D. H., Levy, F., & Murnane, R. J."
+  year: 2003
+  title: "The skill content of recent technological change: An empirical exploration"
+  publisher: "Quarterly Journal of Economics, 118(4), 1279–1333"
+  url: "https://academic.oup.com/qje/article-abstract/118/4/1279/192510"
+  type: "article"
+  potential_conflict: "None disclosed"
+
+autorchin2024:
+  authors: "Autor, D., Chin, C., Salomons, A., & Seegmiller, B."
+  year: 2024
+  title: "New frontiers: The origins and content of new work, 1940–2018"
+  publisher: "The Quarterly Journal of Economics, 139(3), 1399–1465"
+  url: "https://doi.org/10.1093/qje/qjae008"
+  type: "article"
+  potential_conflict: "None disclosed"
+
+bostrom1998:
+  authors: "Bostrom, N."
+  year: 1998
+  title: "How long before superintelligence?"
+  publisher: "International Journal of Futures Studies, 2"
+  url: null
+  type: "article"
+  potential_conflict: "None disclosed"
+
+brynjolfsson2025:
+  authors: "Brynjolfsson, E., Chandar, B., & Chen, R."
+  year: 2025
+  title: "Canaries in the coal mine?"
+  publisher: "Stanford Digital Economy Lab"
+  url: null
+  type: "report"
+  potential_conflict: "None disclosed"
+  note: >-
+    Academic, independent research (Stanford), not affiliated with an AI
+    vendor — used on The Evidence page as a corroborating/primary source
+    alongside massenkoff2026 (Anthropic), each using a different dataset
+    (ADP payroll data here vs. CPS survey data there).
+  todo: >-
+    Previously an incomplete TODO entry with no title/publisher; those
+    gaps are now filled in. Still no URL — add one if available.
+
+byju2024:
+  authors: "Byju, A."
+  year: 2024
+  date: "2024-10-25"
+  title: "The \"godfather of AI\" predicted I wouldn't have a job. He was wrong."
+  publisher: "The New Republic"
+  url: "https://newrepublic.com/article/187203/ai-radiology-geoffrey-hinton-nobel-prediction"
+  type: "news article"
+  potential_conflict: "None disclosed"
+
+cerebralvalley:
+  authors: "Cerebral Valley"
+  year: "n.d."
+  title: "Cerebral Valley (AI builder community)"
+  publisher: "Cerebral Valley"
+  url: "https://cerebralvalley.ai/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  status: "unverified"
+  todo: "Confirm this is the correct current URL before publishing."
+
+deeplearningai:
+  authors: "Ng, A. / DeepLearning.AI"
+  year: "n.d."
+  title: "Beginner AI courses (via Coursera / DeepLearning.AI)"
+  publisher: "DeepLearning.AI / Coursera"
+  url: "https://www.deeplearning.ai/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: >-
+    Links to the general DeepLearning.AI site rather than one specific
+    course, since the human referenced "beginner courses" broadly — swap
+    in a specific course URL if one particular course is meant.
+
+diebold1952:
+  authors: "Diebold, J."
+  year: 1952
+  title: "Automation: The advent of the automatic factory"
+  publisher: "Van Nostrand"
+  url: null
+  type: "book"
+  potential_conflict: "None disclosed"
+
+dissent2026:
+  authors: "Dissent Magazine"
+  year: 2026
+  title: "Amazon's robot revolution"
+  publisher: "Dissent Magazine"
+  url: "https://dissentmagazine.org/article/amazons-robot-revolution/"
+  type: "news article"
+  potential_conflict: "None disclosed"
+  note: >-
+    Good for the Bessemer, Alabama algorithmic-management/union angle, not
+    for statistics.
+  todo: >-
+    Attributes the Bessemer algorithmic-management research to "a
+    Northwestern researcher" via secondary paraphrase only, with no name or
+    publication given. If a peer-reviewed or working-paper version of that
+    research is wanted, we need the researcher's name and the actual
+    publication, not just this magazine's summary of it.
+
+eckhardtgoldschlag2025:
+  authors: "Eckhardt, S., & Goldschlag, N."
+  year: 2025
+  title: "AI and jobs: The final word (until the next one)"
+  publisher: "Economic Innovation Group"
+  url: "https://eig.org/ai-and-jobs-the-final-word/"
+  type: "report"
+  potential_conflict: "None disclosed"
+  note: >-
+    Not explicitly named in the counterarguments prose — attached as the
+    likely source for the "different studies disagree" point (a study
+    reportedly finding unemployment rose less in AI-exposed jobs), based
+    on this being the one supplied reference that fits that description.
+    This is an inference, not confirmed by the source text itself.
+
+eloundou2023:
+  authors: "Eloundou, T., Manning, S., Mishkin, P., & Rock, D."
+  year: 2023
+  title: "The AI jobs transition framework: Market exposure and career mobility"
+  publisher: "OpenAI"
+  url: "https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf"
+  type: "report"
+  potential_conflict: >-
+    Authors are OpenAI employees/affiliates; OpenAI is a commercial AI
+    vendor with a direct financial interest in claims about AI's
+    labor-market impact.
+  todo: >-
+    Glossary copy for "AI Exposure" describes this source as "Eloundou et
+    al. (2024) — peer-reviewed, in Science," which looks like a different,
+    later publication than this 2023 OpenAI-hosted PDF report. Confirm
+    which source is actually intended before this citation is finalized.
+    There's now also a richmond2026 entry (OpenAI Economic Research) with
+    the same "AI jobs transition framework" title but a different author
+    and year — worth sorting out whether OpenAI is reusing this title
+    across an annual report series, or whether these citations are getting
+    mixed up somewhere upstream.
+
+engelbart1962:
+  authors: "Engelbart, D. C."
+  year: 1962
+  title: "Augmenting human intellect: A conceptual framework (SRI Summary Report AFOSR-3223)"
+  publisher: "Stanford Research Institute"
+  url: null
+  type: "report"
+  potential_conflict: "None disclosed"
+
+fastcompany2026:
+  authors: "Fast Company"
+  year: 2026
+  title: "What will the robot jobs apocalypse look like? Ask Amazon warehouse workers"
+  publisher: "Fast Company"
+  url: "https://www.fastcompany.com/91514112/"
+  type: "news article"
+  potential_conflict: "None disclosed"
+  note: >-
+    Useful for worker testimony and a Brookings Metro quote on the scale of
+    this shift, not for statistics.
+
+feigenbaum2024:
+  authors: "Feigenbaum, J., & Gross, D. P."
+  year: 2024
+  title: "Answering the call of automation: How the labor market adjusted to mechanizing telephone operation"
+  publisher: "Quarterly Journal of Economics"
+  url: "https://www.nber.org/system/files/working_papers/w28061/w28061.pdf"
+  type: "article"
+  potential_conflict: "None disclosed"
+  todo: >-
+    The URL supplied is an NBER working paper (w28061), which typically
+    precedes a journal's final typeset version — confirm whether a QJE
+    publisher URL/DOI should replace this once available.
+
+felten2021:
+  authors: "Felten, E., Raj, M., & Seamans, R."
+  year: 2021
+  title: "Occupational, industry, and geographic exposure to artificial intelligence: A novel dataset and its potential uses"
+  publisher: "Strategic Management Journal, 42(12), 2195–2217"
+  url: "https://doi.org/10.1002/smj.3286"
+  type: "article"
+  potential_conflict: "None disclosed"
+
+feuerriegel2024:
+  authors: "Feuerriegel, S., Hartmann, J., Janiesch, C., & Zschech, P."
+  year: 2024
+  title: "Generative AI"
+  publisher: "Business & Information Systems Engineering, 66(1), 111–126"
+  url: "https://doi.org/10.1007/s12599-023-00834-7"
+  type: "article"
+  potential_conflict: "None disclosed"
+
+frey2019:
+  authors: "Frey, C. B."
+  year: 2019
+  title: "The technology trap: Capital, labor, and power in the age of automation"
+  publisher: "Princeton University Press"
+  url: "https://press.princeton.edu/books/hardcover/9780691172798/the-technology-trap"
+  type: "book"
+  potential_conflict: "None disclosed"
+
+freyosborne2017:
+  authors: "Frey, C. B., & Osborne, M. A."
+  year: 2017
+  title: "The future of employment: How susceptible are jobs to computerisation?"
+  publisher: "Technological Forecasting and Social Change, 114, 254–280"
+  url: "https://doi.org/10.1016/j.techfore.2016.08.019"
+  type: "article"
+  potential_conflict: "None disclosed"
+
+good1965:
+  authors: "Good, I. J."
+  year: 1965
+  title: "Speculations concerning the first ultraintelligent machine"
+  publisher: "In F. L. Alt & M. Rubinoff (Eds.), Advances in Computers (Vol. 6, pp. 31–88), Academic Press"
+  url: "https://doi.org/10.1016/S0065-2458(08)60418-0"
+  type: "article"
+  potential_conflict: "None disclosed"
+  todo: >-
+    This work is commonly miscited elsewhere as 1966; 1965 is what was
+    supplied and is treated here as the corrected date.
+
+goodfellow2014:
+  authors: "Goodfellow, I., Pouget-Abadie, J., Mirza, M., Xu, B., Warde-Farley, D., Ozair, S., Courville, A., & Bengio, Y."
+  year: 2014
+  title: "Generative adversarial nets"
+  publisher: "Advances in Neural Information Processing Systems, 27, 2672–2680"
+  url: null
+  type: "conference paper"
+  potential_conflict: "None disclosed"
+
+gubrud1997:
+  authors: "Gubrud, M. A."
+  year: 1997
+  title: "Nanotechnology and international security"
+  publisher: "Paper presented at the Fifth Foresight Conference on Molecular Nanotechnology, Palo Alto, CA"
+  url: null
+  type: "conference paper"
+  potential_conflict: "None disclosed"
+
+huang2025:
+  authors: "Huang, S., Macklin, M., & State, G."
+  year: 2025
+  date: "2025-03-18"
+  title: "Announcing Newton, an open-source physics engine for robotics simulation"
+  publisher: "NVIDIA Technical Blog"
+  url: "https://developer.nvidia.com/blog/announcing-newton-an-open-source-physics-engine-for-robotics-simulation/"
+  type: "website"
+  potential_conflict: >-
+    Authors are NVIDIA employees; NVIDIA is a commercial hardware/AI
+    vendor with a direct financial interest in claims about robotics/AI
+    capability progress. Treat as a vendor announcement, not independent
+    research.
+
+iwgswf2008:
+  authors: "International Working Group of Sovereign Wealth Funds"
+  year: 2008
+  title: 'Sovereign wealth funds: Generally accepted principles and practices ("Santiago Principles")'
+  publisher: "International Working Group of Sovereign Wealth Funds"
+  url: "https://www.ifswf.org/santiago-principles"
+  type: "report"
+  potential_conflict: "None disclosed"
+
+jacobson1993:
+  authors: "Jacobson, L. S., LaLonde, R. J., & Sullivan, D. G."
+  year: 1993
+  title: "Earnings losses of displaced workers"
+  publisher: "American Economic Review, 83(4), 685–709"
+  url: null
+  type: "article"
+  potential_conflict: "None disclosed"
+
+kolko2026:
+  authors: "Kolko, J."
+  year: 2026
+  date: "2026-03-10"
+  title: "Research on AI and the labor market is still in the first inning"
+  publisher: "Brookings Institution"
+  url: "https://www.brookings.edu/articles/research-on-ai-and-the-labor-market-is-still-in-the-first-inning/"
+  type: "report"
+  potential_conflict: "None disclosed"
+
+learnaitogether:
+  authors: "Towards AI"
+  year: "n.d."
+  title: "Learn AI Together (Discord community)"
+  publisher: "Towards AI"
+  url: "https://towardsai.net/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: >-
+    Points to Towards AI's main site, not a direct Discord invite —
+    Discord invite links expire/rotate, so hardcoding one risks going
+    stale. Get a current invite link directly from Towards AI before
+    publishing if a one-click link is wanted.
+
+lu2026:
+  authors: "Lu, C., Lu, C., Lange, R. T., Yamada, Y., Hu, S., Foerster, J., Ha, D., & Clune, J."
+  year: 2026
+  title: "Towards end-to-end automation of AI research"
+  publisher: "Nature, 651(8107), 914–919"
+  url: "https://doi.org/10.1038/s41586-026-10265-5"
+  type: "article"
+  potential_conflict: "None disclosed"
+  todo: >-
+    One or more listed authors (e.g., David Ha) are publicly known to be
+    affiliated with Sakana AI, a commercial AI company — if that
+    affiliation applies here, this would need the same COI disclosure
+    treatment as the OpenAI/Anthropic sources elsewhere in this file.
+    Not asserted as fact since it isn't stated in the citation itself;
+    confirm author affiliations before publishing.
+
+makecom:
+  authors: "Make"
+  year: "n.d."
+  title: "Make (formerly Integromat)"
+  publisher: "Make"
+  url: "https://www.make.com/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
+massenkoff2026:
+  authors: "Massenkoff, M., & McCrory, P."
+  year: 2026
+  date: "2026-03-05"
+  title: "Labor market impacts of AI: A new measure and early evidence"
+  publisher: "Anthropic Research"
+  url: "https://www.anthropic.com/research/labor-market-impacts"
+  type: "report"
+  potential_conflict: >-
+    Authors are Anthropic employees/affiliates; Anthropic is a commercial
+    AI developer with a direct financial interest in claims about AI's
+    labor-market impact. Treat its self-reported findings as a
+    primary-source data point, not neutral third-party research, and say
+    so next to any claim that cites it.
+  note: >-
+    Previously filed under the ID "anthropic2026" with the organization
+    itself as author; renamed once the actual authors were supplied.
+
+mcgarvey2026:
+  authors: "McGarvey, M."
+  year: null
+  title: "American Sovereign Wealth Fund Exploration Act (H.R. 3116)"
+  publisher: "U.S. House of Representatives"
+  url: null
+  type: "government data"
+  status: "TODO(citation-needed)"
+  todo: >-
+    Need the congress.gov permalink and confirmed introduction
+    date/session — do not guess the Congress number, since a wrong one
+    produces a link to the wrong bill or a 404.
+
+mcp:
+  authors: "Anthropic"
+  year: "n.d."
+  title: "Model Context Protocol"
+  publisher: "Anthropic"
+  url: "https://modelcontextprotocol.io/"
+  type: "website"
+  potential_conflict: >-
+    Anthropic created and maintains this protocol; Anthropic is a
+    commercial AI vendor, though this is a technical standard reference
+    rather than a labor-market claim.
+  status: "unverified"
+  todo: "Confirm this is still the correct canonical URL before publishing."
+
+myers2026:
+  authors: "Myers, A."
+  year: 2026
+  date: "2026-01-26"
+  title: "AI can't do physics well – and that's a roadblock to autonomy"
+  publisher: "Stanford Institute for Human-Centered Artificial Intelligence (HAI)"
+  url: "https://hai.stanford.edu/news/ai-cant-do-physics-well-and-thats-a-roadblock-to-autonomy"
+  type: "website"
+  potential_conflict: "None disclosed"
+
+n8n:
+  authors: "n8n"
+  year: "n.d."
+  title: "n8n"
+  publisher: "n8n"
+  url: "https://n8n.io/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
+nationalarchivesuk:
+  authors: "The National Archives"
+  year: "n.d."
+  title: "Why did the Luddites protest?"
+  publisher: "UK Government"
+  url: "https://www.nationalarchives.gov.uk/education/resources/why-did-the-luddites-protest/"
+  type: "primary source"
+  potential_conflict: "None disclosed"
+
+nvidianewsroom2026:
+  authors: "NVIDIA Newsroom"
+  year: 2026
+  date: "2026-03-16"
+  title: "NVIDIA and global robotics leaders take physical AI to the real world"
+  publisher: "NVIDIA"
+  url: "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world"
+  type: "website"
+  potential_conflict: >-
+    NVIDIA is a commercial hardware/AI vendor with a direct financial
+    interest in claims about robotics/AI capability progress. Treat as a
+    vendor announcement, not independent research.
+
+paine1797:
+  authors: "Paine, T."
+  year: 1797
+  title: "Agrarian justice"
+  publisher: "Historical original source; many modern editions"
+  url: null
+  type: "primary source"
+  potential_conflict: "None disclosed"
+
+richmond2026:
+  authors: "Richmond, A. M."
+  year: 2026
+  title: "The AI jobs transition framework: Mapping AI's near-term impact on jobs"
+  publisher: "OpenAI Economic Research"
+  url: null
+  type: "report"
+  potential_conflict: >-
+    Author is affiliated with OpenAI Economic Research; OpenAI is a
+    commercial AI vendor with a direct financial interest in claims about
+    AI's labor-market impact.
+  todo: >-
+    Now has a full subtitle ("Mapping AI's near-term impact on jobs"),
+    distinct from eloundou2023's subtitle ("Market exposure and career
+    mobility") — this makes it more likely these are genuinely two
+    separate OpenAI reports (possibly an annually-updated series) rather
+    than a citation mix-up, but that's still not fully confirmed. Still
+    no URL for this one — add it if available.
+
+rozanov2005:
+  authors: "Rozanov, A."
+  year: 2005
+  title: "Who holds the wealth of nations?"
+  publisher: "Central Banking Journal, 15(4), 52–57"
+  url: null
+  type: "article"
+  potential_conflict: "None disclosed"
+
+shrm2026:
+  authors: "Society for Human Resource Management"
+  year: 2026
+  title: "Automation, AI, and job displacement risk in U.S. employment"
+  publisher: "SHRM"
+  url: null
+  type: "report"
+  potential_conflict: "None disclosed"
+  note: >-
+    An employer-survey report from an HR industry association, not an AI
+    vendor — useful as a non-AI-company counterweight source. Its sample is
+    still self-selected employer respondents, which is a methodology
+    caveat worth keeping in mind even without a vendor conflict of interest.
+  todo: "No URL supplied yet — add one if available."
+
+ssatrustees:
+  authors: "Social Security Administration, Office of the Chief Actuary"
+  year: null
+  title: "Social Security Trustees Report"
+  publisher: "Social Security Administration"
+  url: null
+  type: "government data"
+  status: "TODO(citation-needed)"
+  todo: >-
+    The ~2033 trust fund depletion date is a commonly cited figure from
+    recent Trustees Reports, but the specific claim that actuaries have
+    flagged AI-driven job losses as a risk to that timeline needs its own
+    citable source (a specific report edition, actuarial note, or
+    testimony) — not asserted here without one.
+
+starkstate2026:
+  authors: "Stark State College"
+  year: 2026
+  title: "Programs"
+  publisher: "Stark State College Academic Catalog, 2026–27 edition"
+  url: "https://catalog.starkstate.edu/programs/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: >-
+    Used only to establish that these are real Stark State program
+    names/credential types — the AI-exposure confidence rating for each
+    program is the human's own analysis (cross-referencing the
+    massenkoff2026/eloundou2023 occupation data), not something this
+    catalog itself claims.
+
+stempniak2026:
+  authors: "Stempniak, M."
+  year: 2026
+  date: "2026-05-15"
+  title: "NY Times revisits Nobel Prize winner's prediction AI will render radiologists obsolete"
+  publisher: "Radiology Business"
+  url: "https://radiologybusiness.com/topics/artificial-intelligence/ny-times-revisits-nobel-prize-winners-prediction-ai-will-render-radiologists-obsolete"
+  type: "news article"
+  potential_conflict: "None disclosed"
+  note: >-
+    Trade-press reporting on a New York Times piece, which itself was
+    reporting on Hinton's original 2016 prediction — several layers of
+    secondary reporting removed from the primary source.
+
+threeblue1brown:
+  authors: "Sanderson, G. (3Blue1Brown)"
+  year: "n.d."
+  title: "How might LLMs store facts (video)"
+  publisher: "3Blue1Brown, YouTube"
+  url: "https://www.youtube.com/@3blue1brown"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: >-
+    Links to the channel, not the specific video — did not guess an exact
+    video URL/ID. Find and swap in the direct video link before
+    publishing.
+
+ulam1958:
+  authors: "Ulam, S."
+  year: 1958
+  title: "John von Neumann 1903–1957"
+  publisher: "Bulletin of the American Mathematical Society, 64(3, Pt. 2), 1–49"
+  url: "https://doi.org/10.1090/S0002-9904-1958-10189-5"
+  type: "article"
+  potential_conflict: "None disclosed"
+  todo: >-
+    Singularity passage referenced at p. 5, reporting mathematician John von
+    Neumann's idea in this posthumous tribute — Ulam is the author/reporter,
+    not the originator of the idea.
+
+weise2025:
+  authors: "Weise, K., & Metz, C."
+  year: 2025
+  title: "Amazon's automation plans could eliminate 600,000 U.S. jobs"
+  publisher: "The New York Times"
+  url: null
+  type: "news article"
+  potential_conflict: "None disclosed"
+  status: "unverified"
+  todo: >-
+    Reporting on leaked internal Amazon documents; the user supplying this
+    source flagged that the exact byline and publication date are cited
+    inconsistently across the secondary outlets that reference it. Confirm
+    the original New York Times byline/date/URL before treating this as a
+    solid citation, and note this is reportage on a corporate plan, not an
+    independent empirical finding.
+
+zapier:
+  authors: "Zapier"
+  year: "n.d."
+  title: "Zapier"
+  publisher: "Zapier"
+  url: "https://zapier.com/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
+# --- Incomplete entries — named in glossary copy but no full citation was
+# supplied. Do not treat these as real, hyperlinkable sources yet; ask the
+# user for the missing fields (see each `todo`) before removing the
+# TODO status. ---
+
+mccarthy1955:
+  authors: "McCarthy, J., et al."
+  year: "1955/2006"
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy as the 1955 Dartmouth proposal (reissued 2006)
+    that coined "artificial intelligence." Need title/publisher/URL.
+
+russellnorvig2021:
+  authors: "Russell, S., & Norvig, P."
+  year: 2021
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy as "the standard university textbook" for AI.
+    Need full title/edition/publisher/URL.
+
+morris2024:
+  authors: "Morris, M., et al."
+  year: 2024
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy as a peer-reviewed framework defining levels of
+    AGI. Need full title/publisher/URL.
+
+bostrom2014:
+  authors: "Bostrom, N."
+  year: 2014
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy as "the canonical scholarly treatment" of ASI —
+    a different work than bostrom1998 above. Need full title/publisher/URL.
+
+shanahan2015:
+  authors: "Shanahan, M."
+  year: 2015
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy as a balanced scholarly overview of the
+    singularity. Need full title/publisher/URL.
+
+kurzweil2005:
+  authors: "Kurzweil, R."
+  year: 2005
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy for the 2045 singularity forecast. Need full
+    title/publisher/URL.
+
+mitchell2019:
+  authors: "Mitchell, M."
+  year: 2019
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy for the skeptical case on the singularity. Need
+    full title/publisher/URL.
+
+vanparijsvanderborght2017:
+  authors: "Van Parijs, P., & Vanderborght, Y."
+  year: 2017
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy as "the canonical scholarly treatment" of UBI.
+    Need full title/publisher/URL.
+
+vivalt2024:
+  authors: "Vivalt, E., et al."
+  year: 2024
+  title: null
+  publisher: null
+  url: null
+  type: null
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy (as a working paper) for UBI trial evidence.
+    Need full title/venue/URL.
+
+sanders2026:
+  authors: "Sanders, B."
+  year: 2026
+  title: "American AI Sovereign Wealth Fund Act (S. 4825)"
+  publisher: "U.S. Senate, referred to the Senate Finance Committee"
+  url: null
+  type: "government data"
+  status: "TODO(citation-needed)"
+  todo: >-
+    Now has a bill number and committee referral (per the human, as of
+    this research: introduced, zero cosponsors). Still need the exact
+    congress.gov permalink (e.g.
+    congress.gov/bill/&lt;nnn&gt;th-congress/senate-bill/4825) and a
+    confirmed introduction date — do not guess the Congress number, since
+    a wrong one produces a link to the wrong bill or a 404.
+
+blsdisplacedworkers:
+  authors: "U.S. Bureau of Labor Statistics"
+  year: null
+  title: "Displaced Worker Survey"
+  publisher: null
+  url: null
+  type: "government data"
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited in glossary copy as the official source defining job
+    displacement. Need the specific survey year/edition and URL.
+
+acemoglu2022:
+  authors: "Acemoglu, D., Autor, D., Hazell, J., & Restrepo, P."
+  year: 2022
+  title: null
+  publisher: "Journal of Labor Economics"
+  url: null
+  type: "article"
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited (per the human) as one of the peer-reviewed econometric papers
+    behind The Evidence page's at-risk charts' methodology. Only
+    author/year/journal were supplied — this is possibly "AI and Jobs:
+    Evidence from Online Vacancies" based on that combination, but that's
+    an unconfirmed guess, not a fact; get the exact title/URL from the
+    human before finalizing.
+
+autordornhanson2013:
+  authors: "Autor, D. H., Dorn, D., & Hanson, G. H."
+  year: 2013
+  title: null
+  publisher: "American Economic Review"
+  url: null
+  type: "article"
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited (per the human) as one of the peer-reviewed econometric papers
+    behind The Evidence page's at-risk charts' methodology. Only
+    author/year/journal were supplied — this is possibly "The China
+    Syndrome: Local Labor Market Effects of Import Competition in the
+    United States" based on that combination, but that's an unconfirmed
+    guess, not a fact; get the exact title/URL from the human before
+    finalizing.
+
+borusyakhulljaravel2022:
+  authors: "Borusyak, K., Hull, P., & Jaravel, X."
+  year: 2022
+  title: null
+  publisher: "Review of Economic Studies"
+  url: null
+  type: "article"
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited (per the human) as one of the peer-reviewed econometric papers
+    behind The Evidence page's at-risk charts' methodology. Only
+    author/year/journal were supplied — this is possibly "Quasi-
+    Experimental Shift-Share Research Designs" based on that combination,
+    but that's an unconfirmed guess, not a fact; get the exact title/URL
+    from the human before finalizing.
+
+graetzmichaels2018:
+  authors: "Graetz, G., & Michaels, G."
+  year: 2018
+  title: null
+  publisher: "Review of Economics and Statistics"
+  url: null
+  type: "article"
+  status: "TODO(citation-needed)"
+  todo: >-
+    Cited (per the human) as one of the peer-reviewed econometric papers
+    behind The Evidence page's at-risk charts' methodology. Only
+    author/year/journal were supplied — this is possibly "Robots at Work"
+    based on that combination, but that's an unconfirmed guess, not a
+    fact; get the exact title/URL from the human before finalizing.

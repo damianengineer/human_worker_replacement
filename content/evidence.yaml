@@ -1,0 +1,529 @@
+# Data for "The Evidence" page (CLAUDE.md IA: "The Evidence — data/trends
+# on AI and entry-level jobs"). Same pattern as history.yaml/glossary.yaml:
+# a non-technical editor edits this file to change what the page says,
+# without touching any template.
+#
+# STATUS: All four sections (current_state, at_risk, protective_factors,
+# counterarguments) now have real, drafted content — no PLACEHOLDER text
+# remains on this page. That's a first draft, not a publish-ready one:
+# see the AI Disclosure log for open items (unverified citations, two
+# possible source-mixup flags, one possible undisclosed COI, and an
+# inferred-not-confirmed citation attachment in counterarguments).
+#
+# Every item needs a citation id from content/citations.yaml once real
+# content replaces its placeholder (CLAUDE.md Section 6 — no uncited
+# claims). Leave a citation field null only while the claim itself is
+# still a placeholder; the page will visibly flag "citation needed" until
+# then.
+
+current_state:
+  title: "Current State of Displacement"
+  intro: >-
+    The clearest signal in the data isn't that AI is emptying the job
+    market — it's that it's closing the door colleges have always sent
+    students through. Independent research from Stanford economists,
+    competing AI labs, and decades of peer-reviewed economics all points
+    the same way: entry-level hiring in AI-exposed fields is slowing, even
+    as overall employment stays largely stable. For today's college
+    students, that means the old path — get a degree, take an entry-level
+    job, learn on the job — is exactly where the disruption is
+    concentrated right now.
+  items:
+    # current_state items use a richer citation shape than the other
+    # sections, since most of these claims are backed by two independent
+    # sources rather than one:
+    #   claim: plain-language statement of a current trend or data point
+    #   primary_citation: citation ID from content/citations.yaml
+    #   corroborating_citation: a second, independent citation ID, or null
+    #     if the primary source doesn't need/have one
+    #   note: explains what the corroboration shows (e.g. a different
+    #     dataset reaching the same conclusion), or why no second source
+    #     is needed for this one
+    - claim: >-
+        Young workers (ages 22–25) in AI-exposed jobs have seen employment
+        fall by about 13–16% since ChatGPT was released. This is the
+        clearest sign that entry-level jobs — not more senior roles — are
+        absorbing the disruption first.
+      primary_citation: "brynjolfsson2025"
+      corroborating_citation: "massenkoff2026"
+      note: >-
+        Confirmed independently using a completely different dataset — CPS
+        survey data, instead of the ADP payroll data used in the primary
+        source.
+
+    - claim: >-
+        Hiring of young workers into AI-exposed jobs has slowed by roughly
+        14%. That drop comes mostly from employers hiring fewer new
+        people, not from laying off current employees — meaning the
+        disruption is showing up at the front door, not by pushing people
+        out the back.
+      primary_citation: "massenkoff2026"
+      corroborating_citation: "brynjolfsson2025"
+      note: >-
+        Reached the same conclusion — that slower hiring, not firing,
+        drives the effect — using a completely separate data source: ADP
+        payroll records.
+
+    - claim: >-
+        Robots already had a measurable effect on jobs before generative
+        AI even existed: for every additional robot per 1,000 U.S.
+        workers, wages fell by about 0.42% and employment fell by about
+        0.2 percentage points.
+      primary_citation: "acemoglu2020"
+      corroborating_citation: null
+      note: >-
+        No second source needed — this peer-reviewed, non-corporate study
+        is independent on its own, and serves as the credibility anchor
+        for the claims in this section.
+
+    - claim: >-
+        AI usage still lags far behind what AI can theoretically do — by
+        58 to 68 percentage points, even in the jobs considered most at
+        risk. In other words, AI's capability is running ahead of how much
+        it's actually being used, so the disruption is real but hasn't
+        fully played out yet.
+      primary_citation: "richmond2026"
+      corroborating_citation: "massenkoff2026"
+      note: >-
+        Two competing AI labs — OpenAI and Anthropic — independently found
+        similar gaps using their own separate usage data. Anthropic's
+        research found its Claude model covers only 33–75% of its
+        theoretical task capacity across occupations.
+
+    - claim: >-
+        Only about 18% of jobs fall into the "high near-term automation
+        risk" category, and 46% show little immediate change. That's an
+        important counterweight to the more alarming statistics: most jobs
+        aren't about to disappear.
+      primary_citation: "richmond2026"
+      corroborating_citation: "shrm2026"
+      note: >-
+        An independent employer survey — not from an AI company — found
+        something similar: most employers report no near-term plans to
+        automate away roles.
+
+at_risk:
+  title: "Industries & Jobs Most at Risk"
+  # This section is split into two subsections, each with its own h3
+  # heading: theoretical_vs_observed (the two charts + what they show) and
+  # most_exposed (the industry-by-industry breakdown, still placeholder).
+  theoretical_vs_observed:
+    heading: "Theoretical versus Observed"
+    intro: >-
+      AI could theoretically handle the most tasks in office and
+      knowledge-work jobs — fields like computer and math work, business
+      and finance, management, engineering, and law. Two different AI
+      companies measured this on their own, using separate platforms, and
+      got a similar result. But in both charts, how much AI is actually
+      being used still falls far short of that potential across the board
+      — meaning most of what AI could do hasn't actually happened yet.
+      Right now, real use is concentrated in computer/math and
+      business/finance jobs on both platforms, which is the strongest
+      sign of where disruption is happening right now. Law is an
+      interesting exception: one company's data shows it as the single
+      most AI-used field, while the other's data shows barely any real
+      use there, even though both rate its theoretical risk equally high.
+      That's a reminder that even trustworthy sources using similar
+      methods can disagree sharply about one specific field.
+    methodology_note: >-
+      Both companies base their measure of AI's theoretical reach on the
+      same underlying research, and both back up their methods with
+      well-established, peer-reviewed economics research:
+    methodology_citations:
+      - "eloundou2023"
+      - "acemoglu2020"
+      - "acemoglu2022"
+      - "autordornhanson2013"
+      - "borusyakhulljaravel2022"
+      - "graetzmichaels2018"
+    figures:
+      # Rendered as a two-column, side-by-side grid. Each figure:
+      #   id: a page-unique id (used for the zoom/lightbox anchor — must
+      #     be unique across the WHOLE page, not just this figure list,
+      #     since two different charts can cite the same source)
+      #   image: path under /assets/img/
+      #   alt: meaningful alt text describing the chart for screen readers
+      #     (CLAUDE.md Section 9 — images require real alt text, not
+      #     filler)
+      #   title: the chart's own title, shown as a caption heading
+      #   citation: citation ID from content/citations.yaml — the caption
+      #     pulls authors/date/publisher/url directly from that entry, so
+      #     credit and the source link can't drift out of sync with it
+      - id: "tvo-massenkoff"
+        image: "/assets/img/theoretical-capability-vs-observed-exposure.webp"
+        alt: >-
+          Bar chart comparing each occupational category's theoretical AI
+          capability to how much AI exposure has actually been observed
+          in the workforce.
+        title: "Theoretical capability and observed exposure by occupational category"
+        citation: "massenkoff2026"
+      - id: "tvo-eloundou"
+        image: "/assets/img/capability-overhang-by-occupation.png"
+        alt: >-
+          Bar chart showing the "capability overhang" — the gap between
+          AI's theoretical capability and its real-world use — across
+          different occupations.
+        title: "The capability overhang by occupation"
+        citation: "eloundou2023"
+  most_exposed:
+    heading: "Most Exposed Occupations"
+    # A list of paragraphs (not one string) so the page renders an actual
+    # paragraph break between them, matching how the source text reads.
+    intro:
+      - >-
+        Two different AI companies — Anthropic (which makes Claude) and
+        OpenAI (which makes ChatGPT) — each looked at which jobs people
+        use AI for the most. They used their own separate data, but they
+        found a lot of the same things.
+      - >-
+        Office jobs that involve typing, writing, or working with
+        computers show up as the most exposed. Both companies agree on
+        this. The jobs at the top of both lists include:
+    figures:
+      # Same shape as theoretical_vs_observed.figures — Anthropic chart on
+      # the left, OpenAI chart on the right.
+      - id: "exposed-massenkoff"
+        image: "/assets/img/most-exposed-occupations.webp"
+        alt: >-
+          Bar chart ranking occupations by how exposed they are to AI use,
+          according to Anthropic's data.
+        title: "Most exposed occupations"
+        citation: "massenkoff2026"
+      - id: "exposed-eloundou"
+        image: "/assets/img/high-exposure-occupations-scale-effects.png"
+        alt: >-
+          Chart splitting high-exposure occupations by whether AI's
+          cost-saving "scale effects" offset direct labor savings,
+          according to OpenAI's data.
+        title: "High exposure occupations split by whether scale effects offset direct labor savings"
+        citation: "eloundou2023"
+    items:
+      # These items use the same primary/corroborating/note shape as
+      # current_state's items (see that section's comment) since each of
+      # these jobs shows up on both companies' lists, not just one.
+      - industry: "Computer Programmers and Software Developers"
+        risk_summary: "People who write and fix computer code."
+        primary_citation: "massenkoff2026"
+        corroborating_citation: "eloundou2023"
+        note: "This is the single most AI-used job on both companies' lists."
+      - industry: "Customer Service Representatives"
+        risk_summary: "People who answer customer questions and handle complaints."
+        primary_citation: "massenkoff2026"
+        corroborating_citation: "eloundou2023"
+        note: "Both companies found this job near the top of their lists."
+      - industry: "Data Entry Keyers"
+        risk_summary: "People who type information from paper documents into computer systems."
+        primary_citation: "massenkoff2026"
+        corroborating_citation: "eloundou2023"
+        note: "This job shows up as highly exposed on both companies' lists too."
+      - industry: "Bookkeeping Clerks"
+        risk_summary: "People who track a business's money and records."
+        primary_citation: "massenkoff2026"
+        corroborating_citation: "eloundou2023"
+        note: null
+      - industry: "Sales Representatives"
+        risk_summary: "People who contact customers and sell products."
+        primary_citation: "massenkoff2026"
+        corroborating_citation: "eloundou2023"
+        note: null
+      - industry: "Financial Analysts"
+        risk_summary: "People who study money and business trends to help companies make decisions."
+        primary_citation: "massenkoff2026"
+        corroborating_citation: "eloundou2023"
+        note: null
+  stark_state:
+    heading: "Stark State College Majors Most Exposed to AI Replacement"
+    intro: >-
+      To make this concrete, here are Stark State College programs that
+      lead to the kinds of jobs both companies flagged as most exposed to
+      AI — along with how confident we can be in each match.
+    citation: "starkstate2026"
+    # Confidence groups and per-program placement are the human's own
+    # analysis (matching program titles against the massenkoff2026/
+    # eloundou2023 occupation data), not a claim made by the Stark State
+    # catalog itself — that citation only establishes the program names
+    # are real. This is the human's reviewed, complete classification of
+    # all 55 programs (an earlier draft had ~10 in an "unclassified"
+    # group; the human has since sorted all of them into a tier).
+    confidence_groups:
+      - key: "high"
+        label: "Tier 1: Highest Confidence — Occupation Named Directly in Source Data"
+        description: >-
+          These programs map to a specific occupation that appears by
+          name in Anthropic's or OpenAI's exposure tables.
+        programs:
+          - name: "Accounting-Corporate Major (AAB)"
+          - name: "Accounting-Data Analytics Major (AAB)"
+          - name: "Accounting-Health Admin Major (AAB)"
+          - name: "Accounting-Tax Major (AAB)"
+          - name: "Accounting Data Analytics (CERT)"
+          - name: "Administrative Office Professional (AAB)"
+          - name: "Administrative Office Professional (CERT)"
+          - name: "Administrative Office Professional - Management Major (AAB)"
+          - name: "Administrative Office Professional - Virtual Office Professional Major (AAB)"
+          - name: "Administrative Services and Office Application - Desktop Publishing (CEC)"
+          - name: "AOT-Formatting/Office Skills (CEC)"
+          - name: "Bookkeeping (CERT)"
+          - name: "Business Management-Finance Major (AAB)"
+          - name: "Computer Engineering (AAS)"
+          - name: "Computer Programming & Database (AAB)"
+          - name: "Computer Programming and Database – Microsoft SQL Server (CEC)"
+          - name: "Computer Science & Engineering (AAS)"
+          - name: "Computer Science (CEC)"
+          - name: "Computer Science and Engineering – C++ Programming (CEC)"
+          - name: "Computer Science and Engineering – Java Programming (CEC)"
+          - name: "Computer Tech-Help Desk/Computer Support (AAB)"
+          - name: "Computer Technology (AAB)"
+          - name: "Cyber Security & Computer Forensics (AAS)"
+          - name: "Finance (AAB)"
+          - name: "Financial Services (CERT)"
+          - name: "Health Information Management (AAS)"
+          - name: "Management Information Systems – Help Desk and Computer User Support (CEC)"
+          - name: "Marketing & Sales Management (AAB)"
+          - name: "Medical Billing (CEC)"
+          - name: "Medical Coding (CERT)"
+          - name: "Microsoft Applications Professional (CEC)"
+          - name: "Quickbooks/Payroll (CEC)"
+      - key: "category"
+        label: "Tier 2: Category-Level Match Only — Inferred, Not Directly Named"
+        description: >-
+          These programs sit in an exposed occupational category on the
+          source charts, but no single named occupation matches this
+          specific program. Treat as lower-confidence.
+        programs:
+          - name: "Computer Graphic Arts-Digital Photography (AAS)"
+          - name: "Computer Graphics Arts (AAS)"
+          - name: "Computer Maintenance and Desktop Support (CERT)"
+          - name: "CSET Video Game Design & Development (AAS)"
+          - name: "Data Analytics (CERT)"
+          - name: "Database Systems (CERT)"
+          - name: "Digital Photography (CEC)"
+          - name: "Digital Video and Media Technology (AAS)"
+          - name: "Enrolled Agent (CERT)"
+          - name: "Graphic Design (CEC)"
+          - name: "Microsoft Networking (CEC)"
+          - name: "Music Production & Engineering (AAS)"
+          - name: "Music Production (CEC)"
+          - name: "Tax Preparer (CEC)"
+          - name: "Video Game Design (CEC)"
+          - name: "Web Design & Development (AAB)"
+          - name: "Web Design (CERT)"
+      - key: "caveat"
+        label: "Tier 3: Exposed but Partially Protected — Licensure/Accountability Barrier"
+        description: >-
+          Underlying task content is highly exposed, but a licensing or
+          legal-accountability requirement (a documented protective
+          factor in OpenAI's framework) offsets some of that risk. These
+          should not be treated the same as Tier 1.
+        programs:
+          - name: "Accounting-CPA Major (AAB)"
+            note: "CPA licensure requires human sign-off on audits"
+          - name: "Accounting-Forensic Accounting Major (AAB)"
+            note: "Often requires expert-witness/courtroom accountability"
+          - name: "Judicial Court Reporting (AAB)"
+            note: "Legal requirement for human transcript certification"
+          - name: "Judicial Court Reporting Technical (CERT)"
+            note: "Same as above"
+          - name: "Legal Assisting (AAB)"
+            note: >-
+              Legal category shows major disagreement between Anthropic
+              and OpenAI data — flag, don't treat as settled
+          - name: "Legal Assisting (CERT)"
+            note: "Same caveat"
+
+protective_factors:
+  title: "Why Some Jobs Are Safer From AI — For Now"
+  # This section's shape is custom (barriers + a closing outlook), not the
+  # generic factor/explanation/citation list used elsewhere, since the
+  # human's content has a distinct heading + explanation + "jobs
+  # protected" line + citation(s) per barrier, plus a trailing outlook
+  # block that isn't itself a barrier.
+  barriers:
+    - heading: "Barrier 1: AI still struggles to understand the physical world"
+      explanation: >-
+        Even the smartest AI models are surprisingly bad at simple
+        physical estimates — like guessing how fast a pool ball is
+        rolling, or how big something is in a video. Researchers at
+        Stanford built a test called QuantiPhy to check this, and found
+        that AI mostly guesses based on patterns it memorized, rather
+        than actually reasoning about real-world physics. A robot needs
+        to know things like: how hard to squeeze an egg without breaking
+        it, or when it's safe to grab a spinning mixer blade. Right now,
+        AI just isn't reliable at that kind of judgment.
+      protected_jobs: >-
+        hands-on healthcare work (nursing, physical therapy), skilled
+        trades, food service, warehouse work, and anything involving
+        delicate or unpredictable physical movement.
+      citations: ["myers2026"]
+
+    - heading: "Barrier 2: Rules and licenses require a real, accountable human"
+      explanation: >-
+        Some jobs are protected not because AI can't do the thinking
+        part, but because the law says a licensed person has to sign off.
+        OpenAI's own research points to court reporters as an example —
+        AI could handle a lot of the transcription work, but in most
+        places, a certified human still has to legally verify the
+        transcript. The same logic protects lawyers, whose jobs sit in
+        what OpenAI calls the "regulatory and accountability" category —
+        only about 9% of all jobs fall into this well-protected group,
+        but it includes some of the most stable professions.
+      protected_jobs: >-
+        lawyers, judges, licensed medical professionals, auditors, court
+        reporters — anywhere a human has to be legally responsible for
+        the outcome.
+      citations: ["richmond2026"]
+
+    - heading: "Barrier 3: People often want another person, not a machine"
+      explanation: >-
+        About 30.5% of jobs, according to OpenAI's data, depend on this
+        barrier — jobs where the whole point is a human connection.
+        Elementary school teachers and registered nurses are OpenAI's own
+        examples: AI can help write a lesson plan or organize patient
+        notes, but people still want an actual teacher caring for their
+        kid, or an actual nurse in the room during a hard moment. This
+        barrier isn't really about what AI can do — it's about what
+        people want, which is much slower to change.
+      protected_jobs: "teaching, nursing, counseling, social work, childcare."
+      citations: ["richmond2026"]
+
+    - heading: "Barrier 4: AI still can't reliably do long, multi-step thinking on its own"
+      explanation: >-
+        In March 2026, a team of researchers got real, notable attention
+        for building an "AI Scientist" that could come up with a research
+        idea, run the experiment, and write it up — and it even got a
+        paper published. That sounds like scientists are replaceable. But
+        look closer: this took the AI field 1.5 years of hard work just
+        to automate one research paper's worth of steps reliably, and it
+        needed a lot of human-designed structure to keep the AI on track
+        over a long project. Real scientific and engineering work often
+        involves weeks or months of connected reasoning, not one
+        self-contained task — and that "staying on track over a long
+        time" problem is still one of AI's biggest weaknesses.
+      protected_jobs: >-
+        scientists, engineers, and other roles built around long,
+        connected chains of judgment rather than one-off tasks.
+      citations: ["lu2026"]
+  outlook:
+    heading: "Looking ahead: this barrier is shrinking, not permanent"
+    text: >-
+      It's worth being honest that Barrier 1 — the physical-world barrier
+      — is exactly what companies like NVIDIA are racing to fix. NVIDIA
+      has built a new physics engine called Newton (made with Google
+      DeepMind and Disney) specifically to help robots learn real-world
+      physics in simulation before trying it for real. NVIDIA has also
+      released robot "brains" called GR00T, plus a system called Cosmos
+      that generates realistic physics-based video to train robots — and
+      by 2026, real companies like Boston Dynamics were already building
+      on top of this technology. None of this means physical jobs are
+      unsafe today. It does mean the barrier protecting them is a current
+      technology gap, not a permanent wall — a good reason to build career
+      plans that are flexible rather than assuming any one job is safe
+      forever.
+    citations: ["huang2025", "nvidianewsroom2026"]
+
+counterarguments:
+  title: "Will AI Really Take Over Most Jobs? Here's the Other Side of the Story"
+  intro: >-
+    Not everyone agrees that AI is guaranteed to replace huge numbers of
+    workers. Some smart, well-respected researchers say we should slow
+    down before assuming the worst. Here are the three strongest reasons
+    to be skeptical.
+  # Custom shape (not the generic counterargument/explanation/citation
+  # list) since this content has multi-paragraph points, one with its own
+  # sub-list and closing line, plus a callout and a trailing outro that
+  # isn't itself a numbered point.
+  points:
+    - heading: "1. Experts Have Been Wrong Before — Radiologists Are the Perfect Example"
+      paragraphs:
+        - >-
+          In 2016, a famous AI scientist named Geoffrey Hinton stood on
+          stage and said something bold: doctors should stop training new
+          radiologists (the doctors who read X-rays and scans) because AI
+          would replace them within five years, maybe ten at most. He
+          compared radiologists to a cartoon coyote who's already run off
+          a cliff but hasn't looked down yet.
+        - "He was wrong."
+        - >-
+          Almost ten years later, hospitals need more radiologists than
+          ever. The Mayo Clinic's radiology team grew by 55%. Experts now
+          predict the field will keep growing for the next 30 years.
+          There's actually a shortage of radiologists in some places.
+          Even Hinton admitted he made a mistake — he said AI is helping
+          radiologists work faster and more accurately, not replacing
+          them.
+      callout: >-
+        Why this matters: if one of the smartest AI researchers in the
+        world got this wrong, it's a good reminder that predicting
+        exactly which jobs will disappear — and when — is really hard to
+        do.
+      citations: ["byju2024", "stempniak2026"]
+
+    - heading: "2. New Jobs Tend to Show Up When Old Ones Change"
+      paragraphs:
+        - >-
+          Here's something people often forget: new kinds of jobs get
+          created when technology changes, not just old ones destroyed.
+          Researchers who studied nearly 80 years of job data
+          (1940–2018) found that brand-new job types have been a real and
+          steady source of job growth throughout that whole time —
+          especially when new technology helps people do their jobs
+          better, instead of replacing them completely.
+        - >-
+          There's a tricky catch, though: today's AI research can only
+          study jobs that already exist. It can't yet measure jobs that
+          don't exist yet but might get created because of AI. That means
+          today's scary statistics might be missing half the picture.
+      citations: ["autorchin2024"]
+
+    - heading: "3. Even Serious Economists Say the Data Isn't Clear Yet"
+      paragraphs:
+        - >-
+          In March 2026, a respected economist named Jed Kolko published
+          a detailed review of AI-and-jobs research for the Brookings
+          Institution — a well-known, independent research group. His
+          conclusion: it's simply too early to know for sure what AI is
+          doing to the job market. A few of his key points:
+      sub_points:
+        - >-
+          Different studies disagree with each other. One major study
+          found that young workers in AI-exposed jobs were losing out.
+          Another study, using different data, found unemployment
+          actually rose less in those same kinds of jobs. When two
+          careful studies come to different answers, that's a sign we
+          don't have the full picture yet.
+        - >-
+          The timing doesn't always add up. Some researchers found that
+          hiring in "AI-exposed" jobs started dropping in 2022 — before
+          ChatGPT was even released to the public. That suggests other
+          things (like rising interest rates) might explain some of
+          what's happening, not just AI.
+        - >-
+          Companies have a reason to blame AI for layoffs. If a company
+          overhired during the pandemic and now needs to cut jobs, it
+          looks a lot better to say "we're becoming more efficient with
+          AI" than to say "we made a hiring mistake." That means we
+          should read layoff announcements a little skeptically.
+        - >-
+          The people studying AI's effect on jobs are often the same
+          people whose own jobs are most affected by AI — like writers,
+          researchers, and office workers. That could subtly shape how
+          they interpret what they're seeing.
+      closing: >-
+        Kolko's big-picture finding: so far, the pace of job-market
+        change since ChatGPT came out looks pretty similar to past tech
+        shifts, like the rise of computers in the 1980s or the internet
+        in the 1990s. It hasn't sped up in any unusual way — at least not
+        yet.
+      citations: ["kolko2026", "eckhardtgoldschlag2025"]
+  outro:
+    heading: "The Honest Middle Ground"
+    text: >-
+      None of this means AI definitely won't disrupt jobs — some
+      disruption is already real, and even researchers who question the
+      scarier predictions agree that individual workers can still be hurt
+      during a transition period, even if things work out fine in the
+      long run for the economy overall. The point isn't "don't worry."
+      The point is: be skeptical of confident predictions in either
+      direction, because history shows those predictions are often wrong
+      — and the honest answer right now is that nobody knows for certain
+      how this will play out.

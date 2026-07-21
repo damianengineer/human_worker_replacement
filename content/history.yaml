@@ -1,0 +1,44 @@
+# Historical cases of technology disrupting jobs, in chronological order.
+# Structured as data (not prose) for the same reason as the glossary — a
+# non-technical editor adds a new case without touching the template.
+#
+# Each case:
+#   name: short name of the disruption/event
+#   years: the year range as it should display, e.g. "1811–1816"
+#   impact: list of plain-language bullet points on what happened to jobs
+#   citations: list of citation IDs from content/citations.yaml to learn more
+#     (most cases just have one; a case can cite several sources of
+#     different tiers — e.g. a peer-reviewed study plus press coverage)
+
+cases:
+  - name: "Luddite Rebellion"
+    years: "1811–1816"
+    impact:
+      - "Skilled textile workers protested being replaced by machines with no compensation, collapsing wages, and no say in the change."
+      - "Pressure from mill owners and an alarmed government led Parliament to pass the Frame Breaking Act of 1812, making it a capital crime — meaning a death sentence, even if no one was hurt — to destroy knitting frames or power looms."
+      - "Thousands of troops were sent in to keep order, and soldiers and guards killed some Luddites on the spot during armed clashes at mills. But most of the government's lethal response came through the courts: a single trial, the York Special Commission, hanged seventeen men in January 1813 for machine-breaking and related crimes."
+      - "Wages for these workers stagnated for roughly two generations afterward."
+    citations: ["frey2019", "nationalarchivesuk"]
+
+  - name: "Automation of Telephone Operators"
+    years: "1920s–1930s"
+    impact:
+      - "One of the biggest white-collar jobs held by young American women at the time — telephone operator — mostly disappeared as automatic switching equipment took over."
+      - "Experienced operators were often able to move into other jobs, but newcomers entering the workforce had to settle for lower-paying work."
+    citations: ["feigenbaum2024"]
+
+  - name: "Computerization of Office Work"
+    years: "1980s–2000s"
+    impact:
+      - "Typists, bookkeepers, filing clerks, and bank tellers doing routine back-office work were replaced as spreadsheets, word processors, and databases took over routine cognitive tasks."
+      - "This fundamentally changed how office work was done, and it's often seen as the closest historical parallel to what generative AI could do to office and entry-level cognitive work today."
+    citations: ["autor2003"]
+
+  - name: "Amazon Warehouse Robotics"
+    years: "2012–present"
+    impact:
+      - "Amazon bought robotics company Kiva Systems in 2012, and by 2025 it ran roughly 750,000 to 1 million robots across its warehouses. Internal plans reported in the press describe automating about 75% of operations and avoiding up to 600,000 U.S. hires by 2033."
+      - "The best peer-reviewed evidence on robots and jobs finds that each additional robot per 1,000 workers cuts local employment by about 0.2 percentage points and wages by roughly 0.4%, concentrated in the communities most exposed to automation."
+      - "Amazon says automation has also created about 700 new, higher-paying job categories, like robotics maintenance — but these need different skills, are far fewer than the jobs replaced, and are hard for warehouse associates to move into in practice."
+      - "Warehouse work is one of the best-paying jobs available without a college degree, so this isn't just white-collar automation. Some workers and researchers describe the shift as pushing people to the edges of the floor — echoing the same fight over who gets a say that the Luddites raised two centuries earlier."
+    citations: ["acemoglu2020", "weise2025", "fastcompany2026", "dissent2026"]

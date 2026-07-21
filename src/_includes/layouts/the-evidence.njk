@@ -1,0 +1,191 @@
+---
+layout: "layouts/base.njk"
+extraCss:
+  - "/assets/css/the-evidence.css"
+---
+{% macro dualSourceLine(primary, corroborating, note) %}
+{% if primary %}
+<p class="evidence-list__source">Source: {{ primary | citeLink | safe }}</p>
+{% else %}
+<p class="evidence-list__source evidence-list__source--missing">Source: citation needed</p>
+{% endif %}
+{% if corroborating %}
+<p class="evidence-list__source">Corroborated by: {{ corroborating | citeLink | safe }}</p>
+{% endif %}
+{% if note %}<p class="evidence-list__note">{{ note }}</p>{% endif %}
+{% endmacro %}
+
+{% macro figureCredit(figTitle, citationId) %}
+{% set src = citations[citationId] %}
+<figcaption>
+  <p class="evidence-figure__title">{{ figTitle }}</p>
+  <p class="evidence-figure__credit">
+    Source:
+    {% if src.url %}<a href="{{ src.url }}">{{ src.authors }}</a>{% else %}{{ src.authors }}{% endif %}
+    ({{ src.date | prettyDate if src.date else src.year }}). {{ src.publisher }}.
+  </p>
+</figcaption>
+{% endmacro %}
+
+{% macro citeList(ids) %}{% for id in ids %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}{% endmacro %}
+
+{% macro figuresGrid(figures, figuresIntro, closeHref) %}
+{% if figures %}
+{% if figuresIntro %}
+<p class="evidence-figures-intro">{{ figuresIntro }}</p>
+{% endif %}
+<div class="evidence-figures">
+  {% for figure in figures %}
+  <figure class="evidence-figure">
+    <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
+      <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
+    </a>
+    {{ figureCredit(figure.title, figure.citation) }}
+  </figure>
+  {% endfor %}
+</div>
+{% for figure in figures %}
+<div class="evidence-lightbox" id="fig-{{ figure.id }}">
+  <a class="evidence-lightbox__backdrop" href="{{ closeHref }}" aria-label="Close larger image"></a>
+  <div class="evidence-lightbox__content">
+    <a class="evidence-lightbox__close" href="{{ closeHref }}" aria-label="Close larger image">Close ✕</a>
+    <img src="{{ figure.image }}" alt="{{ figure.alt }}">
+  </div>
+</div>
+{% endfor %}
+{% endif %}
+{% endmacro %}
+
+<h1>{{ title }}</h1>
+
+<div class="evidence-intro">
+  {{ content | safe }}
+</div>
+
+<nav class="evidence-jump" aria-label="Sections on this page">
+  <ul>
+    <li><a href="#current-state">{{ evidence.current_state.title }}</a></li>
+    <li><a href="#at-risk">{{ evidence.at_risk.title }}</a></li>
+    <li><a href="#protective-factors">{{ evidence.protective_factors.title }}</a></li>
+    <li><a href="#counterarguments">{{ evidence.counterarguments.title }}</a></li>
+  </ul>
+</nav>
+
+<section class="evidence-section" id="current-state" aria-labelledby="current-state-heading">
+  <h2 id="current-state-heading">{{ evidence.current_state.title }}</h2>
+  <p class="evidence-section__intro">{{ evidence.current_state.intro }}</p>
+  <ul class="evidence-list">
+    {% for item in evidence.current_state.items %}
+    <li class="evidence-list__item">
+      <p>{{ item.claim }}</p>
+      {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="evidence-section" id="at-risk" aria-labelledby="at-risk-heading">
+  <h2 id="at-risk-heading">{{ evidence.at_risk.title }}</h2>
+
+  {% set tvo = evidence.at_risk.theoretical_vs_observed %}
+  <div class="evidence-subsection">
+    <h3>{{ tvo.heading }}</h3>
+    <p class="evidence-section__intro">{{ tvo.intro }}</p>
+
+    {% if tvo.methodology_note %}
+    <p class="evidence-methodology-note">
+      {{ tvo.methodology_note }}
+      {% for id in tvo.methodology_citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+    </p>
+    {% endif %}
+
+    {{ figuresGrid(tvo.figures, tvo.figures_intro, "#at-risk") }}
+  </div>
+
+  {% set exposed = evidence.at_risk.most_exposed %}
+  <div class="evidence-subsection">
+    <h3>{{ exposed.heading }}</h3>
+    {% for para in exposed.intro %}<p class="evidence-section__intro">{{ para }}</p>{% endfor %}
+
+    <ul class="evidence-list">
+      {% for item in exposed.items %}
+      <li class="evidence-list__item">
+        <h4>{{ item.industry }}</h4>
+        <p>{{ item.risk_summary }}</p>
+        {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
+      </li>
+      {% endfor %}
+    </ul>
+
+    {{ figuresGrid(exposed.figures, exposed.figures_intro, "#at-risk") }}
+  </div>
+
+  {% set stark = evidence.at_risk.stark_state %}
+  <div class="evidence-subsection">
+    <h3>{{ stark.heading }}</h3>
+    <p class="evidence-section__intro">{{ stark.intro }}</p>
+    <p class="evidence-list__source">Source: {{ stark.citation | citeLink | safe }}</p>
+
+    {% for group in stark.confidence_groups %}
+    <div class="evidence-confidence-group evidence-confidence-group--{{ group.key }}">
+      <h4>{{ group.label }}</h4>
+      <p class="evidence-confidence-group__description">{{ group.description }}</p>
+      <ul class="evidence-program-list">
+        {% for program in group.programs %}
+        <li>{{ program.name }}{% if program.note %} <span class="evidence-program-list__note">— {{ program.note }}</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="evidence-section" id="protective-factors" aria-labelledby="protective-factors-heading">
+  <h2 id="protective-factors-heading">{{ evidence.protective_factors.title }}</h2>
+
+  {% for barrier in evidence.protective_factors.barriers %}
+  <div class="evidence-barrier">
+    <h3>{{ barrier.heading }}</h3>
+    <p>{{ barrier.explanation }}</p>
+    <p class="evidence-barrier__jobs"><strong>Jobs protected by this barrier:</strong> {{ barrier.protected_jobs }}</p>
+    <p class="evidence-list__source">Source: {{ citeList(barrier.citations) }}</p>
+  </div>
+  {% endfor %}
+
+  {% set outlook = evidence.protective_factors.outlook %}
+  {% if outlook %}
+  <div class="evidence-barrier evidence-barrier--outlook">
+    <h3>{{ outlook.heading }}</h3>
+    <p>{{ outlook.text }}</p>
+    <p class="evidence-list__source">Source: {{ citeList(outlook.citations) }}</p>
+  </div>
+  {% endif %}
+</section>
+
+<section class="evidence-section" id="counterarguments" aria-labelledby="counterarguments-heading">
+  <h2 id="counterarguments-heading">{{ evidence.counterarguments.title }}</h2>
+  <p class="evidence-section__intro">{{ evidence.counterarguments.intro }}</p>
+
+  {% for point in evidence.counterarguments.points %}
+  <div class="evidence-counter-point">
+    <h3>{{ point.heading }}</h3>
+    {% for para in point.paragraphs %}<p>{{ para }}</p>{% endfor %}
+    {% if point.sub_points %}
+    <ul class="evidence-list-plain">
+      {% for sp in point.sub_points %}<li>{{ sp }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+    {% if point.closing %}<p>{{ point.closing }}</p>{% endif %}
+    {% if point.callout %}<p class="evidence-callout">{{ point.callout }}</p>{% endif %}
+    <p class="evidence-list__source">Source: {{ citeList(point.citations) }}</p>
+  </div>
+  {% endfor %}
+
+  {% set outro = evidence.counterarguments.outro %}
+  {% if outro %}
+  <div class="evidence-counter-point evidence-counter-point--outro">
+    <h3>{{ outro.heading }}</h3>
+    <p>{{ outro.text }}</p>
+  </div>
+  {% endif %}
+</section>

@@ -1,0 +1,37 @@
+---
+layout: "layouts/base.njk"
+extraCss:
+  - "/assets/css/references.css"
+---
+<h1>{{ title }}</h1>
+
+<div class="references-intro">
+  {{ content | safe }}
+</div>
+
+<ol class="reference-list">
+  {% for entry in citations | sortedCitations %}
+  <li class="reference-list__item" id="{{ entry.id }}">
+    {% if entry.status == "TODO(citation-needed)" %}
+    <p class="reference-list__citation reference-list__citation--todo">
+      {{ entry.authors }} ({{ entry.year }}) — source needed
+    </p>
+    {% if entry.todo %}<p class="reference-list__todo">{{ entry.todo }}</p>{% endif %}
+    {% else %}
+    <p class="reference-list__citation{% if entry.status == 'unverified' %} reference-list__citation--unverified{% endif %}">
+      {{ entry.authors }} ({{ entry.year }}). {{ entry.title }}{{ entry.title | sentencePeriod }}
+      {%- if entry.publisher %} {{ entry.publisher }}.{% endif %}
+      {% if entry.url %} <a href="{{ entry.url }}">{{ entry.url }}</a>{% endif %}
+      {%- if entry.status == 'unverified' %} <strong>(unverified)</strong>{% endif %}
+    </p>
+    {% if entry.status == "unverified" and entry.todo %}
+    <p class="reference-list__todo">{{ entry.todo }}</p>
+    {% endif %}
+    {% if entry.note %}<p class="reference-list__note">{{ entry.note }}</p>{% endif %}
+    {% if entry.potential_conflict and entry.potential_conflict != "None disclosed" %}
+    <p class="reference-list__conflict">Disclosure: {{ entry.potential_conflict }}</p>
+    {% endif %}
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>

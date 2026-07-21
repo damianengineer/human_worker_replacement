@@ -1,0 +1,31 @@
+---
+layout: "layouts/base.njk"
+extraCss:
+  - "/assets/css/history.css"
+---
+<h1>{{ title }}</h1>
+
+<div class="history-intro">
+  {{ content | safe }}
+</div>
+
+{% if cta_label and cta_url %}
+<p class="history-cta">
+  <a class="history-cta__link" href="{{ cta_url }}">{{ cta_label }}</a>
+</p>
+{% endif %}
+
+<ol class="history-list">
+  {% for case in history.cases %}
+  <li class="history-case" id="{{ case.name | slugify }}">
+    <h2>{{ case.name }} <span class="history-case__years">({{ case.years }})</span></h2>
+    <ul class="history-case__impact">
+      {% for line in case.impact %}<li>{{ line }}</li>{% endfor %}
+    </ul>
+    <p class="history-case__source">
+      Learn more:
+      {% for id in case.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+    </p>
+  </li>
+  {% endfor %}
+</ol>
