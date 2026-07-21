@@ -121,7 +121,7 @@ extraCss:
   </div>
 
   {% set stark = evidence.at_risk.stark_state %}
-  <div class="evidence-subsection">
+  <div class="evidence-subsection" id="stark-state">
     <h3>{{ stark.heading }}</h3>
     <p class="evidence-section__intro">{{ stark.intro }}</p>
     <p class="evidence-list__source">Source: {{ stark.citation | citeLink | safe }}</p>

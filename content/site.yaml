@@ -11,6 +11,8 @@ tagline: "What AI means for entry-level work — and how to get ready"
 nav:
   - label: "The Evidence"
     url: "/the-evidence/"
+  - label: "Take Action"
+    url: "/take-action/"
   - label: "History"
     url: "/history/"
   - label: "Glossary"

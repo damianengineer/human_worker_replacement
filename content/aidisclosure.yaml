@@ -281,3 +281,27 @@ entries:
       The page's meta description (content/the-evidence.md front matter)
       is still a PLACEHOLDER — only the visible intro paragraph was in
       scope for this request.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Built the new Take Action page (content/take-action.md, content/takeaction.yaml, its layout, and CSS) with the human's three calls to action (Plan B for at-risk majors, AI literacy, informed citizenship on AI policy) inserted close to verbatim."
+      - "Added 11 new citations for external resources and factual/legislative claims named in this content (DeepLearning.AI, AI Engineer conference, Learn AI Together/Towards AI, Cerebral Valley, Zapier, Make, n8n, MCP, 3Blue1Brown, the McGarvey bill, and a Social Security Trustees Report placeholder), plus updated the existing sanders2026 entry with the bill number and committee-referral details now supplied."
+      - "Did not invent specific URLs where confidence was low: left the McGarvey bill (H.R. 3116), the updated Sanders bill (S. 4825), and the Social Security Trustees Report citation with url: null and a TODO, rather than guessing a congress.gov permalink or report edition that could 404 or point to the wrong record. For Learn AI Together and the 3Blue1Brown video, linked to a stable parent page (Towards AI's site; the 3Blue1Brown channel) instead of guessing a Discord invite link or exact video URL, both flagged as needing a more specific link."
+      - "Marked 4 resource citations (AI Engineer conference, Cerebral Valley, MCP, and implicitly anything else without firsthand verification) as \"unverified\" — confident enough to link, not confident enough to certify as currently correct."
+      - "Added cross-links from this page back into the site: the Plan B section links to The Evidence page's new Stark State anchor (added an id for this), the policy section links to the UBI and Sovereign Wealth Fund glossary entries and back to the full Evidence page."
+      - "Added the page to nav, positioned after The Evidence per CLAUDE.md's documented site order."
+    human_did:
+      - "Supplied all three CTAs' full content, including specific resource names, bill numbers, and factual claims."
+      - "Reviewed and approved the change."
+    notes: >-
+      This page treats external tool/resource recommendations (Zapier,
+      Discord communities, etc.) through the same citations.yaml/
+      references-page pipeline as academic sources, rather than building
+      a separate resource-link system, to keep one source of truth — a
+      deliberate reuse decision, not an accident. Several citations here
+      are unverified or incomplete (see each one's `status`/`todo`) and
+      none have been independently checked by a human yet. CLAUDE.md's
+      "one primary CTA per page" rule was read as not applying to this
+      page, since Section 5 itself documents Take Action as the CTA hub
+      with multiple CTAs — flagged to the human in case that reading is
+      wrong.

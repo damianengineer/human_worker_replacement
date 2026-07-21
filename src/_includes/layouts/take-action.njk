@@ -1,0 +1,38 @@
+---
+layout: "layouts/base.njk"
+extraCss:
+  - "/assets/css/take-action.css"
+---
+<h1>{{ title }}</h1>
+
+<div class="takeaction-intro">
+  {{ content | safe }}
+</div>
+
+<nav class="takeaction-jump" aria-label="Sections on this page">
+  <ul>
+    {% for cta in takeaction.ctas %}
+    <li><a href="#{{ cta.key | slugify }}">{{ cta.heading }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+{% for cta in takeaction.ctas %}
+<section class="takeaction-section" id="{{ cta.key | slugify }}" aria-labelledby="{{ cta.key | slugify }}-heading">
+  <h2 id="{{ cta.key | slugify }}-heading">{{ cta.heading }}</h2>
+  <ul class="takeaction-list">
+    {% for item in cta.items %}
+    <li class="takeaction-item{% if item.advanced %} takeaction-item--advanced{% endif %}">
+      <p>{{ item.text }}</p>
+      {% if item.citations.length or item.links.length %}
+      <p class="takeaction-item__extras">
+        {% for id in item.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+        {% if item.citations.length and item.links.length %}; {% endif %}
+        {% for link in item.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %}; {% endif %}{% endfor %}
+      </p>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endfor %}

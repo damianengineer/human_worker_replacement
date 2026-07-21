@@ -1,0 +1,70 @@
+/* Take Action page — three calls to action, each a list of concrete steps. */
+
+.takeaction-intro {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 42rem;
+}
+
+.takeaction-jump {
+  margin: var(--space-4) 0 var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-base);
+}
+
+.takeaction-jump ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.takeaction-jump a {
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+}
+
+.takeaction-jump a:hover {
+  text-decoration: underline;
+}
+
+.takeaction-section {
+  margin-bottom: var(--space-6);
+  scroll-margin-top: var(--space-4);
+}
+
+.takeaction-section h2 {
+  font-size: var(--font-size-xl);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-2);
+}
+
+.takeaction-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.takeaction-item {
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.takeaction-item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.takeaction-item__extras {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: var(--space-1) 0 0;
+}
+
+.takeaction-item--advanced {
+  background: var(--color-bg-subtle);
+  border-left: 3px solid var(--color-focus);
+  padding-left: var(--space-3);
+}
