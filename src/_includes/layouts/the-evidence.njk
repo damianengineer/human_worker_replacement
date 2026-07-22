@@ -3,7 +3,7 @@ layout: "layouts/base.njk"
 extraCss:
   - "/assets/css/the-evidence.css"
 ---
-{% import "partials/figures.njk" as figures %}
+{% import "partials/figures.njk" as figures with context %}
 
 {% macro dualSourceLine(primary, corroborating, note) %}
 {% if primary %}
