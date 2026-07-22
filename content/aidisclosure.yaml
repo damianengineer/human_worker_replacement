@@ -20,6 +20,12 @@
 #
 # Each entry:
 #   date: "YYYY-MM-DD"
+#   summary: a short, unique label for what this entry covers (e.g. "The
+#     Evidence page (all four sections)") — rendered as the entry's real
+#     heading, together with the date. Required so each entry has a
+#     distinguishable heading rather than every entry repeating identical
+#     "AI did"/"Human did" heading text (WCAG 2.1 AA SC 2.4.6 — see
+#     CLAUDE.md Section 9).
 #   ai_did: [short, high-level summary lines — not verbose]
 #   human_did: [short, high-level summary lines — not verbose]
 #   notes: optional — caveats, especially verification status. Be honest
@@ -28,6 +34,7 @@
 
 entries:
   - date: "2026-07-21"
+    summary: "Project setup, Glossary, and citation groundwork"
     ai_did:
       - "Scaffolded the Eleventy project (build config, layouts, CSS) and drafted the Glossary page's term definitions from supplied source material."
       - "Built out content/citations.yaml, flagging missing or uncertain bibliographic details instead of inventing them."
@@ -38,6 +45,7 @@ entries:
     notes: "Early-stage citation verification was incomplete at this point — later entries resolved most of it."
 
   - date: "2026-07-21"
+    summary: "History page's four cases"
     ai_did:
       - "Drafted the History page's four cases (Luddite Rebellion, telephone operator automation, office computerization, Amazon warehouse robotics) from supplied material, with citations for each."
       - "Corrected one case's historical detail (Luddite Rebellion) after the human flagged it, and added forward links from History to The Evidence and Take Action in a later pass."
@@ -46,6 +54,7 @@ entries:
     notes: "A couple of this page's citations started out flagged as unverified; see citations.yaml for current status."
 
   - date: "2026-07-21"
+    summary: "The Evidence page (all four sections)"
     ai_did:
       - "Built The Evidence page's four sections (current state of displacement, at-risk industries with a Stark State program map, protective factors, counterarguments) from supplied content and data, with roughly 20 supporting citations."
       - "Flagged a couple of possible source mix-ups and one possible undisclosed conflict of interest in the citations rather than resolving them unilaterally, and built the click-to-enlarge chart lightbox."
@@ -57,6 +66,7 @@ entries:
       see each entry's `status`/`todo` field in citations.yaml.
 
   - date: "2026-07-21"
+    summary: "Take Action page (three CTAs)"
     ai_did:
       - "Built the Take Action page's three calls to action (Plan B, AI literacy, informed citizenship on policy) from supplied content, with roughly 25 resource/citation entries."
       - "Left a few citations (the Sanders and McGarvey bills, the SSA Trustees Report) without a specific URL rather than guessing one, reorganized the AI-literacy resources by type with video/site previews, and added a visually-flagged AI Privacy & Security subsection."
@@ -66,6 +76,7 @@ entries:
     notes: "Several resource citations on this page are still marked unverified in citations.yaml."
 
   - date: "2026-07-22"
+    summary: "Landing page, dark theme, and site documentation"
     ai_did:
       - "Built the site's landing page (content-assembly only, per the human's explicit scope for that pass — no new reference verification)."
       - "Restyled the whole site with a dark-mode-first color palette that follows the visitor's OS preference, computing real WCAG contrast ratios rather than eyeballing them, and fixed a lightbox close button that would otherwise have gone invisible in dark mode."
@@ -79,3 +90,18 @@ entries:
       This entry itself is the first written under the new, more general
       log format — see the file header above for the compaction this
       followed.
+
+  - date: "2026-07-22"
+    summary: "Multimedia enhancements and IA-audit implementation"
+    ai_did:
+      - "Reused an existing Evidence chart on the landing page, added a stat-callout component to 5 already-cited stats and a pull-quote component to 2 already-existing sentences, and embedded 2 already-cited YouTube videos (privacy-enhanced, no autoplay, lazy-loaded)."
+      - "Extended the site's emoji-marker convention to Take Action's three CTAs and History's four cases, from a set the human approved first."
+      - "Ran a Phase 1 IA/navigation audit (IA_AUDIT.md) and, on approval, implemented several of its findings: cross-links from The Evidence to Take Action/History, a Stark State entry in Evidence's own jump-nav, and a top-of-page teaser link to it."
+      - "Added a `summary` field to this log's entries (see file header) so each has a unique heading, instead of every entry repeating identical \"AI did\"/\"Human did\" headings — a WCAG 2.4.6 fix from that same audit."
+    human_did:
+      - "Approved the icon set, confirmed the audit's approved item list and sequencing, and reviewed each step."
+    notes: >-
+      IA-audit implementation is still in progress as of this entry
+      (References A–Z index, Take Action sub-nav, Glossary back-links,
+      and the Stark State accordion are still pending) — this entry will
+      likely be superseded or added to once that work completes.

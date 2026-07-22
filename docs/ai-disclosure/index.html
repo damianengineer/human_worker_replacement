@@ -99,16 +99,37 @@ step — see the notes on each log entry below for exactly where things stand.</
 <ol class="ai-disclosure-log">
   
   <li class="ai-disclosure-log__item">
-    <p class="ai-disclosure-log__date">2026-07-22</p>
+    <h3 class="ai-disclosure-log__date">2026-07-22: Multimedia enhancements and IA-audit implementation</h3>
     <div class="ai-disclosure-log__cols">
       <div>
-        <h3>AI did</h3>
+        <p class="ai-disclosure-log__col-label">AI did</p>
+        <ul>
+          <li>Reused an existing Evidence chart on the landing page, added a stat-callout component to 5 already-cited stats and a pull-quote component to 2 already-existing sentences, and embedded 2 already-cited YouTube videos (privacy-enhanced, no autoplay, lazy-loaded).</li><li>Extended the site&#39;s emoji-marker convention to Take Action&#39;s three CTAs and History&#39;s four cases, from a set the human approved first.</li><li>Ran a Phase 1 IA/navigation audit (IA_AUDIT.md) and, on approval, implemented several of its findings: cross-links from The Evidence to Take Action/History, a Stark State entry in Evidence&#39;s own jump-nav, and a top-of-page teaser link to it.</li><li>Added a `summary` field to this log&#39;s entries (see file header) so each has a unique heading, instead of every entry repeating identical &quot;AI did&quot;/&quot;Human did&quot; headings — a WCAG 2.4.6 fix from that same audit.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="ai-disclosure-log__col-label">Human did</p>
+        <ul>
+          <li>Approved the icon set, confirmed the audit&#39;s approved item list and sequencing, and reviewed each step.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="ai-disclosure-log__notes">IA-audit implementation is still in progress as of this entry (References A–Z index, Take Action sub-nav, Glossary back-links, and the Stark State accordion are still pending) — this entry will likely be superseded or added to once that work completes.</p>
+    
+  </li>
+  
+  <li class="ai-disclosure-log__item">
+    <h3 class="ai-disclosure-log__date">2026-07-22: Landing page, dark theme, and site documentation</h3>
+    <div class="ai-disclosure-log__cols">
+      <div>
+        <p class="ai-disclosure-log__col-label">AI did</p>
         <ul>
           <li>Built the site&#39;s landing page (content-assembly only, per the human&#39;s explicit scope for that pass — no new reference verification).</li><li>Restyled the whole site with a dark-mode-first color palette that follows the visitor&#39;s OS preference, computing real WCAG contrast ratios rather than eyeballing them, and fixed a lightbox close button that would otherwise have gone invisible in dark mode.</li><li>Widened intro-paragraph line length across all pages so they no longer wrap far short of the rest of the page&#39;s content.</li><li>Created the About page, and updated CLAUDE.md/AGENTS.md and README.md to reflect the site&#39;s current structure and how to build/run it locally.</li><li>Condensed this log from about 20 detailed entries into the general-terms entries above.</li>
         </ul>
       </div>
       <div>
-        <h3>Human did</h3>
+        <p class="ai-disclosure-log__col-label">Human did</p>
         <ul>
           <li>Supplied the landing page copy, approved the dark-theme palette and OS-preference default, and directed this batch of structural/documentation updates.</li><li>Confirmed that Claude Code and Claude Desktop (both Anthropic) are the two AI tools used on this project.</li>
         </ul>
@@ -120,16 +141,16 @@ step — see the notes on each log entry below for exactly where things stand.</
   </li>
   
   <li class="ai-disclosure-log__item">
-    <p class="ai-disclosure-log__date">2026-07-21</p>
+    <h3 class="ai-disclosure-log__date">2026-07-21: Take Action page (three CTAs)</h3>
     <div class="ai-disclosure-log__cols">
       <div>
-        <h3>AI did</h3>
+        <p class="ai-disclosure-log__col-label">AI did</p>
         <ul>
           <li>Built the Take Action page&#39;s three calls to action (Plan B, AI literacy, informed citizenship on policy) from supplied content, with roughly 25 resource/citation entries.</li><li>Left a few citations (the Sanders and McGarvey bills, the SSA Trustees Report) without a specific URL rather than guessing one, reorganized the AI-literacy resources by type with video/site previews, and added a visually-flagged AI Privacy &amp; Security subsection.</li><li>Corrected a factual detail: prohibited AI practices are EU AI Act Article 5, not Article 9 as originally stated, confirmed via web search.</li>
         </ul>
       </div>
       <div>
-        <h3>Human did</h3>
+        <p class="ai-disclosure-log__col-label">Human did</p>
         <ul>
           <li>Supplied all CTA content and resource lists across multiple passes, specified their organization, and reviewed each step.</li>
         </ul>
@@ -141,16 +162,16 @@ step — see the notes on each log entry below for exactly where things stand.</
   </li>
   
   <li class="ai-disclosure-log__item">
-    <p class="ai-disclosure-log__date">2026-07-21</p>
+    <h3 class="ai-disclosure-log__date">2026-07-21: The Evidence page (all four sections)</h3>
     <div class="ai-disclosure-log__cols">
       <div>
-        <h3>AI did</h3>
+        <p class="ai-disclosure-log__col-label">AI did</p>
         <ul>
           <li>Built The Evidence page&#39;s four sections (current state of displacement, at-risk industries with a Stark State program map, protective factors, counterarguments) from supplied content and data, with roughly 20 supporting citations.</li><li>Flagged a couple of possible source mix-ups and one possible undisclosed conflict of interest in the citations rather than resolving them unilaterally, and built the click-to-enlarge chart lightbox.</li><li>In a later pass: moved the &#39;barrier is shrinking, not permanent&#39; outlook to sit directly under Barrier 1, added a new lead figure (&#39;Human necessity helps us understand where workers remain vital,&#39; from the same OpenAI report already cited on this page), and alphabetized the Most Exposed Occupations list into a two-column layout.</li>
         </ul>
       </div>
       <div>
-        <h3>Human did</h3>
+        <p class="ai-disclosure-log__col-label">Human did</p>
         <ul>
           <li>Supplied all section content, chart images, and the Stark State program classification across multiple passes; asked for a couple of reading-level rewrites; reviewed each step.</li>
         </ul>
@@ -162,16 +183,16 @@ step — see the notes on each log entry below for exactly where things stand.</
   </li>
   
   <li class="ai-disclosure-log__item">
-    <p class="ai-disclosure-log__date">2026-07-21</p>
+    <h3 class="ai-disclosure-log__date">2026-07-21: History page&#39;s four cases</h3>
     <div class="ai-disclosure-log__cols">
       <div>
-        <h3>AI did</h3>
+        <p class="ai-disclosure-log__col-label">AI did</p>
         <ul>
           <li>Drafted the History page&#39;s four cases (Luddite Rebellion, telephone operator automation, office computerization, Amazon warehouse robotics) from supplied material, with citations for each.</li><li>Corrected one case&#39;s historical detail (Luddite Rebellion) after the human flagged it, and added forward links from History to The Evidence and Take Action in a later pass.</li>
         </ul>
       </div>
       <div>
-        <h3>Human did</h3>
+        <p class="ai-disclosure-log__col-label">Human did</p>
         <ul>
           <li>Supplied all four cases&#39; content and sources, caught the historical inaccuracy and supplied the fix, and reviewed each step.</li>
         </ul>
@@ -183,16 +204,16 @@ step — see the notes on each log entry below for exactly where things stand.</
   </li>
   
   <li class="ai-disclosure-log__item">
-    <p class="ai-disclosure-log__date">2026-07-21</p>
+    <h3 class="ai-disclosure-log__date">2026-07-21: Project setup, Glossary, and citation groundwork</h3>
     <div class="ai-disclosure-log__cols">
       <div>
-        <h3>AI did</h3>
+        <p class="ai-disclosure-log__col-label">AI did</p>
         <ul>
           <li>Scaffolded the Eleventy project (build config, layouts, CSS) and drafted the Glossary page&#39;s term definitions from supplied source material.</li><li>Built out content/citations.yaml, flagging missing or uncertain bibliographic details instead of inventing them.</li><li>Drafted this AI Disclosure page and its work-log format.</li>
         </ul>
       </div>
       <div>
-        <h3>Human did</h3>
+        <p class="ai-disclosure-log__col-label">Human did</p>
         <ul>
           <li>Directed the project&#39;s scope and build order, and supplied the glossary term list and reference material.</li><li>Reviewed and approved each step.</li>
         </ul>

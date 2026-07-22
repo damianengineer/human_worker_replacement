@@ -23,16 +23,16 @@ extraCss:
 <ol class="ai-disclosure-log">
   {% for entry in entries | reverse %}
   <li class="ai-disclosure-log__item">
-    <p class="ai-disclosure-log__date">{{ entry.date }}</p>
+    <h3 class="ai-disclosure-log__date">{{ entry.date }}{% if entry.summary %}: {{ entry.summary }}{% endif %}</h3>
     <div class="ai-disclosure-log__cols">
       <div>
-        <h3>AI did</h3>
+        <p class="ai-disclosure-log__col-label">AI did</p>
         <ul>
           {% for task in entry.ai_did %}<li>{{ task }}</li>{% endfor %}
         </ul>
       </div>
       <div>
-        <h3>Human did</h3>
+        <p class="ai-disclosure-log__col-label">Human did</p>
         <ul>
           {% for task in entry.human_did %}<li>{{ task }}</li>{% endfor %}
         </ul>
