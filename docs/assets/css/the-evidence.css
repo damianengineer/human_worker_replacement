@@ -274,9 +274,26 @@
   border-left: 3px solid var(--color-border);
 }
 
-.evidence-confidence-group h4 {
+.evidence-confidence-group__summary {
   margin: 0 0 var(--space-1);
   font-size: var(--font-size-base);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.evidence-confidence-group__summary::marker {
+  color: var(--color-primary);
+}
+
+.evidence-confidence-group__summary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.evidence-confidence-group__count {
+  font-weight: 400;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
 }
 
 .evidence-confidence-group__description {
