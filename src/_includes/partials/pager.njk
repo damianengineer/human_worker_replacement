@@ -1,0 +1,41 @@
+{#- Guided prev/next "journey" pager — renders only on pages listed in
+   site.yaml's `journey` array (matched on path, ignoring any #fragment).
+   Off-journey pages (Home, Glossary, References, About, AI Disclosure)
+   get idx = -1 and this partial must emit nothing at all — every tag
+   below uses {%- -%} whitespace control so the include is truly a no-op
+   there, not just visually empty.
+
+   Deliberately avoids a {% for %} loop to find the match: {% set %}
+   inside a Nunjucks for-loop doesn't leak to the outer scope, so an
+   index found mid-loop can't be read after it ends. A plain
+   if/elif chain at the top level has no such scoping problem. The
+   journey list is a small, fixed sequence (4 entries), so this doesn't
+   need to generalize beyond that. -#}
+{%- set journey = site.journey -%}
+{%- if journey[0].url.split('#')[0] == page.url -%}
+{%- set idx = 0 -%}
+{%- elif journey[1].url.split('#')[0] == page.url -%}
+{%- set idx = 1 -%}
+{%- elif journey[2].url.split('#')[0] == page.url -%}
+{%- set idx = 2 -%}
+{%- elif journey[3].url.split('#')[0] == page.url -%}
+{%- set idx = 3 -%}
+{%- else -%}
+{%- set idx = -1 -%}
+{%- endif -%}
+{%- if idx != -1 -%}
+{%- set prevEntry = journey[idx - 1] if idx > 0 else null -%}
+{%- set nextEntry = journey[idx + 1] if idx < journey.length - 1 else null -%}
+<nav class="journey-pager" aria-label="Continue reading">
+  {%- if prevEntry %}
+  <a class="journey-pager__back" href="{{ prevEntry.url }}" rel="prev">Back: {{ prevEntry.label }}</a>
+  {%- endif %}
+  {%- if nextEntry %}
+  <a class="journey-pager__next" href="{{ nextEntry.url }}" rel="next">
+    <span class="journey-pager__kicker">Next</span>
+    <span class="journey-pager__label">{{ nextEntry.label }}</span>
+    <span class="journey-pager__teaser">{{ nextEntry.teaser }}</span>
+  </a>
+  {%- endif %}
+</nav>
+{%- endif -%}
