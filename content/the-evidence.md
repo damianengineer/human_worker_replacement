@@ -2,6 +2,16 @@
 title: "The Evidence"
 description: "PLACEHOLDER — meta description for The Evidence page (not yet written)."
 layout: "layouts/the-evidence.njk"
+outro_text: "Curious what led here, or what to actually do with all this?"
+outro_links:
+  - label: "See the history behind this"
+    url: "/history/"
+  - label: "Build a Plan B"
+    url: "/take-action/#plan-b"
+  - label: "Improve your AI literacy"
+    url: "/take-action/#ai-literacy"
+  - label: "Get involved in the policy"
+    url: "/take-action/#policy"
 ---
 
 AI's effect on entry-level jobs isn't just theoretical anymore — it's

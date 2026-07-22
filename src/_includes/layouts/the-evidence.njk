@@ -202,3 +202,10 @@ extraCss:
   </div>
   {% endif %}
 </section>
+
+{% if outro_text and outro_links %}
+<p class="evidence-outro">
+  {{ outro_text }}
+  {% for link in outro_links %}<a class="evidence-outro__link" href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}
+</p>
+{% endif %}

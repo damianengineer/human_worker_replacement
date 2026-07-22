@@ -363,6 +363,15 @@
   padding: var(--space-4);
 }
 
+.evidence-outro {
+  margin-top: var(--space-5);
+  font-size: var(--font-size-lg);
+}
+
+.evidence-outro__link {
+  font-weight: 700;
+}
+
 /* Stat callout — a big numeral + short label, for a handful of the
    strongest already-cited stats. Reuses the same citeLink-driven source
    line as everything else on this page; no new citation format. */
