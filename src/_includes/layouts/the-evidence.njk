@@ -144,15 +144,18 @@ extraCss:
     <p class="evidence-list__source">Source: {{ stark.citation | citeLink | safe }}</p>
 
     {% for group in stark.confidence_groups %}
-    <div class="evidence-confidence-group evidence-confidence-group--{{ group.key }}">
-      <h4>{{ group.label }}</h4>
+    <details class="evidence-confidence-group evidence-confidence-group--{{ group.key }}">
+      <summary class="evidence-confidence-group__summary">
+        {{ group.label }}
+        <span class="evidence-confidence-group__count">({{ group.programs.length }} program{% if group.programs.length != 1 %}s{% endif %})</span>
+      </summary>
       <p class="evidence-confidence-group__description">{{ group.description }}</p>
       <ul class="evidence-program-list">
         {% for program in group.programs %}
         <li>{{ program.name }}{% if program.note %} <span class="evidence-program-list__note">— {{ program.note }}</span>{% endif %}</li>
         {% endfor %}
       </ul>
-    </div>
+    </details>
     {% endfor %}
   </div>
 </section>
