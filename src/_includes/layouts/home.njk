@@ -16,7 +16,7 @@ extraCss:
   <ul>
     <li><a href="#short-version">{{ home.short_version.heading }}</a></li>
     <li><a href="#where-to-go">{{ home.where_to_go.heading }}</a></li>
-    <li><a href="#background">{{ home.background.heading }}</a></li>
+    <li><a href="#timeline">{{ home.timeline.heading }}</a></li>
   </ul>
 </nav>
 
@@ -33,18 +33,36 @@ extraCss:
 
 <section class="home-section" id="where-to-go" aria-labelledby="where-to-go-heading">
   <h2 id="where-to-go-heading">{{ home.where_to_go.heading }}</h2>
-  <ul class="home-list">
-    {% for item in home.where_to_go.items %}
-    <li class="home-list__item">
-      <p><strong>{{ item.lead }}</strong><br>{{ item.text | safe }}</p>
-    </li>
+  <p>{{ home.where_to_go.intro }}</p>
+  <div class="home-clocks">
+    {% for group in home.where_to_go.groups %}
+    <div class="home-clocks__group">
+      <h3>{{ group.heading }}</h3>
+      <ul class="home-list">
+        {% for item in group.items %}
+        <li class="home-list__item">
+          <p><strong>{{ item.lead }}</strong><br>{{ item.text | safe }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </section>
 
-<section class="home-section" id="background" aria-labelledby="background-heading">
-  <h2 id="background-heading">{{ home.background.heading }}</h2>
-  <p>{{ home.background.text | safe }}</p>
+<section class="home-section" id="timeline" aria-labelledby="timeline-heading">
+  <h2 id="timeline-heading">{{ home.timeline.heading }}</h2>
+  <p>{{ home.timeline.intro }}</p>
+  <ol class="home-timeline">
+    {% for era in home.timeline.eras %}
+    <li class="home-timeline__card">
+      <p class="home-timeline__label">{{ era.label }}</p>
+      <span class="home-timeline__tag{% if era.certainty == 'Forecast — contested' or era.certainty == 'Speculative' %} home-timeline__tag--caution{% endif %}">{{ era.certainty }}</span>
+      <p>{{ era.text }}</p>
+      <p><a href="{{ era.link_url }}">{{ era.link_label }}</a></p>
+    </li>
+    {% endfor %}
+  </ol>
 </section>
 
 <p class="home-closing">{{ home.closing.text | safe }}</p>

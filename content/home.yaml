@@ -33,33 +33,73 @@ short_version:
     citation: "massenkoff2026"
 
 where_to_go:
-  heading: "Where to go next"
-  items:
-    - lead: "Worried your major is in an exposed field?"
-      text: >-
-        See which jobs and Stark State programs the data flags, then
-        <a href="/take-action/#plan-b">build a Plan B</a>.
-    - lead: "Wondering how to actually use AI instead of losing to it?"
-      text: >-
-        <a href="/take-action/#ai-literacy">Improve your AI literacy</a>
-        with vetted, beginner-friendly resources.
-    - lead: "Want to have a say in how this gets handled?"
-      text: >-
-        <a href="/take-action/#policy">Be an informed citizen</a> — track
-        real bills, not headlines.
+  heading: "Two clocks, two moves"
+  intro: >-
+    The measured evidence is why you should act this semester. The
+    speculative future is why you should pay attention this decade — policy
+    moves slower than technology, so the debate that affects you most is the
+    one happening now.
+  groups:
+    - heading: "Your move — this semester"
+      items:
+        - lead: "Worried your major is in an exposed field?"
+          text: >-
+            See which jobs and Stark State programs the data flags, then
+            <a href="/take-action/#plan-b">build a Plan B</a>.
+        - lead: "Wondering how to actually use AI instead of losing to it?"
+          text: >-
+            <a href="/take-action/#ai-literacy">Improve your AI literacy</a>
+            with vetted, beginner-friendly resources.
+    - heading: "Our move — this decade"
+      items:
+        - lead: "Want to have a say in how this gets handled?"
+          text: >-
+            <a href="/take-action/#policy-debate">Start with the debate</a>
+            over UBI and sovereign wealth funds, then
+            <a href="/take-action/#policy">track the actual bills</a>.
 
-background:
-  heading: "Background before you dive in"
-  text: >-
-    Two pages will help as you read the rest of the site.
-    <strong><a href="/history/">History</a></strong> looks at four earlier
-    moments — the Luddites, telephone operators, office computerization,
-    Amazon's warehouses — where new technology reshaped who got hired.
-    They're analogies, not proof of what AI will do. And since this topic
-    comes with real jargon, the
-    <strong><a href="/glossary/">Glossary</a></strong> defines every term
-    in plain language and traces each one back to where it actually came
-    from — not just its most recent headline.
+timeline:
+  heading: "Where this story is"
+  intro: >-
+    One way to hold this whole site in your head: four moments on one
+    timeline, from settled history to open speculation. The further right you
+    look, the less anyone actually knows — and that's exactly why the two
+    kinds of action below run on two different clocks.
+  eras:
+    - label: "The past"
+      certainty: "Documented"
+      text: >-
+        In 1813, seventeen men were hanged for breaking the machines that took
+        their jobs. By 2025, Amazon ran roughly a million warehouse robots.
+        Technology reshaping who gets hired isn't new — we have four earlier
+        cases to learn from.
+      link_label: "Read the history"
+      link_url: "/history/"
+    - label: "Right now"
+      certainty: "Measured"
+      text: >-
+        Since ChatGPT launched, employment for young workers in AI-exposed
+        jobs has fallen about 13–16% — concentrated in entry-level hiring.
+        Not mass layoffs: a door quietly closing.
+      link_label: "See the evidence"
+      link_url: "/the-evidence/"
+    - label: "Near future"
+      certainty: "Forecast — contested"
+      text: >-
+        AGI — AI that matches capable humans at most mental work — doesn't
+        exist, and experts disagree on when or whether it will. But it's what
+        the major labs say they're building, so it belongs in your planning
+        as a possibility, not a promise.
+      link_label: "What AGI actually means"
+      link_url: "/glossary/#artificial-general-intelligence-agi"
+    - label: "Open future"
+      certainty: "Speculative"
+      text: >-
+        If machines ever do most of the work, who gets paid? That question —
+        not science fiction — is what's behind the UBI and sovereign wealth
+        fund proposals in Congress right now.
+      link_label: "Understand the policy debate"
+      link_url: "/take-action/#policy-debate"
 
 closing:
   text: >-
