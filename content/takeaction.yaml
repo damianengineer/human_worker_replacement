@@ -85,82 +85,292 @@ ctas:
 
   - key: "ai_literacy"
     heading: "Call to Action: Improve Your AI Literacy"
-    items:
-      - text: >-
-          Start with free, structured courses — Andrew Ng's beginner
-          courses (via Coursera/DeepLearning.AI) are a trusted, low-cost
-          way to actually understand how AI works, not just how to use
-          it.
-        citations: ["deeplearningai"]
-        links: []
-      - text: >-
-          Watch conference talks for free — no ticket required. The AI
-          Engineer World's Fair is the largest technical AI conference in
-          the world, and every major talk is posted free on the AI
-          Engineer YouTube channel — a way to hear directly from people
-          building at OpenAI, Anthropic, and Google DeepMind without
-          paying a cent.
-        citations: ["aiengineerconf"]
-        links: []
-      - text: >-
-          Join a beginner-friendly community. Learn AI Together (a
-          Discord community run by Towards AI) is built specifically for
-          people learning AI from scratch — a good first stop before
-          anything more advanced.
-        citations: ["learnaitogether"]
-        links: []
-      - text: >-
-          🚀 Advanced Mode: Cerebral Valley — once you're ready to go
-          further, Cerebral Valley is one of the most respected AI
-          communities in the world, backed by Anthropic, Meta, and top
-          venture firms, running hackathons with real prize money and
-          direct access to people building frontier AI. It's aimed at
-          experienced builders and founders, so it's best treated as a
-          level-up goal, not a starting point — but it's genuinely one of
-          the highest-value resources on this list once you're ready for
-          it.
-        citations: ["cerebralvalley"]
-        links: []
-        advanced: true
-      - text: >-
-          Learn to build without writing code. Tools like Zapier let you
-          connect apps and plug in AI models like Claude or ChatGPT with
-          zero programming — a great first project. Make.com is a good
-          next step once you outgrow Zapier's simplicity, and n8n is
-          worth exploring specifically if you're in a computer science or
-          programming program.
-        citations: ["zapier", "makecom", "n8n"]
-        links: []
-      - text: >-
-          Understand what MCP is. The Model Context Protocol is how AI
-          assistants like Claude connect to real tools and data — worth a
-          basic understanding since it's becoming the standard way AI
-          gets "hands" to do real work.
-        citations: ["mcp"]
-        links: []
-      - text: >-
-          Learn the privacy basics before you rely on AI daily.
-          Understand what happens to information you type into a
-          chatbot, and check whether your school or future employer has
-          AI usage policies — treat this the same way you'd treat any
-          other digital privacy habit.
-        citations: []
-        links: []
-      - text: >-
-          Go deeper when you're ready. For a technical (but excellent)
-          look at how AI models actually store information, 3Blue1Brown's
-          "How might LLMs store facts" video is one of the best
-          plain-but-rigorous explainers available — a good "next step"
-          once the basics feel comfortable.
-        citations: ["threeblue1brown"]
-        links: []
+    # This CTA is grouped by resource type (in-person events > self-paced
+    # online learning > videos > podcasts > reading > online communities),
+    # unlike plan_b/policy which use a flat `items` list — see the
+    # template's resource_groups branch. The "force multiplier" framing
+    # isn't tied to a specific resource, so it sits in intro_items instead
+    # of a type group, rendered before "In-Person Events."
+    intro_items:
       - text: >-
           Don't fear it — use it as a force multiplier. The goal of every
           resource on this list isn't to turn you into a programmer. It's
-          to make you someone who directs AI tools confidently, instead
-          of someone AI tools replace.
+          to make you someone who directs AI tools confidently, instead of
+          someone AI tools replace.
         citations: []
         links: []
+    resource_groups:
+      - type: "In-Person Events"
+        items:
+          - text: >-
+              🚀 Advanced Mode: Cerebral Valley — once you're ready to go
+              further, Cerebral Valley is one of the most respected AI
+              communities in the world, backed by Anthropic, Meta, and top
+              venture firms, running hackathons with real prize money and
+              direct access to people building frontier AI. It's aimed at
+              experienced builders and founders, so it's best treated as a
+              level-up goal, not a starting point — but it's genuinely one
+              of the highest-value resources on this list once you're
+              ready for it.
+            citations: ["cerebralvalley"]
+            links: []
+            advanced: true
+
+      - type: "Self-Paced Online Learning"
+        items:
+          - text: >-
+              Start with free, structured courses — Andrew Ng's beginner
+              courses (via Coursera/DeepLearning.AI) are a trusted,
+              low-cost way to actually understand how AI works, not just
+              how to use it.
+            citations: ["deeplearningai"]
+            links:
+              - label: "Machine Learning Specialization (Coursera)"
+                url: "https://www.coursera.org/specializations/machine-learning-introduction"
+          - text: >-
+              Fast.ai (Jeremy Howard) takes the opposite approach from
+              DeepLearning.AI: instead of building up theory first, it
+              gets you training real, state-of-the-art models in the
+              first lesson, introducing the underlying math progressively
+              as you actually need it. Worth trying if a bottom-up course
+              isn't clicking for you.
+            citations: ["fastai"]
+            links: []
+          - text: >-
+              Learn to build without writing code. Tools like Zapier let
+              you connect apps and plug in AI models like Claude or
+              ChatGPT with zero programming — a great first project.
+              Make.com is a good next step once you outgrow Zapier's
+              simplicity, and n8n is worth exploring specifically if
+              you're in a computer science or programming program.
+            citations: ["zapier", "makecom", "n8n"]
+            links: []
+
+      - type: "Videos"
+        items:
+          - text: >-
+              Watch conference talks for free — no ticket required. The AI
+              Engineer World's Fair is the largest technical AI conference
+              in the world, and every major talk is posted free on the AI
+              Engineer YouTube channel — a way to hear directly from
+              people building at OpenAI, Anthropic, and Google DeepMind
+              without paying a cent.
+            citations: []
+            links:
+              - label: "Conference site (ai.engineer)"
+                url: "https://www.ai.engineer/"
+              - label: "YouTube channel (free talks)"
+                url: "https://www.youtube.com/@aiDotEngineer"
+              - label: "Representative talk (WF2026 keynotes ft. Anthropic, Google DeepMind, Amazon AGI)"
+                url: "https://www.youtube.com/watch?v=4sX_He5c4sI"
+                image: "/assets/img/youtube-thumb-ai-engineer-wf2026.jpg"
+          - text: >-
+              Andrej Karpathy's "Neural Networks: Zero to Hero" is widely
+              considered one of the best AI courses ever made, free or
+              paid — a code-along series that starts at basic
+              backpropagation and ends with you building a working
+              GPT-style model from scratch.
+            citations: ["karpathyzerotohero"]
+            links:
+              - label: "YouTube playlist"
+                url: "https://www.youtube.com/playlist?list=PLXYLzZ3XzIbi4lL43O6fIU_ojuZwBO6vi"
+              - label: "Start here: building micrograd (Lecture 1)"
+                url: "https://www.youtube.com/watch?v=44_j7ufypfw"
+                image: "/assets/img/youtube-thumb-karpathy-lecture1.jpg"
+          - text: >-
+              3Blue1Brown's Neural Networks series is one of the most
+              acclaimed visual explanations of how neural networks work
+              ever made — start there if the fundamentals still feel
+              shaky. Once you're comfortable, his "How might LLMs store
+              facts" video is a genuinely excellent, if technical, look at
+              how a fact as specific as "Michael Jordan plays basketball"
+              might get stored inside a model.
+            citations: ["threeblue1brown"]
+            links:
+              - label: "Neural Networks series (start here)"
+                url: "https://www.youtube.com/playlist?list=PLZZWrBYkx7Otcjr3eCLZDCgfpqnxMY29s"
+                image: "/assets/img/youtube-thumb-3b1b-neural-networks-ch1.jpg"
+              - label: "How might LLMs store facts"
+                url: "https://www.youtube.com/watch?v=9-Jl0dxWQs8"
+                image: "/assets/img/youtube-thumb-3b1b-llm-facts.jpg"
+
+      - type: "Podcasts"
+        items:
+          - text: >-
+              Latent Space — hosted by and for AI engineers — is one of
+              the most technically substantive AI podcasts around,
+              covering the modern AI engineering stack: code-gen tools,
+              agents, GPU infrastructure, and interviews with the people
+              building all of it.
+            citations: ["latentspacepodcast"]
+            links:
+              - label: "YouTube channel"
+                url: "https://www.youtube.com/channel/UCxBcwypKK-W3GHd_RZ9FZrQ"
+
+      - type: "Reading"
+        items:
+          - text: >-
+              Subscribe to the Latent Space newsletter — written by
+              practitioners covering frontier AI engineering, it's a good
+              way to keep up once you've got the basics down.
+            citations: ["latentspace"]
+            links: []
+          - text: >-
+              Skim this site's References page. Every source cited across
+              this site is listed there, so you can go straight to the
+              original studies and reports instead of relying on our
+              summary of them.
+            citations: []
+            links:
+              - label: "References"
+                url: "/references/"
+          - text: >-
+              Start with this site's Glossary if the terminology in any
+              of this is new — it's the fastest way to get comfortable
+              with the basic vocabulary before going further.
+            citations: []
+            links:
+              - label: "Glossary"
+                url: "/glossary/"
+          - text: >-
+              For quick daily reads that build vocabulary fast, The
+              Rundown AI and TLDR AI both give five-minute, jargon-free
+              summaries of what happened in AI that day — a good habit to
+              build early.
+            citations: ["therundownai", "tldrai"]
+            links: []
+          - text: >-
+              Ethan Mollick's "One Useful Thing" is one of the best
+              resources for understanding what AI can practically do for
+              non-experts — he skips the code entirely and focuses on how
+              everyday people and junior employees can use frontier
+              models to solve real problems.
+            citations: ["oneusefulthing"]
+            links: []
+          - text: >-
+              Sebastian Raschka's "Ahead of AI" newsletter is a clear,
+              well-illustrated bridge between beginner and expert — strong
+              on how models actually work under the hood (fine-tuning,
+              quantization, architecture) without needing a research
+              background.
+            citations: ["aheadofai"]
+            links: []
+          - text: >-
+              Stanford HAI (the Human-Centered AI Institute, co-founded by
+              Fei-Fei Li) publishes accessible research and policy
+              analysis on AI's benchmarks and societal impact — a good
+              source for the ethical and policy side of AI, not just the
+              engineering side.
+            citations: ["stanfordhai"]
+            links: []
+          - text: >-
+              The NVIDIA Technical Blog is the closest thing to a primary
+              source on GPU infrastructure and large-scale model
+              deployment — useful once you want to understand the
+              hardware and infrastructure side of AI, not just the models
+              themselves.
+            citations: ["nvidiadevblog"]
+            links: []
+          - text: >-
+              The Batch, Andrew Ng's weekly newsletter from
+              DeepLearning.AI, is a reliably hype-free synthesis of where
+              AI research actually intersects with real engineering and
+              business use — including a personal letter from Ng in every
+              issue.
+            citations: ["thebatch"]
+            links: []
+          - text: >-
+              If you want to go straight to the research, arXiv Sanity
+              Lite (built by Andrej Karpathy) filters and ranks the flood
+              of new AI papers on arXiv by community signal, so you're
+              not searching blind.
+            citations: ["arxivsanity"]
+            links: []
+          - text: >-
+              Understand what MCP is. The Model Context Protocol is how AI
+              assistants like Claude connect to real tools and data —
+              worth a basic understanding since it's becoming the standard
+              way AI gets "hands" to do real work.
+            citations: ["mcp"]
+            links: []
+          - text: >-
+              Learn the privacy basics before you rely on AI daily.
+              Understand what happens to information you type into a
+              chatbot, and check whether your school or future employer
+              has AI usage policies — treat this the same way you'd treat
+              any other digital privacy habit.
+            citations: []
+            links: []
+
+      - type: "Online Communities"
+        items:
+          - text: >-
+              Many of the resources above — courses, conferences, and
+              tools alike — also run their own Discord or Slack
+              communities once you look for them. Joining the community
+              around whatever you're already using is often the fastest
+              way to get real help when you're stuck.
+            citations: []
+            links: []
+          - text: >-
+              Join a beginner-friendly community. Learn AI Together (a
+              Discord community run by Towards AI) is built specifically
+              for people learning AI from scratch — a good first stop
+              before anything more advanced.
+            citations: ["learnaitogether"]
+            links: []
+
+    # A distinct, visually-flagged subsection (not a resource_group, since
+    # it's a warning/topic, not a media type) — rendered last, styled to
+    # stand out from the resource lists above it.
+    caution_section:
+      heading: "AI Privacy and Security"
+      intro:
+        - >-
+          AI tools don't just add new privacy and security risks — they
+          often make your existing ones bigger. Every habit you already
+          should have around passwords, personal information, and
+          sensitive data applies to AI too, and then some: what you type
+          into a chatbot can be logged, stored, used to improve a
+          company's models, or exposed if that company gets breached.
+        - >-
+          Be especially careful before you paste personal information,
+          passwords, financial details, health information, or
+          confidential work material into an AI tool — or connect an AI
+          tool to a system that handles money, medical records, or other
+          sensitive functions. If you wouldn't hand it to a stranger,
+          don't hand it to an AI tool without knowing exactly where that
+          information goes.
+      items:
+        - text: >-
+            Learn how AI systems actually get attacked, hands-on. Prompt
+            injection — tricking an AI into ignoring its instructions or
+            revealing things it shouldn't — is one of the most common ways
+            AI tools get exploited. This curated list of free, hands-on
+            practice challenges (including Gandalf, Prompt Airlines, and
+            PortSwigger's LLM Attacks Lab) lets you see it happen
+            yourself, safely.
+          citations: ["aisecurityreferences"]
+          links: []
+        - text: >-
+            Know the frameworks security researchers actually use. MITRE
+            ATLAS catalogs real-world attacks against AI systems, and the
+            OWASP Top 10 for LLM Applications lists the most common ways
+            AI tools get exploited in practice — both are free, and both
+            are built for exactly this kind of self-education.
+          citations: ["mitreatlas", "owasptop10llm"]
+          links: []
+        - text: >-
+            Know the legal line, not just the technical one. The EU AI
+            Act bans some AI uses outright, including AI that manipulates
+            people in ways that cause real harm and mass, untargeted
+            scraping of faces to build facial recognition databases. Even
+            outside the EU, it's a useful signal for what regulators
+            consider not just risky, but flatly unacceptable.
+          citations: ["euaiact"]
+          links:
+            - label: "Plain-language summary (EU AI Act Service Desk)"
+              url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5"
 
   - key: "policy"
     heading: "Call to Action: Be an Informed Citizen on AI Policy"

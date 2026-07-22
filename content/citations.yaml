@@ -57,6 +57,15 @@ acemoglu2020:
     figure that circulates in Amazon automation coverage — cite this
     directly rather than a press summary of it.
 
+aheadofai:
+  authors: "Raschka, S."
+  year: "n.d."
+  title: "Ahead of AI (newsletter)"
+  publisher: "Sebastian Raschka"
+  url: "https://magazine.sebastianraschka.com/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
 aiengineerconf:
   authors: "AI Engineer"
   year: "n.d."
@@ -65,11 +74,35 @@ aiengineerconf:
   url: "https://www.ai.engineer/"
   type: "website"
   potential_conflict: "None disclosed"
-  status: "unverified"
-  todo: >-
-    Confirm this is the correct URL, and that it links to the free
-    YouTube channel with all major talks referenced by the human — did
-    not guess an exact YouTube channel handle.
+  note: >-
+    Verified via web search (2026-07-21), including a live 2026 World's
+    Fair page at ai.engineer/worldsfair/2026. take-action.yaml's item
+    links both this conference site and the separate YouTube channel
+    (youtube.com/@aiDotEngineer, human-confirmed) explicitly, since
+    they're different destinations.
+
+aisecurityreferences:
+  authors: "damianengineer"
+  year: "n.d."
+  title: "AI Security References"
+  publisher: "GitHub"
+  url: "https://github.com/damianengineer/ai-security-references"
+  type: "website"
+  potential_conflict: "None disclosed"
+
+arxivsanity:
+  authors: "Karpathy, A."
+  year: "n.d."
+  title: "arXiv Sanity Lite"
+  publisher: "Andrej Karpathy"
+  url: "https://arxiv-sanity-lite.com/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: >-
+    Karpathy's original "arXiv Sanity Preserver" (arxiv-sanity.com) was
+    superseded by this rewritten, actively maintained "Lite" version per
+    his own 2021 announcement — linking to the current one, not the
+    original.
 
 autor2003:
   authors: "Autor, D. H., Levy, F., & Murnane, R. J."
@@ -128,13 +161,11 @@ byju2024:
 cerebralvalley:
   authors: "Cerebral Valley"
   year: "n.d."
-  title: "Cerebral Valley (AI builder community)"
+  title: "Cerebral Valley — events"
   publisher: "Cerebral Valley"
-  url: "https://cerebralvalley.ai/"
+  url: "https://cerebralvalley.ai/events"
   type: "website"
   potential_conflict: "None disclosed"
-  status: "unverified"
-  todo: "Confirm this is the correct current URL before publishing."
 
 deeplearningai:
   authors: "Ng, A. / DeepLearning.AI"
@@ -220,6 +251,31 @@ engelbart1962:
   publisher: "Stanford Research Institute"
   url: null
   type: "report"
+  potential_conflict: "None disclosed"
+
+euaiact:
+  authors: "European Parliament and Council of the European Union"
+  year: 2024
+  title: "Regulation (EU) 2024/1689 (Artificial Intelligence Act), Article 5 — Prohibited AI Practices"
+  publisher: "Official Journal of the European Union / EUR-Lex"
+  url: "https://eur-lex.europa.eu/eli/reg/2024/1689/oj/eng"
+  type: "government data"
+  potential_conflict: "None disclosed"
+  note: >-
+    The human's request referenced "Article 9" for prohibited uses;
+    verified via web search (2026-07-21) that prohibited AI practices are
+    actually Article 5 of this regulation — Article 9 covers the risk
+    management system required for high-risk AI systems, a different
+    provision. Cited as Article 5 here; flagged to the human as a
+    correction, not silently changed without note.
+
+fastai:
+  authors: "Howard, J. / fast.ai"
+  year: "n.d."
+  title: "Practical Deep Learning for Coders"
+  publisher: "fast.ai"
+  url: "https://course.fast.ai/"
+  type: "website"
   potential_conflict: "None disclosed"
 
 fastcompany2026:
@@ -345,6 +401,15 @@ jacobson1993:
   type: "article"
   potential_conflict: "None disclosed"
 
+karpathyzerotohero:
+  authors: "Karpathy, A."
+  year: "n.d."
+  title: "Neural Networks: Zero to Hero"
+  publisher: "Andrej Karpathy"
+  url: "https://karpathy.ai/zero-to-hero.html"
+  type: "website"
+  potential_conflict: "None disclosed"
+
 kolko2026:
   authors: "Kolko, J."
   year: 2026
@@ -353,6 +418,25 @@ kolko2026:
   publisher: "Brookings Institution"
   url: "https://www.brookings.edu/articles/research-on-ai-and-the-labor-market-is-still-in-the-first-inning/"
   type: "report"
+  potential_conflict: "None disclosed"
+
+latentspace:
+  authors: "Latent Space"
+  year: "n.d."
+  title: "Latent Space (newsletter)"
+  publisher: "Latent Space"
+  url: "https://www.latent.space/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: "Verified via web search (2026-07-21)."
+
+latentspacepodcast:
+  authors: "Latent Space"
+  year: "n.d."
+  title: "Latent Space: The AI Engineer Podcast"
+  publisher: "Latent Space"
+  url: "https://www.latent.space/podcast"
+  type: "website"
   potential_conflict: "None disclosed"
 
 learnaitogether:
@@ -439,6 +523,15 @@ mcp:
   status: "unverified"
   todo: "Confirm this is still the correct canonical URL before publishing."
 
+mitreatlas:
+  authors: "MITRE"
+  year: "n.d."
+  title: "MITRE ATLAS (Adversarial Threat Landscape for AI Systems)"
+  publisher: "MITRE"
+  url: "https://atlas.mitre.org/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
 myers2026:
   authors: "Myers, A."
   year: 2026
@@ -467,6 +560,17 @@ nationalarchivesuk:
   type: "primary source"
   potential_conflict: "None disclosed"
 
+nvidiadevblog:
+  authors: "NVIDIA"
+  year: "n.d."
+  title: "NVIDIA Technical Blog"
+  publisher: "NVIDIA"
+  url: "https://developer.nvidia.com/blog/"
+  type: "website"
+  potential_conflict: >-
+    NVIDIA is a commercial hardware/AI vendor with a direct financial
+    interest in claims about its own technology's capability.
+
 nvidianewsroom2026:
   authors: "NVIDIA Newsroom"
   year: 2026
@@ -479,6 +583,24 @@ nvidianewsroom2026:
     NVIDIA is a commercial hardware/AI vendor with a direct financial
     interest in claims about robotics/AI capability progress. Treat as a
     vendor announcement, not independent research.
+
+oneusefulthing:
+  authors: "Mollick, E."
+  year: "n.d."
+  title: "One Useful Thing (newsletter)"
+  publisher: "Ethan Mollick"
+  url: "https://www.oneusefulthing.org/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
+owasptop10llm:
+  authors: "OWASP"
+  year: 2025
+  title: "OWASP Top 10 for LLM Applications (2025)"
+  publisher: "OWASP"
+  url: "https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/"
+  type: "website"
+  potential_conflict: "None disclosed"
 
 paine1797:
   authors: "Paine, T."
@@ -547,6 +669,15 @@ ssatrustees:
     citable source (a specific report edition, actuarial note, or
     testimony) — not asserted here without one.
 
+stanfordhai:
+  authors: "Stanford Institute for Human-Centered Artificial Intelligence"
+  year: "n.d."
+  title: "Stanford HAI"
+  publisher: "Stanford University"
+  url: "https://hai.stanford.edu/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
 starkstate2026:
   authors: "Stark State College"
   year: 2026
@@ -576,18 +707,46 @@ stempniak2026:
     reporting on Hinton's original 2016 prediction — several layers of
     secondary reporting removed from the primary source.
 
+thebatch:
+  authors: "Ng, A. / DeepLearning.AI"
+  year: "n.d."
+  title: "The Batch (newsletter)"
+  publisher: "DeepLearning.AI"
+  url: "https://www.deeplearning.ai/the-batch"
+  type: "website"
+  potential_conflict: "None disclosed"
+
+therundownai:
+  authors: "The Rundown AI"
+  year: "n.d."
+  title: "The Rundown AI (newsletter)"
+  publisher: "The Rundown AI"
+  url: "https://www.therundown.ai/"
+  type: "website"
+  potential_conflict: "None disclosed"
+
 threeblue1brown:
   authors: "Sanderson, G. (3Blue1Brown)"
   year: "n.d."
-  title: "How might LLMs store facts (video)"
+  title: "How might LLMs store facts | Deep Learning, Chapter 7"
   publisher: "3Blue1Brown, YouTube"
-  url: "https://www.youtube.com/@3blue1brown"
+  url: "https://www.youtube.com/watch?v=9-Jl0dxWQs8"
   type: "website"
   potential_conflict: "None disclosed"
   note: >-
-    Links to the channel, not the specific video — did not guess an exact
-    video URL/ID. Find and swap in the direct video link before
-    publishing.
+    Now links directly to the specific video (confirmed via web search,
+    2026-07-21), resolving the earlier placeholder that only linked to
+    the channel. This video uses "Michael Jordan plays basketball" as its
+    running example.
+
+tldrai:
+  authors: "TLDR"
+  year: "n.d."
+  title: "TLDR AI (newsletter)"
+  publisher: "TLDR"
+  url: "https://tldr.tech/ai"
+  type: "website"
+  potential_conflict: "None disclosed"
 
 ulam1958:
   authors: "Ulam, S."

@@ -3,6 +3,33 @@ layout: "layouts/base.njk"
 extraCss:
   - "/assets/css/take-action.css"
 ---
+{% macro takeactionItem(item) %}
+<li class="takeaction-item{% if item.advanced %} takeaction-item--advanced{% endif %}">
+  <p>{{ item.text }}</p>
+
+  {% set previewLinks = item.links | withImage %}
+  {% if previewLinks.length %}
+  <div class="takeaction-item__previews">
+    {% for link in previewLinks %}
+    <a class="takeaction-preview" href="{{ link.url }}">
+      <img src="{{ link.image }}" alt="Video thumbnail: {{ link.label }}" loading="lazy">
+      <span class="takeaction-preview__label">{{ link.label }}</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% set textLinks = item.links | withoutImage %}
+  {% if item.citations.length or textLinks.length %}
+  <p class="takeaction-item__extras">
+    {% for id in item.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+    {% if item.citations.length and textLinks.length %}; {% endif %}
+    {% for link in textLinks %}<a href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %}; {% endif %}{% endfor %}
+  </p>
+  {% endif %}
+</li>
+{% endmacro %}
+
 <h1>{{ title }}</h1>
 
 <div class="takeaction-intro">
@@ -20,19 +47,49 @@ extraCss:
 {% for cta in takeaction.ctas %}
 <section class="takeaction-section" id="{{ cta.key | slugify }}" aria-labelledby="{{ cta.key | slugify }}-heading">
   <h2 id="{{ cta.key | slugify }}-heading">{{ cta.heading }}</h2>
-  <ul class="takeaction-list">
-    {% for item in cta.items %}
-    <li class="takeaction-item{% if item.advanced %} takeaction-item--advanced{% endif %}">
-      <p>{{ item.text }}</p>
-      {% if item.citations.length or item.links.length %}
-      <p class="takeaction-item__extras">
-        {% for id in item.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
-        {% if item.citations.length and item.links.length %}; {% endif %}
-        {% for link in item.links %}<a href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %}; {% endif %}{% endfor %}
-      </p>
+
+  {% if cta.resource_groups %}
+    {% if cta.intro_items %}
+    <ul class="takeaction-list">
+      {% for item in cta.intro_items %}{{ takeactionItem(item) }}{% endfor %}
+    </ul>
+    {% endif %}
+
+    {% for group in cta.resource_groups %}
+    <div class="takeaction-subsection">
+      <h3>{{ group.type }}</h3>
+      {% if group.items.length %}
+      <ul class="takeaction-list">
+        {% for item in group.items %}{{ takeactionItem(item) }}{% endfor %}
+      </ul>
+      {% else %}
+      <p class="takeaction-list__empty">{{ group.empty_note }}</p>
       {% endif %}
-    </li>
+    </div>
     {% endfor %}
+
+    {% if cta.outro_items %}
+    <ul class="takeaction-list">
+      {% for item in cta.outro_items %}{{ takeactionItem(item) }}{% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if cta.caution_section %}
+    {% set caution = cta.caution_section %}
+    <div class="takeaction-caution" role="note" aria-labelledby="{{ cta.key | slugify }}-caution-heading">
+      <h3 id="{{ cta.key | slugify }}-caution-heading" class="takeaction-caution__heading">
+        <span aria-hidden="true">⚠️</span> {{ caution.heading }}
+      </h3>
+      {% for para in caution.intro %}<p class="takeaction-caution__intro">{{ para }}</p>{% endfor %}
+      <ul class="takeaction-list">
+        {% for item in caution.items %}{{ takeactionItem(item) }}{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  {% else %}
+  <ul class="takeaction-list">
+    {% for item in cta.items %}{{ takeactionItem(item) }}{% endfor %}
   </ul>
+  {% endif %}
 </section>
 {% endfor %}

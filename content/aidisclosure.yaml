@@ -2,17 +2,27 @@
 #
 # Add a NEW entry each time the AI assistant substantially drafts or edits
 # site content — don't rewrite old entries. This is the running record the
-# disclosure page is built from. Once the log gets long, older entries can
-# be condensed into a single summarized entry (e.g. "entries from
-# 2026-07 through 2026-09, summarized") without losing the overall picture
-# — just keep the most recent, detailed entries expanded.
+# disclosure page is built from.
+#
+# KEEP ENTRIES SHORT AND GENERAL. Each ai_did/human_did line is a
+# high-level summary sentence — "Drafted the History page's four cases and
+# added their citations" — not a per-file or per-citation transcript.
+# Verbose entries cost real tokens to read/write on every future edit; the
+# log only needs to convey who-did-what-in-general, not a diff.
+#
+# COMPACT PERIODICALLY. Once the log passes roughly 100 entries, fold the
+# older ones into a single summarized entry (e.g. "Entries from 2026-07
+# through 2026-09: scaffolded the Evidence, History, and Take Action pages
+# and their citations") and keep only the most recent entries in full.
+# Don't let this file grow unbounded.
 #
 # Each entry:
 #   date: "YYYY-MM-DD"
-#   ai_did: [tasks the AI assistant performed]
-#   human_did: [tasks the human performed]
+#   ai_did: [short, high-level summary lines — not verbose]
+#   human_did: [short, high-level summary lines — not verbose]
 #   notes: optional — caveats, especially verification status. Be honest
-#     here rather than asserting review happened if it hasn't yet.
+#     here rather than asserting review happened if it hasn't yet. Keep
+#     this concise too.
 
 entries:
   - date: "2026-07-21"
@@ -305,3 +315,62 @@ entries:
       page, since Section 5 itself documents Take Action as the CTA hub
       with multiple CTAs — flagged to the human in case that reading is
       wrong.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Reorganized the \"Improve Your AI Literacy\" CTA's resources by type (in-person events, self-paced online learning, videos, podcasts, reading, online communities) per the human's requested order, moving each existing item into the group it best matched rather than keeping the original flat order."
+      - "Added a new \"Podcasts\" group with no items, visibly flagged as needing a recommendation rather than silently omitted or invented."
+      - "Added the three new \"Reading\" items requested (Latent Space newsletter, this site's References page, this site's Glossary), including a new citation for Latent Space."
+      - "Moved the \"Learn AI Together\" Discord item into a new \"Online Communities\" group at the end, per the human's follow-up request, and added a lead-in note there that many of the other listed resources also have their own Discord/Slack communities."
+      - "Extended content/takeaction.yaml and the take-action layout to support this CTA's grouped shape (resource_groups + optional outro_items) without changing the flat `items` shape still used by the Plan B and Policy CTAs."
+    human_did:
+      - "Specified the exact type taxonomy and order, then the follow-up to move communities last with the cross-resource note."
+      - "Reviewed and approved the change."
+    notes: >-
+      Two placement calls were the AI's own judgment, not specified by the
+      human, and are worth a second look: MCP and the privacy-basics
+      advice were placed under "Reading" (both are fundamentally about
+      reading a spec/policy rather than a course or video), and Cerebral
+      Valley stayed under "In-Person Events" (hackathons) rather than
+      "Online Communities" even though it's also a community. The Latent
+      Space citation is marked "unverified" like several other resource
+      links on this page.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Web-searched and verified real URLs for 12 new resources the human supplied (Fast.ai, The Rundown AI, TLDR AI, Ethan Mollick's One Useful Thing, Andrej Karpathy's Zero to Hero, Sebastian Raschka's Ahead of AI, Stanford HAI, NVIDIA Developer Blog, Latent Space Podcast, The Batch, arXiv Sanity, and DeepLearning.AI's Machine Learning Specialization), rather than guessing any of them."
+      - "Added all 12 as new citations.yaml entries and slotted each into the type-based group it best matched (self-paced online learning, videos, podcasts, reading)."
+      - "Filled the previously-empty \"Podcasts\" group with Latent Space Podcast."
+      - "For arXiv Sanity specifically, found that Karpathy's original tool (arxiv-sanity.com) was superseded by a rewritten \"Lite\" version in 2021 per his own announcement, and linked the actively maintained one instead of the original."
+      - "Added \"preview\" links (representative videos) for the three video/channel resources, per the human's follow-up request: a 2026 AI Engineer World's Fair keynote (explicitly featuring Anthropic and Google DeepMind, matching the item's own text), Karpathy's first Zero to Hero lecture, and — per the human's specific request — both 3Blue1Brown's Neural Networks series playlist and his \"How might LLMs store facts\" video (confirmed via search to be the one using the Michael Jordan/basketball example)."
+      - "Resolved the threeblue1brown citation's outstanding TODO by swapping in the specific, now-verified video URL instead of the channel-only placeholder link."
+      - "Updated the Cerebral Valley and AI Engineer citations after the human supplied more specific URLs (cerebralvalley.ai/events; the aiDotEngineer YouTube channel), removing their earlier \"unverified\"/TODO flags since those are now human-confirmed rather than AI guesses."
+    human_did:
+      - "Supplied the full list of 12 new resources with descriptions, and separately supplied the specific Cerebral Valley events-page URL and AI Engineer YouTube handle."
+      - "Asked for previews/representative videos wherever possible, and specifically named the two 3Blue1Brown videos to include."
+      - "Reviewed and approved the change."
+    notes: >-
+      Every new URL in this entry was confirmed via live web search on
+      2026-07-21, not recalled from training data — noted per-citation
+      where verification happened. None of these citations have been
+      independently re-checked by a human yet, which is a different bar
+      than AI web-verification.
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Moved the \"force multiplier\" line to the top of the AI Literacy CTA as its intro, and added downloaded YouTube thumbnail previews (self-hosted, per the site's CSP) for the four video links in that section."
+    human_did:
+      - "Requested the reorder and the video previews; chose YouTube-only preview scope over also fetching preview images for non-video sites."
+    notes: "Thumbnails are self-hosted images, not live third-party embeds."
+
+  - date: "2026-07-21"
+    ai_did:
+      - "Added a visually-flagged \"AI Privacy and Security\" subsection to the AI Literacy CTA, sourced from a human-supplied GitHub repo and the EU AI Act, with new citations added for all sources."
+    human_did:
+      - "Requested the section, its lead-in theme, and the two sources; asked it be visually called out."
+      - "Reviewed and approved the change."
+    notes: >-
+      Correction: the human said "Article 9" for prohibited AI practices,
+      but web search confirmed that's actually Article 5 (Article 9 covers
+      risk management for high-risk systems) — cited as Article 5, flagged
+      here rather than silently changed.

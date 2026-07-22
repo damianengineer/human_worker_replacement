@@ -13,6 +13,8 @@
   --color-primary-contrast: #ffffff;
   --color-border: #d7d9de;
   --color-focus: #ffb703;
+  --color-warning: #b45309;
+  --color-warning-bg: #fef3e2;
 
   /* Spacing scale */
   --space-1: 0.25rem;

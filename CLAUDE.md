@@ -252,6 +252,18 @@ legalese):
 - Whenever Claude Code generates or substantially edits a page's content, it
   should prompt the user to confirm the AI Disclosure page still accurately
   reflects the current split of work, rather than assuming it's still correct.
+- **Keep the work log (`content/aidisclosure.yaml`) general and concise, not
+  verbose.** Each entry's `ai_did`/`human_did` should be a short, high-level
+  summary (a sentence or two per item) — e.g. "Drafted the History page's
+  four cases and added their citations," not a file-by-file or
+  citation-by-citation transcript of every change. The log is a plain-language
+  record of who did what, not a diff or a changelog.
+- **Periodically compact the log.** Once it grows past roughly 100 entries,
+  condense the older ones into a single summarized entry (e.g. "Entries from
+  2026-07 through 2026-09: scaffolded the Evidence, History, and Take Action
+  pages and their citations") and keep only the most recent entries in full
+  detail. Don't let the log grow unbounded — token cost to read/write it
+  scales with its length, and untracking real project history isn't the goal.
 
 ---
 
