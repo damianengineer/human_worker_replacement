@@ -61,6 +61,17 @@ extraCss:
   <h2 id="{{ cta.key | slugify }}-heading">{% if cta.icon %}<span aria-hidden="true">{{ cta.icon }}</span> {% endif %}{{ cta.heading }}</h2>
 
   {% if cta.resource_groups %}
+    <nav class="takeaction-subnav" aria-label="Jump to a resource type">
+      <ul>
+        {% for group in cta.resource_groups %}
+        <li><a href="#{{ cta.key | slugify }}-{{ group.type | slugify }}">{{ group.type }}</a></li>
+        {% endfor %}
+        {% if cta.caution_section %}
+        <li><a href="#{{ cta.key | slugify }}-caution-heading">{{ cta.caution_section.heading }}</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+
     {% if cta.intro_items %}
     <ul class="takeaction-list">
       {% for item in cta.intro_items %}{{ takeactionItem(item) }}{% endfor %}
@@ -68,7 +79,7 @@ extraCss:
     {% endif %}
 
     {% for group in cta.resource_groups %}
-    <div class="takeaction-subsection">
+    <div class="takeaction-subsection" id="{{ cta.key | slugify }}-{{ group.type | slugify }}">
       <h3>{{ group.type }}</h3>
       {% if group.items.length %}
       <ul class="takeaction-list">
