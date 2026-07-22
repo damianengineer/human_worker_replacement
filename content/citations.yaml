@@ -527,16 +527,17 @@ massenkoff2026:
 
 mcgarvey2026:
   authors: "McGarvey, M."
-  year: null
+  year: 2025
+  date: "2025-04-30"
   title: "American Sovereign Wealth Fund Exploration Act (H.R. 3116)"
-  publisher: "U.S. House of Representatives"
-  url: null
+  publisher: "U.S. House of Representatives, 119th Congress"
+  url: "https://www.congress.gov/bill/119th-congress/house-bill/3116"
   type: "government data"
-  status: "TODO(citation-needed)"
-  todo: >-
-    Need the congress.gov permalink and confirmed introduction
-    date/session — do not guess the Congress number, since a wrong one
-    produces a link to the wrong bill or a 404.
+  potential_conflict: "None disclosed"
+  note: >-
+    A reintroduction of a similar bill (H.R. 9543) McGarvey filed in the
+    prior, 118th Congress — this citation is for the current, 119th
+    Congress version.
 
 mcp:
   authors: "Anthropic"
@@ -546,11 +547,14 @@ mcp:
   url: "https://modelcontextprotocol.io/"
   type: "website"
   potential_conflict: >-
-    Anthropic created and maintains this protocol; Anthropic is a
-    commercial AI vendor, though this is a technical standard reference
-    rather than a labor-market claim.
-  status: "unverified"
-  todo: "Confirm this is still the correct canonical URL before publishing."
+    Anthropic created this protocol and, as of a 2026 donation, no
+    longer solely maintains it (it now sits under the Linux Foundation's
+    Agentic AI Foundation) — Anthropic is a commercial AI vendor, though
+    this is a technical standard reference rather than a labor-market
+    claim.
+  note: >-
+    Confirmed current: modelcontextprotocol.io remains the live,
+    canonical site after the Foundation donation.
 
 mitreatlas:
   authors: "MITRE"
@@ -685,18 +689,21 @@ shrm2026:
 
 ssatrustees:
   authors: "Social Security Administration, Office of the Chief Actuary"
-  year: null
-  title: "Social Security Trustees Report"
+  year: 2026
+  title: "The 2026 OASDI Trustees Report"
   publisher: "Social Security Administration"
-  url: null
+  url: "https://www.ssa.gov/oact/TR/2026/"
   type: "government data"
-  status: "TODO(citation-needed)"
-  todo: >-
-    The ~2033 trust fund depletion date is a commonly cited figure from
-    recent Trustees Reports, but the specific claim that actuaries have
-    flagged AI-driven job losses as a risk to that timeline needs its own
-    citable source (a specific report edition, actuarial note, or
-    testimony) — not asserted here without one.
+  potential_conflict: "None disclosed"
+  note: >-
+    Cites this report only for the trust fund depletion date. A search
+    for a specific SSA actuarial report, note, or testimony flagging
+    AI-driven job losses as a risk to that timeline found none —
+    Chief Actuary Stephen Goss's own congressional testimony does not
+    address AI as a factor. That stronger claim was removed from the
+    site copy that cited this entry rather than left unsourced;
+    outside commentary connecting AI to Social Security solvency exists
+    but is not an SSA position.
 
 stanfordhai:
   authors: "Stanford Institute for Human-Centered Artificial Intelligence"
@@ -822,201 +829,154 @@ zapier:
 # TODO status. ---
 
 mccarthy1955:
-  authors: "McCarthy, J., et al."
+  authors: "McCarthy, J., Minsky, M. L., Rochester, N., & Shannon, C. E."
   year: "1955/2006"
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy as the 1955 Dartmouth proposal (reissued 2006)
-    that coined "artificial intelligence." Need title/publisher/URL.
+  title: "A proposal for the Dartmouth Summer Research Project on Artificial Intelligence: August 31, 1955"
+  publisher: "AI Magazine, 27(4), 12–14 (reissued 2006; originally circulated 1955)"
+  url: "https://doi.org/10.1609/aimag.v27i4.1904"
+  type: "article"
+  potential_conflict: "None disclosed"
 
 russellnorvig2021:
   authors: "Russell, S., & Norvig, P."
   year: 2021
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy as "the standard university textbook" for AI.
-    Need full title/edition/publisher/URL.
+  title: "Artificial Intelligence: A Modern Approach (4th ed.)"
+  publisher: "Pearson"
+  url: "https://www.pearson.com/en-us/subject-catalog/p/Russell-Artificial-Intelligence-A-Modern-Approach-4th-Edition/P200000003500"
+  type: "book"
+  potential_conflict: "None disclosed"
 
 morris2024:
-  authors: "Morris, M., et al."
+  authors: "Morris, M. R., et al."
   year: 2024
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy as a peer-reviewed framework defining levels of
-    AGI. Need full title/publisher/URL.
+  title: "Levels of AGI for Operationalizing Progress on the Path to AGI"
+  publisher: "Google DeepMind (ICML 2024); arXiv:2311.02462"
+  url: "https://arxiv.org/abs/2311.02462"
+  type: "article"
+  potential_conflict: >-
+    Authors are Google DeepMind employees; Google is a commercial AI
+    vendor with a direct financial interest in AGI-progress framing.
 
 bostrom2014:
   authors: "Bostrom, N."
   year: 2014
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy as "the canonical scholarly treatment" of ASI —
-    a different work than bostrom1998 above. Need full title/publisher/URL.
+  title: "Superintelligence: Paths, Dangers, Strategies"
+  publisher: "Oxford University Press"
+  url: "https://global.oup.com/academic/product/superintelligence-9780198739838"
+  type: "book"
+  potential_conflict: "None disclosed"
 
 shanahan2015:
   authors: "Shanahan, M."
   year: 2015
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy as a balanced scholarly overview of the
-    singularity. Need full title/publisher/URL.
+  title: "The Technological Singularity"
+  publisher: "MIT Press"
+  url: "https://mitpress.mit.edu/9780262527804/the-technological-singularity/"
+  type: "book"
+  potential_conflict: "None disclosed"
 
 kurzweil2005:
   authors: "Kurzweil, R."
   year: 2005
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy for the 2045 singularity forecast. Need full
-    title/publisher/URL.
+  title: "The Singularity Is Near: When Humans Transcend Biology"
+  publisher: "Viking"
+  url: "https://www.worldcat.org/title/57201348"
+  type: "book"
+  potential_conflict: "None disclosed"
 
 mitchell2019:
   authors: "Mitchell, M."
   year: 2019
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy for the skeptical case on the singularity. Need
-    full title/publisher/URL.
+  title: "Artificial Intelligence: A Guide for Thinking Humans"
+  publisher: "Farrar, Straus and Giroux"
+  url: "https://melaniemitchell.me/aibook/"
+  type: "book"
+  potential_conflict: "None disclosed"
 
 vanparijsvanderborght2017:
   authors: "Van Parijs, P., & Vanderborght, Y."
   year: 2017
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy as "the canonical scholarly treatment" of UBI.
-    Need full title/publisher/URL.
+  title: "Basic Income: A Radical Proposal for a Free Society and a Sane Economy"
+  publisher: "Harvard University Press"
+  url: "https://www.hup.harvard.edu/books/9780674237469"
+  type: "book"
+  potential_conflict: "None disclosed"
 
 vivalt2024:
-  authors: "Vivalt, E., et al."
+  authors: "Vivalt, E., Rhodes, E., Bartik, A. W., Broockman, D. E., Krause, P., & Miller, S."
   year: 2024
-  title: null
-  publisher: null
-  url: null
-  type: null
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy (as a working paper) for UBI trial evidence.
-    Need full title/venue/URL.
+  date: "2024-07-23"
+  title: "The Employment Effects of a Guaranteed Income: Experimental Evidence from Two U.S. States"
+  publisher: "NBER Working Paper No. 32719"
+  url: "https://www.nber.org/papers/w32719"
+  type: "working paper"
+  potential_conflict: >-
+    Funded by OpenResearch (the guaranteed-income study's sponsor);
+    disclosed here since sponsor-funded UBI research carries the same
+    disclosure standard as industry-funded AI research on this site.
+  note: >-
+    Found that unconditional cash recipients worked somewhat less than
+    the control group — cited here as current trial evidence on UBI,
+    not as an endorsement of any particular policy conclusion.
 
 sanders2026:
   authors: "Sanders, B."
   year: 2026
+  date: "2026-06-18"
   title: "American AI Sovereign Wealth Fund Act (S. 4825)"
-  publisher: "U.S. Senate, referred to the Senate Finance Committee"
-  url: null
+  publisher: "U.S. Senate, 119th Congress, referred to the Senate Finance Committee"
+  url: "https://www.congress.gov/bill/119th-congress/senate-bill/4825"
   type: "government data"
-  status: "TODO(citation-needed)"
-  todo: >-
-    Now has a bill number and committee referral (per the human, as of
-    this research: introduced, zero cosponsors). Still need the exact
-    congress.gov permalink (e.g.
-    congress.gov/bill/&lt;nnn&gt;th-congress/senate-bill/4825) and a
-    confirmed introduction date — do not guess the Congress number, since
-    a wrong one produces a link to the wrong bill or a 404.
+  potential_conflict: "None disclosed"
+  note: >-
+    congress.gov blocks automated verification of this exact URL
+    (HTTP 403); corroborated independently via Sanders' own Senate
+    press release and govinfo.gov's bulk bill-text index, both of which
+    confirm 119th Congress, S.4825, introduced 2026-06-18, referred to
+    Finance.
 
 blsdisplacedworkers:
   authors: "U.S. Bureau of Labor Statistics"
-  year: null
-  title: "Displaced Worker Survey"
-  publisher: null
-  url: null
+  year: 2024
+  date: "2024-08-29"
+  title: "Worker Displacement: 2021–2023"
+  publisher: "U.S. Bureau of Labor Statistics"
+  url: "https://www.bls.gov/news.release/disp.toc.htm"
   type: "government data"
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited in glossary copy as the official source defining job
-    displacement. Need the specific survey year/edition and URL.
+  potential_conflict: "None disclosed"
 
 acemoglu2022:
   authors: "Acemoglu, D., Autor, D., Hazell, J., & Restrepo, P."
   year: 2022
-  title: null
-  publisher: "Journal of Labor Economics"
-  url: null
+  title: "Artificial Intelligence and Jobs: Evidence from Online Vacancies"
+  publisher: "Journal of Labor Economics, 40(S1), S293–S340"
+  url: "https://doi.org/10.1086/718327"
   type: "article"
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited (per the human) as one of the peer-reviewed econometric papers
-    behind The Evidence page's at-risk charts' methodology. Only
-    author/year/journal were supplied — this is possibly "AI and Jobs:
-    Evidence from Online Vacancies" based on that combination, but that's
-    an unconfirmed guess, not a fact; get the exact title/URL from the
-    human before finalizing.
+  potential_conflict: "None disclosed"
 
 autordornhanson2013:
   authors: "Autor, D. H., Dorn, D., & Hanson, G. H."
   year: 2013
-  title: null
-  publisher: "American Economic Review"
-  url: null
+  title: "The China Syndrome: Local Labor Market Effects of Import Competition in the United States"
+  publisher: "American Economic Review, 103(6), 2121–2168"
+  url: "https://www.aeaweb.org/articles?id=10.1257/aer.103.6.2121"
   type: "article"
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited (per the human) as one of the peer-reviewed econometric papers
-    behind The Evidence page's at-risk charts' methodology. Only
-    author/year/journal were supplied — this is possibly "The China
-    Syndrome: Local Labor Market Effects of Import Competition in the
-    United States" based on that combination, but that's an unconfirmed
-    guess, not a fact; get the exact title/URL from the human before
-    finalizing.
+  potential_conflict: "None disclosed"
 
 borusyakhulljaravel2022:
   authors: "Borusyak, K., Hull, P., & Jaravel, X."
   year: 2022
-  title: null
-  publisher: "Review of Economic Studies"
-  url: null
+  title: "Quasi-Experimental Shift-Share Research Designs"
+  publisher: "Review of Economic Studies, 89(1), 181–213"
+  url: "https://academic.oup.com/restud/article-abstract/89/1/181/6294942"
   type: "article"
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited (per the human) as one of the peer-reviewed econometric papers
-    behind The Evidence page's at-risk charts' methodology. Only
-    author/year/journal were supplied — this is possibly "Quasi-
-    Experimental Shift-Share Research Designs" based on that combination,
-    but that's an unconfirmed guess, not a fact; get the exact title/URL
-    from the human before finalizing.
+  potential_conflict: "None disclosed"
 
 graetzmichaels2018:
   authors: "Graetz, G., & Michaels, G."
   year: 2018
-  title: null
-  publisher: "Review of Economics and Statistics"
-  url: null
+  title: "Robots at Work"
+  publisher: "Review of Economics and Statistics, 100(5), 753–768"
+  url: "https://direct.mit.edu/rest/article/100/5/753/58489/Robots-at-Work"
   type: "article"
-  status: "TODO(citation-needed)"
-  todo: >-
-    Cited (per the human) as one of the peer-reviewed econometric papers
-    behind The Evidence page's at-risk charts' methodology. Only
-    author/year/journal were supplied — this is possibly "Robots at Work"
-    based on that combination, but that's an unconfirmed guess, not a
-    fact; get the exact title/URL from the human before finalizing.
+  potential_conflict: "None disclosed"
