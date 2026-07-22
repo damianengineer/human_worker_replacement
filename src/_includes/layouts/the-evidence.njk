@@ -29,6 +29,24 @@ extraCss:
 
 {% macro citeList(ids) %}{% for id in ids %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}{% endmacro %}
 
+{% macro singleFigure(figure, closeHref) %}
+{% if figure %}
+<figure class="evidence-figure evidence-figure--lead">
+  <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
+    <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
+  </a>
+  {{ figureCredit(figure.title, figure.citation) }}
+</figure>
+<div class="evidence-lightbox" id="fig-{{ figure.id }}">
+  <a class="evidence-lightbox__backdrop" href="{{ closeHref }}" aria-label="Close larger image"></a>
+  <div class="evidence-lightbox__content">
+    <a class="evidence-lightbox__close" href="{{ closeHref }}" aria-label="Close larger image">Close ✕</a>
+    <img src="{{ figure.image }}" alt="{{ figure.alt }}">
+  </div>
+</div>
+{% endif %}
+{% endmacro %}
+
 {% macro figuresGrid(figures, figuresIntro, closeHref) %}
 {% if figures %}
 {% if figuresIntro %}
@@ -107,7 +125,7 @@ extraCss:
     <h3>{{ exposed.heading }}</h3>
     {% for para in exposed.intro %}<p class="evidence-section__intro">{{ para }}</p>{% endfor %}
 
-    <ul class="evidence-list">
+    <ul class="evidence-list evidence-list--two-col">
       {% for item in exposed.items %}
       <li class="evidence-list__item">
         <h4>{{ item.industry }}</h4>
@@ -143,6 +161,9 @@ extraCss:
 <section class="evidence-section" id="protective-factors" aria-labelledby="protective-factors-heading">
   <h2 id="protective-factors-heading">{{ evidence.protective_factors.title }}</h2>
 
+  {{ singleFigure(evidence.protective_factors.lead_figure, "#protective-factors") }}
+
+  {% set outlook = evidence.protective_factors.outlook %}
   {% for barrier in evidence.protective_factors.barriers %}
   <div class="evidence-barrier">
     <h3>{{ barrier.heading }}</h3>
@@ -150,16 +171,14 @@ extraCss:
     <p class="evidence-barrier__jobs"><strong>Jobs protected by this barrier:</strong> {{ barrier.protected_jobs }}</p>
     <p class="evidence-list__source">Source: {{ citeList(barrier.citations) }}</p>
   </div>
-  {% endfor %}
-
-  {% set outlook = evidence.protective_factors.outlook %}
-  {% if outlook %}
+  {% if outlook and outlook.after_barrier == loop.index %}
   <div class="evidence-barrier evidence-barrier--outlook">
     <h3>{{ outlook.heading }}</h3>
     <p>{{ outlook.text }}</p>
     <p class="evidence-list__source">Source: {{ citeList(outlook.citations) }}</p>
   </div>
   {% endif %}
+  {% endfor %}
 </section>
 
 <section class="evidence-section" id="counterarguments" aria-labelledby="counterarguments-heading">

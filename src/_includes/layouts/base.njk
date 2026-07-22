@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ title }} | {{ site.title }}</title>
+  <title>{% if title == site.title %}{{ title }}{% else %}{{ title }} | {{ site.title }}{% endif %}</title>
   {% if description %}<meta name="description" content="{{ description }}">{% endif %}
 
   {# CSP/referrer meta-tag fallback (CLAUDE.md Section 8). X-Content-Type-Options

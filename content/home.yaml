@@ -1,0 +1,57 @@
+# Data for the landing page ("/"). Same pattern as history.yaml/evidence.yaml:
+# a non-technical editor edits this file to change what the page says,
+# without touching any template.
+#
+# Unlike the other content pages, this page's prose links out mid-sentence
+# rather than in a trailing "Source:" line, so a few text fields below
+# embed inline HTML anchors directly (the same technique citeLink already
+# uses to return raw links) — rendered with the `safe` filter in
+# home.njk. This keeps all prose in this data file, not the template.
+
+short_version:
+  heading: "The short version"
+  text: >-
+    Employment for young workers (22–25) in AI-exposed jobs has fallen
+    about 13–16% since ChatGPT launched — concentrated in entry-level
+    hiring, not senior layoffs. That's the clearest single finding in the
+    data, but it's far from the whole picture.
+  citations: ["brynjolfsson2025", "massenkoff2026"]
+  link_label: "Read the full evidence"
+  link_url: "/the-evidence/"
+
+where_to_go:
+  heading: "Where to go next"
+  items:
+    - lead: "Worried your major is in an exposed field?"
+      text: >-
+        See which jobs and Stark State programs the data flags, then
+        <a href="/take-action/#plan-b">build a Plan B</a>.
+    - lead: "Wondering how to actually use AI instead of losing to it?"
+      text: >-
+        <a href="/take-action/#ai-literacy">Improve your AI literacy</a>
+        with vetted, beginner-friendly resources.
+    - lead: "Want to have a say in how this gets handled?"
+      text: >-
+        <a href="/take-action/#policy">Be an informed citizen</a> — track
+        real bills, not headlines.
+
+background:
+  heading: "Background before you dive in"
+  text: >-
+    Two pages will help as you read the rest of the site.
+    <strong><a href="/history/">History</a></strong> looks at four earlier
+    moments — the Luddites, telephone operators, office computerization,
+    Amazon's warehouses — where new technology reshaped who got hired.
+    They're analogies, not proof of what AI will do. And since this topic
+    comes with real jargon, the
+    <strong><a href="/glossary/">Glossary</a></strong> defines every term
+    in plain language and traces each one back to where it actually came
+    from — not just its most recent headline.
+
+closing:
+  text: >-
+    Every claim on this site links to a real source, and we say plainly
+    when a source comes from a company with a stake in the answer, like
+    an AI lab, versus independent research. See
+    <a href="/ai-disclosure/">how we handle sources</a> and the
+    <a href="/references/">full reference list</a>.

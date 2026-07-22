@@ -1,9 +1,5 @@
 /* AI Disclosure page — intro copy plus a dated work log. */
 
-.ai-disclosure-intro {
-  max-width: 42rem;
-}
-
 .ai-disclosure-updated {
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);

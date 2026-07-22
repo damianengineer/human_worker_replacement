@@ -201,6 +201,13 @@ at_risk:
       # These items use the same primary/corroborating/note shape as
       # current_state's items (see that section's comment) since each of
       # these jobs shows up on both companies' lists, not just one.
+      # Alphabetized by industry (rendered as a two-column list on wide
+      # screens — see .evidence-list--two-col in the-evidence.css).
+      - industry: "Bookkeeping Clerks"
+        risk_summary: "People who track a business's money and records."
+        primary_citation: "massenkoff2026"
+        corroborating_citation: "eloundou2023"
+        note: null
       - industry: "Computer Programmers and Software Developers"
         risk_summary: "People who write and fix computer code."
         primary_citation: "massenkoff2026"
@@ -216,18 +223,13 @@ at_risk:
         primary_citation: "massenkoff2026"
         corroborating_citation: "eloundou2023"
         note: "This job shows up as highly exposed on both companies' lists too."
-      - industry: "Bookkeeping Clerks"
-        risk_summary: "People who track a business's money and records."
+      - industry: "Financial Analysts"
+        risk_summary: "People who study money and business trends to help companies make decisions."
         primary_citation: "massenkoff2026"
         corroborating_citation: "eloundou2023"
         note: null
       - industry: "Sales Representatives"
         risk_summary: "People who contact customers and sell products."
-        primary_citation: "massenkoff2026"
-        corroborating_citation: "eloundou2023"
-        note: null
-      - industry: "Financial Analysts"
-        risk_summary: "People who study money and business trends to help companies make decisions."
         primary_citation: "massenkoff2026"
         corroborating_citation: "eloundou2023"
         note: null
@@ -336,8 +338,17 @@ protective_factors:
   # This section's shape is custom (barriers + a closing outlook), not the
   # generic factor/explanation/citation list used elsewhere, since the
   # human's content has a distinct heading + explanation + "jobs
-  # protected" line + citation(s) per barrier, plus a trailing outlook
-  # block that isn't itself a barrier.
+  # protected" line + citation(s) per barrier, plus an outlook block that
+  # isn't itself a barrier.
+  lead_figure:
+    id: "protective-human-necessity"
+    image: "/assets/img/human-necessity-workers-remain-vital.png"
+    alt: >-
+      Chart showing which occupational categories rate highest on "human
+      necessity" — where workers remain vital because people specifically
+      want a human, not just a capable AI.
+    title: "Human necessity helps us understand where workers remain vital"
+    citation: "eloundou2023"
   barriers:
     - heading: "Barrier 1: AI still struggles to understand the physical world"
       explanation: >-
@@ -404,6 +415,10 @@ protective_factors:
         connected chains of judgment rather than one-off tasks.
       citations: ["lu2026"]
   outlook:
+    # Rendered right after this barrier (1-based, matching the "Barrier N"
+    # labels) rather than after the whole list, since this outlook is
+    # specifically about Barrier 1's physical-world gap closing over time.
+    after_barrier: 1
     heading: "Looking ahead: this barrier is shrinking, not permanent"
     text: >-
       It's worth being honest that Barrier 1 — the physical-world barrier

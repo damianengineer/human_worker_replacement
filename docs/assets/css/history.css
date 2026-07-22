@@ -3,7 +3,6 @@
 .history-intro {
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);
-  max-width: 42rem;
 }
 
 .history-intro p {
@@ -64,4 +63,13 @@
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
   margin: 0;
+}
+
+.history-outro {
+  margin-top: var(--space-5);
+  font-size: var(--font-size-lg);
+}
+
+.history-outro__link {
+  font-weight: 700;
 }

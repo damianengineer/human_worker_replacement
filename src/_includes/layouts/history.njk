@@ -29,3 +29,10 @@ extraCss:
   </li>
   {% endfor %}
 </ol>
+
+{% if outro_text and outro_links %}
+<p class="history-outro">
+  {{ outro_text }}
+  {% for link in outro_links %}<a class="history-outro__link" href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %} · {% endif %}{% endfor %}
+</p>
+{% endif %}

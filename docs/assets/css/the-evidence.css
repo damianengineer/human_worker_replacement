@@ -4,7 +4,6 @@
 .evidence-intro {
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);
-  max-width: 42rem;
 }
 
 .evidence-jump {
@@ -45,7 +44,6 @@
 
 .evidence-section__intro {
   color: var(--color-text-muted);
-  max-width: 42rem;
 }
 
 .evidence-subsection {
@@ -70,6 +68,21 @@
 
 .evidence-list__item:first-child {
   border-top: 1px solid var(--color-border);
+}
+
+.evidence-list--two-col {
+  columns: 1;
+}
+
+@media (min-width: 40rem) {
+  .evidence-list--two-col {
+    columns: 2;
+    column-gap: var(--space-5);
+  }
+
+  .evidence-list--two-col .evidence-list__item {
+    break-inside: avoid;
+  }
 }
 
 .evidence-list__item h3,
@@ -97,7 +110,6 @@
 
 .evidence-figures-intro {
   color: var(--color-text-muted);
-  max-width: 42rem;
 }
 
 .evidence-methodology-note {
@@ -124,6 +136,11 @@
   margin: 0;
 }
 
+.evidence-figure--lead {
+  max-width: 28rem;
+  margin: 0 auto var(--space-5);
+}
+
 .evidence-figure__zoom {
   display: block;
   position: relative;
@@ -134,6 +151,8 @@
   display: block;
   width: 100%;
   height: auto;
+  background: var(--color-chart-bg);
+  padding: var(--space-2);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-base);
 }
@@ -203,6 +222,8 @@
   max-width: 90vw;
   max-height: 85vh;
   margin: 0 auto;
+  background: var(--color-chart-bg);
+  padding: var(--space-3);
   border-radius: var(--radius-base);
 }
 
@@ -210,7 +231,11 @@
   position: absolute;
   top: calc(-1 * var(--space-5));
   right: 0;
-  color: var(--color-bg);
+  /* Fixed (not token-driven): this sits on the lightbox's own fixed dark
+     scrim regardless of site theme, so it must stay light-on-dark in
+     both light and dark mode rather than following --color-bg — which
+     would turn near-black-on-dark-scrim and disappear in dark mode. */
+  color: #ffffff;
   text-decoration: none;
   font-weight: 700;
   font-size: var(--font-size-sm);

@@ -1,0 +1,16 @@
+/* About page — mission, authorship, and funding/COI disclosure. */
+
+.about-intro h2 {
+  font-size: var(--font-size-xl);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-2);
+  margin-top: var(--space-5);
+}
+
+.about-intro ul {
+  padding-left: var(--space-4);
+}
+
+.about-intro li {
+  margin-bottom: var(--space-2);
+}

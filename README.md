@@ -10,10 +10,15 @@ All page text lives under [content/](content/) as Markdown (`.md`) or
 structured data (`.yaml`). You don't need to touch anything under `src/` to
 change what a page says.
 
-- `content/site.yaml` — site title and nav labels.
+- `content/site.yaml` — site title, nav labels, and footer links.
 - `content/citations.yaml` — sources, keyed by citation ID.
-- `content/glossary.md` — glossary page intro text.
-- `content/glossary.yaml` — the glossary term list.
+- `content/index.md` / `content/home.yaml` — the landing page (served at `/`).
+- `content/glossary.md` / `content/glossary.yaml` — the glossary page and its term list.
+- `content/the-evidence.md` / `content/evidence.yaml`, `content/history.md` / `content/history.yaml`,
+  `content/take-action.md` / `content/takeaction.yaml` — same intro-text/structured-data split for
+  each of those pages.
+- `content/about.md`, `content/ai-disclosure.md` / `content/aidisclosure.yaml` — About and AI
+  Disclosure pages.
 
 ## Local development
 
@@ -21,9 +26,14 @@ Requires Node.js 18+.
 
 ```sh
 npm install
-npm run serve   # builds and serves at http://localhost:8080 with live reload
+npm run serve   # builds and serves with live reload
 npm run build   # one-off production build to docs/
 ```
+
+`npm run serve` bakes in the `--pathprefix` this repo's GitHub Pages URL
+needs, so the site is actually live at
+**http://localhost:8080/human_worker_replacement/** — the bare
+`http://localhost:8080/` redirects there.
 
 ## Deploying
 

@@ -9,6 +9,8 @@ tagline: "What AI means for entry-level work — and how to get ready"
 # "When adding a new page, update: the nav partial..."). Only pages that
 # exist should be listed, so we don't ship broken links.
 nav:
+  - label: "Home"
+    url: "/"
   - label: "The Evidence"
     url: "/the-evidence/"
   - label: "Take Action"
@@ -19,14 +21,16 @@ nav:
     url: "/glossary/"
   - label: "References"
     url: "/references/"
+  - label: "About"
+    url: "/about/"
   - label: "AI Disclosure"
     url: "/ai-disclosure/"
 
 footer:
   copyright: "This site is a student-focused educational resource."
-  # About link belongs here too (CLAUDE.md Section 5: footer links to
-  # About/AI Disclosure/References on every page) — add once that page exists.
   links:
+    - label: "About"
+      url: "/about/"
     - label: "AI Disclosure"
       url: "/ai-disclosure/"
     - label: "References"

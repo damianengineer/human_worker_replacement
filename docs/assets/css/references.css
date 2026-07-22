@@ -3,7 +3,6 @@
 .references-intro {
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);
-  max-width: 42rem;
   margin-bottom: var(--space-5);
 }
 

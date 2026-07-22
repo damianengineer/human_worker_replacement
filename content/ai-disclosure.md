@@ -4,9 +4,11 @@ description: "How AI helped build this site, what a human did, and a running log
 layout: "layouts/ai-disclosure.njk"
 ---
 
-This site was built with help from an AI coding assistant (Claude Code, by
-Anthropic). Here's a plain explanation of who did what, kept up to date as a
-running log below.
+This site was built with help from AI tools made by Anthropic: mainly
+**Claude Code**, an AI coding assistant, for building pages and drafting
+content; **Claude Desktop** was also used at points for research and
+planning outside of the coding sessions. Here's a plain explanation of who
+did what, kept up to date as a running log below.
 
 ## The short version
 

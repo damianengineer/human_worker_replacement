@@ -1,0 +1,46 @@
+---
+layout: "layouts/base.njk"
+extraCss:
+  - "/assets/css/home.css"
+---
+<h1>{{ title }}</h1>
+
+<div class="home-intro">
+  {{ content | safe }}
+</div>
+
+<nav class="home-jump" aria-label="Sections on this page">
+  <ul>
+    <li><a href="#short-version">{{ home.short_version.heading }}</a></li>
+    <li><a href="#where-to-go">{{ home.where_to_go.heading }}</a></li>
+    <li><a href="#background">{{ home.background.heading }}</a></li>
+  </ul>
+</nav>
+
+<section class="home-section" id="short-version" aria-labelledby="short-version-heading">
+  <h2 id="short-version-heading">{{ home.short_version.heading }}</h2>
+  <p>{{ home.short_version.text }}</p>
+  <p class="home-section__source">
+    Source:
+    {% for id in home.short_version.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+  </p>
+  <p><a href="{{ home.short_version.link_url }}">{{ home.short_version.link_label }}</a></p>
+</section>
+
+<section class="home-section" id="where-to-go" aria-labelledby="where-to-go-heading">
+  <h2 id="where-to-go-heading">{{ home.where_to_go.heading }}</h2>
+  <ul class="home-list">
+    {% for item in home.where_to_go.items %}
+    <li class="home-list__item">
+      <p><strong>{{ item.lead }}</strong><br>{{ item.text | safe }}</p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="home-section" id="background" aria-labelledby="background-heading">
+  <h2 id="background-heading">{{ home.background.heading }}</h2>
+  <p>{{ home.background.text | safe }}</p>
+</section>
+
+<p class="home-closing">{{ home.closing.text | safe }}</p>

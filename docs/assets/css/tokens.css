@@ -15,6 +15,11 @@
   --color-focus: #ffb703;
   --color-warning: #b45309;
   --color-warning-bg: #fef3e2;
+  /* Fixed light card behind embedded chart screenshots (which have their
+     own white backgrounds) — intentionally NOT overridden in dark mode
+     below, so charts always sit on a light frame instead of floating raw
+     against a dark page. */
+  --color-chart-bg: #f4f5f7;
 
   /* Spacing scale */
   --space-1: 0.25rem;
@@ -36,4 +41,29 @@
   /* Layout */
   --content-max-width: 60rem;
   --radius-base: 0.25rem;
+}
+
+/* Dark-mode-first palette — follows the visitor's OS setting rather than
+   forcing dark, but dark is the primary design target these values were
+   tuned for (contrast ratios computed with WCAG's relative-luminance
+   formula, not eyeballed): text on bg 14.5:1, muted-text on bg 8.0:1,
+   primary/link on bg 8.1:1, focus amber on bg 10.4:1, warning on
+   warning-bg 7.9:1 — all comfortably clear the 4.5:1 AA floor. Charcoal
+   instead of pure black, off-white instead of pure white, per CLAUDE.md's
+   general legibility-over-flash instinct for this reference-heavy site. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #14161b;
+    --color-bg-subtle: #1c1f26;
+    --color-text: #e8e6e3;
+    --color-text-muted: #a9adb5;
+    --color-primary: #7fb2e5;
+    --color-primary-contrast: #0f1115;
+    --color-border: #2c2f38;
+    --color-warning: #f0a868;
+    --color-warning-bg: #2a2116;
+    /* --color-focus and --color-chart-bg intentionally unchanged: the
+       amber focus ring and the light chart-image card already read well
+       against the dark background. */
+  }
 }

@@ -135,31 +135,41 @@ directories so a non-technical editor can update copy without touching code.
 ├── package.json
 ├── .eleventy.js                # build config
 ├── content/                    # ALL editable copy lives here — Markdown/YAML only
-│   ├── home.md
+│   ├── index.md                 # landing page (routes to site root "/")
+│   ├── home.yaml                 # landing page's structured content
 │   ├── the-evidence.md
-│   ├── backup-plan.md
-│   ├── ai-literacy.md
+│   ├── evidence.yaml              # The Evidence page's structured content
+│   ├── history.md
+│   ├── history.yaml               # History page's four cases
+│   ├── glossary.md
+│   ├── glossary.yaml               # Glossary term list
 │   ├── take-action.md
+│   ├── takeaction.yaml             # hosts the Plan B / AI Literacy / Policy
+│   │                                 CTAs as anchored sections on one page
+│   │                                 (see Section 5 — these are NOT separate
+│   │                                 pages, unlike this file tree's original
+│   │                                 draft)
 │   ├── about.md
 │   ├── ai-disclosure.md
-│   ├── references.md           # APA reference list, generated or hand-maintained
-│   ├── site.yaml                # global strings: nav labels, site title, CTAs
-│   └── citations.yaml           # structured citation data (see Section 8)
+│   ├── aidisclosure.yaml           # AI Disclosure's work log (see Section 7)
+│   ├── references.md           # APA reference list, generated from citations.yaml
+│   ├── site.yaml                # global strings: nav labels, site title, footer
+│   └── citations.yaml           # structured citation data (see Section 6)
 ├── src/
 │   ├── _includes/
-│   │   ├── layouts/             # Nunjucks layout templates (no prose text here)
-│   │   └── partials/            # header, footer, nav, citation component
+│   │   ├── layouts/             # one Nunjucks layout per page (no prose here)
+│   │   └── partials/            # header, footer, nav
 │   ├── assets/
-│   │   ├── css/                 # stylesheets only
-│   │   ├── js/                  # minimal, no inline scripts (see Section 9)
+│   │   ├── css/                 # tokens.css + one stylesheet per page
 │   │   └── img/
-│   └── 404.njk
-├── .github/
-│   └── workflows/
-│       └── ci.yml               # lint, link-check, accessibility check
+│   │   # no assets/js/ or 404.njk yet — the site has needed neither so far
+│   │   # (fully readable/navigable without JS); add them when a real need
+│   │   # comes up rather than scaffolding unused files.
 ├── docs/                        # build output — committed; this is what
 │                                 # GitHub Pages serves (see Section 3)
-└── tests/                       # link checker / a11y test configs
+└── (planned, not yet built) .github/workflows/ci.yml and tests/ — see
+    Section 8's npm-audit/a11y/link-check requirements, currently run
+    manually rather than in CI.
 ```
 
 **Rule:** Templates in `src/_includes` may contain layout markup, ARIA
@@ -180,9 +190,14 @@ page.
 ```
 Home
 ├── The Evidence            (data/trends on AI and entry-level jobs)
-├── Build Your Backup Plan  (practical guidance)
-├── Build Your AI Literacy  (practical guidance)
-├── Take Action             (primary CTAs: resources, checklists, links)
+├── Take Action             (primary CTAs — Build Your Backup Plan, Build
+│                            Your AI Literacy, and AI Policy are anchored
+│                            sections on this one page, #plan-b/#ai-literacy/
+│                            #policy, not separate pages)
+├── History                  (past tech-disruption cases, as context for
+│                             The Evidence — not in the original spec below,
+│                             added as the site was built out)
+├── Glossary                  (plain-language term definitions, same reason)
 ├── About                    (who made this, mission, funding/COI disclosure)
 ├── AI Disclosure            (required — see Section 7)
 └── References                (APA-formatted bibliography)
@@ -192,12 +207,15 @@ Requirements:
 
 - Global nav present on every page, current page indicated (`aria-current="page"`).
 - Every page has a single clear primary CTA (e.g., "See the data," "Get the
-  checklist") — avoid competing CTAs per IA best practice.
+  checklist") — avoid competing CTAs per IA best practice. **Documented
+  exception:** Take Action is the site's CTA hub by design (see the sitemap
+  above) and legitimately hosts three, not one.
 - Footer includes links to **About**, **AI Disclosure**, and **References** on
   every page (transparency should never be more than one click away).
 - Breadcrumbs on any page nested under a section.
 - URL slugs are human-readable and stable (`/the-evidence/`, not `/page2/`).
-- Provide an HTML sitemap page and an XML `sitemap.xml` for SEO.
+- Provide an HTML sitemap page and an XML `sitemap.xml` for SEO. **Not yet
+  built** — no `sitemap.xml` or HTML sitemap page exists in this repo yet.
 
 ---
 
@@ -219,11 +237,16 @@ mckinsey2023:
   potential_conflict: "None disclosed"
 ```
 
-- Prose in `content/*.md` references a citation by ID (e.g., `{% cite
-  "mckinsey2023" %}`), and a Nunjucks shortcode/filter renders the correct
-  in-text APA parenthetical and appends the full entry to the references page
-  automatically — **do not hand-format citations in two places**, since that
-  causes drift.
+- In practice, most citation IDs live as fields inside each page's
+  structured `content/*.yaml` data file (e.g. `evidence.yaml`'s
+  `primary_citation`/`corroborating_citation`, or a `citations: [...]`
+  list), not inline in `content/*.md` prose — each page's Nunjucks layout
+  loops over that data and renders the citation via the shared `citeLink`
+  filter (a `{% cite "id" %}` shortcode also exists for the rarer case of
+  citing something directly inside flowing markdown prose). Either way,
+  the filter/shortcode renders the in-text APA parenthetical and the
+  references page pulls from the same `citations.yaml` entry — **do not
+  hand-format citations in two places**, since that causes drift.
 - Every claim of statistic, study finding, or projection must carry a
   citation ID. Claude Code should flag (not silently invent) any uncited
   factual claim it encounters or is asked to add.
