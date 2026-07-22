@@ -121,3 +121,16 @@ entries:
       the two-column lists feel cramped around 640–768px) were left as
       open questions rather than guessed at — they need an actual device
       check this pass didn't do.
+
+  - date: "2026-07-22"
+    summary: "Two licensed historical images added to History"
+    ai_did:
+      - "Web-researched licensing for a candidate image per History case; confirmed two as usable (an 1812 public-domain engraving for the Luddite Rebellion, a CC BY 4.0 Wikimedia Commons photo for Amazon Warehouse Robotics) and two as not confirmable (1920s telephone operators — source blocked automated verification; 1980s office computerization — no free/licensed candidate found)."
+      - "Added both images with real citations, after viewing each image directly to write accurate alt text rather than guessing from the filename."
+      - "Found and fixed a bug while verifying this: the shared figure/lightbox partial (introduced earlier this session) was silently rendering every chart's citation credit as blank, site-wide, due to a Nunjucks import-context issue — not specific to this task's new images."
+    human_did:
+      - "Approved proceeding with the two confirmed-license candidates."
+    notes: >-
+      No image was added for the two cases without a confirmed license,
+      per the task's explicit "ambiguous license is a do-not-include"
+      rule — not filled in with a lower-confidence substitute.
