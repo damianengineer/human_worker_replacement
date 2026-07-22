@@ -18,7 +18,7 @@ extraCss:
 <ol class="history-list">
   {% for case in history.cases %}
   <li class="history-case" id="{{ case.name | slugify }}">
-    <h2>{{ case.name }} <span class="history-case__years">({{ case.years }})</span></h2>
+    <h2>{% if case.icon %}<span aria-hidden="true">{{ case.icon }}</span> {% endif %}{{ case.name }} <span class="history-case__years">({{ case.years }})</span></h2>
     <ul class="history-case__impact">
       {% for line in case.impact %}<li>{{ line }}</li>{% endfor %}
     </ul>

@@ -19,6 +19,18 @@ extraCss:
   </div>
   {% endif %}
 
+  {% set embedLinks = item.links | withEmbed %}
+  {% if embedLinks.length %}
+  <div class="takeaction-item__embeds">
+    {% for link in embedLinks %}
+    <div class="takeaction-embed">
+      {% youtubeEmbed link.embed_video_id, link.label %}
+      <span class="takeaction-embed__label">{{ link.label }}</span>
+    </div>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   {% set textLinks = item.links | withoutImage %}
   {% if item.citations.length or textLinks.length %}
   <p class="takeaction-item__extras">
@@ -46,7 +58,7 @@ extraCss:
 
 {% for cta in takeaction.ctas %}
 <section class="takeaction-section" id="{{ cta.key | slugify }}" aria-labelledby="{{ cta.key | slugify }}-heading">
-  <h2 id="{{ cta.key | slugify }}-heading">{{ cta.heading }}</h2>
+  <h2 id="{{ cta.key | slugify }}-heading">{% if cta.icon %}<span aria-hidden="true">{{ cta.icon }}</span> {% endif %}{{ cta.heading }}</h2>
 
   {% if cta.resource_groups %}
     {% if cta.intro_items %}

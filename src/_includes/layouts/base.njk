@@ -8,8 +8,13 @@
 
   {# CSP/referrer meta-tag fallback (CLAUDE.md Section 8). X-Content-Type-Options
      and Permissions-Policy can only be set via a real HTTP header, not a meta
-     tag — that still needs to be configured in the GitHub Pages deploy step. #}
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'self'">
+     tag — that still needs to be configured in the GitHub Pages deploy step.
+     frame-src is scoped to exactly one third-party origin (YouTube's
+     privacy-enhanced embed domain) for the video embeds on /take-action/ —
+     this is the one explicitly-requested third-party embed on the site
+     (CLAUDE.md Section 8's "never silently add third-party embeds" bar),
+     not a general allowance for arbitrary iframes. #}
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
   <link rel="stylesheet" href="/assets/css/tokens.css">

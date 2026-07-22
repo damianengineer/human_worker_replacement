@@ -19,6 +19,7 @@
 
 ctas:
   - key: "plan_b"
+    icon: "🛟"
     heading: "Call to Action: If Your Major Is at High Risk, Build a Plan B"
     items:
       - text: >-
@@ -84,6 +85,7 @@ ctas:
         links: []
 
   - key: "ai_literacy"
+    icon: "🧠"
     heading: "Call to Action: Improve Your AI Literacy"
     # This CTA is grouped by resource type (in-person events > self-paced
     # online learning > videos > podcasts > reading > online communities),
@@ -163,7 +165,7 @@ ctas:
                 url: "https://www.youtube.com/@aiDotEngineer"
               - label: "Representative talk (WF2026 keynotes ft. Anthropic, Google DeepMind, Amazon AGI)"
                 url: "https://www.youtube.com/watch?v=4sX_He5c4sI"
-                image: "/assets/img/youtube-thumb-ai-engineer-wf2026.jpg"
+                embed_video_id: "4sX_He5c4sI"
           - text: >-
               Andrej Karpathy's "Neural Networks: Zero to Hero" is widely
               considered one of the best AI courses ever made, free or
@@ -192,7 +194,7 @@ ctas:
                 image: "/assets/img/youtube-thumb-3b1b-neural-networks-ch1.jpg"
               - label: "How might LLMs store facts"
                 url: "https://www.youtube.com/watch?v=9-Jl0dxWQs8"
-                image: "/assets/img/youtube-thumb-3b1b-llm-facts.jpg"
+                embed_video_id: "9-Jl0dxWQs8"
 
       - type: "Podcasts"
         items:
@@ -373,6 +375,7 @@ ctas:
               url: "https://ai-act-service-desk.ec.europa.eu/en/ai-act/article-5"
 
   - key: "policy"
+    icon: "🏛️"
     heading: "Call to Action: Be an Informed Citizen on AI Policy"
     items:
       - text: >-

@@ -103,7 +103,21 @@ module.exports = function (eleventyConfig) {
   // that carry a local preview `image` — used to render those as visual
   // preview cards separately from plain text links.
   eleventyConfig.addFilter("withImage", (links) => (links || []).filter((l) => l.image));
-  eleventyConfig.addFilter("withoutImage", (links) => (links || []).filter((l) => !l.image));
+  // Plain-text links: no preview image AND not rendered as a full video
+  // embed (see withEmbed) — those get their own treatment instead.
+  eleventyConfig.addFilter("withoutImage", (links) => (links || []).filter((l) => !l.image && !l.embed_video_id));
+  eleventyConfig.addFilter("withEmbed", (links) => (links || []).filter((l) => l.embed_video_id));
+
+  // Privacy-enhanced YouTube embed: youtube-nocookie.com domain, no
+  // autoplay (omitted from both the URL and the `allow` list, so it can't
+  // be turned on by a stray query param either), native lazy-loading (no
+  // JS needed — works with the site's JS-optional constraint), and a
+  // required descriptive title for screen readers.
+  eleventyConfig.addShortcode("youtubeEmbed", function (videoId, title) {
+    const safeId = escapeHtml(videoId);
+    const safeTitle = escapeHtml(title);
+    return `<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/${safeId}" title="${safeTitle}" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe></div>`;
+  });
 
   return {
     dir: {

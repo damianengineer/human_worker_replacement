@@ -12,6 +12,7 @@
 
 cases:
   - name: "Luddite Rebellion"
+    icon: "🧵"
     years: "1811–1816"
     impact:
       - "Skilled textile workers protested being replaced by machines with no compensation, collapsing wages, and no say in the change."
@@ -21,6 +22,7 @@ cases:
     citations: ["frey2019", "nationalarchivesuk"]
 
   - name: "Automation of Telephone Operators"
+    icon: "☎️"
     years: "1920s–1930s"
     impact:
       - "One of the biggest white-collar jobs held by young American women at the time — telephone operator — mostly disappeared as automatic switching equipment took over."
@@ -28,6 +30,7 @@ cases:
     citations: ["feigenbaum2024"]
 
   - name: "Computerization of Office Work"
+    icon: "🖥️"
     years: "1980s–2000s"
     impact:
       - "Typists, bookkeepers, filing clerks, and bank tellers doing routine back-office work were replaced as spreadsheets, word processors, and databases took over routine cognitive tasks."
@@ -35,6 +38,7 @@ cases:
     citations: ["autor2003"]
 
   - name: "Amazon Warehouse Robotics"
+    icon: "🤖"
     years: "2012–present"
     impact:
       - "Amazon bought robotics company Kiva Systems in 2012, and by 2025 it ran roughly 750,000 to 1 million robots across its warehouses. Internal plans reported in the press describe automating about 75% of operations and avoiding up to 600,000 U.S. hires by 2033."
