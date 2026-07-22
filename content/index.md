@@ -4,8 +4,9 @@ description: "A student's guide to AI's effect on entry-level jobs — the evide
 layout: "layouts/home.njk"
 ---
 
-Getting a first job after graduation is getting harder in some fields —
-and the data says AI is part of why. This site pulls together
-peer-reviewed research, data from the two biggest AI labs, and one
-independent, skeptical economist's review, so you can make an informed
-plan instead of guessing.
+AI replacement of human workers is already underway — and entry-level
+jobs are where it's hitting first. This site isn't here to talk you out
+of your major or your passion. It's here to show you the real evidence,
+from peer-reviewed research to the AI labs' own data to one independent,
+skeptical economist's review — so you can build a backup plan and make
+AI an advantage instead of a threat.
