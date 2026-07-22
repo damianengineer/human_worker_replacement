@@ -71,6 +71,12 @@ extraCss:
   {{ content | safe }}
 </div>
 
+{% if teaser_label and teaser_url %}
+<p class="evidence-teaser">
+  <a class="evidence-teaser__link" href="{{ teaser_url }}">{{ teaser_label }}</a>
+</p>
+{% endif %}
+
 <nav class="evidence-jump" aria-label="Sections on this page">
   <ul>
     <li><a href="#current-state">{{ evidence.current_state.title }}</a></li>

@@ -2,6 +2,8 @@
 title: "The Evidence"
 description: "PLACEHOLDER — meta description for The Evidence page (not yet written)."
 layout: "layouts/the-evidence.njk"
+teaser_label: "Just want to check if your major is exposed? Jump straight to the Stark State program breakdown."
+teaser_url: "#stark-state"
 outro_text: "Curious what led here, or what to actually do with all this?"
 outro_links:
   - label: "See the history behind this"
