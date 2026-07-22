@@ -29,3 +29,4 @@ npm run build   # one-off production build to _site/
 
 See CLAUDE.md Section 4 for the full repository layout and the reasoning
 behind it (content/templates/styles kept in separate directories).
+
