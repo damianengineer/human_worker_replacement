@@ -106,8 +106,15 @@ should flag it to the user instead of silently "fixing" it:
 - If the user has already scaffolded a different SSG (Astro, Hugo, plain
   HTML) before invoking Claude Code, **do not migrate frameworks** without
   asking — adapt these rules to the existing stack instead.
-- **Hosting:** GitHub Pages, deployed via GitHub Actions (`.github/workflows/deploy.yml`).
-  No server-side code, no databases, no secrets required at runtime.
+- **Hosting:** GitHub Pages, serving the `docs/` folder on `main` (Settings →
+  Pages → Deploy from a branch). Publishing is manual: run `npm run build`
+  (outputs to `docs/`, with the `--pathprefix` needed for this repo's
+  project-page subpath baked into the npm scripts) and commit the result.
+  A GitHub Actions-based deploy was tried first and abandoned (no
+  available runner in this environment); don't reintroduce
+  `.github/workflows/deploy.yml` without checking that constraint has
+  changed. No server-side code, no databases, no secrets required at
+  runtime.
 - **Package manager:** npm. Lockfile (`package-lock.json`) must be committed.
 - **No client-side frameworks (React/Vue/etc.) unless explicitly requested.**
   This is a content site; vanilla HTML/CSS with minimal progressive-enhancement
@@ -149,8 +156,9 @@ directories so a non-technical editor can update copy without touching code.
 │   └── 404.njk
 ├── .github/
 │   └── workflows/
-│       ├── deploy.yml           # build + deploy to GitHub Pages
 │       └── ci.yml               # lint, link-check, accessibility check
+├── docs/                        # build output — committed; this is what
+│                                 # GitHub Pages serves (see Section 3)
 └── tests/                       # link checker / a11y test configs
 ```
 
@@ -341,6 +349,8 @@ a public-facing informational site:
 - Conventional commits (`feat:`, `fix:`, `content:`, `docs:`, `chore:`).
 - `content:`-scoped commits should touch only files under `content/` (and
   generated output), to keep copy-only changes easy to review/diff.
-- `main` branch auto-deploys to GitHub Pages via `.github/workflows/deploy.yml`
-  on merge; PRs trigger `ci.yml` (build, `npm audit`, a11y check, link check)
-  and must pass before merge.
+- Deploys are manual, not automatic: after merging to `main`, run
+  `npm run build` locally and commit the resulting `docs/` output — that
+  commit is what actually goes live, so don't merge content/template
+  changes without also refreshing `docs/`. PRs trigger `ci.yml` (build,
+  `npm audit`, a11y check, link check) and must pass before merge.

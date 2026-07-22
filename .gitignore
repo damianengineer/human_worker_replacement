@@ -1,0 +1,73 @@
+# --- Secrets & credentials ---
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.crt
+*.cer
+*.der
+*.jks
+*.keystore
+*credentials*
+*secret*
+*secrets*
+*.htpasswd
+id_rsa
+id_rsa.pub
+id_ed25519
+id_ed25519.pub
+*.ppk
+.npmrc
+.pypirc
+.netrc
+.aws/
+.gcp/
+*.gpg
+*.asc
+
+# --- macOS metadata ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+.AppleDouble
+.LSOverride
+Icon?
+
+# --- Windows metadata ---
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# --- Linux metadata ---
+.directory
+.Trash-*
+
+# --- Editor / IDE ---
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- Logs & temp files ---
+*.log
+*.tmp
+.cache/
+
+# --- Node / Eleventy build output ---
+# Build output now goes to docs/ (see CLAUDE.md Section 3) and IS
+# committed — that's what GitHub Pages serves from `main`. _site/ is no
+# longer produced, but stays ignored in case that ever changes back.
+node_modules/
+_site/
+.eleventy-cache/
+
+# --- Scratch/dropbox folder for passing content between human and assistant.
+# Not site content — must be emptied/deleted before this repo goes live. ---
+/temp/

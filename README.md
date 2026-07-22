@@ -22,8 +22,17 @@ Requires Node.js 18+.
 ```sh
 npm install
 npm run serve   # builds and serves at http://localhost:8080 with live reload
-npm run build   # one-off production build to _site/
+npm run build   # one-off production build to docs/
 ```
+
+## Deploying
+
+GitHub Pages serves this site from the `docs/` folder on `main` (Settings →
+Pages → Deploy from a branch) — there's no CI-based deploy. To publish a
+change: merge to `main`, run `npm run build`, then commit and push the
+updated `docs/` output. The build script bakes in the `--pathprefix` this
+repo's GitHub Pages URL needs; don't drop that flag when running Eleventy
+directly.
 
 ## Project structure
 
