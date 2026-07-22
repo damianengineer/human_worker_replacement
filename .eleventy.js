@@ -99,6 +99,12 @@ module.exports = function (eleventyConfig) {
     .sort((a, b) => String(a.authors).localeCompare(String(b.authors)))
   );
 
+  // Splits a `links` array (see takeaction.yaml) down to just the entries
+  // that carry a local preview `image` — used to render those as visual
+  // preview cards separately from plain text links.
+  eleventyConfig.addFilter("withImage", (links) => (links || []).filter((l) => l.image));
+  eleventyConfig.addFilter("withoutImage", (links) => (links || []).filter((l) => !l.image));
+
   return {
     dir: {
       input: "content",
