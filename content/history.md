@@ -13,7 +13,7 @@ outro_links:
 ---
 
 AI isn't the first technology to reshape who gets hired, what they get paid,
-and whose jobs disappear. Here are three earlier moments when new technology
+and whose jobs disappear. Here are four earlier moments when new technology
 took over work people used to do, what actually happened to those workers,
 and a source you can read for more detail.
 

@@ -1,6 +1,6 @@
 ---
 title: "The Evidence"
-description: "PLACEHOLDER — meta description for The Evidence page (not yet written)."
+description: "Current data on AI and entry-level hiring: which jobs and Stark State programs are most exposed, what still protects other work, and the case for skepticism."
 layout: "layouts/the-evidence.njk"
 teaser_label: "Just want to check if your major is exposed? Jump straight to the Stark State program breakdown."
 teaser_url: "#stark-state"
