@@ -9,22 +9,17 @@ tagline: "What AI means for entry-level work — and how to get ready"
 # "When adding a new page, update: the nav partial..."). Only pages that
 # exist should be listed, so we don't ship broken links.
 nav:
-  - label: "Home"
-    url: "/"
   - label: "The Evidence"
     url: "/the-evidence/"
-  - label: "Take Action"
-    url: "/take-action/"
   - label: "History"
     url: "/history/"
+  - label: "Take Action"
+    url: "/take-action/"
   - label: "Glossary"
     url: "/glossary/"
-  - label: "References"
-    url: "/references/"
-  - label: "About"
-    url: "/about/"
-  - label: "AI Disclosure"
-    url: "/ai-disclosure/"
+# Home is reachable via the header brand link (already links to "/").
+# About, AI Disclosure, and References are demoted from primary nav but
+# remain reachable via footer.links below on every page.
 
 footer:
   copyright: "This site is a student-focused educational resource."
