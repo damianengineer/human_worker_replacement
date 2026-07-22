@@ -21,14 +21,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
           cache: "npm"
+
       - run: npm ci
-      - run: npm run build
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+
+      # 1. Initialize Pages setup FIRST to obtain environment configuration variables
+      - name: Configure Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      # 2. Build the Eleventy site using the dynamic base path prefix
+      - name: Build with Eleventy
+        run: npx eleventy --pathprefix="${{ steps.pages.outputs.base_path }}"
+
+      # 3. Securely pack and bundle your production files
+      - name: Upload Artifact
+        uses: actions/upload-pages-artifact@v3
         with:
           path: "./_site"
 
