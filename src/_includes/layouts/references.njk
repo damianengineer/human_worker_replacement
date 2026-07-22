@@ -9,29 +9,44 @@ extraCss:
   {{ content | safe }}
 </div>
 
-<ol class="reference-list">
-  {% for entry in citations | sortedCitations %}
-  <li class="reference-list__item" id="{{ entry.id }}">
-    {% if entry.status == "TODO(citation-needed)" %}
-    <p class="reference-list__citation reference-list__citation--todo">
-      {{ entry.authors }}{% if entry.year %} ({{ entry.year }}){% endif %} — source needed
-    </p>
-    {% if entry.todo %}<p class="reference-list__todo">{{ entry.todo }}</p>{% endif %}
-    {% else %}
-    <p class="reference-list__citation{% if entry.status == 'unverified' %} reference-list__citation--unverified{% endif %}">
-      {{ entry.authors }}{% if entry.year %} ({{ entry.year }}){% endif %}. {{ entry.title }}{{ entry.title | sentencePeriod }}
-      {%- if entry.publisher %} {{ entry.publisher }}.{% endif %}
-      {% if entry.url %} <a href="{{ entry.url }}">{{ entry.url }}</a>{% endif %}
-      {%- if entry.status == 'unverified' %} <strong>(unverified)</strong>{% endif %}
-    </p>
-    {% if entry.status == "unverified" and entry.todo %}
-    <p class="reference-list__todo">{{ entry.todo }}</p>
-    {% endif %}
-    {% if entry.note %}<p class="reference-list__note">{{ entry.note }}</p>{% endif %}
-    {% if entry.potential_conflict and entry.potential_conflict != "None disclosed" %}
-    <p class="reference-list__conflict">Disclosure: {{ entry.potential_conflict }}</p>
-    {% endif %}
-    {% endif %}
-  </li>
-  {% endfor %}
-</ol>
+{% set groups = citations | groupedCitations %}
+
+<nav class="references-jump" aria-label="Jump to a letter">
+  <ul>
+    {% for group in groups %}
+    <li><a href="#ref-{{ group.letter }}">{{ group.letter }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+
+{% for group in groups %}
+<section class="references-group">
+  <h2 id="ref-{{ group.letter }}" class="references-group__letter">{{ group.letter }}</h2>
+  <ol class="reference-list">
+    {% for entry in group.entries %}
+    <li class="reference-list__item" id="{{ entry.id }}">
+      {% if entry.status == "TODO(citation-needed)" %}
+      <p class="reference-list__citation reference-list__citation--todo">
+        {{ entry.authors }}{% if entry.year %} ({{ entry.year }}){% endif %} — source needed
+      </p>
+      {% if entry.todo %}<p class="reference-list__todo">{{ entry.todo }}</p>{% endif %}
+      {% else %}
+      <p class="reference-list__citation{% if entry.status == 'unverified' %} reference-list__citation--unverified{% endif %}">
+        {{ entry.authors }}{% if entry.year %} ({{ entry.year }}){% endif %}. {{ entry.title }}{{ entry.title | sentencePeriod }}
+        {%- if entry.publisher %} {{ entry.publisher }}.{% endif %}
+        {% if entry.url %} <a href="{{ entry.url }}">{{ entry.url }}</a>{% endif %}
+        {%- if entry.status == 'unverified' %} <strong>(unverified)</strong>{% endif %}
+      </p>
+      {% if entry.status == "unverified" and entry.todo %}
+      <p class="reference-list__todo">{{ entry.todo }}</p>
+      {% endif %}
+      {% if entry.note %}<p class="reference-list__note">{{ entry.note }}</p>{% endif %}
+      {% if entry.potential_conflict and entry.potential_conflict != "None disclosed" %}
+      <p class="reference-list__conflict">Disclosure: {{ entry.potential_conflict }}</p>
+      {% endif %}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endfor %}

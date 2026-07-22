@@ -99,6 +99,26 @@ module.exports = function (eleventyConfig) {
     .sort((a, b) => String(a.authors).localeCompare(String(b.authors)))
   );
 
+  // Same sort as sortedCitations, grouped by the first letter of `authors`
+  // (not the citation id — the two don't always match, e.g. "mcp" is
+  // authored by "Anthropic") — powers the References page's A-Z jump-list.
+  eleventyConfig.addFilter("groupedCitations", (citations) => {
+    const sorted = Object.entries(citations || {})
+      .map(([id, entry]) => ({ id, ...entry }))
+      .sort((a, b) => String(a.authors).localeCompare(String(b.authors)));
+    const groups = [];
+    for (const entry of sorted) {
+      const letter = String(entry.authors).trim().charAt(0).toUpperCase();
+      const currentGroup = groups[groups.length - 1];
+      if (!currentGroup || currentGroup.letter !== letter) {
+        groups.push({ letter, entries: [entry] });
+      } else {
+        currentGroup.entries.push(entry);
+      }
+    }
+    return groups;
+  });
+
   // Splits a `links` array (see takeaction.yaml) down to just the entries
   // that carry a local preview `image` — used to render those as visual
   // preview cards separately from plain text links.
