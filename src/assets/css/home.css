@@ -115,3 +115,31 @@
   color: var(--color-warning);
   background: var(--color-warning-bg);
 }
+
+.home-clocks {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 48rem) {
+  .home-clocks {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.home-clocks__group {
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-4);
+}
+
+.home-clocks__group h3 {
+  margin-top: 0;
+}
+
+.home-clocks__group .home-list__item:first-child {
+  border-top: none;
+}

@@ -33,13 +33,21 @@ extraCss:
 
 <section class="home-section" id="where-to-go" aria-labelledby="where-to-go-heading">
   <h2 id="where-to-go-heading">{{ home.where_to_go.heading }}</h2>
-  <ul class="home-list">
-    {% for item in home.where_to_go.items %}
-    <li class="home-list__item">
-      <p><strong>{{ item.lead }}</strong><br>{{ item.text | safe }}</p>
-    </li>
+  <p>{{ home.where_to_go.intro }}</p>
+  <div class="home-clocks">
+    {% for group in home.where_to_go.groups %}
+    <div class="home-clocks__group">
+      <h3>{{ group.heading }}</h3>
+      <ul class="home-list">
+        {% for item in group.items %}
+        <li class="home-list__item">
+          <p><strong>{{ item.lead }}</strong><br>{{ item.text | safe }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </section>
 
 <section class="home-section" id="timeline" aria-labelledby="timeline-heading">

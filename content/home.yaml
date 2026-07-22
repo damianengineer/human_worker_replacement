@@ -33,20 +33,30 @@ short_version:
     citation: "massenkoff2026"
 
 where_to_go:
-  heading: "Where to go next"
-  items:
-    - lead: "Worried your major is in an exposed field?"
-      text: >-
-        See which jobs and Stark State programs the data flags, then
-        <a href="/take-action/#plan-b">build a Plan B</a>.
-    - lead: "Wondering how to actually use AI instead of losing to it?"
-      text: >-
-        <a href="/take-action/#ai-literacy">Improve your AI literacy</a>
-        with vetted, beginner-friendly resources.
-    - lead: "Want to have a say in how this gets handled?"
-      text: >-
-        <a href="/take-action/#policy">Be an informed citizen</a> — track
-        real bills, not headlines.
+  heading: "Two clocks, two moves"
+  intro: >-
+    The measured evidence is why you should act this semester. The
+    speculative future is why you should pay attention this decade — policy
+    moves slower than technology, so the debate that affects you most is the
+    one happening now.
+  groups:
+    - heading: "Your move — this semester"
+      items:
+        - lead: "Worried your major is in an exposed field?"
+          text: >-
+            See which jobs and Stark State programs the data flags, then
+            <a href="/take-action/#plan-b">build a Plan B</a>.
+        - lead: "Wondering how to actually use AI instead of losing to it?"
+          text: >-
+            <a href="/take-action/#ai-literacy">Improve your AI literacy</a>
+            with vetted, beginner-friendly resources.
+    - heading: "Our move — this decade"
+      items:
+        - lead: "Want to have a say in how this gets handled?"
+          text: >-
+            <a href="/take-action/#policy-debate">Start with the debate</a>
+            over UBI and sovereign wealth funds, then
+            <a href="/take-action/#policy">track the actual bills</a>.
 
 timeline:
   heading: "Where this story is"
