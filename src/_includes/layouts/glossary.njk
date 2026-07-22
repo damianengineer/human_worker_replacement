@@ -30,6 +30,11 @@ extraCss:
           {% for id in item.current %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
         </p>
         {% endif %}
+        {% if item.see_also %}
+        <p class="glossary-list__see-also">
+          <a href="{{ item.see_also.url }}">{{ item.see_also.label }}</a>
+        </p>
+        {% endif %}
       </dd>
     </div>
     {% endfor %}

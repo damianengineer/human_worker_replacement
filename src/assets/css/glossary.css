@@ -58,3 +58,12 @@
   font-weight: 700;
   color: var(--color-text);
 }
+
+.glossary-list__see-also {
+  margin: var(--space-2) 0 0;
+  font-size: var(--font-size-sm);
+}
+
+.glossary-list__see-also a {
+  font-weight: 700;
+}

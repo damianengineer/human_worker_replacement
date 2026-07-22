@@ -10,6 +10,11 @@
 #     term/concept comes from
 #   current: list of citation IDs for the current authoritative source(s)
 #     on the term
+#   see_also: optional {label, url} back-link to where this term is
+#     actually discussed elsewhere on the site (IA audit item 4) — only
+#     added where a single, clean, already-existing anchor fits; several
+#     terms below are intentionally left without one (see IA_AUDIT.md /
+#     the verification report for which, and why).
 #
 # Keep terms within each category in the order they should display.
 
@@ -65,6 +70,9 @@ categories:
           positions.
         origin: ["diebold1952"]
         current: ["acemoglu2019", "brynjolfsson2025"]
+        see_also:
+          label: "See current automation data"
+          url: "/the-evidence/#current-state"
 
       - term: "Augmentation"
         definition: >-
@@ -73,6 +81,9 @@ categories:
           grown.
         origin: ["engelbart1962"]
         current: ["brynjolfsson2025"]
+        see_also:
+          label: "See what protects augmented jobs"
+          url: "/the-evidence/#protective-factors"
 
       - term: "AI Exposure"
         definition: >-
@@ -80,6 +91,9 @@ categories:
           means possible change — not guaranteed job loss.
         origin: ["freyosborne2017", "felten2021"]
         current: ["eloundou2023"]
+        see_also:
+          label: "See which jobs and majors are most exposed"
+          url: "/the-evidence/#at-risk"
 
       - term: "Job Displacement"
         definition: >-
@@ -88,6 +102,9 @@ categories:
           theoretically possible.
         origin: ["jacobson1993"]
         current: ["blsdisplacedworkers"]
+        see_also:
+          label: "See current displacement data"
+          url: "/the-evidence/#current-state"
 
   - category: "Policy Terms"
     terms:
@@ -98,6 +115,9 @@ categories:
           AI eliminates many jobs.
         origin: ["paine1797"]
         current: ["vanparijsvanderborght2017", "vivalt2024"]
+        see_also:
+          label: "See the policy debate over UBI"
+          url: "/take-action/#policy"
 
       - term: "Sovereign Wealth Fund"
         definition: >-
@@ -106,3 +126,6 @@ categories:
           from oil wealth.
         origin: ["rozanov2005"]
         current: ["iwgswf2008", "sanders2026"]
+        see_also:
+          label: "See the policy debate over sovereign wealth funds"
+          url: "/take-action/#policy"
