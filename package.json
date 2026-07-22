@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "description": "Informational site on AI's effect on entry-level jobs, aimed at community college students.",
   "scripts": {
-    "build": "eleventy",
-    "serve": "eleventy --serve",
-    "start": "eleventy --serve"
+    "build": "eleventy --pathprefix=/human_worker_replacement/",
+    "serve": "eleventy --serve --pathprefix=/human_worker_replacement/",
+    "start": "eleventy --serve --pathprefix=/human_worker_replacement/"
   },
   "devDependencies": {
     "@11ty/eleventy": "3.1.6",
