@@ -3,6 +3,8 @@ layout: "layouts/base.njk"
 extraCss:
   - "/assets/css/the-evidence.css"
 ---
+{% import "partials/figures.njk" as figures %}
+
 {% macro dualSourceLine(primary, corroborating, note) %}
 {% if primary %}
 <p class="evidence-list__source">Source: {{ primary | citeLink | safe }}</p>
@@ -15,54 +17,43 @@ extraCss:
 {% if note %}<p class="evidence-list__note">{{ note }}</p>{% endif %}
 {% endmacro %}
 
-{% macro figureCredit(figTitle, citationId) %}
-{% set src = citations[citationId] %}
-<figcaption>
-  <p class="evidence-figure__title">{{ figTitle }}</p>
-  <p class="evidence-figure__credit">
-    Source:
-    {% if src.url %}<a href="{{ src.url }}">{{ src.authors }}</a>{% else %}{{ src.authors }}{% endif %}
-    ({{ src.date | prettyDate if src.date else src.year }}). {{ src.publisher }}.
-  </p>
-</figcaption>
-{% endmacro %}
-
 {% macro citeList(ids) %}{% for id in ids %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}{% endmacro %}
 
-{% macro singleFigure(figure, closeHref) %}
-{% if figure %}
-<figure class="evidence-figure evidence-figure--lead">
-  <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
-    <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
-  </a>
-  {{ figureCredit(figure.title, figure.citation) }}
-</figure>
-<div class="evidence-lightbox" id="fig-{{ figure.id }}">
-  <a class="evidence-lightbox__backdrop" href="{{ closeHref }}" aria-label="Close larger image"></a>
-  <div class="evidence-lightbox__content">
-    <a class="evidence-lightbox__close" href="{{ closeHref }}" aria-label="Close larger image">Close ✕</a>
-    <img src="{{ figure.image }}" alt="{{ figure.alt }}">
-  </div>
+{% macro statCallout(callout) %}
+{% if callout %}
+<div class="stat-callout">
+  <p class="stat-callout__numeral">{{ callout.numeral }}</p>
+  <p class="stat-callout__label">{{ callout.label }}</p>
+  <p class="stat-callout__source">Source: {{ citeList(callout.citations) }}</p>
 </div>
 {% endif %}
 {% endmacro %}
 
-{% macro figuresGrid(figures, figuresIntro, closeHref) %}
-{% if figures %}
+{% macro pullQuote(text, ids) %}
+{% if text %}
+<blockquote class="pull-quote">
+  <p>{{ text }}</p>
+  <footer class="pull-quote__attribution">{{ citeList(ids) }}</footer>
+</blockquote>
+{% endif %}
+{% endmacro %}
+
+{% macro figuresGrid(figuresList, figuresIntro, closeHref) %}
+{% if figuresList %}
 {% if figuresIntro %}
 <p class="evidence-figures-intro">{{ figuresIntro }}</p>
 {% endif %}
 <div class="evidence-figures">
-  {% for figure in figures %}
+  {% for figure in figuresList %}
   <figure class="evidence-figure">
     <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
       <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
     </a>
-    {{ figureCredit(figure.title, figure.citation) }}
+    {{ figures.figureCredit(figure.title, figure.citation) }}
   </figure>
   {% endfor %}
 </div>
-{% for figure in figures %}
+{% for figure in figuresList %}
 <div class="evidence-lightbox" id="fig-{{ figure.id }}">
   <a class="evidence-lightbox__backdrop" href="{{ closeHref }}" aria-label="Close larger image"></a>
   <div class="evidence-lightbox__content">
@@ -96,6 +87,7 @@ extraCss:
     {% for item in evidence.current_state.items %}
     <li class="evidence-list__item">
       <p>{{ item.claim }}</p>
+      {{ statCallout(item.stat_callout) }}
       {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
     </li>
     {% endfor %}
@@ -161,7 +153,7 @@ extraCss:
 <section class="evidence-section" id="protective-factors" aria-labelledby="protective-factors-heading">
   <h2 id="protective-factors-heading">{{ evidence.protective_factors.title }}</h2>
 
-  {{ singleFigure(evidence.protective_factors.lead_figure, "#protective-factors") }}
+  {{ figures.singleFigure(evidence.protective_factors.lead_figure, "#protective-factors") }}
 
   {% set outlook = evidence.protective_factors.outlook %}
   {% for barrier in evidence.protective_factors.barriers %}
@@ -169,6 +161,7 @@ extraCss:
     <h3>{{ barrier.heading }}</h3>
     <p>{{ barrier.explanation }}</p>
     <p class="evidence-barrier__jobs"><strong>Jobs protected by this barrier:</strong> {{ barrier.protected_jobs }}</p>
+    {{ statCallout(barrier.stat_callout) }}
     <p class="evidence-list__source">Source: {{ citeList(barrier.citations) }}</p>
   </div>
   {% if outlook and outlook.after_barrier == loop.index %}
@@ -189,6 +182,7 @@ extraCss:
   <div class="evidence-counter-point">
     <h3>{{ point.heading }}</h3>
     {% for para in point.paragraphs %}<p>{{ para }}</p>{% endfor %}
+    {{ pullQuote(point.pull_quote, point.citations) }}
     {% if point.sub_points %}
     <ul class="evidence-list-plain">
       {% for sp in point.sub_points %}<li>{{ sp }}</li>{% endfor %}

@@ -2,7 +2,10 @@
 layout: "layouts/base.njk"
 extraCss:
   - "/assets/css/home.css"
+  - "/assets/css/the-evidence.css"
 ---
+{% import "partials/figures.njk" as figures %}
+
 <h1>{{ title }}</h1>
 
 <div class="home-intro">
@@ -24,6 +27,7 @@ extraCss:
     Source:
     {% for id in home.short_version.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
   </p>
+  {{ figures.singleFigure(home.short_version.figure, "#short-version") }}
   <p><a href="{{ home.short_version.link_url }}">{{ home.short_version.link_label }}</a></p>
 </section>
 

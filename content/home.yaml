@@ -18,6 +18,19 @@ short_version:
   citations: ["brynjolfsson2025", "massenkoff2026"]
   link_label: "Read the full evidence"
   link_url: "/the-evidence/"
+  # Same chart already embedded on /the-evidence/#at-risk (reused file,
+  # same alt text/title/citation — not a re-screenshot), added here as a
+  # supporting visual per the multimedia-enhancements task. Uses the same
+  # figure+lightbox macro as the-evidence.njk (src/_includes/partials/figures.njk).
+  figure:
+    id: "home-capability-chart"
+    image: "/assets/img/theoretical-capability-vs-observed-exposure.webp"
+    alt: >-
+      Bar chart comparing each occupational category's theoretical AI
+      capability to how much AI exposure has actually been observed
+      in the workforce.
+    title: "Theoretical capability and observed exposure by occupational category"
+    citation: "massenkoff2026"
 
 where_to_go:
   heading: "Where to go next"

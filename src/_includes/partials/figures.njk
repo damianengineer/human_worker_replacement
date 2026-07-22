@@ -1,0 +1,34 @@
+{# Shared chart-figure macros — used by any page that embeds a cited chart
+   image with the site's standard caption + click-to-enlarge lightbox
+   pattern (originally built for the-evidence.njk, reused wherever else a
+   chart appears so the pattern isn't hand-duplicated per page). #}
+
+{% macro figureCredit(figTitle, citationId) %}
+{% set src = citations[citationId] %}
+<figcaption>
+  <p class="evidence-figure__title">{{ figTitle }}</p>
+  <p class="evidence-figure__credit">
+    Source:
+    {% if src.url %}<a href="{{ src.url }}">{{ src.authors }}</a>{% else %}{{ src.authors }}{% endif %}
+    ({{ src.date | prettyDate if src.date else src.year }}). {{ src.publisher }}.
+  </p>
+</figcaption>
+{% endmacro %}
+
+{% macro singleFigure(figure, closeHref) %}
+{% if figure %}
+<figure class="evidence-figure evidence-figure--lead">
+  <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
+    <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
+  </a>
+  {{ figureCredit(figure.title, figure.citation) }}
+</figure>
+<div class="evidence-lightbox" id="fig-{{ figure.id }}">
+  <a class="evidence-lightbox__backdrop" href="{{ closeHref }}" aria-label="Close larger image"></a>
+  <div class="evidence-lightbox__content">
+    <a class="evidence-lightbox__close" href="{{ closeHref }}" aria-label="Close larger image">Close ✕</a>
+    <img src="{{ figure.image }}" alt="{{ figure.alt }}">
+  </div>
+</div>
+{% endif %}
+{% endmacro %}
