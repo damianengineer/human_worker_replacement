@@ -769,10 +769,9 @@ threeblue1brown:
   type: "website"
   potential_conflict: "None disclosed"
   note: >-
-    Now links directly to the specific video (confirmed via web search,
-    2026-07-21), resolving the earlier placeholder that only linked to
-    the channel. This video uses "Michael Jordan plays basketball" as its
-    running example.
+    Links directly to the specific video (confirmed via web search,
+    2026-07-21) that uses "Michael Jordan plays basketball" as its
+    running example, rather than just the channel.
 
 tldrai:
   authors: "TLDR"
