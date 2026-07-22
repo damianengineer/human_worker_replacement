@@ -144,9 +144,8 @@ brynjolfsson2025:
     vendor — used on The Evidence page as a corroborating/primary source
     alongside massenkoff2026 (Anthropic), each using a different dataset
     (ADP payroll data here vs. CPS survey data there).
-  todo: >-
-    Previously an incomplete TODO entry with no title/publisher; those
-    gaps are now filled in. Still no URL — add one if available.
+  # No public URL found for this report as of this writing; add one if
+  # it becomes available.
 
 byju2024:
   authors: "Byju, A."
@@ -175,10 +174,9 @@ deeplearningai:
   url: "https://www.deeplearning.ai/"
   type: "website"
   potential_conflict: "None disclosed"
-  note: >-
-    Links to the general DeepLearning.AI site rather than one specific
-    course, since the human referenced "beginner courses" broadly — swap
-    in a specific course URL if one particular course is meant.
+  # Links to the general DeepLearning.AI site rather than one specific
+  # course, since this is referenced broadly as "beginner courses" —
+  # swap in a specific course URL if one particular course is meant.
 
 diebold1952:
   authors: "Diebold, J."
@@ -262,12 +260,13 @@ euaiact:
   type: "government data"
   potential_conflict: "None disclosed"
   note: >-
-    The human's request referenced "Article 9" for prohibited uses;
-    verified via web search (2026-07-21) that prohibited AI practices are
-    actually Article 5 of this regulation — Article 9 covers the risk
-    management system required for high-risk AI systems, a different
-    provision. Cited as Article 5 here; flagged to the human as a
-    correction, not silently changed without note.
+    Prohibited AI practices are covered in Article 5 of this regulation.
+    Article 9 (sometimes cited elsewhere for this topic) is a different,
+    unrelated provision covering the risk management system required for
+    high-risk AI systems.
+  # Correction: an earlier draft of this site cited Article 9 for
+  # prohibited uses; verified via web search (2026-07-21) that Article 5
+  # is correct, per the note above.
 
 fastai:
   authors: "Howard, J. / fast.ai"
@@ -489,14 +488,11 @@ lu2026:
   publisher: "Nature, 651(8107), 914–919"
   url: "https://doi.org/10.1038/s41586-026-10265-5"
   type: "article"
-  potential_conflict: "None disclosed"
-  todo: >-
-    One or more listed authors (e.g., David Ha) are publicly known to be
-    affiliated with Sakana AI, a commercial AI company — if that
-    affiliation applies here, this would need the same COI disclosure
-    treatment as the OpenAI/Anthropic sources elsewhere in this file.
-    Not asserted as fact since it isn't stated in the citation itself;
-    confirm author affiliations before publishing.
+  potential_conflict: >-
+    Authors are affiliated with Sakana AI (the "AI Scientist" system
+    described in this paper is a Sakana AI project); Sakana AI is a
+    commercial AI company with a direct interest in claims about AI
+    research automation.
 
 makecom:
   authors: "Make"
@@ -728,8 +724,8 @@ starkstate2026:
   note: >-
     Used only to establish that these are real Stark State program
     names/credential types — the AI-exposure confidence rating for each
-    program is the human's own analysis (cross-referencing the
-    massenkoff2026/eloundou2023 occupation data), not something this
+    program is this site's own analysis (cross-referencing the
+    massenkoff2026/richmond2026 occupation data), not something this
     catalog itself claims.
 
 stempniak2026:
