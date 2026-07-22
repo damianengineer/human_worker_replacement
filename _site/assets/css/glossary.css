@@ -1,0 +1,61 @@
+/* Glossary page — styles the term list as an accessible definition list. */
+
+.glossary-intro {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-muted);
+  max-width: 42rem;
+  margin-bottom: var(--space-5);
+}
+
+.glossary-list {
+  margin: 0;
+}
+
+.glossary-list__item {
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-border);
+  scroll-margin-top: var(--space-4);
+}
+
+.glossary-list__item:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.glossary-list dt {
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+}
+
+.glossary-list dd {
+  margin: var(--space-2) 0 0;
+  color: var(--color-text-muted);
+}
+
+.glossary-list dt a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.glossary-list dt a:hover {
+  text-decoration: underline;
+}
+
+.glossary-category {
+  margin-bottom: var(--space-5);
+}
+
+.glossary-category h2 {
+  font-size: var(--font-size-xl);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: var(--space-2);
+}
+
+.glossary-list__source {
+  margin: var(--space-1) 0 0;
+  font-size: var(--font-size-sm);
+}
+
+.glossary-list__source-label {
+  font-weight: 700;
+  color: var(--color-text);
+}
