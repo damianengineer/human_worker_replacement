@@ -330,6 +330,35 @@ frey2019:
   type: "book"
   potential_conflict: "None disclosed"
 
+luddite1812engraving:
+  authors: "Walker & Knight (publisher; artist unknown)"
+  year: 1812
+  title: "The Leader of the Luddites"
+  publisher: "British Museum (image via Wikimedia Commons)"
+  url: "https://commons.wikimedia.org/wiki/File:Luddite.jpg"
+  type: "image"
+  potential_conflict: "None disclosed"
+  note: >-
+    Hand-colored engraving, published May 1812; public domain (copyright
+    extinguished in both the US and UK). Held by the British Museum
+    (ref. P_1990-1109-86); image sourced via Wikimedia Commons. Verified
+    via web search on 2026-07-22, not recalled from training data.
+
+amazonroboticsphoto2025:
+  authors: "Auledas"
+  year: 2025
+  date: "2025-03-26"
+  title: "Drive unit robot at Amazon's fulfilment centre, Swindon"
+  publisher: "Wikimedia Commons"
+  url: "https://commons.wikimedia.org/wiki/File:BRS2_Amazon_fulfilment_centre_drive_unit_robot.jpg"
+  type: "image"
+  potential_conflict: "None disclosed"
+  note: >-
+    Licensed CC BY 4.0 by the Commons contributor, not sourced from
+    Amazon's own press materials (whose non-press/educational usage
+    terms could not be confirmed — see aidisclosure.yaml). Verified via
+    web search on 2026-07-22, not recalled from training data.
+
 freyosborne2017:
   authors: "Frey, C. B., & Osborne, M. A."
   year: 2017

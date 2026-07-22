@@ -14,6 +14,15 @@ cases:
   - name: "Luddite Rebellion"
     icon: "🧵"
     years: "1811–1816"
+    figure:
+      id: "history-luddite-engraving"
+      image: "/assets/img/luddite-leader-1812-engraving.jpg"
+      alt: >-
+        Hand-colored 1812 engraving titled "The Leader of the Luddites,"
+        showing a costumed figure holding a staff and gesturing toward a
+        crowd of armed protesters near a burning mill in the background.
+      title: "The Leader of the Luddites (1812)"
+      citation: "luddite1812engraving"
     impact:
       - "Skilled textile workers protested being replaced by machines with no compensation, collapsing wages, and no say in the change."
       - "Pressure from mill owners and an alarmed government led Parliament to pass the Frame Breaking Act of 1812, making it a capital crime — meaning a death sentence, even if no one was hurt — to destroy knitting frames or power looms."
@@ -40,6 +49,14 @@ cases:
   - name: "Amazon Warehouse Robotics"
     icon: "🤖"
     years: "2012–present"
+    figure:
+      id: "history-amazon-robot"
+      image: "/assets/img/amazon-fulfillment-center-drive-robot.jpg"
+      alt: >-
+        Photo of a round, blue-and-black Amazon Robotics warehouse
+        drive-unit robot labeled "2021," displayed on a table.
+      title: "An Amazon Robotics drive-unit robot"
+      citation: "amazonroboticsphoto2025"
     impact:
       - "Amazon bought robotics company Kiva Systems in 2012, and by 2025 it ran roughly 750,000 to 1 million robots across its warehouses. Internal plans reported in the press describe automating about 75% of operations and avoiding up to 600,000 U.S. hires by 2033."
       - "The best peer-reviewed evidence on robots and jobs finds that each additional robot per 1,000 workers cuts local employment by about 0.2 percentage points and wages by roughly 0.4%, concentrated in the communities most exposed to automation."

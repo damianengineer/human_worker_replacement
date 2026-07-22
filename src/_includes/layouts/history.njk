@@ -2,7 +2,10 @@
 layout: "layouts/base.njk"
 extraCss:
   - "/assets/css/history.css"
+  - "/assets/css/the-evidence.css"
 ---
+{% import "partials/figures.njk" as figures with context %}
+
 <h1>{{ title }}</h1>
 
 <div class="history-intro">
@@ -19,6 +22,7 @@ extraCss:
   {% for case in history.cases %}
   <li class="history-case" id="{{ case.name | slugify }}">
     <h2>{% if case.icon %}<span aria-hidden="true">{{ case.icon }}</span> {% endif %}{{ case.name }} <span class="history-case__years">({{ case.years }})</span></h2>
+    {{ figures.singleFigure(case.figure, "#" + (case.name | slugify)) }}
     <ul class="history-case__impact">
       {% for line in case.impact %}<li>{{ line }}</li>{% endfor %}
     </ul>
