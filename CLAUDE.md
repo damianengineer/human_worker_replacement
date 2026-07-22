@@ -162,9 +162,10 @@ directories so a non-technical editor can update copy without touching code.
 │   ├── assets/
 │   │   ├── css/                 # tokens.css + one stylesheet per page
 │   │   └── img/
-│   │   # no assets/js/ or 404.njk yet — the site has needed neither so far
-│   │   # (fully readable/navigable without JS); add them when a real need
-│   │   # comes up rather than scaffolding unused files.
+│   │   # no assets/js/ yet — the site has needed none so far (fully
+│   │   # readable/navigable without JS); add it when a real need comes up
+│   │   # rather than scaffolding unused files.
+│   │   # TODO(2026-07-22): outstanding — 404.njk not yet implemented.
 ├── docs/                        # build output — committed; this is what
 │                                 # GitHub Pages serves (see Section 3)
 └── (planned, not yet built) .github/workflows/ci.yml and tests/ — see
@@ -210,12 +211,25 @@ Requirements:
   checklist") — avoid competing CTAs per IA best practice. **Documented
   exception:** Take Action is the site's CTA hub by design (see the sitemap
   above) and legitimately hosts three, not one.
+- **Primary CTA vs. contextual cross-links:** the one-primary-CTA rule above
+  governs a page's main call to action, not its inline cross-links to
+  related pages/sections (e.g., `/the-evidence/` linking to `/take-action/`
+  and `/history/`, or `/glossary/` linking back to where a term is used).
+  Contextual cross-links support the site's "read this → now go do that"
+  journey and are encouraged; they don't count against the one-primary-CTA
+  rule.
+- **In-page TOC completeness:** on any page with an in-page jump-nav/table
+  of contents, every section that is deep-linked from elsewhere in the site
+  must also appear in that page's own in-page nav. When adding a cross-page
+  deep link to a section, verify the target section is listed in its own
+  page's jump-nav, and add it if missing.
 - Footer includes links to **About**, **AI Disclosure**, and **References** on
   every page (transparency should never be more than one click away).
 - Breadcrumbs on any page nested under a section.
 - URL slugs are human-readable and stable (`/the-evidence/`, not `/page2/`).
-- Provide an HTML sitemap page and an XML `sitemap.xml` for SEO. **Not yet
-  built** — no `sitemap.xml` or HTML sitemap page exists in this repo yet.
+- Provide an HTML sitemap page and an XML `sitemap.xml` for SEO.
+  `TODO(2026-07-22): outstanding — HTML sitemap page + sitemap.xml not yet
+  implemented; required for navigability/SEO.`
 
 ---
 
@@ -340,7 +354,11 @@ a public-facing informational site:
 - Color contrast ratio ≥ 4.5:1 for body text.
 - Full keyboard navigability; visible focus states (never `outline: none`
   without a replacement focus style).
-- Heading hierarchy must be logical and sequential (one `<h1>` per page).
+- Heading hierarchy must be logical and sequential (one `<h1>` per page),
+  and headings must be distinguishable, not only hierarchical: repeated
+  identical heading text that makes screen-reader heading-navigation
+  ambiguous (e.g., the same label repeated once per list entry) must be
+  disambiguated (WCAG 2.1 AA, SC 2.4.6 Headings and Labels).
 - Run an automated a11y check (e.g., `pa11y` or `axe-core`) in `ci.yml`.
 
 ---
