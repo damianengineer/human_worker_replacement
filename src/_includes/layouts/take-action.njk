@@ -60,6 +60,31 @@ extraCss:
 <section class="takeaction-section" id="{{ cta.key | slugify }}" aria-labelledby="{{ cta.key | slugify }}-heading">
   <h2 id="{{ cta.key | slugify }}-heading">{% if cta.icon %}<span aria-hidden="true">{{ cta.icon }}</span> {% endif %}{{ cta.heading }}</h2>
 
+  {% if cta.debate %}
+  {% set debate = cta.debate %}
+  <div class="takeaction-debate">
+    <h3 id="policy-debate">{{ debate.heading }}</h3>
+    <p class="takeaction-debate__intro">{{ debate.intro }}</p>
+    <div class="takeaction-debate__cards">
+      {% for proposal in debate.proposals %}
+      <div class="takeaction-debate__card">
+        <h4>{{ proposal.name }}</h4>
+        <p class="takeaction-debate__what">{{ proposal.what }}</p>
+        <p class="takeaction-debate__for"><strong>The case for:</strong> {{ proposal.case_for }}</p>
+        <p class="takeaction-item__extras">
+          {% for id in proposal.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+        </p>
+        <p class="takeaction-debate__against"><strong>The case against:</strong> {{ proposal.case_against }}</p>
+        <p class="takeaction-item__extras">
+          {% for id in proposal.counter_citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="takeaction-debate__landing">{{ debate.landing }}</p>
+  </div>
+  {% endif %}
+
   {% if cta.resource_groups %}
     <nav class="takeaction-subnav" aria-label="Jump to a resource type">
       <ul>

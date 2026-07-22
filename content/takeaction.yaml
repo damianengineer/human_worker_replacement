@@ -377,6 +377,64 @@ ctas:
   - key: "policy"
     icon: "🏛️"
     heading: "Call to Action: Be an Informed Citizen on AI Policy"
+    # Renders above the bill-tracking items below via take-action.njk's
+    # `{% if cta.debate %}` block — additive, doesn't touch the flat
+    # `items` list's own rendering path.
+    debate:
+      heading: "First, understand the debate"
+      intro: >-
+        Before tracking any bill, it helps to understand the two big proposals for
+        sharing AI's gains — and the honest case against each. These aren't fringe
+        ideas or settled plans: they're insurance policies being debated now for a
+        future nobody can yet measure.
+      proposals:
+        - name: "Universal Basic Income (UBI)"
+          what: >-
+            Regular, unconditional cash payments to everyone, employed or not — an
+            income floor under every person.
+          case_for: >-
+            If AI displaces workers faster than new jobs appear, systems tied to
+            having a job — wages, employer benefits, payroll-tax-funded programs
+            like Social Security — start to fail people through no fault of their
+            own. A guaranteed floor catches everyone, automatically, without
+            deciding who "deserves" help. The idea is older than the microchip:
+            Thomas Paine proposed a version in 1797, and modern trials have tested
+            it in the real world.
+          case_against: >-
+            It's expensive at national scale, and the trial evidence is genuinely
+            mixed on how it changes work and wellbeing. And the strongest
+            objection comes from our own Evidence page: skeptical economists argue
+            the data doesn't yet show displacement at anywhere near the scale that
+            would make UBI necessary — and history shows new kinds of jobs tend to
+            appear when old ones change.
+          citations: ["paine1797", "vanparijsvanderborght2017", "vivalt2024"]
+          counter_citations: ["kolko2026", "autorchin2024"]
+        - name: "Sovereign Wealth Fund"
+          what: >-
+            A government-owned investment fund whose profits pay dividends to the
+            public — shared ownership of the gains, not just a payment.
+          case_for: >-
+            If AI concentrates enormous profits in the companies that own it, a
+            public fund gives everyone a stake in those gains instead of a check
+            funded by taxes. It's not hypothetical: Alaska has paid residents a
+            yearly dividend from oil wealth for decades, and dozens of countries
+            run such funds under agreed international principles. That's the model
+            behind the sovereign-wealth-fund bills now in Congress.
+          case_against: >-
+            Where does the fund's money come from — and does the government
+            picking investments create its own problems? Alaska's fund taps a
+            physical resource the state already owned; AI profits belong to
+            private companies. And the same skeptical evidence applies: if
+            displacement stays modest, a massive new fund solves a problem we may
+            not have.
+          citations: ["rozanov2005", "iwgswf2008", "sanders2026"]
+          counter_citations: ["kolko2026"]
+      landing: >-
+        This site doesn't endorse either proposal. Our argument is simpler: these
+        debates are happening now, while you're in school — and you will live with
+        the outcome longer than almost anyone currently voting on it. Whatever you
+        conclude, conclude it from the evidence. That's what the steps below are
+        for.
     items:
       - text: >-
           Track real bills yourself — don't rely on headlines.
