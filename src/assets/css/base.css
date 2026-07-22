@@ -1,5 +1,19 @@
 /* Base layout, typography, and site chrome shared by every page. */
 
+/* --header-height lives here rather than tokens.css: this batch's
+   protocol keeps tokens.css off-limits, and this value only exists to
+   support the sticky jump bars on /the-evidence/ and /take-action/
+   (task-mandated placement, not a change to the "one token file" rule).
+   Computed from .site-header's own box (padding var(--space-3) top/
+   bottom + border-bottom 1px + the brand line's height, the taller of
+   the two flex children, font-size-lg * line-height-base) — not
+   measured in a live browser, since none is available in this
+   environment; verify against the real rendered header and adjust if
+   it's off. */
+:root {
+  --header-height: 3.875rem;
+}
+
 *,
 *::before,
 *::after {
