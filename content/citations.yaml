@@ -225,24 +225,24 @@ eckhardtgoldschlag2025:
 eloundou2023:
   authors: "Eloundou, T., Manning, S., Mishkin, P., & Rock, D."
   year: 2023
-  title: "The AI jobs transition framework: Market exposure and career mobility"
-  publisher: "OpenAI"
-  url: "https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf"
-  type: "report"
+  title: "GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models"
+  publisher: "arXiv:2303.10130"
+  url: "https://arxiv.org/abs/2303.10130"
+  type: "working paper"
   potential_conflict: >-
     Authors are OpenAI employees/affiliates; OpenAI is a commercial AI
     vendor with a direct financial interest in claims about AI's
     labor-market impact.
-  todo: >-
-    Glossary copy for "AI Exposure" describes this source as "Eloundou et
-    al. (2024) — peer-reviewed, in Science," which looks like a different,
-    later publication than this 2023 OpenAI-hosted PDF report. Confirm
-    which source is actually intended before this citation is finalized.
-    There's now also a richmond2026 entry (OpenAI Economic Research) with
-    the same "AI jobs transition framework" title but a different author
-    and year — worth sorting out whether OpenAI is reusing this title
-    across an annual report series, or whether these citations are getting
-    mixed up somewhere upstream.
+  note: >-
+    Corrected: this entry previously carried richmond2026's title and PDF
+    URL (both entries shared the "AI jobs transition framework" name,
+    which caused a mix-up). Verified directly against the arXiv abstract
+    and full text — this 2023 paper is a single-dimension task-exposure
+    rubric (no observed-usage data, no economic modeling of scale
+    effects, no human-necessity dimension), distinct from Richmond's 2026
+    multi-dimensional framework. Cited on this site only where that
+    general exposure-measure concept is meant, not for any specific
+    chart's numbers (those cite richmond2026).
 
 engelbart1962:
   authors: "Engelbart, D. C."
@@ -647,21 +647,24 @@ paine1797:
 richmond2026:
   authors: "Richmond, A. M."
   year: 2026
-  title: "The AI jobs transition framework: Mapping AI's near-term impact on jobs"
+  title: "The AI Jobs Transition Framework: Mapping AI's Near-Term Impact on Jobs"
   publisher: "OpenAI Economic Research"
-  url: null
+  url: "https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf"
   type: "report"
   potential_conflict: >-
     Author is affiliated with OpenAI Economic Research; OpenAI is a
     commercial AI vendor with a direct financial interest in claims about
     AI's labor-market impact.
-  todo: >-
-    Now has a full subtitle ("Mapping AI's near-term impact on jobs"),
-    distinct from eloundou2023's subtitle ("Market exposure and career
-    mobility") — this makes it more likely these are genuinely two
-    separate OpenAI reports (possibly an annually-updated series) rather
-    than a citation mix-up, but that's still not fully confirmed. Still
-    no URL for this one — add it if available.
+  note: >-
+    Corrected: this URL previously sat on the eloundou2023 entry (both
+    entries shared the "AI jobs transition framework" name). Verified
+    directly — this is a genuinely separate, later (April 2026) report
+    with its own multi-dimensional methodology (technical capability,
+    human necessity, demand elasticity/scale effects, and observed
+    ChatGPT usage), not a reissue of Eloundou et al.'s 2023 paper. Cited
+    on this site for the specific charts, occupation lists, and stats
+    (18%/24%/12%/46%, "capability overhang," "human necessity") that
+    come from this report's methodology.
 
 rozanov2005:
   authors: "Rozanov, A."
@@ -798,7 +801,7 @@ ulam1958:
     not the originator of the idea.
 
 weise2025:
-  authors: "Weise, K., & Metz, C."
+  authors: "Weise, K."
   year: 2025
   title: "Amazon's automation plans could eliminate 600,000 U.S. jobs"
   publisher: "The New York Times"
@@ -807,12 +810,14 @@ weise2025:
   potential_conflict: "None disclosed"
   status: "unverified"
   todo: >-
-    Reporting on leaked internal Amazon documents; the user supplying this
-    source flagged that the exact byline and publication date are cited
-    inconsistently across the secondary outlets that reference it. Confirm
-    the original New York Times byline/date/URL before treating this as a
-    solid citation, and note this is reportage on a corporate plan, not an
-    independent empirical finding.
+    Reporting on leaked internal Amazon documents. Byline corrected:
+    multiple independent secondary sources (Forbes, NPR, Computerworld,
+    among others) consistently attribute this story to Karen Weise
+    alone — the earlier "Weise, K., & Metz, C." byline is very likely
+    wrong and has been removed. The exact nytimes.com URL and
+    publication date still couldn't be confirmed despite repeated
+    search attempts across sessions; note this is reportage on a
+    corporate plan, not an independent empirical finding.
 
 zapier:
   authors: "Zapier"

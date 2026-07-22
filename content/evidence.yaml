@@ -176,7 +176,7 @@ at_risk:
           AI's theoretical capability and its real-world use — across
           different occupations.
         title: "The capability overhang by occupation"
-        citation: "eloundou2023"
+        citation: "richmond2026"
   most_exposed:
     heading: "Most Exposed Occupations"
     # A list of paragraphs (not one string) so the page renders an actual
@@ -208,7 +208,7 @@ at_risk:
           cost-saving "scale effects" offset direct labor savings,
           according to OpenAI's data.
         title: "High exposure occupations split by whether scale effects offset direct labor savings"
-        citation: "eloundou2023"
+        citation: "richmond2026"
     items:
       # These items use the same primary/corroborating/note shape as
       # current_state's items (see that section's comment) since each of
@@ -218,32 +218,32 @@ at_risk:
       - industry: "Bookkeeping Clerks"
         risk_summary: "People who track a business's money and records."
         primary_citation: "massenkoff2026"
-        corroborating_citation: "eloundou2023"
+        corroborating_citation: "richmond2026"
         note: null
       - industry: "Computer Programmers and Software Developers"
         risk_summary: "People who write and fix computer code."
         primary_citation: "massenkoff2026"
-        corroborating_citation: "eloundou2023"
+        corroborating_citation: "richmond2026"
         note: "This is the single most AI-used job on both companies' lists."
       - industry: "Customer Service Representatives"
         risk_summary: "People who answer customer questions and handle complaints."
         primary_citation: "massenkoff2026"
-        corroborating_citation: "eloundou2023"
+        corroborating_citation: "richmond2026"
         note: "Both companies found this job near the top of their lists."
       - industry: "Data Entry Keyers"
         risk_summary: "People who type information from paper documents into computer systems."
         primary_citation: "massenkoff2026"
-        corroborating_citation: "eloundou2023"
+        corroborating_citation: "richmond2026"
         note: "This job shows up as highly exposed on both companies' lists too."
       - industry: "Financial Analysts"
         risk_summary: "People who study money and business trends to help companies make decisions."
         primary_citation: "massenkoff2026"
-        corroborating_citation: "eloundou2023"
+        corroborating_citation: "richmond2026"
         note: null
       - industry: "Sales Representatives"
         risk_summary: "People who contact customers and sell products."
         primary_citation: "massenkoff2026"
-        corroborating_citation: "eloundou2023"
+        corroborating_citation: "richmond2026"
         note: null
   stark_state:
     heading: "Stark State College Majors Most Exposed to AI Replacement"
@@ -254,7 +254,7 @@ at_risk:
     citation: "starkstate2026"
     # Confidence groups and per-program placement are the human's own
     # analysis (matching program titles against the massenkoff2026/
-    # eloundou2023 occupation data), not a claim made by the Stark State
+    # richmond2026 occupation data), not a claim made by the Stark State
     # catalog itself — that citation only establishes the program names
     # are real. This is the human's reviewed, complete classification of
     # all 55 programs (an earlier draft had ~10 in an "unclassified"
@@ -360,7 +360,7 @@ protective_factors:
       necessity" — where workers remain vital because people specifically
       want a human, not just a capable AI.
     title: "Human necessity helps us understand where workers remain vital"
-    citation: "eloundou2023"
+    citation: "richmond2026"
   barriers:
     - heading: "Barrier 1: AI still struggles to understand the physical world"
       explanation: >-
