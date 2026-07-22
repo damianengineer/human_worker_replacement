@@ -105,3 +105,19 @@ entries:
       (References A–Z index, Take Action sub-nav, Glossary back-links,
       and the Stark State accordion are still pending) — this entry will
       likely be superseded or added to once that work completes.
+
+  - date: "2026-07-22"
+    summary: "IA audit implementation completed"
+    ai_did:
+      - "Finished implementing all 8 approved IA-audit items, each as its own verified, committed change: Evidence cross-links, a Stark State jump-nav entry and top-of-page teaser, disambiguated AI Disclosure headings, a References A–Z index, an AI Literacy sub-nav, 6 Glossary back-links (5 terms intentionally left unlinked — no single clean destination), and native `<details>`/`<summary>` accordions for the Stark State tiers."
+      - "Produced a verification report confirming every new anchor resolves site-wide, nav/skip-link are unaffected, no JS or tables were introduced, and removed IA_AUDIT.md once its findings were implemented."
+    human_did:
+      - "Reviewed the verification report and confirmed IA_AUDIT.md could be removed."
+    notes: >-
+      Reordering The Evidence's sections (audit item 8b) was declined —
+      it would invert the evidence-first argument this site is built
+      around. Two mobile-specific questions from the audit (the chart
+      lightbox's close-button position on short viewports, and whether
+      the two-column lists feel cramped around 640–768px) were left as
+      open questions rather than guessed at — they need an actual device
+      check this pass didn't do.
