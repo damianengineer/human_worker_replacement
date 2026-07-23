@@ -46,6 +46,12 @@ extraCss:
   <ol class="home-timeline">
     {% for era in home.timeline.eras %}
     <li class="home-timeline__card">
+      {% if era.image %}
+      <div class="home-timeline__image-wrap">
+        <img class="home-timeline__image" src="{{ era.image }}" alt="{{ era.image_alt }}" width="{{ era.image_width }}" height="{{ era.image_height }}" loading="lazy">
+      </div>
+      <p class="home-timeline__credit">{{ era.image_credit }} — {{ era.image_citation | citeLink | safe }}</p>
+      {% endif %}
       <p class="home-timeline__label">{{ era.label }}</p>
       <span class="home-timeline__tag{% if era.certainty == 'Forecast — contested' or era.certainty == 'Speculative' %} home-timeline__tag--caution{% endif %}">{{ era.certainty }}</span>
       <p>{{ era.text }}</p>

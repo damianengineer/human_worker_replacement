@@ -90,6 +90,18 @@ timeline:
         cases to learn from.
       link_label: "Read the history"
       link_url: "/history/"
+      # Same file, alt text, title, and citation as /history/'s own
+      # Luddite figure — not a re-screenshot, just reused (History's own
+      # licensing diligence covers this image; see content/history.yaml).
+      image: "/assets/img/luddite-leader-1812-engraving.jpg"
+      image_width: 909
+      image_height: 1200
+      image_alt: >-
+        Hand-colored 1812 engraving titled "The Leader of the Luddites,"
+        showing a costumed figure holding a staff and gesturing toward a
+        crowd of armed protesters near a burning mill in the background.
+      image_credit: "The Leader of the Luddites (1812)"
+      image_citation: "luddite1812engraving"
     - label: "Right now"
       certainty: "Measured"
       text: >-
@@ -98,6 +110,15 @@ timeline:
         Not mass layoffs: a door quietly closing.
       link_label: "See the evidence"
       link_url: "/the-evidence/"
+      # Same file/credit as /history/'s Amazon Warehouse Robotics figure.
+      image: "/assets/img/amazon-fulfillment-center-drive-robot.jpg"
+      image_width: 1200
+      image_height: 900
+      image_alt: >-
+        Photo of a round, blue-and-black Amazon Robotics warehouse
+        drive-unit robot labeled "2021," displayed on a table.
+      image_credit: "An Amazon Robotics drive-unit robot"
+      image_citation: "amazonroboticsphoto2025"
     - label: "Near future"
       certainty: "Forecast — contested"
       text: >-
