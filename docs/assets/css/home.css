@@ -1,6 +1,12 @@
 /* Landing page ("/") — three sections: the short version, where to go
    next, and background reading. */
 
+/* home.css loads only on "/" (extraCss in home.njk's front matter), so a
+   bare h1 selector here is already page-scoped — no wrapper class needed. */
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
 .home-intro {
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);
@@ -96,8 +102,10 @@
 }
 
 .home-timeline__label {
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--font-size-lg);
+  line-height: var(--line-height-tight);
   margin: 0 0 var(--space-2);
 }
 

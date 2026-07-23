@@ -31,17 +31,49 @@
 
   /* Type scale */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Space Grotesk, self-hosted under src/assets/fonts/ (SIL OFL 1.1, license
+     text alongside the font files) — display/heading use only, per the
+     @font-face block below. Body copy stays on --font-sans. */
+  --font-display: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-size-base: 1rem;
   --font-size-sm: 0.875rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.5rem;
   --font-size-2xl: 2rem;
   --font-size-3xl: 3rem;
+  /* Fluid so a big display numeral (homepage hero) doesn't force horizontal
+     scroll on narrow screens: 2.5rem floor, 3.75rem ceiling at desktop. */
+  --font-size-4xl: clamp(2.5rem, 1.2rem + 4.5vw, 3.75rem);
   --line-height-base: 1.6;
+  --line-height-tight: 1.15;
 
   /* Layout */
   --content-max-width: 60rem;
   --radius-base: 0.25rem;
+}
+
+/* Space Grotesk (SIL OFL 1.1) — self-hosted, two static weights only (no
+   variable-font file, to keep the download small and the weight list
+   fixed to what's actually used: 500 for the journey-pager label, 700 for
+   headings/brand). Source: the font's own GitHub repo,
+   github.com/floriankarsten/space-grotesk, fonts/woff2/static/. License
+   text copied alongside at src/assets/fonts/OFL.txt. font-display: swap
+   avoids invisible text while the (same-origin, CSP-'self'-compliant)
+   file loads. */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/SpaceGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Dark-mode-first palette — follows the visitor's OS setting rather than
