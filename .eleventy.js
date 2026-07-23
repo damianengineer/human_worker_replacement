@@ -19,9 +19,14 @@ function lookupCitation(citations, id) {
   }
   const label = entry.year ? `${entry.authors}, ${entry.year}` : `${entry.authors}`;
   if (entry.status === "TODO(citation-needed)") {
+    // Kept even though 0 entries currently use this status (verified against
+    // the live content/citations.yaml) — this is CLAUDE.md's own sanctioned
+    // way to flag a not-yet-sourced claim (Sections 6/11: add a
+    // TODO(citation-needed) marker rather than inventing a source), so it's
+    // a safety valve that's unused right now, not dead code to prune. These
+    // have no meaningful References-page target, so they stay unlinked.
     return {
       label: `${label} — source needed`,
-      url: null,
       isTodo: true,
       isUnverified: false,
     };
@@ -29,17 +34,31 @@ function lookupCitation(citations, id) {
   if (entry.status === "unverified") {
     return {
       label: `${label} — unverified`,
-      url: entry.url || null,
       isTodo: false,
       isUnverified: true,
     };
   }
-  return { label, url: entry.url || null, isTodo: false, isUnverified: false };
+  return { label, isTodo: false, isUnverified: false };
 }
 
 module.exports = function (eleventyConfig) {
   // Enable automatic base path prefixing for URLs across compiled HTML
-  eleventyConfig.addPlugin(HtmlBasePlugin); 
+  eleventyConfig.addPlugin(HtmlBasePlugin);
+
+  // Tried eleventyConfig.getFilter("url") here first (the task's preferred
+  // option) to prefix citeLink's href manually. Verified directly against a
+  // real build that this DOUBLE-prefixes: HtmlBasePlugin (enabled above)
+  // already rewrites every root-relative href in the final compiled HTML —
+  // including ones returned by a plain JS filter like citeLink, not just
+  // template-authored `{{ url | url }}` output — so a href citeLink already
+  // prefixed gets prefixed a second time by HtmlBasePlugin's own pass,
+  // producing "/human_worker_replacement/human_worker_replacement/...".
+  // The fix is simpler than the task anticipated: citeLink just needs to
+  // emit a plain root-relative path, exactly like every other href already
+  // hardcoded in this site's templates (none of which call the url filter
+  // either) — HtmlBasePlugin prefixes it exactly once, automatically, the
+  // same way it already does for all of them. No module-level constant or
+  // manual prefixing needed at all.
 
   eleventyConfig.addDataExtension("yaml", (contents) => {
     if (!contents.replace(/#.*$/gm, "").trim()) {
@@ -77,21 +96,28 @@ module.exports = function (eleventyConfig) {
     return `(${label})`;
   });
 
+  // Citation policy (CLAUDE.md's Citation Policy section): a source marker
+  // links to that source's own entry on the References page, never directly
+  // to the external source — the external link lives only on the
+  // References page itself (references.njk). This is true whether or not
+  // the entry has an external url at all: a citation with no url used to
+  // render as unlinked text here, even though it has a perfectly good
+  // References entry to land on — that inconsistency is what this fixes.
   eleventyConfig.addFilter("citeLink", function (citationId) {
     const citations = this.ctx.citations || {};
-    const { label, url, isTodo, isUnverified } = lookupCitation(
+    const { label, isTodo, isUnverified } = lookupCitation(
       citations,
       citationId
     );
     const safeLabel = escapeHtml(label);
     if (isTodo) {
+      // No meaningful target — the source hasn't been identified yet, so
+      // there's nothing on the References page to point at.
       return `<span class="citation citation--todo">${safeLabel}</span>`;
     }
     const cssClass = isUnverified ? "citation citation--unverified" : "citation";
-    if (url) {
-      return `<a class="${cssClass}" href="${escapeHtml(url)}">${safeLabel}</a>`;
-    }
-    return `<span class="${cssClass}">${safeLabel}</span>`;
+    const href = `/references/#${escapeHtml(citationId)}`;
+    return `<a class="${cssClass}" href="${href}">${safeLabel}</a>`;
   });
 
   eleventyConfig.addFilter("sortedCitations", (citations) => Object.entries(citations || {})
