@@ -162,8 +162,9 @@ Glossary, References, About, AI Disclosure.
       Action — confirm it's genuinely absent, not just invisible, on the
       other 5).
 - [ ] All body text stays legible against its background in both schemes —
-      spot-check the accent-tinted elements in particular (Section 9 below
-      covers this in more depth).
+      spot-check the accent-tinted elements in particular (Section 10
+      below covers this in more depth, Sections 11-12 cover background/
+      image consistency more broadly).
 
 ## 7. Homepage hero at 320px
 
@@ -258,7 +259,80 @@ convenience.
 - [ ] None of the above should look washed out, illegible, or like it
       disappears into the dark background.
 
-## 11. Two long-standing open items — retest against everything so far
+## 11. Background shading consistency (standing check — every batch)
+
+This project has repeatedly introduced regressions here across otherwise
+unrelated batches (most recently: tier 1 and tier 2 briefly used two
+different background tokens and looked like separate bars instead of one
+header, caught and fixed mid-batch). Re-run this check fresh every time a
+batch touches layout, tokens, or colors — don't assume a surface that
+passed in an earlier pass is still correct after later changes.
+
+Every item below: check in **both light and dark mode**.
+
+- [ ] **Header chrome.** Tier 1 and tier 2 use the same background token
+      (`--color-bg-subtle`) — confirm they read as one continuous header,
+      not two visibly different shades stacked on top of each other.
+- [ ] **Tier-2 pills vs. their own bar.** Pills use `--color-bg` sitting on
+      tier 2's `--color-bg-subtle` bar — confirm each pill is clearly
+      distinguishable from the bar behind it (not blending in), on all
+      three sectioned pages.
+- [ ] **The "More" dropdown panel vs. the page behind it.** Panel uses
+      `--color-bg` with a `--color-border` border, no shadow — confirm
+      it's clearly a distinct surface floating over whatever page content
+      is behind it, not blending into the page background.
+- [ ] **Evidence's alternating bands** (Current State, Protective Factors)
+      vs. the unbanded sections next to them (At Risk, Counterarguments) —
+      confirm the band reads as a deliberate, distinct-but-subtle layer,
+      not invisible, not a harsh seam, and that the edge where it meets
+      the viewport's left/right edges looks clean.
+- [ ] **Cards-on-page contrast site-wide** — homepage timeline cards,
+      Take Action's debate cards, the journey-pager "next" card, Evidence's
+      stat callouts/pull quotes/confidence groups. All of these use
+      `--color-bg-subtle` on the default page background — confirm that
+      relationship reads consistently the same way on every one of them,
+      on every page, in both schemes. If any one of them looks inverted,
+      washed out, or uses a different pairing than the others, flag it —
+      that's exactly the class of bug this section exists to catch.
+- [ ] **Footer** vs. the page above it — confirm a visible separation
+      (border/spacing), not an abrupt or invisible transition.
+
+## 12. Graphics and image alignment (standing check — every batch)
+
+Re-run this check fresh every time a batch touches images, icons, layout,
+or breakpoints — a change in one area (a new component, a token rename, a
+breakpoint adjustment) can shift alignment somewhere else on the page
+without that other area being the thing directly edited.
+
+- [ ] **Homepage timeline images** (Luddite engraving, Amazon robot): correct
+      crop — the engraving's subject (a figure) stays in frame, not cropped
+      out at the top or bottom; the robot photo isn't stretched or
+      squashed. Both align cleanly with the text/label beneath them across
+      all three breakpoints (1-col/2-col/4-col).
+- [ ] **Evidence's chart figures** (theoretical-capability-vs-exposure,
+      most-exposed-occupations, capability-overhang, human-necessity):
+      each image sits centered in its frame, isn't stretched/squashed, and
+      the two-column figure grid stays aligned at tablet/desktop widths.
+      Click each into its lightbox — confirm the enlarged version is also
+      correctly proportioned, not distorted.
+- [ ] **History's reused figures** (same Luddite/robot images as the
+      homepage, different captions there): same alignment/crop checks as
+      the homepage instance — confirm both placements of the same image
+      look equally correct, not just one.
+- [ ] **Take Action's video preview thumbnails**: each thumbnail crops to
+      its 4:3 frame without stretching, aligns consistently in the
+      flex-wrapped row, and the label beneath sits flush with the image
+      above it — check at both narrow and wide widths.
+- [ ] **Icons and pseudo-element markers** (CTA emoji icons, the Stark
+      State accordion's rotating triangle, the "More" dropdown's rotating
+      caret, the caution block's ⚠️): each sits correctly aligned with its
+      adjacent text — not offset, not overlapping, baseline-aligned with
+      the text next to it — at both narrow and wide widths.
+- [ ] Zoom the page to 150–200% (a common low-vision accommodation, not
+      just a narrow-viewport check) and confirm no image or icon above
+      overlaps adjacent text or another element.
+
+## 13. Two long-standing open items — retest against everything so far
 
 Neither of these is new to this batch or Batch 4, but both batches touched
 enough shared CSS (fonts, spacing, sticky positioning, and now the header
@@ -278,7 +352,7 @@ they're still fine.
       column gap and reading order (left column top-to-bottom, then right
       column) still makes sense.
 
-## 12. One real phone pass
+## 14. One real phone pass
 
 Everything above can be devtools-emulated except this one — actual mobile
 Safari/Chrome renders fonts, sticky positioning, and tap targets slightly
