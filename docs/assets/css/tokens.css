@@ -31,17 +31,18 @@
      5.02:1, rust 7.31:1 / 6.70:1, violet 7.10:1 / 6.51:1, action 7.09:1 /
      6.50:1 — all clear the 4.5:1 AA floor.
 
-     --accent-action harmonizes with --color-warning rather than
-     duplicating it: same amber/orange hue family (HSL hue ~23-27° in
-     both schemes, ~3° apart) but a different lightness/saturation — a
-     deeper, more muted orange-brown (light #92400e, HSL 23°/82%/31%)
-     against the warning's brighter, lighter amber (light #b45309, HSL
-     26°/90%/37%; dark #f0a868 vs. #fb923c is the same relationship).
-     Close enough in hue to read as "this page's family of amber," not a
-     clashing or arbitrary color choice, but different enough in
-     lightness that Take Action's debate cards (left-bordered in
-     --color-warning, unchanged) still read as their own caution signal
-     rather than blending into the section accent. */
+     Amber collision rule: --accent-action is defined as clearly distinct
+     from --color-warning (the option chosen over unifying the two into
+     one shared token), so Take Action's debate cards — left-bordered in
+     --color-warning, unchanged — still read as their own caution signal
+     rather than blending into the section accent. "Distinct" here means
+     lightness/saturation, not hue: both stay in the same amber/orange
+     family (HSL hue ~23-27° in both schemes, ~3° apart) — a deeper, more
+     muted orange-brown (light #92400e, HSL 23°/82%/31%) against the
+     warning's brighter, lighter amber (light #b45309, HSL 26°/90%/37%;
+     dark #f0a868 vs. #fb923c is the same relationship) — so the two read
+     as a coordinated pair rather than two unrelated colors that happen
+     to both be orange. */
   --accent-evidence: #0f766e;
   --accent-evidence-bg: #e6f5f3;
   --accent-history: #9a3412;
