@@ -134,3 +134,18 @@ entries:
       No image was added for the two cases without a confirmed license,
       per the task's explicit "ambiguous license is a do-not-include"
       rule — not filled in with a lower-confidence substitute.
+
+  - date: "2026-07-23"
+    summary: "Citation policy change — markers now link to References"
+    ai_did:
+      - "Changed every source marker site-wide to link to that source's own entry on the References page instead of straight out to the external site, in response to reader feedback that inline citations felt overwhelming. The References page is now the only place an external link appears, alongside each source's full APA record, corroboration notes, and any conflict-of-interest disclosure — none of which a reader used to see if they never happened to visit References directly."
+      - "Restyled markers as small and muted at rest, since the actual complaint was visual noise, not the citations themselves — every claim still keeps its marker."
+      - "Added a highlighted-landing effect and adjusted spacing on the References page so following a marker actually lands you on the right entry, not just somewhere on a long page."
+    human_did:
+      - "Requested the policy change based on reader feedback."
+    notes: >-
+      Verified mechanically (build, link-checking, before/after counts)
+      that no citation was dropped and no link was broken by this
+      change — see the batch's own verification report for the exact
+      numbers. This was a presentation/linking change only; no claims,
+      sources, or citation text were rewritten.

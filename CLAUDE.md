@@ -407,3 +407,46 @@ a public-facing informational site:
   commit is what actually goes live, so don't merge content/template
   changes without also refreshing `docs/`. PRs trigger `ci.yml` (build,
   `npm audit`, a11y check, link check) and must pass before merge.
+
+---
+
+## 13. Citation Policy
+
+> **Note:** a separate branch may also append its own new Section 13 to
+> this file around the same time (see that batch's own report). If both
+> merge, renumber whichever merges second — they're independent sections
+> that both happened to land at the same append point, not a real
+> conflict in content.
+
+Adopted after reader feedback that inline citations, each linking straight
+out to its external source, read as overwhelming — and readers never saw
+the site's own scholarly apparatus (APA records, corroboration pairs,
+conflict-of-interest notes) on the References page, since a marker never
+sent them there.
+
+- **Every factual claim carries a source marker at the claim.** Markers are
+  never removed to reduce visual noise — styling is the lever for that, not
+  deletion. The project is graded on sources being *integrated with* claims,
+  not merely listed at the end.
+- **Markers link internally**, to that citation's own entry on the
+  References page — never directly to an external source. Build the link
+  with the project's existing path-prefix mechanism (see `.eleventy.js`'s
+  `citeLink` filter); never hardcode the prefix.
+- **External links live only in References entries**: full APA 7, hyperlinked
+  to the original (DOI preferred) wherever one exists.
+- **Ordinary content links are not citation markers** and are unaffected by
+  this policy — an inline link whose purpose is "go watch/read this thing"
+  as part of the reading experience (a linked video, a linked tool) stays a
+  normal link in the copy, not something routed through `citeLink`.
+- Every citation id used anywhere in content must exist in
+  `content/citations.yaml` and render an entry with a matching anchor id on
+  the References page. Reviews check both directions — no referenced id
+  missing a target, and flag (don't silently ignore) any entry that's
+  defined but never actually cited anywhere.
+- **Never fabricate or approximate a source.** If a claim can't be verified
+  against a real source that was actually read, reword or remove the claim
+  rather than attaching a plausible-looking citation to it.
+- Citation *presentation* changes (marker styling, link target, hover/focus
+  treatment) go in the `citeLink` filter and the shared CSS where `.citation`
+  styles live — never page by page, and never hand-formatted in template
+  markup instead of going through the filter.
