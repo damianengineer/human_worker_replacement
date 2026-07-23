@@ -45,6 +45,8 @@
 
 .history-case h2 {
   font-size: var(--font-size-xl);
+  border-bottom: 2px solid var(--accent-history);
+  padding-bottom: var(--space-2);
   margin-bottom: var(--space-2);
 }
 
@@ -72,4 +74,13 @@
 
 .history-outro__link {
   font-weight: 700;
+}
+
+/* History has no jump bar and no existing left-border card treatment to
+   retint — only its per-case h2 (above) and the journey-pager get the
+   rust accent. Scoped through .history-list, unique to this page's own
+   markup, for the same shared-stylesheet cascade reason documented in
+   the-evidence.css (this page also loads that file, for figure reuse). */
+.history-list ~ .journey-pager .journey-pager__next {
+  border-color: var(--accent-history);
 }

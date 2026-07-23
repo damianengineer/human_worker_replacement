@@ -15,10 +15,9 @@ h1 {
 }
 
 /* The stat hero: the largest, highest-contrast element on the page by
-   design. Color is --color-primary for now — Task 3 introduces
-   --accent-evidence (this stat is literally an Evidence-page figure),
-   and the plan is to switch this rule to that token once it exists
-   rather than duplicate a color definition here first. */
+   design. Uses --accent-evidence (Task 3) rather than --color-primary —
+   this stat is literally an Evidence-page figure, so it carries that
+   page's accent instead of the site's general link/brand color. */
 .home-hero {
   margin: var(--space-4) 0 var(--space-5);
 }
@@ -28,7 +27,7 @@ h1 {
   font-size: clamp(3.5rem, 2rem + 7vw, 6rem);
   line-height: var(--line-height-tight);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--accent-evidence);
   margin: 0;
 }
 
@@ -132,11 +131,30 @@ h1 {
   }
 }
 
+/* Top border tinted by destination (Task 3 step 4) — relies on the fixed,
+   documented era order in home.yaml (past, right now, near future, open
+   future), not a per-era class, since all four cards render from one
+   loop with no era-specific markup hook. If home.yaml's era order or
+   count ever changes, these nth-child rules need to move with it. */
 .home-timeline__card {
   background: var(--color-bg-subtle);
   border: 1px solid var(--color-border);
+  border-top-width: 3px;
   border-radius: var(--radius-base);
   padding: var(--space-4);
+}
+
+.home-timeline__card:nth-child(1) {
+  border-top-color: var(--accent-history);
+}
+
+.home-timeline__card:nth-child(2) {
+  border-top-color: var(--accent-evidence);
+}
+
+.home-timeline__card:nth-child(3),
+.home-timeline__card:nth-child(4) {
+  border-top-color: var(--accent-future);
 }
 
 .home-timeline__label {

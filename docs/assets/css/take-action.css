@@ -36,6 +36,8 @@
 }
 
 .takeaction-jump a:hover {
+  background: var(--accent-action-bg);
+  color: var(--accent-action);
   text-decoration: underline;
 }
 
@@ -77,7 +79,7 @@
 
 .takeaction-section h2 {
   font-size: var(--font-size-xl);
-  border-bottom: 2px solid var(--color-primary);
+  border-bottom: 2px solid var(--accent-action);
   padding-bottom: var(--space-2);
 }
 
@@ -264,4 +266,11 @@
 .takeaction-debate__landing {
   margin-top: var(--space-4);
   font-weight: 700;
+}
+
+/* This stylesheet isn't shared with any other page, so unlike the
+   Evidence/History pager overrides, no sibling-combinator scoping is
+   needed here — a plain selector can't leak. */
+.journey-pager__next {
+  border-color: var(--accent-action);
 }
