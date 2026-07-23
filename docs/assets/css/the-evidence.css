@@ -197,6 +197,21 @@
   margin-bottom: var(--space-4);
 }
 
+/* Section-level consolidated source note (Citation Marker Text batch,
+   Task B): sits between a list section's intro and its items when every
+   item shares the same citation set, replacing per-item source lines.
+   Same small/muted treatment as .evidence-methodology-note (a proven
+   pattern for "informational, not body copy" at this reading level), but
+   italic like .evidence-list__note so it doesn't read as a duplicate of
+   the plain-text methodology note above it. */
+.evidence-section__source-note {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  max-width: 42rem;
+  margin: 0 0 var(--space-4);
+}
+
 .evidence-figures {
   display: grid;
   grid-template-columns: 1fr;

@@ -495,13 +495,47 @@ button:focus-visible {
 
 /* Shared styling for the `citeLink` filter's output — used on any page that
    cites a source (glossary, history, ...), so this lives here rather than
-   in one page's stylesheet. */
+   in one page's stylesheet.
+
+   Citation Policy restyle: markers used to be styled identically to
+   ordinary body links (--color-primary, same underline behavior as the
+   global `a` rule) — indistinguishable from a regular link and the
+   source of the "too much visual noise" complaint this policy responds
+   to. Now small, muted, and uniform at rest; color only picks up on
+   hover/focus, so a marker still clearly reads as clickable without
+   competing with body text for attention. --color-text-muted is an
+   existing, already-contrast-verified token (8.0:1 against --color-bg in
+   both schemes per tokens.css's own comment) — not a new color, so no new
+   contrast math is needed here. Padding (not a smaller font-size) keeps
+   the tap target reasonable on a phone; the global a:focus-visible
+   outline rule is untouched, so keyboard focus is exactly as visible as
+   before this change. */
 .citation {
-  color: var(--color-primary);
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  /* Fit-check (Citation Marker Text batch, Task D): labels shortened from
+     a full author list to "Surname Year" are much shorter now, so the tap
+     target got smaller too — padding (not font-size) makes up the
+     difference rather than shrinking further at mobile widths. */
+  padding: 0.2em 0.3em;
+  border-radius: var(--radius-base);
 }
 
+.citation:hover,
+.citation:focus-visible {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* Distinguishing signals below are deliberately NOT color alone (both
+   pre-date this restyle) — italic text plus the "— source needed" /
+   "— unverified" suffix already in the label, and a dashed underline —
+   so both stay clearly distinguishable from an ordinary marker even
+   though all markers now share the same muted base color. */
 .citation--todo {
-  color: var(--color-text-muted);
   font-style: italic;
 }
 

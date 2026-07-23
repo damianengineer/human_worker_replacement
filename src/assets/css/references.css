@@ -56,6 +56,31 @@
 .reference-list__item {
   padding: var(--space-3) 0;
   border-bottom: 1px solid var(--color-border);
+  /* Citation markers sitewide now link here (Citation Policy). This page
+     isn't one of the accented pages (Evidence/History/Take Action) — per
+     the earlier accent-colors batch, Glossary/References/About/AI
+     Disclosure stay neutral — so :target uses the page's own existing
+     neutral brand color (--color-primary, already used for
+     .references-group__letter's underline above) rather than borrowing
+     a page-specific accent that doesn't belong here.
+
+     scroll-margin-top uses the fallback chain given in this batch's spec
+     rather than a hardcoded token, specifically so this doesn't need to
+     change or coordinate with the (separate, in-flight-at-spec-time) nav
+     redesign branch. That branch has since merged into main with exactly
+     the --nav-h1/--nav-h2 names this fallback anticipated, so the outer
+     fallback layers (--header-height, the literal 4rem) are now inert —
+     kept as specified rather than simplified, since the risk they guarded
+     against didn't materialize as a mismatch. Safe to simplify to a plain
+     calc(var(--nav-h1) + var(--nav-h2) + var(--space-4)) in a future
+     cleanup pass, matching every other scroll-margin-top in the codebase. */
+  scroll-margin-top: calc(var(--nav-h1, var(--header-height, 4rem)) + var(--nav-h2, 0rem) + var(--space-4));
+}
+
+.reference-list__item:target {
+  background: var(--color-bg-subtle);
+  border-left: 3px solid var(--color-primary);
+  padding-left: var(--space-3);
 }
 
 .reference-list__citation {

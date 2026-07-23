@@ -34,7 +34,7 @@ extraCss:
   {% set textLinks = item.links | withoutImage %}
   {% if item.citations.length or textLinks.length %}
   <p class="takeaction-item__extras">
-    {% for id in item.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+    {% for id in item.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
     {% if item.citations.length and textLinks.length %}; {% endif %}
     {% for link in textLinks %}<a href="{{ link.url }}">{{ link.label }}</a>{% if not loop.last %}; {% endif %}{% endfor %}
   </p>
@@ -63,11 +63,11 @@ extraCss:
         <p class="takeaction-debate__what">{{ proposal.what }}</p>
         <p class="takeaction-debate__for"><strong>The case for:</strong> {{ proposal.case_for }}</p>
         <p class="takeaction-item__extras">
-          {% for id in proposal.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+          {% for id in proposal.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
         </p>
         <p class="takeaction-debate__against"><strong>The case against:</strong> {{ proposal.case_against }}</p>
         <p class="takeaction-item__extras">
-          {% for id in proposal.counter_citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+          {% for id in proposal.counter_citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
         </p>
       </div>
       {% endfor %}

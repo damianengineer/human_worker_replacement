@@ -181,6 +181,16 @@ at_risk:
         citation: "richmond2026"
   most_exposed:
     heading: "Most Exposed Occupations"
+    # Every item below shares this exact citation pair (verified — see the
+    # Citation Marker Text batch report), so it's cited once at section
+    # level instead of on each of the six items (CLAUDE.md Section 13's
+    # consolidation rule). If a future item needs a different source, give
+    # it its own primary_citation/corroborating_citation — the template
+    # renders that item's own marker instead of silently folding it into
+    # this section-level note.
+    section_citations:
+      primary_citation: "massenkoff2026"
+      corroborating_citation: "richmond2026"
     # A list of paragraphs (not one string) so the page renders an actual
     # paragraph break between them, matching how the source text reads.
     intro:
@@ -212,40 +222,29 @@ at_risk:
         title: "High exposure occupations split by whether scale effects offset direct labor savings"
         citation: "richmond2026"
     items:
-      # These items use the same primary/corroborating/note shape as
-      # current_state's items (see that section's comment) since each of
-      # these jobs shows up on both companies' lists, not just one.
+      # No per-item primary_citation/corroborating_citation — every item
+      # here shares the identical pair, cited once via section_citations
+      # above instead (CLAUDE.md Section 13's consolidation rule). Notes
+      # stay per-item since they carry real, distinct information.
       # Alphabetized by industry (rendered as a two-column list on wide
       # screens — see .evidence-list--two-col in the-evidence.css).
       - industry: "Bookkeeping Clerks"
         risk_summary: "Tracking a business's money and financial records."
-        primary_citation: "massenkoff2026"
-        corroborating_citation: "richmond2026"
         note: null
       - industry: "Computer Programmers and Software Developers"
         risk_summary: "Writing, testing, and fixing software."
-        primary_citation: "massenkoff2026"
-        corroborating_citation: "richmond2026"
         note: "This is the single most AI-used job on both companies' lists."
       - industry: "Customer Service Representatives"
         risk_summary: "Answering customer questions and resolving complaints."
-        primary_citation: "massenkoff2026"
-        corroborating_citation: "richmond2026"
         note: "Both companies found this job near the top of their lists."
       - industry: "Data Entry Keyers"
         risk_summary: "Entering information from paper records into computer systems."
-        primary_citation: "massenkoff2026"
-        corroborating_citation: "richmond2026"
         note: "This job shows up as highly exposed on both companies' lists too."
       - industry: "Financial Analysts"
         risk_summary: "Analyzing financial data and business trends to guide company decisions."
-        primary_citation: "massenkoff2026"
-        corroborating_citation: "richmond2026"
         note: null
       - industry: "Sales Representatives"
         risk_summary: "Contacting customers and selling products or services."
-        primary_citation: "massenkoff2026"
-        corroborating_citation: "richmond2026"
         note: null
   stark_state:
     heading: "Stark State College Majors Most Exposed to AI Replacement"

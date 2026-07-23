@@ -7,24 +7,21 @@ extraCss:
 
 {% macro dualSourceLine(primary, corroborating, note) %}
 {% if primary %}
-<p class="evidence-list__source">Source: {{ primary | citeLink | safe }}</p>
+<p class="evidence-list__source">{{ primary | citeLink | safe }}{% if corroborating %}, {{ corroborating | citeLink | safe }}{% endif %}</p>
 {% else %}
 <p class="evidence-list__source evidence-list__source--missing">Source: citation needed</p>
-{% endif %}
-{% if corroborating %}
-<p class="evidence-list__source">Corroborated by: {{ corroborating | citeLink | safe }}</p>
 {% endif %}
 {% if note %}<p class="evidence-list__note">{{ note }}</p>{% endif %}
 {% endmacro %}
 
-{% macro citeList(ids) %}{% for id in ids %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}{% endmacro %}
+{% macro citeList(ids) %}{% for id in ids %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}{% endmacro %}
 
 {% macro statCallout(callout) %}
 {% if callout %}
 <div class="stat-callout">
   <p class="stat-callout__numeral">{{ callout.numeral }}</p>
   <p class="stat-callout__label">{{ callout.label }}</p>
-  <p class="stat-callout__source">Source: {{ citeList(callout.citations) }}</p>
+  <p class="stat-callout__source">{{ citeList(callout.citations) }}</p>
 </div>
 {% endif %}
 {% endmacro %}
@@ -85,7 +82,15 @@ extraCss:
     <li class="evidence-list__item">
       <p>{{ item.claim | safe }}</p>
       {{ statCallout(item.stat_callout) }}
+      {# An item with a stat_callout always cites the same source(s) inside
+         the callout box as its own primary/corroborating_citation — the
+         callout already shows the marker, so the line below only needs to
+         add the note, not repeat the same citation a second time. #}
+      {% if item.stat_callout %}
+      {% if item.note %}<p class="evidence-list__note">{{ item.note }}</p>{% endif %}
+      {% else %}
       {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
+      {% endif %}
     </li>
     {% endfor %}
   </ul>
@@ -102,7 +107,7 @@ extraCss:
     {% if tvo.methodology_note %}
     <p class="evidence-methodology-note">
       {{ tvo.methodology_note }}
-      {% for id in tvo.methodology_citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+      {% for id in tvo.methodology_citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
     </p>
     {% endif %}
 
@@ -114,12 +119,22 @@ extraCss:
     <h3>{{ exposed.heading }}</h3>
     {% for para in exposed.intro %}<p class="evidence-section__intro">{{ para }}</p>{% endfor %}
 
+    {% if exposed.section_citations %}
+    <p class="evidence-section__source-note">
+      Sources for every occupation below: {{ exposed.section_citations.primary_citation | citeLink | safe }}, corroborated by {{ exposed.section_citations.corroborating_citation | citeLink | safe }}.
+    </p>
+    {% endif %}
+
     <ul class="evidence-list evidence-list--two-col">
       {% for item in exposed.items %}
       <li class="evidence-list__item">
         <h4>{{ item.industry }}</h4>
         <p>{{ item.risk_summary }}</p>
+        {% if item.primary_citation or not exposed.section_citations %}
         {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
+        {% elif item.note %}
+        <p class="evidence-list__note">{{ item.note }}</p>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -131,7 +146,7 @@ extraCss:
   <div class="evidence-subsection" id="stark-state">
     <h3>{{ stark.heading }}</h3>
     <p class="evidence-section__intro">{{ stark.intro }}</p>
-    <p class="evidence-list__source">Source: {{ stark.citation | citeLink | safe }}</p>
+    <p class="evidence-list__source">{{ stark.citation | citeLink | safe }}</p>
 
     {% for group in stark.confidence_groups %}
     <details class="evidence-confidence-group evidence-confidence-group--{{ group.key }}">
@@ -163,13 +178,18 @@ extraCss:
     <p>{{ barrier.explanation }}</p>
     <p class="evidence-barrier__jobs"><strong>Jobs protected by this barrier:</strong> {{ barrier.protected_jobs }}</p>
     {{ statCallout(barrier.stat_callout) }}
-    <p class="evidence-list__source">Source: {{ citeList(barrier.citations) }}</p>
+    {# Same reasoning as current_state's items above: a barrier with a
+       stat_callout cites the same source(s) inside the callout box as its
+       own citations field, so skip the redundant line below. #}
+    {% if not barrier.stat_callout %}
+    <p class="evidence-list__source">{{ citeList(barrier.citations) }}</p>
+    {% endif %}
   </div>
   {% if outlook and outlook.after_barrier == loop.index %}
   <div class="evidence-barrier evidence-barrier--outlook">
     <h3>{{ outlook.heading }}</h3>
     <p>{{ outlook.text }}</p>
-    <p class="evidence-list__source">Source: {{ citeList(outlook.citations) }}</p>
+    <p class="evidence-list__source">{{ citeList(outlook.citations) }}</p>
   </div>
   {% endif %}
   {% endfor %}
@@ -192,7 +212,7 @@ extraCss:
     {% endif %}
     {% if point.closing %}<p>{{ point.closing }}</p>{% endif %}
     {% if point.callout %}<p class="evidence-callout">{{ point.callout }}</p>{% endif %}
-    <p class="evidence-list__source">Source: {{ citeList(point.citations) }}</p>
+    <p class="evidence-list__source">{{ citeList(point.citations) }}</p>
   </div>
   {% endfor %}
 

@@ -63,8 +63,8 @@
             
             <li>
               <a href="/human_worker_replacement/references/">
-                <span class="site-nav__label-full">Sources</span>
-                <span class="site-nav__label-short">Sources</span>
+                <span class="site-nav__label-full">References</span>
+                <span class="site-nav__label-short">Refs</span>
               </a>
             </li>
             
@@ -114,7 +114,7 @@ step — see the notes on each log entry below for exactly where things stand.</
 
 
 <p class="ai-disclosure-updated">
-  Last updated: <strong>2026-07-22</strong>
+  Last updated: <strong>2026-07-23</strong>
 </p>
 
 <h2>Work log</h2>
@@ -124,6 +124,48 @@ step — see the notes on each log entry below for exactly where things stand.</
 </p>
 
 <ol class="ai-disclosure-log">
+  
+  <li class="ai-disclosure-log__item">
+    <h3 class="ai-disclosure-log__date">2026-07-23: Citation marker text, consolidation, and References naming</h3>
+    <div class="ai-disclosure-log__cols">
+      <div>
+        <p class="ai-disclosure-log__col-label">AI did</p>
+        <ul>
+          <li>Shortened every source marker site-wide from a full author list to just first-author surname + year (e.g. &#39;Brynjolfsson 2025&#39;), in response to feedback that markers still felt visually heavy even after the previous batch&#39;s restyling. The full citation stays available on hover/for assistive tech, and author-date labels avoid depending on reference-list order the way a numbered system would.</li><li>Consolidated the six Most Exposed Occupations items down to a single section-level source note, since every one of them cited the same two sources — removing repeated identical markers without losing traceability. Checked every other list section on the site the same way; none of the others qualified, since their items draw on genuinely different sources.</li><li>Renamed the reader-facing &#39;Sources&#39; label to &#39;References&#39; everywhere a reader sees it (nav, footer, in-copy mentions) for APA 7 consistency — the page&#39;s URL and underlying code didn&#39;t change, just the name shown to readers.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="ai-disclosure-log__col-label">Human did</p>
+        <ul>
+          <li>Requested this batch based on continued reader feedback on visual noise.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="ai-disclosure-log__notes">Verified mechanically that no citation id disappeared from the site, no link broke, and the sitewide marker count dropped by exactly the number removed by consolidation (10, matching the arithmetic in the batch&#39;s own report) — see that report for the full count-by-count breakdown. Two citations that would have produced the same short label (e.g. two separate undated Karpathy sources) were given matching a/b suffixes on their marker and their References entry.</p>
+    
+  </li>
+  
+  <li class="ai-disclosure-log__item">
+    <h3 class="ai-disclosure-log__date">2026-07-23: Citation policy change — markers now link to References</h3>
+    <div class="ai-disclosure-log__cols">
+      <div>
+        <p class="ai-disclosure-log__col-label">AI did</p>
+        <ul>
+          <li>Changed every source marker site-wide to link to that source&#39;s own entry on the References page instead of straight out to the external site, in response to reader feedback that inline citations felt overwhelming. The References page is now the only place an external link appears, alongside each source&#39;s full APA record, corroboration notes, and any conflict-of-interest disclosure — none of which a reader used to see if they never happened to visit References directly.</li><li>Restyled markers as small and muted at rest, since the actual complaint was visual noise, not the citations themselves — every claim still keeps its marker.</li><li>Added a highlighted-landing effect and adjusted spacing on the References page so following a marker actually lands you on the right entry, not just somewhere on a long page.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="ai-disclosure-log__col-label">Human did</p>
+        <ul>
+          <li>Requested the policy change based on reader feedback.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="ai-disclosure-log__notes">Verified mechanically (build, link-checking, before/after counts) that no citation was dropped and no link was broken by this change — see the batch&#39;s own verification report for the exact numbers. This was a presentation/linking change only; no claims, sources, or citation text were rewritten.</p>
+    
+  </li>
   
   <li class="ai-disclosure-log__item">
     <h3 class="ai-disclosure-log__date">2026-07-22: Two licensed historical images added to History</h3>
@@ -331,7 +373,7 @@ step — see the notes on each log entry below for exactly where things stand.</
         </li>
         
         <li>
-          <a href="/human_worker_replacement/references/">Sources &amp; References</a>
+          <a href="/human_worker_replacement/references/">References</a>
           <span class="site-footer__note">Every citation in full (APA)</span>
         </li>
         
