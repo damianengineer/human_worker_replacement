@@ -157,6 +157,20 @@ h1 {
   border-top-color: var(--accent-future);
 }
 
+/* Hover lift (Task 6) — entirely inside the no-preference guard, so a
+   visitor with reduced motion enabled gets none of it: no transform, no
+   transition, card looks exactly as it did before this batch. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-timeline__card {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .home-timeline__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
 /* Era imagery (Task 4) — only "The past" and "Right now" have an image
    (home.yaml's guarded era.image), so this reserves space only on those
    two cards; "Near future"/"Open future" go straight from the card's own

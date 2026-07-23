@@ -55,6 +55,24 @@ h1 {
 
 a {
   color: var(--color-primary);
+  text-decoration-thickness: 1px;
+}
+
+/* Animated link underline (Task 6) — the one technique used site-wide
+   for this, on the base `a` rule so every content link gets it
+   consistently rather than picking and choosing pages. Elements that
+   already set text-decoration: none (nav, jump-bar pills, buttons) are
+   unaffected either way — thickness has nothing to act on until an
+   underline exists — and elements that toggle text-decoration: underline
+   on :hover already just inherit this thickness/transition for free. */
+@media (prefers-reduced-motion: no-preference) {
+  a {
+    transition: text-decoration-thickness 150ms ease;
+  }
+
+  a:hover {
+    text-decoration-thickness: 2px;
+  }
 }
 
 /* Visible focus state for all interactive elements — never remove this
@@ -189,6 +207,20 @@ button:focus-visible {
   padding: var(--space-4) var(--space-5);
   text-decoration: none;
   color: inherit;
+}
+
+/* Hover lift (Task 6) — entirely inside the no-preference guard; with
+   reduced motion enabled, the pager card looks exactly as it did before
+   this batch. */
+@media (prefers-reduced-motion: no-preference) {
+  .journey-pager__next {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .journey-pager__next:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
 }
 
 .journey-pager__kicker {

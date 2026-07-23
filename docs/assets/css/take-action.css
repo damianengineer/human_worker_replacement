@@ -250,6 +250,20 @@
   padding: var(--space-4);
 }
 
+/* Hover lift (Task 6) — entirely inside the no-preference guard; with
+   reduced motion enabled, these cards look exactly as they did before
+   this batch. */
+@media (prefers-reduced-motion: no-preference) {
+  .takeaction-debate__card {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .takeaction-debate__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
 .takeaction-debate__card h4 {
   margin-top: 0;
 }

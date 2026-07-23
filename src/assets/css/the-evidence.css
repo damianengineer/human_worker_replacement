@@ -315,9 +315,34 @@
   font-size: var(--font-size-base);
   font-weight: 700;
   cursor: pointer;
+  /* Native marker replaced by the ::before triangle below so it can be
+     rotated on [open] — list-style covers modern Chrome/Firefox, the
+     -webkit-details-marker rule covers older Safari. */
+  list-style: none;
 }
 
-.evidence-confidence-group__summary::marker {
+.evidence-confidence-group__summary::-webkit-details-marker {
+  display: none;
+}
+
+.evidence-confidence-group__summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: var(--space-2);
+  color: var(--accent-evidence);
+}
+
+.evidence-confidence-group[open] > .evidence-confidence-group__summary::before {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .evidence-confidence-group__summary::before {
+    transition: transform 150ms ease;
+  }
+}
+
+.evidence-confidence-group__summary:hover {
   color: var(--accent-evidence);
 }
 
