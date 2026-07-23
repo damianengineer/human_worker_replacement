@@ -17,7 +17,7 @@
      pre-existing gap: cross-page deep links to specific glossary terms
      (e.g. /glossary/#automation-of-work, used throughout the site) were
      landing partially behind the sticky site header. Caught and fixed
-     while retiring --header-height in favor of the new nav tokens,
+     while retiring the old single-token header height estimate in favor of the new nav tokens,
      since this page sits under the same sticky tier 1 as every other
      page even though it has no tier 2 of its own. */
   scroll-margin-top: calc(var(--nav-h1) + var(--space-4));

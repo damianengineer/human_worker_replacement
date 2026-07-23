@@ -39,7 +39,7 @@
   /* Was a flat --space-4 with no header clearance — a real, pre-existing
      gap (this page has no jump bar of its own, but still sits under the
      sticky tier 1 header on every page). Fixed while retiring
-     --header-height for the new nav tokens. */
+     the old single-token header height estimate for the new nav tokens. */
   scroll-margin-top: calc(var(--nav-h1) + var(--space-4));
 }
 

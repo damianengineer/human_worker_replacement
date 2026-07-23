@@ -1,8 +1,8 @@
 /* Base layout, typography, and site chrome shared by every page. */
 
-/* --nav-h1 / --nav-h2 (Nav Redesign) replace the old single --header-height
-   estimate — heights are now *defined* by each row's own box model, not
-   estimated after the fact from typography changes elsewhere.
+/* --nav-h1 / --nav-h2 (Nav Redesign) replace the old single-token header
+   height estimate — heights are now *defined* by each row's own box
+   model, not estimated after the fact from typography changes elsewhere.
 
    --nav-h1 (tier 1, the site row): same box model the old single-row
    header used — padding var(--space-3) top/bottom (2rem) + the taller of

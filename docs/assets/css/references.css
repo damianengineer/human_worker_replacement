@@ -35,7 +35,7 @@
    gap. .references-jump (above) is a static, non-sticky in-page A-Z
    box — untouched by this batch's nav redesign — so the only sticky
    chrome this page needs to clear is tier 1 itself. Fixed while
-   retiring --header-height for the new nav tokens. */
+   retiring the old single-token header height estimate for the new nav tokens. */
 .references-group {
   scroll-margin-top: calc(var(--nav-h1) + var(--space-4));
 }

@@ -37,11 +37,12 @@
 
 /* scroll-margin-top must clear both sticky header tiers: tier 1
    (--nav-h1) and this page's own tier 2 (--nav-h2), which together
-   replace the old --header-height + in-content .evidence-jump bar. Both
-   tokens are now defined from real box models (see base.css), not
-   estimated after the fact, so --space-4 here is genuine visual
-   breathing room, not a stand-in for a whole second bar's height the
-   way the old --space-6 term used to be. */
+   replace the old single-token header height estimate plus the old
+   in-content .evidence-jump bar. Both tokens are now defined from real
+   box models (see base.css), not estimated after the fact, so
+   --space-4 here is genuine visual breathing room, not a stand-in for
+   a whole second bar's height the way the old --space-6 term used to
+   be. */
 .evidence-section {
   margin-bottom: var(--space-6);
   scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
