@@ -5,40 +5,15 @@
   color: var(--color-text-muted);
 }
 
-.takeaction-jump {
-  position: sticky;
-  top: var(--nav-h1);
-  z-index: 5;
-  margin: 0 0 var(--space-6);
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.takeaction-jump ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: var(--space-2);
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-.takeaction-jump a {
-  display: inline-block;
-  font-size: var(--font-size-sm);
-  text-decoration: none;
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-base);
-  padding: var(--space-1) var(--space-3);
-}
-
-.takeaction-jump a:hover {
+/* Tier 2 pill hover/current-accent color, scoped to this page (Task 3's
+   "per-page hook") — take-action.css isn't shared with any other page,
+   so unlike the-evidence.css this doesn't strictly need the
+   tier2_accent class-scoping trick to avoid leaking, but using the same
+   pattern here anyway keeps the mechanism consistent across pages
+   rather than having two different conventions for the same job. */
+.site-tier2__list--action a:hover {
   background: var(--accent-action-bg);
   color: var(--accent-action);
-  text-decoration: underline;
 }
 
 .takeaction-subnav {
@@ -66,15 +41,15 @@
   text-decoration: underline;
 }
 
-/* scroll-margin-top must clear both the sticky site header and the sticky
-   .takeaction-jump bar beneath it (same bar chrome as .evidence-jump). The
-   bar's own rendered height works out to ~2.96rem, so --space-6 (3rem)
-   alone leaves well under 1px of margin — a coincidence, not a real
-   buffer. Stacking on --space-4 gives genuine breathing room instead of a
-   razor-thin, rounding-dependent fit. */
+/* scroll-margin-top must clear both sticky header tiers: tier 1
+   (--nav-h1) and this page's own tier 2 (--nav-h2), which together
+   replace the old --header-height + in-content .takeaction-jump bar.
+   Both tokens are defined from real box models (see base.css), not
+   estimated after the fact, so --space-4 here is genuine visual
+   breathing room, not a stand-in for a whole second bar's height. */
 .takeaction-section {
   margin-bottom: var(--space-6);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 .takeaction-section h2 {
@@ -112,7 +87,7 @@
 
 .takeaction-subsection {
   margin-top: var(--space-5);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 .takeaction-subsection h3 {
@@ -207,7 +182,7 @@
   margin: 0 0 var(--space-2);
   padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--color-warning);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 
@@ -222,12 +197,12 @@
 
 .takeaction-debate {
   margin-bottom: var(--space-6);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 .takeaction-debate h3 {
   font-size: var(--font-size-xl);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 .takeaction-debate__cards {

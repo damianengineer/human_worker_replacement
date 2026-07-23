@@ -49,40 +49,14 @@ h1 {
   color: var(--color-text-muted);
 }
 
-.home-jump {
-  margin: var(--space-4) 0 var(--space-6);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-base);
-}
-
-.home-jump ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-4);
-}
-
-.home-jump a {
-  font-size: var(--font-size-sm);
-  text-decoration: none;
-}
-
-.home-jump a:hover {
-  text-decoration: underline;
-}
-
-/* Interim value: this page's old .home-jump wasn't sticky, so it never
-   needed header clearance at all (previously a flat --space-4). Once
-   the homepage gets its own tier 2 (Task 3), this upgrades to the same
-   nav-h1 + nav-h2 + buffer formula Evidence and Take Action use — noted
-   here now so the gap between this commit and that one is deliberate,
-   not a leftover. */
+/* scroll-margin-top must clear both sticky header tiers: tier 1
+   (--nav-h1) and this page's own tier 2 (--nav-h2), which replace the
+   old in-content .home-jump nav (which wasn't itself sticky, so this
+   page never needed header clearance at all before — a real, if minor,
+   gap the old flat --space-4 left open). */
 .home-section {
   margin-bottom: var(--space-6);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 .home-section h2 {

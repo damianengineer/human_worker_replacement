@@ -24,75 +24,50 @@
   text-decoration: underline;
 }
 
-.evidence-jump {
-  position: sticky;
-  top: var(--nav-h1);
-  z-index: 5;
-  margin: 0 0 var(--space-6);
-  padding: var(--space-2) var(--space-4);
-  background: var(--color-bg);
-  border-bottom: 1px solid var(--color-border);
-}
-
-.evidence-jump ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: var(--space-2);
-  overflow-x: auto;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-.evidence-jump a {
-  display: inline-block;
-  font-size: var(--font-size-sm);
-  text-decoration: none;
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-base);
-  padding: var(--space-1) var(--space-3);
-}
-
-.evidence-jump a:hover {
+/* Tier 2 pill hover/current-accent color, scoped to this page only (Task
+   3's "per-page hook"): .site-tier2__list--evidence only renders in the
+   DOM when a page's own frontmatter sets tier2_accent: "evidence" (only
+   the-evidence.md does), so — unlike a plain .site-tier2__list a:hover
+   rule here — this can't leak onto Home or History's tier 2 even though
+   both load this shared stylesheet too. */
+.site-tier2__list--evidence a:hover {
   background: var(--accent-evidence-bg);
   color: var(--accent-evidence);
-  text-decoration: underline;
 }
 
-/* scroll-margin-top must clear both the sticky site header and the sticky
-   .evidence-jump bar beneath it. The bar's own rendered height (padding +
-   pill line-height + pill padding + border) works out to ~2.96rem, so
-   --space-6 (3rem) alone leaves well under 1px of margin — a coincidence,
-   not a real buffer. Stacking on --space-4 gives genuine breathing room
-   instead of a razor-thin, rounding-dependent fit. */
+/* scroll-margin-top must clear both sticky header tiers: tier 1
+   (--nav-h1) and this page's own tier 2 (--nav-h2), which together
+   replace the old --header-height + in-content .evidence-jump bar. Both
+   tokens are now defined from real box models (see base.css), not
+   estimated after the fact, so --space-4 here is genuine visual
+   breathing room, not a stand-in for a whole second bar's height the
+   way the old --space-6 term used to be. */
 .evidence-section {
   margin-bottom: var(--space-6);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 /* Alternating pacing bands (Task 5) — a genuine full-width, edge-to-edge
    band, not an in-column card: background extends to the viewport edges
    while the text column stays put at --content-max-width, exactly as
    specified. nth-of-type, not nth-child: main's other direct children
-   (h1, .evidence-intro, .evidence-teaser, .evidence-jump) aren't
-   <section> elements, so nth-of-type(odd) counts only among the four
-   .evidence-section elements (1st and 3rd: Current State, Protective
-   Factors) without being thrown off by the unrelated siblings before/
-   between them.
+   (h1, .evidence-intro, .evidence-teaser) aren't <section> elements, so
+   nth-of-type(odd) counts only among the four .evidence-section elements
+   (1st and 3rd: Current State, Protective Factors) without being thrown
+   off by the unrelated siblings before/between them.
 
    Deliberately NOT the classic width:100vw + negative-margin breakout
    (or the position:relative; left/right:50%; margin:-50vw version) —
    both need to be paired with overflow-x:hidden somewhere to avoid a
    horizontal-scrollbar bug (100vw doesn't subtract the scrollbar's own
-   width), and this site's sticky elements (.site-header, .evidence-jump,
-   .takeaction-jump) all live under <body>: setting overflow-x on any
-   ancestor between <body> and a sticky element forces the browser to
-   compute the OTHER overflow axis (overflow-y) to non-visible too, which
-   turns that ancestor into its own scroll container and breaks position:
-   sticky for every descendant. That's real, not theoretical — it's
-   exactly the risk an earlier pass through this same task flagged before
-   dropping the full-bleed requirement instead of solving it.
+   width), and this site's sticky elements (.site-tier1, .site-tier2) all
+   live under <body>: setting overflow-x on any ancestor between <body>
+   and a sticky element forces the browser to compute the OTHER overflow
+   axis (overflow-y) to non-visible too, which turns that ancestor into
+   its own scroll container and breaks position: sticky for every
+   descendant. That's real, not theoretical — it's exactly the risk an
+   earlier pass through this same task flagged before dropping the
+   full-bleed requirement instead of solving it.
 
    The box-shadow technique below sidesteps this entirely: the section's
    actual layout box never changes size (no width, margin, or position
@@ -124,10 +99,11 @@
    sets, and box-shadow does not establish a containing block for
    anything — so that lightbox (and any other fixed/sticky element that
    might end up inside a banded section later) still positions itself
-   against the real viewport, not against this section's box. The
-   sticky jump bar (.evidence-jump) doesn't share this exposure anyway:
-   it's a sibling rendered before the first section, never a descendant
-   of any of them, banded or not. */
+   against the real viewport, not against this section's box. Tier 2
+   (the nav redesign's "On this page" pills) doesn't share this exposure
+   at all, for a simpler reason than before: it now lives in the shared
+   header, entirely outside <main>, so it was never a descendant of any
+   section, banded or not, even before this concern applied. */
 .evidence-section:nth-of-type(odd) {
   padding: var(--space-5) 0;
   box-shadow: 0 0 0 100vmax var(--color-bg-subtle);
@@ -145,7 +121,7 @@
 
 .evidence-subsection {
   margin-top: var(--space-5);
-  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
 .evidence-subsection h3 {
@@ -574,8 +550,11 @@
    so a plain .journey-pager__next selector here would also repaint the
    pager on History (a journey page too) — and would win the cascade
    there, since history.njk loads history.css before the-evidence.css.
-   Scoping through .evidence-jump, a class that only exists in this
-   page's own markup, keeps the teal accent on Evidence only. */
-.evidence-jump ~ .journey-pager .journey-pager__next {
+   Previously scoped through .evidence-jump (deleted in the nav
+   redesign); .evidence-intro is the same kind of anchor — a class that
+   only exists in this page's own markup and still sits as a sibling of
+   .journey-pager inside <main> — so it keeps the teal accent on
+   Evidence only, same as before. */
+.evidence-intro ~ .journey-pager .journey-pager__next {
   border-color: var(--accent-evidence);
 }

@@ -23,7 +23,7 @@
   <nav class="site-tier2" aria-label="On this page">
     <div class="site-tier2__inner">
       <span class="site-tier2__prefix">On this page:</span>
-      <ul class="site-tier2__list">
+      <ul class="site-tier2__list{% if tier2_accent %} site-tier2__list--{{ tier2_accent }}{% endif %}">
         {% for s in sections %}
         <li><a href="{{ s.href }}">{{ s.label }}</a></li>
         {% endfor %}

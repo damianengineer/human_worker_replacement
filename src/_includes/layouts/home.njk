@@ -21,14 +21,6 @@ extraCss:
   {{ content | safe }}
 </div>
 
-<nav class="home-jump" aria-label="Sections on this page">
-  <ul>
-    <li><a href="#short-version">{{ home.short_version.heading }}</a></li>
-    <li><a href="#timeline">{{ home.timeline.heading }}</a></li>
-    <li><a href="#where-to-go">{{ home.where_to_go.heading }}</a></li>
-  </ul>
-</nav>
-
 <section class="home-section" id="short-version" aria-labelledby="short-version-heading">
   <h2 id="short-version-heading">{{ home.short_version.heading }}</h2>
   <p>{{ home.short_version.text }}</p>
