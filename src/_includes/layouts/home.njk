@@ -15,8 +15,8 @@ extraCss:
 <nav class="home-jump" aria-label="Sections on this page">
   <ul>
     <li><a href="#short-version">{{ home.short_version.heading }}</a></li>
-    <li><a href="#where-to-go">{{ home.where_to_go.heading }}</a></li>
     <li><a href="#timeline">{{ home.timeline.heading }}</a></li>
+    <li><a href="#where-to-go">{{ home.where_to_go.heading }}</a></li>
   </ul>
 </nav>
 
@@ -29,6 +29,21 @@ extraCss:
   </p>
   {{ figures.singleFigure(home.short_version.figure, "#short-version") }}
   <p><a href="{{ home.short_version.link_url }}">{{ home.short_version.link_label }}</a></p>
+</section>
+
+<section class="home-section" id="timeline" aria-labelledby="timeline-heading">
+  <h2 id="timeline-heading">{{ home.timeline.heading }}</h2>
+  <p>{{ home.timeline.intro }}</p>
+  <ol class="home-timeline">
+    {% for era in home.timeline.eras %}
+    <li class="home-timeline__card">
+      <p class="home-timeline__label">{{ era.label }}</p>
+      <span class="home-timeline__tag{% if era.certainty == 'Forecast — contested' or era.certainty == 'Speculative' %} home-timeline__tag--caution{% endif %}">{{ era.certainty }}</span>
+      <p>{{ era.text }}</p>
+      <p><a href="{{ era.link_url }}">{{ era.link_label }}</a></p>
+    </li>
+    {% endfor %}
+  </ol>
 </section>
 
 <section class="home-section" id="where-to-go" aria-labelledby="where-to-go-heading">
@@ -48,21 +63,6 @@ extraCss:
     </div>
     {% endfor %}
   </div>
-</section>
-
-<section class="home-section" id="timeline" aria-labelledby="timeline-heading">
-  <h2 id="timeline-heading">{{ home.timeline.heading }}</h2>
-  <p>{{ home.timeline.intro }}</p>
-  <ol class="home-timeline">
-    {% for era in home.timeline.eras %}
-    <li class="home-timeline__card">
-      <p class="home-timeline__label">{{ era.label }}</p>
-      <span class="home-timeline__tag{% if era.certainty == 'Forecast — contested' or era.certainty == 'Speculative' %} home-timeline__tag--caution{% endif %}">{{ era.certainty }}</span>
-      <p>{{ era.text }}</p>
-      <p><a href="{{ era.link_url }}">{{ era.link_label }}</a></p>
-    </li>
-    {% endfor %}
-  </ol>
 </section>
 
 <p class="home-closing">{{ home.closing.text | safe }}</p>

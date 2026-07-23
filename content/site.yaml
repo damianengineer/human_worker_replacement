@@ -9,22 +9,17 @@ tagline: "What AI means for entry-level work — and how to get ready"
 # "When adding a new page, update: the nav partial..."). Only pages that
 # exist should be listed, so we don't ship broken links.
 nav:
-  - label: "Home"
-    url: "/"
   - label: "The Evidence"
     url: "/the-evidence/"
-  - label: "Take Action"
-    url: "/take-action/"
   - label: "History"
     url: "/history/"
+  - label: "Take Action"
+    url: "/take-action/"
   - label: "Glossary"
     url: "/glossary/"
-  - label: "References"
-    url: "/references/"
-  - label: "About"
-    url: "/about/"
-  - label: "AI Disclosure"
-    url: "/ai-disclosure/"
+# Home is reachable via the header brand link (already links to "/").
+# About, AI Disclosure, and References are demoted from primary nav but
+# remain reachable via footer.links below on every page.
 
 footer:
   copyright: "This site is a student-focused educational resource."
@@ -35,3 +30,23 @@ footer:
       url: "/ai-disclosure/"
     - label: "References"
       url: "/references/"
+
+# Guided prev/next order for the "journey pager" partial
+# (src/_includes/partials/pager.njk), rendered at the end of <main> on any
+# page whose url appears here. The last entry is a loop-back — a
+# destination only, never itself a "current page" match (its url is an
+# anchor on the same page as the first entry, so the first entry always
+# matches before the loop-back ever could).
+journey:
+  - url: "/the-evidence/"
+    label: "The Evidence"
+    teaser: "What the data actually shows right now"
+  - url: "/history/"
+    label: "History"
+    teaser: "This has happened before — four times we can study"
+  - url: "/take-action/"
+    label: "Take Action"
+    teaser: "So what do you actually do about it?"
+  - url: "/the-evidence/#stark-state"
+    label: "Check your major"
+    teaser: "Loop back: your Stark State program against the exposure data"

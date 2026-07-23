@@ -55,8 +55,9 @@ where_to_go:
         - lead: "Want to have a say in how this gets handled?"
           text: >-
             <a href="/take-action/#policy-debate">Start with the debate</a>
-            over UBI and sovereign wealth funds, then
-            <a href="/take-action/#policy">track the actual bills</a>.
+            over <a href="/glossary/#universal-basic-income-ubi">UBI</a> and
+            <a href="/glossary/#sovereign-wealth-fund">sovereign wealth funds</a>,
+            then <a href="/take-action/#policy">track the actual bills</a>.
 
 timeline:
   heading: "Where this story is"

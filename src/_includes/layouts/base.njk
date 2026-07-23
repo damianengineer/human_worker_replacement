@@ -30,6 +30,7 @@
 
   <main id="main">
     {{ content | safe }}
+    {%- include "partials/pager.njk" -%}
   </main>
 
   {% include "partials/footer.njk" %}

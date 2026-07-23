@@ -6,10 +6,13 @@
 }
 
 .takeaction-jump {
-  margin: var(--space-4) 0 var(--space-6);
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-base);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 5;
+  margin: 0 0 var(--space-6);
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .takeaction-jump ul {
@@ -17,13 +20,19 @@
   margin: 0;
   padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2) var(--space-4);
+  gap: var(--space-2);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
 }
 
 .takeaction-jump a {
+  display: inline-block;
   font-size: var(--font-size-sm);
   text-decoration: none;
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-base);
+  padding: var(--space-1) var(--space-3);
 }
 
 .takeaction-jump a:hover {
@@ -55,9 +64,15 @@
   text-decoration: underline;
 }
 
+/* scroll-margin-top must clear both the sticky site header and the sticky
+   .takeaction-jump bar beneath it (same bar chrome as .evidence-jump). The
+   bar's own rendered height works out to ~2.96rem, so --space-6 (3rem)
+   alone leaves well under 1px of margin — a coincidence, not a real
+   buffer. Stacking on --space-4 gives genuine breathing room instead of a
+   razor-thin, rounding-dependent fit. */
 .takeaction-section {
   margin-bottom: var(--space-6);
-  scroll-margin-top: var(--space-4);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-section h2 {
@@ -95,7 +110,7 @@
 
 .takeaction-subsection {
   margin-top: var(--space-5);
-  scroll-margin-top: var(--space-4);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-subsection h3 {
@@ -190,7 +205,7 @@
   margin: 0 0 var(--space-2);
   padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--color-warning);
-  scroll-margin-top: var(--space-4);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
 }
 
 
@@ -205,12 +220,12 @@
 
 .takeaction-debate {
   margin-bottom: var(--space-6);
-  scroll-margin-top: var(--space-4);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-debate h3 {
   font-size: var(--font-size-xl);
-  scroll-margin-top: var(--space-4);
+  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-debate__cards {
