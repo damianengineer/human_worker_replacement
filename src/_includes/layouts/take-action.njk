@@ -47,15 +47,6 @@ extraCss:
 <div class="takeaction-intro">
   {{ content | safe }}
 </div>
-
-<nav class="takeaction-jump" aria-label="Sections on this page">
-  <ul>
-    {% for cta in takeaction.ctas %}
-    <li><a href="#{{ cta.key | slugify }}">{{ cta.heading }}</a></li>
-    {% endfor %}
-  </ul>
-</nav>
-
 {% for cta in takeaction.ctas %}
 <section class="takeaction-section" id="{{ cta.key | slugify }}" aria-labelledby="{{ cta.key | slugify }}-heading">
   <h2 id="{{ cta.key | slugify }}-heading">{% if cta.icon %}<span aria-hidden="true">{{ cta.icon }}</span> {% endif %}{{ cta.heading }}</h2>

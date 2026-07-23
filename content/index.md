@@ -2,6 +2,16 @@
 title: "AI & Your First Job"
 description: "A student's guide to AI's effect on entry-level jobs — the evidence, the history behind it, and what to do next."
 layout: "layouts/home.njk"
+# Drives the header's tier 2 — replaces the old in-content .home-jump nav.
+# No tier2_accent: this page has no dedicated section accent (unlike
+# Evidence/Take Action), so its pills use the shared default hover style.
+sections:
+  - href: "#short-version"
+    label: "The short version"
+  - href: "#timeline"
+    label: "Where this story is"
+  - href: "#where-to-go"
+    label: "Two clocks"
 ---
 
 AI replacement of human workers is already underway — and entry-level

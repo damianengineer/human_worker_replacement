@@ -3,33 +3,83 @@
 # page's own content/*.md file instead.
 
 title: "AI & Your First Job"
+# Same value as `title` for now — the retitle to the longer "AI & Your Job
+# After Graduation" is a separate batch. This field exists so the header's
+# narrow-width brand span has something to switch to the day that lands,
+# without touching the header component again. Update this to an actual
+# shortened form when the retitle happens.
+short_title: "AI & Your First Job"
 tagline: "What AI means for entry-level work — and how to get ready"
 
 # Nav entries are added here as each page is built (see CLAUDE.md Section 11:
 # "When adding a new page, update: the nav partial..."). Only pages that
-# exist should be listed, so we don't ship broken links.
+# exist should be listed, so we don't ship broken links. short_label is
+# optional — only set where the full label is worth shortening at narrow
+# widths; the header falls back to `label` when it's absent.
 nav:
   - label: "The Evidence"
+    short_label: "Evidence"
     url: "/the-evidence/"
   - label: "History"
     url: "/history/"
   - label: "Take Action"
+    short_label: "Action"
     url: "/take-action/"
   - label: "Glossary"
     url: "/glossary/"
+  - label: "Sources"
+    url: "/references/"
 # Home is reachable via the header brand link (already links to "/").
-# About, AI Disclosure, and References are demoted from primary nav but
-# remain reachable via footer.links below on every page.
+# References is reachable above as "Sources" — same URL, not duplicated
+# here under a second label.
 
+# About and AI Disclosure are one click away via the "More" details-
+# dropdown in tier 1 (site-chrome-top.njk), not flat nav items — adding
+# them as two more full-width links was the part the width-budget
+# arithmetic couldn't afford (five short-label items plus a shortened
+# future brand already land at or past a 375px content budget); the
+# dropdown trigger itself only costs about as much row-width as one
+# more short word, not two full labels.
+nav_more:
+  - label: "About"
+    url: "/about/"
+  - label: "AI Disclosure"
+    url: "/ai-disclosure/"
+
+# Complete sitemap (Nav Redesign Task 4) — every page except Home appears
+# in exactly one group; Home is reachable via the header brand link on
+# every page, the same reasoning that already exempts it from primary
+# nav above, so it's not duplicated here either.
 footer:
   copyright: "This site is a student-focused educational resource."
-  links:
-    - label: "About"
-      url: "/about/"
-    - label: "AI Disclosure"
-      url: "/ai-disclosure/"
-    - label: "References"
-      url: "/references/"
+  groups:
+    - heading: "The argument"
+      links:
+        - label: "The Evidence"
+          url: "/the-evidence/"
+          note: "What the data shows right now"
+        - label: "History"
+          url: "/history/"
+          note: "Four earlier moments to learn from"
+        - label: "Take Action"
+          url: "/take-action/"
+          note: "Plan B, AI literacy, policy"
+    - heading: "Reference"
+      links:
+        - label: "Glossary"
+          url: "/glossary/"
+          note: "Plain-language definitions"
+        - label: "Sources & References"
+          url: "/references/"
+          note: "Every citation in full (APA)"
+    - heading: "About this site"
+      links:
+        - label: "About"
+          url: "/about/"
+          note: "Who this is for and why"
+        - label: "AI Disclosure"
+          url: "/ai-disclosure/"
+          note: "How this site was made"
 
 # Guided prev/next order for the "journey pager" partial
 # (src/_includes/partials/pager.njk), rendered at the end of <main> on any

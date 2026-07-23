@@ -13,7 +13,14 @@
 .glossary-list__item {
   padding: var(--space-4) 0;
   border-bottom: 1px solid var(--color-border);
-  scroll-margin-top: var(--space-4);
+  /* Was a flat --space-4 with no header clearance at all — a real,
+     pre-existing gap: cross-page deep links to specific glossary terms
+     (e.g. /glossary/#automation-of-work, used throughout the site) were
+     landing partially behind the sticky site header. Caught and fixed
+     while retiring the old single-token header height estimate in favor of the new nav tokens,
+     since this page sits under the same sticky tier 1 as every other
+     page even though it has no tier 2 of its own. */
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-4));
 }
 
 .glossary-list__item:first-child {

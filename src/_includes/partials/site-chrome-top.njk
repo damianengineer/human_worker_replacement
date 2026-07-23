@@ -1,0 +1,48 @@
+<header class="site-header">
+  <div class="site-tier1">
+    <div class="site-tier1__inner">
+      <a class="site-header__brand" href="/">
+        <span class="site-header__brand-full">{{ site.title }}</span>
+        <span class="site-header__brand-short">{{ site.short_title }}</span>
+      </a>
+      <div class="site-tier1__right">
+        <nav class="site-nav" aria-label="Site">
+          <ul class="site-nav__list">
+            {% for item in site.nav %}
+            <li>
+              <a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>
+                <span class="site-nav__label-full">{{ item.label }}</span>
+                <span class="site-nav__label-short">{{ item.short_label or item.label }}</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+        </nav>
+        {% if site.nav_more %}
+        <details class="nav-more">
+          <summary class="nav-more__summary">More</summary>
+          <div class="nav-more__panel">
+            <ul>
+              {% for item in site.nav_more %}
+              <li><a href="{{ item.url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.label }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        </details>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  {% if sections %}
+  <nav class="site-tier2" aria-label="On this page">
+    <div class="site-tier2__inner">
+      <span class="site-tier2__prefix">On this page:</span>
+      <ul class="site-tier2__list{% if tier2_accent %} site-tier2__list--{{ tier2_accent }}{% endif %}">
+        {% for s in sections %}
+        <li><a href="{{ s.href }}">{{ s.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+  {% endif %}
+</header>
