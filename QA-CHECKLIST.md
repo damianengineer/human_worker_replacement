@@ -47,13 +47,12 @@ browser to measure against) suggests both tiers are genuinely tight at
 375px, not a comfortable margin:
 
 - **Tier 1**: five short-label nav items (Evidence, History, Action,
-  Glossary, Sources) plus a *hypothetical* shortened future brand land at
-  roughly 376–401px of content against a ~327px budget — over, even after
-  the named fallback (dropping the planned "More ▾" menu) was taken
-  specifically to ease this. The current actual brand ("AI & Your First
-  Job") is shorter than the hypothetical used for that estimate, so today's
-  real fit is probably better than the arithmetic above — but this needs a
-  real check, not an assumption.
+  Glossary, Sources) plus the "More" dropdown trigger plus a *hypothetical*
+  shortened future brand land at roughly 407–450px of content against a
+  ~327px budget — over. The current actual brand ("AI & Your First Job")
+  is shorter than the hypothetical used for that estimate, so today's real
+  fit is probably better than the arithmetic above — but this needs a real
+  check, not an assumption.
 - **Tier 2**: all three sectioned pages' pill rows are estimated at
   363–762px against the same ~327px budget — Evidence's 5 pills especially
   so. This is expected to need horizontal scroll, similar to (though
@@ -95,16 +94,31 @@ now covers all 7 non-Home pages across three labeled groups.
 - [ ] Click every one of the 7 footer links once, confirming each lands on
       the right page.
 
-## 4. The dropped "More" menu — confirm reachability, not a broken feature
+## 4. The "More" dropdown (About / AI Disclosure)
 
-Task 2's planned `<details>` dropdown for About/AI Disclosure was not
-built (see the batch report for the width-budget reasoning) — this is a
-deliberate fallback, not a bug to hunt for. There is no dropdown to test.
+Native `<details>`, no JavaScript. Known and accepted limitation: without
+JS, it can only be closed by re-clicking the summary — there's no
+outside-click or Esc-key dismissal. That's expected, not a bug.
 
-- [ ] Confirm About and AI Disclosure are *not* in the primary nav (tier 1)
-      — expected — and *are* reachable via the footer sitemap (Section 3
-      above) on every page. That's the only reachability path for these
-      two now, same as it was before this batch.
+- [ ] By mouse: click "More ▾" in tier 1. Confirm the panel opens,
+      contains About and AI Disclosure, both are clickable and land on the
+      right page, and the caret rotates (unless reduced motion is on, see
+      Section 9).
+- [ ] Click "More ▾" again (not one of the links) — confirm the panel
+      closes and the caret rotates back.
+- [ ] By keyboard: Tab to the "More" summary (confirm a visible focus
+      ring), press Enter or Space to open it, Tab into the panel and
+      confirm both links are reachable and focus-visible, then Tab past
+      the last link and confirm focus moves on to whatever's next on the
+      page (tier 2 or page content) rather than getting trapped.
+- [ ] Confirm clicking anywhere else on the page (not the summary) does
+      **not** close the panel — that's the documented, accepted
+      limitation, not a regression to fix.
+- [ ] At 375px, confirm the panel doesn't overflow off the right edge of
+      the viewport (it's right-aligned under the trigger, which sits at
+      the end of tier 1's right-aligned group).
+- [ ] Confirm About and AI Disclosure are also reachable via the footer
+      sitemap (Section 3) — both paths should work, not just one.
 
 ## 5. Full-bleed Evidence band (Batch 4, re-confirm after Nav Redesign)
 
@@ -238,6 +252,9 @@ convenience.
       missing style.
 - [ ] Footer sitemap: group headings and link text legible in dark mode,
       notes readable at their muted color.
+- [ ] The "More" dropdown panel: background/border visible against the
+      page in dark mode (it uses `--color-bg` + `--color-border`, not a
+      shadow), and both links legible and clearly clickable.
 - [ ] None of the above should look washed out, illegible, or like it
       disappears into the dark background.
 

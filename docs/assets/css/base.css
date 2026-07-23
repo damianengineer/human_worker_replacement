@@ -239,6 +239,113 @@ button:focus-visible {
   }
 }
 
+/* Groups the primary nav and the "More" trigger as one right-aligned
+   unit, so .site-tier1__inner keeps exactly two flex children (brand,
+   this wrapper) and justify-content: space-between still just balances
+   those two — not three separately-spaced items. min-width: 0 lets
+   .site-nav shrink/scroll inside here without this wrapper forcing
+   extra width; "More" itself never shrinks (flex: none below) so the
+   trigger stays reachable even if the nav list scrolls. */
+.site-tier1__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+/* Task 2's originally-planned "More" dropdown for About/AI Disclosure —
+   native <details>, no JS. Known and accepted limitation: without JS,
+   this closes only by re-clicking the summary — there's no outside-
+   click or Esc-key dismissal, since this site ships zero JavaScript. */
+.nav-more {
+  position: relative;
+  flex: none;
+}
+
+.nav-more__summary {
+  cursor: pointer;
+  list-style: none;
+  font-size: var(--font-size-sm);
+  white-space: nowrap;
+  padding: var(--space-1) var(--space-2);
+}
+
+.nav-more__summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Same replaced-marker technique as the Stark State accordion
+   (the-evidence.css): hide the native marker, rotate a custom one
+   instead — a down caret here rather than a sideways triangle, since
+   this is a dropdown affordance, not an accordion. */
+.nav-more__summary::after {
+  content: "▾";
+  display: inline-block;
+  margin-left: var(--space-1);
+}
+
+.nav-more[open] > .nav-more__summary::after {
+  transform: rotate(180deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .nav-more__summary::after {
+    transition: transform 150ms ease;
+  }
+}
+
+.nav-more__summary:hover {
+  text-decoration: underline;
+}
+
+.nav-more__summary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.nav-more__panel {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--space-1);
+  min-width: 10rem;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-2);
+  /* Above both header tiers (10/9) and ordinary page content. */
+  z-index: 20;
+}
+
+.nav-more__panel ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-more__panel li + li {
+  margin-top: var(--space-1);
+}
+
+.nav-more__panel a {
+  display: block;
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-base);
+}
+
+.nav-more__panel a[aria-current="page"] {
+  text-decoration: underline;
+  font-weight: 700;
+}
+
+.nav-more__panel a:hover {
+  background: var(--color-bg-subtle);
+  text-decoration: underline;
+}
+
 /* Tier 2 — the page row. Visually subordinate to tier 1: same background
    family (opaque, so content doesn't ghost through while sticky), but
    thinner padding and smaller everything, with its own border-bottom so

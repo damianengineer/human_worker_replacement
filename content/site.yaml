@@ -30,16 +30,21 @@ nav:
   - label: "Sources"
     url: "/references/"
 # Home is reachable via the header brand link (already links to "/").
-#
-# About and AI Disclosure are NOT in primary nav — the nav redesign's
-# planned "More ▾" details-dropdown for these two was dropped rather than
-# shipped (see the batch's final report for the width-budget arithmetic:
-# five short-label items plus a shortened future brand already land at or
-# past a 375px viewport's content budget; a sixth item made that worse,
-# not better). This is the named fallback from that task's own spec, not
-# an oversight. Reachability for both is unchanged from before this
-# batch — they were footer-only then and remain footer-only now, via
-# footer.groups below.
+# References is reachable above as "Sources" — same URL, not duplicated
+# here under a second label.
+
+# About and AI Disclosure are one click away via the "More" details-
+# dropdown in tier 1 (site-chrome-top.njk), not flat nav items — adding
+# them as two more full-width links was the part the width-budget
+# arithmetic couldn't afford (five short-label items plus a shortened
+# future brand already land at or past a 375px content budget); the
+# dropdown trigger itself only costs about as much row-width as one
+# more short word, not two full labels.
+nav_more:
+  - label: "About"
+    url: "/about/"
+  - label: "AI Disclosure"
+    url: "/ai-disclosure/"
 
 # Complete sitemap (Nav Redesign Task 4) — every page except Home appears
 # in exactly one group; Home is reachable via the header brand link on
