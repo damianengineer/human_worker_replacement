@@ -4,14 +4,9 @@
    chart appears so the pattern isn't hand-duplicated per page). #}
 
 {% macro figureCredit(figTitle, citationId) %}
-{% set src = citations[citationId] %}
 <figcaption>
   <p class="evidence-figure__title">{{ figTitle }}</p>
-  <p class="evidence-figure__credit">
-    Source:
-    {% if src.url %}<a href="{{ src.url }}">{{ src.authors }}</a>{% else %}{{ src.authors }}{% endif %}
-    ({{ src.date | prettyDate if src.date else src.year }}). {{ src.publisher }}.
-  </p>
+  <p class="evidence-figure__credit">{{ citationId | citeLink | safe }}</p>
 </figcaption>
 {% endmacro %}
 
