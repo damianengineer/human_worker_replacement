@@ -27,11 +27,15 @@ nav:
     url: "/take-action/"
   - label: "Glossary"
     url: "/glossary/"
-  - label: "Sources"
+  - label: "References"
+    short_label: "Refs"
     url: "/references/"
 # Home is reachable via the header brand link (already links to "/").
-# References is reachable above as "Sources" — same URL, not duplicated
-# here under a second label.
+# References is reachable above under its own label — same URL, not
+# duplicated here under a second label. short_label ("Refs") is shorter
+# than the old bare "Sources" label was, so renaming to the full APA-7
+# "References" (Citation Marker Text batch, Task C) doesn't cost any width
+# at narrow viewports — see that batch's report for the arithmetic.
 
 # About and AI Disclosure are one click away via the "More" details-
 # dropdown in tier 1 (site-chrome-top.njk), not flat nav items — adding
@@ -69,7 +73,7 @@ footer:
         - label: "Glossary"
           url: "/glossary/"
           note: "Plain-language definitions"
-        - label: "Sources & References"
+        - label: "References"
           url: "/references/"
           note: "Every citation in full (APA)"
     - heading: "About this site"
