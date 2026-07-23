@@ -3,17 +3,27 @@
 # page's own content/*.md file instead.
 
 title: "AI & Your First Job"
+# Same value as `title` for now — the retitle to the longer "AI & Your Job
+# After Graduation" is a separate batch. This field exists so the header's
+# narrow-width brand span has something to switch to the day that lands,
+# without touching the header component again. Update this to an actual
+# shortened form when the retitle happens.
+short_title: "AI & Your First Job"
 tagline: "What AI means for entry-level work — and how to get ready"
 
 # Nav entries are added here as each page is built (see CLAUDE.md Section 11:
 # "When adding a new page, update: the nav partial..."). Only pages that
-# exist should be listed, so we don't ship broken links.
+# exist should be listed, so we don't ship broken links. short_label is
+# optional — only set where the full label is worth shortening at narrow
+# widths; the header falls back to `label` when it's absent.
 nav:
   - label: "The Evidence"
+    short_label: "Evidence"
     url: "/the-evidence/"
   - label: "History"
     url: "/history/"
   - label: "Take Action"
+    short_label: "Action"
     url: "/take-action/"
   - label: "Glossary"
     url: "/glossary/"

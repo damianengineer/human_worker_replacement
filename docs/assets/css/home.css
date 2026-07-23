@@ -74,9 +74,15 @@ h1 {
   text-decoration: underline;
 }
 
+/* Interim value: this page's old .home-jump wasn't sticky, so it never
+   needed header clearance at all (previously a flat --space-4). Once
+   the homepage gets its own tier 2 (Task 3), this upgrades to the same
+   nav-h1 + nav-h2 + buffer formula Evidence and Take Action use — noted
+   here now so the gap between this commit and that one is deliberate,
+   not a leftover. */
 .home-section {
   margin-bottom: var(--space-6);
-  scroll-margin-top: var(--space-4);
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-4));
 }
 
 .home-section h2 {

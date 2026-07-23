@@ -1,20 +1,34 @@
 /* Base layout, typography, and site chrome shared by every page. */
 
-/* --header-height stayed in base.css (not tokens.css) from the batch that
-   introduced it, where tokens.css was off-limits — that constraint is
-   lifted this batch, but there's no reason to churn its location too.
-   Recomputed for Batch 4: the brand now sets line-height: var(--line-
-   height-tight) (1.15) instead of inheriting body's 1.6, which drops its
-   line height below the nav list's (font-size-sm 0.875rem * line-height-
-   base 1.6 = 1.4rem, vs. the brand's new 1.125rem * 1.15 = 1.29rem) — so
-   the nav, not the brand, is now the taller of the header's two flex
-   children. New total: padding (var(--space-3) top/bottom = 2rem) +
-   nav-line-height (1.4rem) + border (1px) = 3.4625rem, rounded up to
-   3.5rem for a small safety margin. Still a computed estimate, not
-   measured in a live browser (none available in this environment) —
-   verify against the real rendered header and adjust if it's off. */
+/* --nav-h1 / --nav-h2 (Nav Redesign) replace the old single --header-height
+   estimate — heights are now *defined* by each row's own box model, not
+   estimated after the fact from typography changes elsewhere.
+
+   --nav-h1 (tier 1, the site row): same box model the old single-row
+   header used — padding var(--space-3) top/bottom (2rem) + the taller of
+   the brand (font-size-lg 1.125rem * line-height-tight 1.15 = 1.29rem) or
+   the nav list (font-size-sm 0.875rem * line-height-base 1.6, inherited,
+   = 1.4rem — still the taller child) + border-bottom (1px = 0.0625rem) =
+   3.4625rem, rounded up to 3.5rem for a small safety margin.
+
+   --nav-h2 (tier 2, the page row): deliberately thinner. Padding
+   var(--space-1) top/bottom (0.5rem total) + the pill's own height
+   (font-size-sm line-height 1.4rem + pill padding var(--space-1) top/
+   bottom 0.5rem = 1.9rem — the pill, not the plain "On this page:"
+   prefix text, is the taller child here) + border-bottom (1px =
+   0.0625rem) = 2.4625rem, rounded up to 2.5rem for the same small
+   margin.
+
+   Total chrome: 3.5rem + 2.5rem = 6rem = 96px at 375px, comfortably
+   under the ~104px target. Still a computed estimate, not measured in a
+   live browser (none available in this environment) — verify against
+   the real rendered header and adjust either value if it's off; every
+   consumer (sticky positioning, scroll-margin-top on every page) reads
+   from these two tokens, so a correction here propagates everywhere
+   automatically. */
 :root {
-  --header-height: 3.5rem;
+  --nav-h1: 3.5rem;
+  --nav-h2: 2.5rem;
 }
 
 *,
@@ -98,20 +112,28 @@ button:focus-visible {
   top: var(--space-2);
 }
 
-.site-header {
+/* Two-tier sticky header (Nav Redesign). .site-header itself is a plain,
+   non-sticky semantic wrapper — each tier is independently position:
+   sticky, the same stacking pattern this site already used successfully
+   for the old per-page jump bars sticking below the equally-sticky site
+   header (proven to work, not a new technique). Both tiers share the
+   same background/border family so they read as one header, not two
+   separate bars. */
+.site-tier1 {
   position: sticky;
   top: 0;
   z-index: 10;
   border-bottom: 1px solid var(--color-border);
   background: var(--color-bg-subtle);
+  height: var(--nav-h1);
 }
 
-.site-header__inner {
+.site-tier1__inner {
   max-width: var(--content-max-width);
+  height: 100%;
   margin: 0 auto;
-  padding: var(--space-3) var(--space-4);
+  padding: 0 var(--space-4);
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-3);
@@ -124,25 +146,162 @@ button:focus-visible {
   line-height: var(--line-height-tight);
   text-decoration: none;
   color: var(--color-text);
+  white-space: nowrap;
+}
+
+/* Brand/nav-label short-vs-full toggle (Task 1's width budget): mobile-
+   first — narrow viewports get the short span by default, since that's
+   the constrained case; @media (min-width: 40rem) switches to the full
+   spans, matching the site's existing breakpoint vocabulary (the same
+   40rem cutoff used for two-column lists, figure grids, etc.). Both
+   site.short_title and each nav item's short_label fall back to the
+   full text when not meaningfully different, so this is a pure display
+   toggle, never a content difference by itself. */
+.site-header__brand-full {
+  display: none;
+}
+
+.site-header__brand-short {
+  display: inline;
+}
+
+@media (min-width: 40rem) {
+  .site-header__brand-full {
+    display: inline;
+  }
+
+  .site-header__brand-short {
+    display: none;
+  }
+}
+
+.site-nav {
+  min-width: 0;
 }
 
 .site-nav__list {
   list-style: none;
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-4);
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: var(--space-2);
   margin: 0;
   padding: 0;
+  /* Safety net, not the primary plan: the width-budget arithmetic in the
+     batch report shows five short-label nav items plus a shortened brand
+     landing close to, and plausibly just over, a 375px viewport's
+     content width — the same honest, unresolved margin the old jump bars
+     always carried at this same breakpoint. white-space: nowrap on every
+     item (required below) means overflow here scrolls horizontally
+     instead of wrapping or clipping. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 40rem) {
+  .site-nav__list {
+    gap: var(--space-4);
+    overflow-x: visible;
+  }
+}
+
+.site-nav__list li {
+  flex: none;
 }
 
 .site-nav__list a {
+  display: inline-block;
   text-decoration: none;
   font-size: var(--font-size-sm);
+  white-space: nowrap;
 }
 
 .site-nav__list a[aria-current="page"] {
   text-decoration: underline;
   font-weight: 700;
+}
+
+.site-nav__label-full {
+  display: none;
+}
+
+.site-nav__label-short {
+  display: inline;
+}
+
+@media (min-width: 40rem) {
+  .site-nav__label-full {
+    display: inline;
+  }
+
+  .site-nav__label-short {
+    display: none;
+  }
+}
+
+/* Tier 2 — the page row. Visually subordinate to tier 1: same background
+   family (opaque, so content doesn't ghost through while sticky), but
+   thinner padding and smaller everything, with its own border-bottom so
+   it still reads as a distinct (if closely related) strip when tier 1
+   scrolls out of view relative to it — sticky beneath tier 1, never
+   behind it. */
+.site-tier2 {
+  position: sticky;
+  top: var(--nav-h1);
+  z-index: 9;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg);
+  height: var(--nav-h2);
+}
+
+.site-tier2__inner {
+  max-width: var(--content-max-width);
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.site-tier2__prefix {
+  flex: none;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.site-tier2__list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  /* Safety net only (Task 3 point 4) — with short labels, all pills are
+     expected to fit one row at 375px (see the report's arithmetic); this
+     stays as a defensive measure in case real font metrics differ. */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.site-tier2__list li {
+  flex: none;
+}
+
+.site-tier2__list a {
+  display: inline-block;
+  font-size: var(--font-size-sm);
+  text-decoration: none;
+  white-space: nowrap;
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-base);
+  padding: var(--space-1) var(--space-3);
+}
+
+.site-tier2__list a:hover {
+  text-decoration: underline;
 }
 
 .site-footer {

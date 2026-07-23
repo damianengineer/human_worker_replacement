@@ -7,7 +7,7 @@
 
 .takeaction-jump {
   position: sticky;
-  top: var(--header-height);
+  top: var(--nav-h1);
   z-index: 5;
   margin: 0 0 var(--space-6);
   padding: var(--space-2) var(--space-4);
@@ -74,7 +74,7 @@
    razor-thin, rounding-dependent fit. */
 .takeaction-section {
   margin-bottom: var(--space-6);
-  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-section h2 {
@@ -112,7 +112,7 @@
 
 .takeaction-subsection {
   margin-top: var(--space-5);
-  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-subsection h3 {
@@ -207,7 +207,7 @@
   margin: 0 0 var(--space-2);
   padding-bottom: var(--space-2);
   border-bottom: 1px solid var(--color-warning);
-  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
 }
 
 
@@ -222,12 +222,12 @@
 
 .takeaction-debate {
   margin-bottom: var(--space-6);
-  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-debate h3 {
   font-size: var(--font-size-xl);
-  scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-6) + var(--space-4));
 }
 
 .takeaction-debate__cards {

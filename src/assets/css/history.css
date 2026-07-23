@@ -36,7 +36,11 @@
 .history-case {
   padding: var(--space-4) 0;
   border-bottom: 1px solid var(--color-border);
-  scroll-margin-top: var(--space-4);
+  /* Was a flat --space-4 with no header clearance — a real, pre-existing
+     gap (this page has no jump bar of its own, but still sits under the
+     sticky tier 1 header on every page). Fixed while retiring
+     --header-height for the new nav tokens. */
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-4));
 }
 
 .history-case:first-child {

@@ -31,8 +31,13 @@
   text-decoration: underline;
 }
 
+/* Was a flat --space-4 with no header clearance — a real, pre-existing
+   gap. .references-jump (above) is a static, non-sticky in-page A-Z
+   box — untouched by this batch's nav redesign — so the only sticky
+   chrome this page needs to clear is tier 1 itself. Fixed while
+   retiring --header-height for the new nav tokens. */
 .references-group {
-  scroll-margin-top: var(--space-4);
+  scroll-margin-top: calc(var(--nav-h1) + var(--space-4));
 }
 
 .references-group__letter {
