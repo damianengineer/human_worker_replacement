@@ -299,3 +299,53 @@ differently than desktop emulation.
       from body text.
 - [ ] Confirm the homepage hero stat doesn't overflow at your phone's
       actual width (not just an emulated 320/375px).
+
+## 13. Citation Policy — markers now link to References
+
+> **Note:** a separate branch (`docs-qa-checklist-policy`) may also append
+> its own new section(s) to this file around the same time. If both merge,
+> renumber whichever merges second rather than leaving two different
+> sections with the same number.
+
+Every source marker site-wide now links to that source's own entry on the
+References page instead of straight out to the external site — mechanically
+verified (marker counts unchanged from before this change, every marker's
+href resolves to a real entry, no external `http` links remain inside any
+citation-class marker, the path prefix appears exactly once per link), but
+none of that proves it *looks* or *feels* right to an actual reader.
+
+- [ ] On **The Evidence**, click any citation marker. Confirm it lands on
+      the References page with the correct entry visibly highlighted
+      (background + left border, not just a color shift) and positioned
+      fully below the sticky header — not clipped or hidden under it.
+- [ ] Repeat on **Take Action** and on the **homepage** — one marker each.
+- [ ] From the highlighted entry, click its own link (not the marker you
+      arrived from) — confirm it opens the original external source in a
+      new context as expected, not another internal page.
+- [ ] Use the browser's back button after that — confirm it returns you to
+      the highlighted References entry (or close to it), not all the way
+      back to the original reading page. (If it does return to the
+      original page, that's expected default browser behavior for
+      same-tab external links — not a bug to fix, just note which
+      happened.)
+- [ ] Back on the original reading page, confirm your scroll position is
+      roughly where you left it, not jumped somewhere else.
+- [ ] Look at a sentence with two or three markers close together (The
+      Evidence and Take Action both have these) in both light and dark
+      mode — confirm they read as a quiet, muted cluster against body
+      text, not competing with it for attention, and are still obviously
+      clickable (not so faint they look like plain text).
+- [ ] On a real phone, tap a citation marker — confirm the tap target is
+      comfortable, not a frustratingly small hit area.
+- [ ] Keyboard-only: Tab to a citation marker and confirm a clearly visible
+      focus ring appears (same visibility as any other link on the site,
+      not fainter).
+- [ ] On the References page itself, confirm the entry's `:target`
+      highlight and its `scroll-margin-top` clearance both look correct in
+      **dark mode** too, not just light.
+- [ ] The `scroll-margin-top` fallback chain on References entries was
+      written to hedge against the (separate, in-flight-at-spec-time) nav
+      redesign renaming its header-height tokens. That branch has since
+      merged with exactly the token names this fallback anticipated, so
+      the math should already be correct — but confirm the actual landing
+      position in a real browser rather than trusting the calc() alone.
