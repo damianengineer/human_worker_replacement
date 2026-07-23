@@ -69,10 +69,11 @@ current_state:
         payroll records.
 
     - claim: >-
-        Robots already had a measurable effect on jobs before generative
-        AI even existed: for every additional robot per 1,000 U.S.
-        workers, wages fell by about 0.42% and employment fell by about
-        0.2 percentage points.
+        Robots already had a measurable effect on jobs before
+        <a href="/glossary/#generative-ai">generative AI</a> even
+        existed: for every additional robot per 1,000 U.S. workers, wages
+        fell by about 0.42% and employment fell by about 0.2 percentage
+        points.
       primary_citation: "acemoglu2020"
       corroborating_citation: null
       note: >-
@@ -99,8 +100,9 @@ current_state:
         citations: ["richmond2026", "massenkoff2026"]
 
     - claim: >-
-        Only about 18% of jobs fall into the "high near-term automation
-        risk" category, and 46% show little immediate change. That's an
+        Only about 18% of jobs fall into the "high near-term
+        <a href="/glossary/#automation-of-work">automation</a> risk"
+        category, and 46% show little immediate change. That's an
         important counterweight to the more alarming statistics: most jobs
         aren't about to disappear.
       primary_citation: "richmond2026"

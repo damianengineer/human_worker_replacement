@@ -5,7 +5,7 @@ extraCss:
 ---
 {% macro takeactionItem(item) %}
 <li class="takeaction-item{% if item.advanced %} takeaction-item--advanced{% endif %}">
-  <p>{{ item.text }}</p>
+  <p>{{ item.text | safe }}</p>
 
   {% set previewLinks = item.links | withImage %}
   {% if previewLinks.length %}

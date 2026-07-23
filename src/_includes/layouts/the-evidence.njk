@@ -93,7 +93,7 @@ extraCss:
   <ul class="evidence-list">
     {% for item in evidence.current_state.items %}
     <li class="evidence-list__item">
-      <p>{{ item.claim }}</p>
+      <p>{{ item.claim | safe }}</p>
       {{ statCallout(item.stat_callout) }}
       {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
     </li>
