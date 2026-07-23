@@ -4,7 +4,7 @@ Everything below needs a real browser, devtools, and (for the last item) a
 real phone — none of which are available in the environment that built this
 branch. Everything mechanical (build, links, contrast math, DOM structure)
 has already been checked and is summarized in the batch's final report.
-Run these before merging `batch-4-visual-reskin`.
+Run these before merging the Batch 4 branch.
 
 Start the site with `npm run serve` and open it in a desktop browser.
 
@@ -32,7 +32,38 @@ header brand switched to Space Grotesk with a tighter line-height.
 This is the batch's most likely breakage point — treat any overlap here as
 a blocker, not a nice-to-fix.
 
-## 2. Full-site click-through, both color schemes × two widths
+## 2. Full-bleed Evidence band (new this pass)
+
+The Evidence's alternating section bands (Current State, Protective Factors)
+were rebuilt to genuinely bleed edge-to-edge — a `box-shadow: 0 0 0 100vmax`
+technique chosen specifically because it can't cause the horizontal-scrollbar
+bug the more common `100vw`/negative-margin breakout technique has. This has
+been checked mechanically (no ancestor sets `overflow`, no other `100vw`
+usage exists anywhere else in the CSS, `box-shadow` doesn't contribute to an
+element's scrollable-overflow area), but a real browser is the only way to
+actually confirm no scrollbar appears.
+
+- [ ] On **The Evidence** at 320px and 375px, in both light and dark mode,
+      scroll the full length of the page. Confirm no horizontal scrollbar
+      appears at any point, and the page never shifts sideways.
+- [ ] Repeat the same full-length scroll on **Take Action** at 320px and
+      375px, both schemes (it doesn't have a banded section, but it shares
+      `--header-height` and the sticky jump bar, so it's worth confirming
+      nothing regressed there too).
+- [ ] While scrolling The Evidence, confirm the sticky jump bar keeps
+      behaving normally as it passes over a banded section — no visual glitch,
+      no change in its own position or the pills underneath it.
+- [ ] Open the chart lightbox inside **Protective Factors** specifically
+      (click "🔍 View larger" on the "Human necessity" chart) — this is the
+      one figure that renders inside a banded section. Confirm the lightbox
+      still covers the full viewport and centers normally, not offset or
+      sized relative to the band instead of the screen. (Mechanically
+      confirmed that `box-shadow` alone — the only property left on the band
+      rule after this pass — doesn't create the kind of containing-block
+      issue that would cause this, but worth a real look given it's the one
+      case where a fixed-position element sits inside a banded section.)
+
+## 3. Full-site click-through, both color schemes × two widths
 
 For each of light mode and dark mode (toggle your OS/browser setting, or
 use devtools' rendering-emulation panel), visit all 8 pages at desktop
@@ -44,10 +75,10 @@ Glossary, References, About, AI Disclosure.
 - [ ] Nav, footer, and breadcrumbs (where present) look correct in both
       schemes.
 - [ ] All body text stays legible against its background in both schemes —
-      spot-check the accent-tinted elements in particular (Section 6 below
+      spot-check the accent-tinted elements in particular (Section 7 below
       covers this in more depth).
 
-## 3. Homepage hero at 320px
+## 4. Homepage hero at 320px
 
 - [ ] At 320px width (not just 375px — the narrowest common phone width),
       confirm the hero stat ("13–16%"), its label, and its source line
@@ -57,7 +88,7 @@ Glossary, References, About, AI Disclosure.
 - [ ] Confirm the h1 above it ("AI & Your First Job") reads clearly as a
       masthead sitting above the hero, not competing with it for attention.
 
-## 4. Timeline card alignment across breakpoints
+## 5. Timeline card alignment across breakpoints
 
 The four timeline cards go 1-column → 2-column (40rem) → 4-column (60rem).
 Only the first two cards ("The past," "Right now") have images; the other
@@ -83,7 +114,7 @@ two don't.
 - [ ] Confirm the credit line under each image (title + source link) is
       legible in both light and dark mode.
 
-## 5. Reduced motion emulation
+## 6. Reduced motion emulation
 
 In devtools' rendering panel, emulate `prefers-reduced-motion: reduce`
 (Chrome/Edge: Rendering tab → "Emulate CSS media feature
@@ -105,14 +136,20 @@ prefers-reduced-motion"; Firefox: `ui.prefersReducedMotion` in
 - [ ] Turn reduced-motion emulation back off and confirm all of the above
       now animate smoothly (~150ms) instead.
 
-## 6. Dark-mode spot check of every accent
+## 7. Dark-mode spot check of every accent
 
 - [ ] Homepage: hero stat (teal/`--accent-evidence`), timeline card top
       borders (rust / teal / violet / violet), era-image duotone overlays.
 - [ ] The Evidence: h2 underline, jump-bar pill hover, stat callouts (both
       the two new section-level ones and the existing item/barrier ones),
       pull quote border, Stark State accordion marker, confidence-group
-      left border, alternating section bands.
+      left border.
+- [ ] Alternating section bands specifically, in dark mode: confirm the
+      band color (`--color-bg-subtle`, `#1c1f26` in dark mode) reads as a
+      distinct, subtle tint against the page background (`#14161b`) — not
+      invisible, not a harsh line — and that the edge where the band meets
+      the viewport's left/right edges looks clean (no seam, no unintended
+      border/gap at the boundary).
 - [ ] History: per-case h2 underline (rust), journey-pager border on this
       page.
 - [ ] Take Action: h2 underline (action accent), jump-bar pill hover,
@@ -122,7 +159,7 @@ prefers-reduced-motion"; Firefox: `ui.prefersReducedMotion` in
 - [ ] None of the above should look washed out, illegible, or like it
       disappears into the dark background.
 
-## 7. Two long-standing open items — retest against this batch
+## 8. Two long-standing open items — retest against this batch
 
 Neither of these is new to Batch 4, but this batch touched enough shared
 CSS (fonts, spacing via new borders/padding, sticky positioning) that
@@ -141,7 +178,7 @@ they're worth re-checking rather than assuming they're still fine.
       column gap and reading order (left column top-to-bottom, then right
       column) still makes sense.
 
-## 8. One real phone pass
+## 9. One real phone pass
 
 Everything above can be devtools-emulated except this one — actual mobile
 Safari/Chrome renders fonts, sticky positioning, and tap targets slightly
