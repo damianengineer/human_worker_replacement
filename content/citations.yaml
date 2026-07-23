@@ -205,6 +205,30 @@ dissent2026:
     research is wanted, we need the researcher's name and the actual
     publication, not just this magazine's summary of it.
 
+doctorow2023:
+  authors: "Doctorow, C."
+  year: 2023
+  title: "Pluralistic: Tiktok's enshittification (21 Jan 2023)"
+  publisher: "Pluralistic"
+  url: "https://pluralistic.net/2023/01/21/potemkin-ai/"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: >-
+    Original post coining "enshittification" — verified directly against
+    the post, which contains the term's own definition in Doctorow's words.
+
+doctorow2024defcon:
+  authors: "Doctorow, C."
+  year: 2024
+  title: "DEF CON 32 - Disenshittify or die! How hackers can seize the means of computation"
+  publisher: "DEF CON (DEFCONConference), YouTube"
+  url: "https://www.youtube.com/watch?v=4EmstuO0Em8"
+  type: "website"
+  potential_conflict: "None disclosed"
+  note: >-
+    Keynote given at DEF CON 32, Las Vegas, August 10, 2024 — a more recent
+    talk applying the same concept beyond social platforms.
+
 eckhardtgoldschlag2025:
   authors: "Eckhardt, S., & Goldschlag, N."
   year: 2025

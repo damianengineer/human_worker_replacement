@@ -236,7 +236,11 @@ at_risk:
         note: "This is the single most AI-used job on both companies' lists."
       - industry: "Customer Service Representatives"
         risk_summary: "Answering customer questions and resolving complaints."
-        note: "Both companies found this job near the top of their lists."
+        note: >-
+          Both companies found this job near the top of their lists.
+          Swapping human reps for AI isn't always better for the customer
+          — companies may do it anyway because it's cheaper, a pattern
+          sometimes called <a href="/glossary/#enshittification">enshittification</a>.
       - industry: "Data Entry Keyers"
         risk_summary: "Entering information from paper records into computer systems."
         note: "This job shows up as highly exposed on both companies' lists too."

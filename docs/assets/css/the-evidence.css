@@ -186,6 +186,23 @@
   margin: var(--space-1) 0 0;
 }
 
+/* Compact one-line list rows (Most Exposed Occupations): industry name,
+   summary, and note collapse into a single flowing paragraph instead of a
+   heading + two separate paragraphs, so six items take noticeably less
+   vertical space without hiding or shortening any of that text. */
+.evidence-list__item--compact {
+  padding: var(--space-2) 0;
+}
+
+.evidence-list__item--compact .evidence-list__source {
+  margin-top: 0.15em;
+}
+
+.evidence-list__note-inline {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
 .evidence-figures-intro {
   color: var(--color-text-muted);
 }
