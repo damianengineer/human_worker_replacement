@@ -219,6 +219,20 @@ h1 {
   background: var(--accent-evidence);
 }
 
+/* Duotone is a stylistic choice, not informational — the photo/engraving
+   is identical either way, just recolored. Cheap to drop under a
+   forced/high-contrast preference: no grayscale, no tint overlay, the
+   image renders at its normal photographic contrast instead. */
+@media (prefers-contrast: more) {
+  .home-timeline__image {
+    filter: none;
+  }
+
+  .home-timeline__image-wrap::after {
+    display: none;
+  }
+}
+
 .home-timeline__credit {
   font-size: var(--font-size-sm);
   color: var(--color-text-muted);
