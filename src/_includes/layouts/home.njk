@@ -13,7 +13,7 @@ extraCss:
   <p class="home-hero__label">{{ home.hero.stat_label }}</p>
   <p class="home-hero__source">
     {{ home.hero.source_note }}
-    Source: {% for id in home.hero.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+    {% for id in home.hero.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
   </p>
 </div>
 
@@ -25,8 +25,7 @@ extraCss:
   <h2 id="short-version-heading">{{ home.short_version.heading }}</h2>
   <p>{{ home.short_version.text }}</p>
   <p class="home-section__source">
-    Source:
-    {% for id in home.short_version.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+    {% for id in home.short_version.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
   </p>
   {{ figures.singleFigure(home.short_version.figure, "#short-version") }}
   <p><a href="{{ home.short_version.link_url }}">{{ home.short_version.link_label }}</a></p>

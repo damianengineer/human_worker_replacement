@@ -28,7 +28,7 @@ extraCss:
     </ul>
     <p class="history-case__source">
       Learn more:
-      {% for id in case.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+      {% for id in case.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
     </p>
   </li>
   {% endfor %}

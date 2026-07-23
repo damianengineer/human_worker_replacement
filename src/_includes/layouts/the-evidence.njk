@@ -7,7 +7,7 @@ extraCss:
 
 {% macro dualSourceLine(primary, corroborating, note) %}
 {% if primary %}
-<p class="evidence-list__source">Source: {{ primary | citeLink | safe }}</p>
+<p class="evidence-list__source">{{ primary | citeLink | safe }}</p>
 {% else %}
 <p class="evidence-list__source evidence-list__source--missing">Source: citation needed</p>
 {% endif %}
@@ -17,14 +17,14 @@ extraCss:
 {% if note %}<p class="evidence-list__note">{{ note }}</p>{% endif %}
 {% endmacro %}
 
-{% macro citeList(ids) %}{% for id in ids %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}{% endmacro %}
+{% macro citeList(ids) %}{% for id in ids %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}{% endmacro %}
 
 {% macro statCallout(callout) %}
 {% if callout %}
 <div class="stat-callout">
   <p class="stat-callout__numeral">{{ callout.numeral }}</p>
   <p class="stat-callout__label">{{ callout.label }}</p>
-  <p class="stat-callout__source">Source: {{ citeList(callout.citations) }}</p>
+  <p class="stat-callout__source">{{ citeList(callout.citations) }}</p>
 </div>
 {% endif %}
 {% endmacro %}
@@ -102,7 +102,7 @@ extraCss:
     {% if tvo.methodology_note %}
     <p class="evidence-methodology-note">
       {{ tvo.methodology_note }}
-      {% for id in tvo.methodology_citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+      {% for id in tvo.methodology_citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
     </p>
     {% endif %}
 
@@ -131,7 +131,7 @@ extraCss:
   <div class="evidence-subsection" id="stark-state">
     <h3>{{ stark.heading }}</h3>
     <p class="evidence-section__intro">{{ stark.intro }}</p>
-    <p class="evidence-list__source">Source: {{ stark.citation | citeLink | safe }}</p>
+    <p class="evidence-list__source">{{ stark.citation | citeLink | safe }}</p>
 
     {% for group in stark.confidence_groups %}
     <details class="evidence-confidence-group evidence-confidence-group--{{ group.key }}">
@@ -163,13 +163,13 @@ extraCss:
     <p>{{ barrier.explanation }}</p>
     <p class="evidence-barrier__jobs"><strong>Jobs protected by this barrier:</strong> {{ barrier.protected_jobs }}</p>
     {{ statCallout(barrier.stat_callout) }}
-    <p class="evidence-list__source">Source: {{ citeList(barrier.citations) }}</p>
+    <p class="evidence-list__source">{{ citeList(barrier.citations) }}</p>
   </div>
   {% if outlook and outlook.after_barrier == loop.index %}
   <div class="evidence-barrier evidence-barrier--outlook">
     <h3>{{ outlook.heading }}</h3>
     <p>{{ outlook.text }}</p>
-    <p class="evidence-list__source">Source: {{ citeList(outlook.citations) }}</p>
+    <p class="evidence-list__source">{{ citeList(outlook.citations) }}</p>
   </div>
   {% endif %}
   {% endfor %}
@@ -192,7 +192,7 @@ extraCss:
     {% endif %}
     {% if point.closing %}<p>{{ point.closing }}</p>{% endif %}
     {% if point.callout %}<p class="evidence-callout">{{ point.callout }}</p>{% endif %}
-    <p class="evidence-list__source">Source: {{ citeList(point.citations) }}</p>
+    <p class="evidence-list__source">{{ citeList(point.citations) }}</p>
   </div>
   {% endfor %}
 

@@ -22,12 +22,12 @@ extraCss:
         <p>{{ item.definition }}</p>
         <p class="glossary-list__source">
           <span class="glossary-list__source-label">Origin:</span>
-          {% for id in item.origin %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+          {% for id in item.origin %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
         </p>
         {% if item.current %}
         <p class="glossary-list__source">
           <span class="glossary-list__source-label">Current:</span>
-          {% for id in item.current %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+          {% for id in item.current %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
         </p>
         {% endif %}
         {% if item.see_also %}
