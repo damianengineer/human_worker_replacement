@@ -162,6 +162,7 @@ extraCss:
 
 <section class="evidence-section" id="protective-factors" aria-labelledby="protective-factors-heading">
   <h2 id="protective-factors-heading">{{ evidence.protective_factors.title }}</h2>
+  {{ statCallout(evidence.protective_factors.stat_callout) }}
 
   {{ figures.singleFigure(evidence.protective_factors.lead_figure, "#protective-factors") }}
 
@@ -187,6 +188,7 @@ extraCss:
 <section class="evidence-section" id="counterarguments" aria-labelledby="counterarguments-heading">
   <h2 id="counterarguments-heading">{{ evidence.counterarguments.title }}</h2>
   <p class="evidence-section__intro">{{ evidence.counterarguments.intro }}</p>
+  {{ statCallout(evidence.counterarguments.stat_callout) }}
 
   {% for point in evidence.counterarguments.points %}
   <div class="evidence-counter-point">
