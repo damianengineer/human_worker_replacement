@@ -82,7 +82,15 @@ extraCss:
     <li class="evidence-list__item">
       <p>{{ item.claim | safe }}</p>
       {{ statCallout(item.stat_callout) }}
+      {# An item with a stat_callout always cites the same source(s) inside
+         the callout box as its own primary/corroborating_citation — the
+         callout already shows the marker, so the line below only needs to
+         add the note, not repeat the same citation a second time. #}
+      {% if item.stat_callout %}
+      {% if item.note %}<p class="evidence-list__note">{{ item.note }}</p>{% endif %}
+      {% else %}
       {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
+      {% endif %}
     </li>
     {% endfor %}
   </ul>
@@ -170,7 +178,12 @@ extraCss:
     <p>{{ barrier.explanation }}</p>
     <p class="evidence-barrier__jobs"><strong>Jobs protected by this barrier:</strong> {{ barrier.protected_jobs }}</p>
     {{ statCallout(barrier.stat_callout) }}
+    {# Same reasoning as current_state's items above: a barrier with a
+       stat_callout cites the same source(s) inside the callout box as its
+       own citations field, so skip the redundant line below. #}
+    {% if not barrier.stat_callout %}
     <p class="evidence-list__source">{{ citeList(barrier.citations) }}</p>
+    {% endif %}
   </div>
   {% if outlook and outlook.after_barrier == loop.index %}
   <div class="evidence-barrier evidence-barrier--outlook">
