@@ -8,6 +8,15 @@ extraCss:
 
 <h1>{{ title }}</h1>
 
+<div class="home-hero">
+  <p class="home-hero__stat">{{ home.hero.stat }}</p>
+  <p class="home-hero__label">{{ home.hero.stat_label }}</p>
+  <p class="home-hero__source">
+    {{ home.hero.source_note }}
+    Source: {% for id in home.hero.citations %}{{ id | citeLink | safe }}{% if not loop.last %}; {% endif %}{% endfor %}
+  </p>
+</div>
+
 <div class="home-intro">
   {{ content | safe }}
 </div>
