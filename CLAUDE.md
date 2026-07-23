@@ -412,26 +412,67 @@ a public-facing informational site:
 
 ## 13. Citation Policy
 
-> **Note:** a separate branch may also append its own new Section 13 to
-> this file around the same time (see that batch's own report). If both
-> merge, renumber whichever merges second — they're independent sections
-> that both happened to land at the same append point, not a real
-> conflict in content.
-
 Adopted after reader feedback that inline citations, each linking straight
 out to its external source, read as overwhelming — and readers never saw
 the site's own scholarly apparatus (APA records, corroboration pairs,
 conflict-of-interest notes) on the References page, since a marker never
-sent them there.
+sent them there. Amended by the Citation Marker Text, Consolidation, and
+"References" Naming batch to shorten marker text, allow consolidating
+uniformly-sourced list sections, and align the reader-facing page name to
+APA 7 ("References," not "Sources").
 
-- **Every factual claim carries a source marker at the claim.** Markers are
-  never removed to reduce visual noise — styling is the lever for that, not
-  deletion. The project is graded on sources being *integrated with* claims,
-  not merely listed at the end.
+- **Every factual claim carries a source marker at the claim** (or, for a
+  uniformly-sourced list section, a section-level note — see the
+  consolidation rule below). Markers are never removed to reduce visual
+  noise — styling and label length are the levers for that, not deletion.
+  The project is graded on sources being *integrated with* claims, not
+  merely listed at the end.
 - **Markers link internally**, to that citation's own entry on the
   References page — never directly to an external source. Build the link
   with the project's existing path-prefix mechanism (see `.eleventy.js`'s
   `citeLink` filter); never hardcode the prefix.
+- **Marker text is first-author surname + year** (e.g. `Brynjolfsson 2025`),
+  hyperlinked to that citation's References entry. Full bibliographic detail
+  appears only on the References page, not in the marker itself.
+  - The label is derived from citation data by a single helper
+    (`deriveAuthorName`/`buildLabelMap` in `.eleventy.js`, used by the
+    `citeLink` filter) — never hand-written per call site. Changing the
+    label convention is a one-place change.
+  - **No numbered citation markers, ever.** Numbers depend on
+    reference-list order, which shifts as references are added or
+    re-sorted; APA 7 is author-date, not numbered.
+  - Edge cases: an organizational author uses a short recognizable form
+    (`BLS 2024`, `SHRM 2026`) — a manual override table in `.eleventy.js`
+    covers the handful of institutional names that need real abbreviation,
+    everything else derives mechanically. No author uses a short title
+    fragment + year. No year uses `n.d.` per APA. Two citations that would
+    otherwise produce an identical label get deterministic APA letter
+    suffixes (`Karpathy n.d.-a` / `Karpathy n.d.-b`), assigned by citation
+    id sort order so a given citation's suffix never changes between
+    builds — and the same suffix is shown next to that entry's year on the
+    References page, so a reader can match a marker to its entry.
+  - Every marker carries the full author-year citation in `title` (e.g.
+    `Brynjolfsson, E., Chandar, B., & Chen, R. (2025) — see References`)
+    for hover and assistive tech, since the short visible label alone no
+    longer carries every author's name.
+  - Unsourced claims render `Source needed`, unlinked, never a
+    plausible-looking author-year label.
+  - Multiple markers on one claim render as a comma-separated group, each
+    an independent link with its own `title` — not semicolons, and not
+    merged into one link.
+- **Consolidation rule:** where every item in a list section shares an
+  identical citation set, cite once at section level via a
+  `section_citations` field (same primary/corroborating shape as the
+  item-level fields it replaces) and omit per-item markers, rendering a
+  small muted section-level note instead (naming both sources via the
+  normal `citeLink` markers, so they behave like every other citation). If
+  any item in the section differs, the section does not qualify — leave
+  per-item markers throughout that section, untouched. An item that carries
+  its own `primary_citation` even inside an otherwise-consolidated section
+  still renders its own marker, so a later-added item with a different
+  source is never silently absorbed by the section note. Consolidation
+  never crosses sections and never applies to figure/chart credits —
+  figures keep their own per-figure citation.
 - **External links live only in References entries**: full APA 7, hyperlinked
   to the original (DOI preferred) wherever one exists.
 - **Ordinary content links are not citation markers** and are unaffected by
@@ -446,7 +487,13 @@ sent them there.
 - **Never fabricate or approximate a source.** If a claim can't be verified
   against a real source that was actually read, reword or remove the claim
   rather than attaching a plausible-looking citation to it.
-- Citation *presentation* changes (marker styling, link target, hover/focus
-  treatment) go in the `citeLink` filter and the shared CSS where `.citation`
-  styles live — never page by page, and never hand-formatted in template
-  markup instead of going through the filter.
+- Citation *presentation* changes (marker styling, link target, label
+  convention, hover/focus treatment) go in the `citeLink` filter and the
+  shared CSS where `.citation` styles live — never page by page, and never
+  hand-formatted in template markup instead of going through the filter.
+- **Reader-facing naming is "References"** (APA 7 convention), everywhere a
+  reader sees it — nav, footer, page heading, browser tab title, in-copy
+  cross-links. The URL stays `/references/`; this is a label alignment, not
+  a route change. Ordinary prose use of the word "sources" (e.g. "read
+  multiple sources before deciding what you think") is unaffected — only
+  the page's own name changes.

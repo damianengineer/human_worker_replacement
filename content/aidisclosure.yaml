@@ -149,3 +149,20 @@ entries:
       change — see the batch's own verification report for the exact
       numbers. This was a presentation/linking change only; no claims,
       sources, or citation text were rewritten.
+
+  - date: "2026-07-23"
+    summary: "Citation marker text, consolidation, and References naming"
+    ai_did:
+      - "Shortened every source marker site-wide from a full author list to just first-author surname + year (e.g. 'Brynjolfsson 2025'), in response to feedback that markers still felt visually heavy even after the previous batch's restyling. The full citation stays available on hover/for assistive tech, and author-date labels avoid depending on reference-list order the way a numbered system would."
+      - "Consolidated the six Most Exposed Occupations items down to a single section-level source note, since every one of them cited the same two sources — removing repeated identical markers without losing traceability. Checked every other list section on the site the same way; none of the others qualified, since their items draw on genuinely different sources."
+      - "Renamed the reader-facing 'Sources' label to 'References' everywhere a reader sees it (nav, footer, in-copy mentions) for APA 7 consistency — the page's URL and underlying code didn't change, just the name shown to readers."
+    human_did:
+      - "Requested this batch based on continued reader feedback on visual noise."
+    notes: >-
+      Verified mechanically that no citation id disappeared from the site,
+      no link broke, and the sitewide marker count dropped by exactly the
+      number removed by consolidation (10, matching the arithmetic in the
+      batch's own report) — see that report for the full count-by-count
+      breakdown. Two citations that would have produced the same short
+      label (e.g. two separate undated Karpathy sources) were given
+      matching a/b suffixes on their marker and their References entry.
