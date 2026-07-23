@@ -27,9 +27,19 @@ nav:
     url: "/take-action/"
   - label: "Glossary"
     url: "/glossary/"
+  - label: "Sources"
+    url: "/references/"
 # Home is reachable via the header brand link (already links to "/").
-# About, AI Disclosure, and References are demoted from primary nav but
-# remain reachable via footer.links below on every page.
+#
+# About and AI Disclosure are NOT in primary nav — the nav redesign's
+# planned "More ▾" details-dropdown for these two was dropped rather than
+# shipped (see the batch's final report for the width-budget arithmetic:
+# five short-label items plus a shortened future brand already land at or
+# past a 375px viewport's content budget; a sixth item made that worse,
+# not better). This is the named fallback from that task's own spec, not
+# an oversight. Reachability for both is unchanged from before this
+# batch — they were footer-only then and remain footer-only now, via
+# footer.groups below.
 
 footer:
   copyright: "This site is a student-focused educational resource."
