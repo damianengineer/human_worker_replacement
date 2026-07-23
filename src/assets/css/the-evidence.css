@@ -71,22 +71,45 @@
   scroll-margin-top: calc(var(--header-height) + var(--space-6) + var(--space-4));
 }
 
-/* Alternating pacing bands (Task 5) — nth-of-type, not nth-child: main's
-   other direct children (h1, .evidence-intro, .evidence-teaser,
-   .evidence-jump) aren't <section> elements, so nth-of-type(odd) counts
-   only among the four .evidence-section elements themselves (1st and
-   3rd: Current State, Protective Factors) and doesn't get thrown off by
-   the unrelated siblings before/between them. The band is the section's
-   own box — padding + --radius-base, no breakout margin/width tricks —
-   so it can't cause the horizontal-scrollbar bugs those techniques risk.
-   scroll-margin-top is set on the section element itself above and
-   already accounts for the sticky header + jump bar; adding internal
-   padding here doesn't move the section's own top edge, so that value
-   still holds without any change. */
+/* Alternating pacing bands (Task 5) — a genuine full-width, edge-to-edge
+   band, not an in-column card: background extends to the viewport edges
+   while the text column stays put at --content-max-width, exactly as
+   specified. nth-of-type, not nth-child: main's other direct children
+   (h1, .evidence-intro, .evidence-teaser, .evidence-jump) aren't
+   <section> elements, so nth-of-type(odd) counts only among the four
+   .evidence-section elements (1st and 3rd: Current State, Protective
+   Factors) without being thrown off by the unrelated siblings before/
+   between them.
+
+   Deliberately NOT the classic width:100vw + negative-margin breakout
+   (or the position:relative; left/right:50%; margin:-50vw version) —
+   both need to be paired with overflow-x:hidden somewhere to avoid a
+   horizontal-scrollbar bug (100vw doesn't subtract the scrollbar's own
+   width), and this site's sticky elements (.site-header, .evidence-jump,
+   .takeaction-jump) all live under <body>: setting overflow-x on any
+   ancestor between <body> and a sticky element forces the browser to
+   compute the OTHER overflow axis (overflow-y) to non-visible too, which
+   turns that ancestor into its own scroll container and breaks position:
+   sticky for every descendant. That's real, not theoretical — it's
+   exactly the risk an earlier pass through this same task flagged before
+   dropping the full-bleed requirement instead of solving it.
+
+   The box-shadow/clip-path technique below sidesteps this entirely: the
+   section's actual layout box never changes size (no width, margin, or
+   position change at all) — a huge box-shadow spread paints the tinted
+   background out to the edges as a pure visual effect that doesn't
+   participate in layout or scrollWidth calculations, so there's nothing
+   for a scrollbar-width mismatch to catch on and no ancestor needs
+   overflow-x touched. clip-path keeps the shadow from being clipped by
+   any ancestor's own overflow. Because the section's box is unchanged,
+   the text column already sits exactly where it did before (inside
+   <main>'s existing max-width + padding) — no inner wrapper div needed
+   for that part of the requirement, and scroll-margin-top (above) still
+   holds without adjustment for the same reason. */
 .evidence-section:nth-of-type(odd) {
-  background: var(--color-bg-subtle);
-  border-radius: var(--radius-base);
-  padding: var(--space-5) var(--space-4);
+  padding: var(--space-5) 0;
+  box-shadow: 0 0 0 100vmax var(--color-bg-subtle);
+  clip-path: inset(0 -100vmax);
 }
 
 .evidence-section h2 {
