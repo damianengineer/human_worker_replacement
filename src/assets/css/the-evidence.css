@@ -94,22 +94,43 @@
    exactly the risk an earlier pass through this same task flagged before
    dropping the full-bleed requirement instead of solving it.
 
-   The box-shadow/clip-path technique below sidesteps this entirely: the
-   section's actual layout box never changes size (no width, margin, or
-   position change at all) — a huge box-shadow spread paints the tinted
-   background out to the edges as a pure visual effect that doesn't
-   participate in layout or scrollWidth calculations, so there's nothing
-   for a scrollbar-width mismatch to catch on and no ancestor needs
-   overflow-x touched. clip-path keeps the shadow from being clipped by
-   any ancestor's own overflow. Because the section's box is unchanged,
-   the text column already sits exactly where it did before (inside
-   <main>'s existing max-width + padding) — no inner wrapper div needed
-   for that part of the requirement, and scroll-margin-top (above) still
-   holds without adjustment for the same reason. */
+   The box-shadow technique below sidesteps this entirely: the section's
+   actual layout box never changes size (no width, margin, or position
+   change at all) — a huge box-shadow spread paints the tinted background
+   out to the edges as a pure visual effect that doesn't participate in
+   layout or scrollWidth calculations, so there's nothing for a
+   scrollbar-width mismatch to catch on and no ancestor needs overflow-x
+   touched. Because the section's box is unchanged, the text column
+   already sits exactly where it did before (inside <main>'s existing
+   max-width + padding) — no inner wrapper div needed for that part of
+   the requirement, and scroll-margin-top (above) still holds without
+   adjustment for the same reason.
+
+   Deliberately no clip-path here, even though an earlier pass through
+   this rule included one (to keep the shadow from being clipped by an
+   ancestor's own overflow): checked every ancestor up to <body> and none
+   sets overflow to anything but the default visible, so there's nothing
+   for clip-path to protect against. Dropping it also removes a real
+   structural risk instead of leaving it in "just in case" — clip-path is
+   in the same family as transform/filter/perspective/will-change/
+   contain, several of which are spec-confirmed to establish a new
+   containing block for position:fixed/absolute descendants (and
+   clip-path's own behavior here has been inconsistent across browser
+   engines historically). That matters concretely on this page:
+   Protective Factors (the 3rd, odd/banded section) renders a figure via
+   figures.singleFigure(), which includes a position:fixed .evidence-
+   lightbox modal as a direct descendant of this same banded section.
+   With clip-path removed, box-shadow is the only property this rule
+   sets, and box-shadow does not establish a containing block for
+   anything — so that lightbox (and any other fixed/sticky element that
+   might end up inside a banded section later) still positions itself
+   against the real viewport, not against this section's box. The
+   sticky jump bar (.evidence-jump) doesn't share this exposure anyway:
+   it's a sibling rendered before the first section, never a descendant
+   of any of them, banded or not. */
 .evidence-section:nth-of-type(odd) {
   padding: var(--space-5) 0;
   box-shadow: 0 0 0 100vmax var(--color-bg-subtle);
-  clip-path: inset(0 -100vmax);
 }
 
 .evidence-section h2 {
