@@ -31,13 +31,17 @@
      5.02:1, rust 7.31:1 / 6.70:1, violet 7.10:1 / 6.51:1, action 7.09:1 /
      6.50:1 — all clear the 4.5:1 AA floor.
 
-     Amber-collision rule: Take Action's debate cards already use
-     --color-warning as a caution left-border. --accent-action is defined
-     as a clearly distinct color rather than unified with --color-warning
-     — deeper and redder (light #92400e, a burnt orange-brown) versus the
-     warning's brighter, more golden amber (#b45309), so the debate cards'
-     caution styling still reads as caution and isn't visually confused
-     with the page's own section accent. */
+     --accent-action harmonizes with --color-warning rather than
+     duplicating it: same amber/orange hue family (HSL hue ~23-27° in
+     both schemes, ~3° apart) but a different lightness/saturation — a
+     deeper, more muted orange-brown (light #92400e, HSL 23°/82%/31%)
+     against the warning's brighter, lighter amber (light #b45309, HSL
+     26°/90%/37%; dark #f0a868 vs. #fb923c is the same relationship).
+     Close enough in hue to read as "this page's family of amber," not a
+     clashing or arbitrary color choice, but different enough in
+     lightness that Take Action's debate cards (left-bordered in
+     --color-warning, unchanged) still read as their own caution signal
+     rather than blending into the section accent. */
   --accent-evidence: #0f766e;
   --accent-evidence-bg: #e6f5f3;
   --accent-history: #9a3412;
@@ -129,9 +133,9 @@
        clears 4.5:1 against both dark backgrounds: teal 12.23:1 / 11.15:1,
        rust 10.73:1 / 9.78:1, violet 9.80:1 / 8.93:1, action 8.00:1 /
        7.29:1 (against --color-bg / --color-bg-subtle respectively).
-       Action (#fb923c, a saturated pure orange) stays distinguishable
-       from warning (#f0a868, a lighter, more muted peach) for the same
-       collision-avoidance reason as the light-mode pair above. */
+       Action (#fb923c) and warning (#f0a868) keep the same close-hue,
+       different-lightness/saturation relationship as the light-mode
+       pair above — same amber family, still distinguishable. */
     --accent-evidence: #5eead4;
     --accent-evidence-bg: #16302c;
     --accent-history: #fdba74;
