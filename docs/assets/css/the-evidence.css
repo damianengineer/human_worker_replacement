@@ -25,14 +25,17 @@
 }
 
 /* Tier 2 pill hover/current-accent color, scoped to this page only (Task
-   3's "per-page hook"): .site-tier2__list--evidence only renders in the
-   DOM when a page's own frontmatter sets tier2_accent: "evidence" (only
-   the-evidence.md does), so — unlike a plain .site-tier2__list a:hover
-   rule here — this can't leak onto Home or History's tier 2 even though
-   both load this shared stylesheet too. */
-.site-tier2__list--evidence a:hover {
-  background: var(--accent-evidence-bg);
-  color: var(--accent-evidence);
+   3's "per-page hook"): the shared hover *rule* lives once in base.css
+   (.site-tier2__list a:hover) — this only sets the two custom
+   properties that rule reads, so the selector itself stays shared and
+   only the values are per-page. .site-tier2__list--evidence only
+   renders in the DOM when a page's own frontmatter sets tier2_accent:
+   "evidence" (only the-evidence.md does), so this can't leak onto Home
+   or History's tier 2 even though both load this shared stylesheet
+   too. */
+.site-tier2__list--evidence {
+  --tier2-hover-bg: var(--accent-evidence-bg);
+  --tier2-hover-color: var(--accent-evidence);
 }
 
 /* scroll-margin-top must clear both sticky header tiers: tier 1

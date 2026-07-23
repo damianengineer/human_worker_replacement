@@ -6,14 +6,17 @@
 }
 
 /* Tier 2 pill hover/current-accent color, scoped to this page (Task 3's
-   "per-page hook") — take-action.css isn't shared with any other page,
-   so unlike the-evidence.css this doesn't strictly need the
-   tier2_accent class-scoping trick to avoid leaking, but using the same
-   pattern here anyway keeps the mechanism consistent across pages
-   rather than having two different conventions for the same job. */
-.site-tier2__list--action a:hover {
-  background: var(--accent-action-bg);
-  color: var(--accent-action);
+   "per-page hook"): the shared hover *rule* lives once in base.css
+   (.site-tier2__list a:hover) — this only sets the two custom
+   properties that rule reads, keeping the selector shared and only the
+   values per-page. take-action.css isn't loaded by any other page, so
+   this doesn't strictly need the tier2_accent class-scoping trick to
+   avoid leaking, but using the same pattern here anyway keeps the
+   mechanism consistent rather than having two different conventions
+   for the same job. */
+.site-tier2__list--action {
+  --tier2-hover-bg: var(--accent-action-bg);
+  --tier2-hover-color: var(--accent-action);
 }
 
 .takeaction-subnav {

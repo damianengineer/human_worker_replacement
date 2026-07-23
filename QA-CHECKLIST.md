@@ -31,6 +31,11 @@ measured in a real browser.
 - [ ] Repeat both the desktop and 375px pill-click passes on **Take Action**
       (Build a Plan B, AI Literacy, AI Policy) and **Home** (The short
       version, Where this story is, Two clocks).
+- [ ] On **The Evidence** and **Take Action** (the two long pages), scroll
+      from top to bottom at desktop width, then again at 375px. Tier 1 and
+      tier 2 must both remain fully visible for the *entire* scroll — tier
+      2 always directly below tier 1, never overlapping it, never behind
+      it, never disappearing partway down the page.
 
 This is this batch's most likely breakage point — treat any overlap here as
 a blocker, not a nice-to-fix.

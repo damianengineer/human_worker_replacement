@@ -250,7 +250,7 @@ button:focus-visible {
   top: var(--nav-h1);
   z-index: 9;
   border-bottom: 1px solid var(--color-border);
-  background: var(--color-bg);
+  background: var(--color-bg-subtle);
   height: var(--nav-h2);
 }
 
@@ -295,12 +295,30 @@ button:focus-visible {
   font-size: var(--font-size-sm);
   text-decoration: none;
   white-space: nowrap;
-  background: var(--color-bg-subtle);
+  /* --color-bg, not --color-bg-subtle: the bar itself is now bg-subtle
+     (matching tier 1, see .site-tier2 above), so the pill needs the
+     opposite token to stay visually distinct from its own bar — same
+     bg/bg-subtle contrast relationship used elsewhere on the site
+     (e.g. cards on the page background), just inverted. */
+  background: var(--color-bg);
   border-radius: var(--radius-base);
   padding: var(--space-1) var(--space-3);
 }
 
+/* Per-page hook (Task 3 point 3): the selector stays shared and lives
+   here, once — pages don't redefine the hover rule itself, they only
+   set --tier2-hover-bg / --tier2-hover-color (see the-evidence.css /
+   take-action.css) on their own .site-tier2__list--<accent> class.
+   Fallbacks intentionally match the pill's own un-hovered values
+   (--color-bg background, --color-primary text color via the global
+   `a` rule) — not generic tokens like --color-bg-subtle/inherit, which
+   would silently change Home's hover color (inherit resolves against
+   the parent <li>, not this link's own default) even though Home sets
+   neither custom property and is supposed to fall back to "just an
+   underline, no color/background shift." */
 .site-tier2__list a:hover {
+  background: var(--tier2-hover-bg, var(--color-bg));
+  color: var(--tier2-hover-color, var(--color-primary));
   text-decoration: underline;
 }
 
