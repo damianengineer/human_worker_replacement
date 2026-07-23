@@ -1,6 +1,49 @@
 /* Landing page ("/") — three sections: the short version, where to go
    next, and background reading. */
 
+/* home.css loads only on "/" (extraCss in home.njk's front matter), so a
+   bare h1 selector here is already page-scoped — no wrapper class needed.
+   Task 2 (the stat hero) supersedes Task 1's original --font-size-4xl
+   homepage h1: once the hero exists, the hero stat is the page's largest
+   element and the h1 becomes a masthead sitting above it, not a
+   competitor — so it's sized down to 2xl here instead. --font-size-4xl
+   remains a valid token for the general "h1 on the homepage" case Task 1
+   defined; this page just no longer uses it now that Task 2 changed
+   this page's specific hierarchy. */
+h1 {
+  font-size: var(--font-size-2xl);
+}
+
+/* The stat hero: the largest, highest-contrast element on the page by
+   design. Uses --accent-evidence (Task 3) rather than --color-primary —
+   this stat is literally an Evidence-page figure, so it carries that
+   page's accent instead of the site's general link/brand color. */
+.home-hero {
+  margin: var(--space-4) 0 var(--space-5);
+}
+
+.home-hero__stat {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 2rem + 7vw, 6rem);
+  line-height: var(--line-height-tight);
+  font-weight: 700;
+  color: var(--accent-evidence);
+  margin: 0;
+}
+
+.home-hero__label {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  max-width: 36rem;
+  margin: var(--space-1) 0 0;
+}
+
+.home-hero__source {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: var(--space-2) 0 0;
+}
+
 .home-intro {
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);
@@ -88,16 +131,105 @@
   }
 }
 
+/* Top border tinted by destination (Task 3 step 4) — relies on the fixed,
+   documented era order in home.yaml (past, right now, near future, open
+   future), not a per-era class, since all four cards render from one
+   loop with no era-specific markup hook. If home.yaml's era order or
+   count ever changes, these nth-child rules need to move with it. */
 .home-timeline__card {
   background: var(--color-bg-subtle);
   border: 1px solid var(--color-border);
+  border-top-width: 3px;
   border-radius: var(--radius-base);
   padding: var(--space-4);
 }
 
+.home-timeline__card:nth-child(1) {
+  border-top-color: var(--accent-history);
+}
+
+.home-timeline__card:nth-child(2) {
+  border-top-color: var(--accent-evidence);
+}
+
+.home-timeline__card:nth-child(3),
+.home-timeline__card:nth-child(4) {
+  border-top-color: var(--accent-future);
+}
+
+/* Hover lift (Task 6) — entirely inside the no-preference guard, so a
+   visitor with reduced motion enabled gets none of it: no transform, no
+   transition, card looks exactly as it did before this batch. */
+@media (prefers-reduced-motion: no-preference) {
+  .home-timeline__card {
+    transition: transform 150ms ease, box-shadow 150ms ease;
+  }
+
+  .home-timeline__card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Era imagery (Task 4) — only "The past" and "Right now" have an image
+   (home.yaml's guarded era.image), so this reserves space only on those
+   two cards; "Near future"/"Open future" go straight from the card's own
+   padding to the label, with no placeholder gap standing in for a
+   missing image. Duotone is grayscale on the <img> itself plus a low-
+   opacity accent-colored overlay (that card's own section accent, via
+   the same nth-child pairing as the top border above) — not a new color,
+   just an existing token layered at partial opacity. */
+.home-timeline__image-wrap {
+  position: relative;
+  height: 9.5rem;
+  border-radius: var(--radius-base);
+  overflow: hidden;
+  margin-bottom: var(--space-3);
+}
+
+.home-timeline__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Portrait engraving (909x1200) inside a much wider, shorter box crops
+     hard vertically under object-fit: cover — biased toward the top so
+     the figure's head stays in frame instead of being cropped out by a
+     center crop. The landscape robot photo needs no such bias. */
+  object-position: center;
+  filter: grayscale(1);
+}
+
+.home-timeline__card:nth-child(1) .home-timeline__image {
+  object-position: 50% 20%;
+}
+
+.home-timeline__image-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+}
+
+.home-timeline__card:nth-child(1) .home-timeline__image-wrap::after {
+  background: var(--accent-history);
+}
+
+.home-timeline__card:nth-child(2) .home-timeline__image-wrap::after {
+  background: var(--accent-evidence);
+}
+
+.home-timeline__credit {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-3);
+}
+
 .home-timeline__label {
+  font-family: var(--font-display);
   font-weight: 700;
   font-size: var(--font-size-lg);
+  line-height: var(--line-height-tight);
   margin: 0 0 var(--space-2);
 }
 

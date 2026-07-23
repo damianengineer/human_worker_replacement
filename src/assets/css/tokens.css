@@ -21,6 +21,32 @@
      against a dark page. */
   --color-chart-bg: #f4f5f7;
 
+  /* Per-section accent colors (Batch 4 Task 3) — teal/rust/violet/action,
+     one per argument page, applied to borders, tags, and small
+     heading-adjacent details, never to body text or as the sole carrier
+     of meaning. Each has a light-mode value, a subtle background tint for
+     bands/cards, and a dark-mode override below. Contrast computed with
+     the same relative-luminance formula as the rest of this file, against
+     both --color-bg and --color-bg-subtle (light mode): teal 5.47:1 /
+     5.02:1, rust 7.31:1 / 6.70:1, violet 7.10:1 / 6.51:1, action 7.09:1 /
+     6.50:1 — all clear the 4.5:1 AA floor.
+
+     Amber-collision rule: Take Action's debate cards already use
+     --color-warning as a caution left-border. --accent-action is defined
+     as a clearly distinct color rather than unified with --color-warning
+     — deeper and redder (light #92400e, a burnt orange-brown) versus the
+     warning's brighter, more golden amber (#b45309), so the debate cards'
+     caution styling still reads as caution and isn't visually confused
+     with the page's own section accent. */
+  --accent-evidence: #0f766e;
+  --accent-evidence-bg: #e6f5f3;
+  --accent-history: #9a3412;
+  --accent-history-bg: #fdf1ea;
+  --accent-future: #6d28d9;
+  --accent-future-bg: #f3ecfd;
+  --accent-action: #92400e;
+  --accent-action-bg: #f7ead9;
+
   /* Spacing scale */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
@@ -31,17 +57,49 @@
 
   /* Type scale */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* Space Grotesk, self-hosted under src/assets/fonts/ (SIL OFL 1.1, license
+     text alongside the font files) — display/heading use only, per the
+     @font-face block below. Body copy stays on --font-sans. */
+  --font-display: "Space Grotesk", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-size-base: 1rem;
   --font-size-sm: 0.875rem;
   --font-size-lg: 1.125rem;
   --font-size-xl: 1.5rem;
   --font-size-2xl: 2rem;
   --font-size-3xl: 3rem;
+  /* Fluid so a big display numeral (homepage hero) doesn't force horizontal
+     scroll on narrow screens: 2.5rem floor, 3.75rem ceiling at desktop. */
+  --font-size-4xl: clamp(2.5rem, 1.2rem + 4.5vw, 3.75rem);
   --line-height-base: 1.6;
+  --line-height-tight: 1.15;
 
   /* Layout */
   --content-max-width: 60rem;
   --radius-base: 0.25rem;
+}
+
+/* Space Grotesk (SIL OFL 1.1) — self-hosted, two static weights only (no
+   variable-font file, to keep the download small and the weight list
+   fixed to what's actually used: 500 for the journey-pager label, 700 for
+   headings/brand). Source: the font's own GitHub repo,
+   github.com/floriankarsten/space-grotesk, fonts/woff2/static/. License
+   text copied alongside at src/assets/fonts/OFL.txt. font-display: swap
+   avoids invisible text while the (same-origin, CSP-'self'-compliant)
+   file loads. */
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/SpaceGrotesk-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("../fonts/SpaceGrotesk-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Dark-mode-first palette — follows the visitor's OS setting rather than
@@ -66,5 +124,21 @@
     /* --color-focus and --color-chart-bg intentionally unchanged: the
        amber focus ring and the light chart-image card already read well
        against the dark background. */
+
+    /* Dark-mode accents — lighter, more saturated versions so each still
+       clears 4.5:1 against both dark backgrounds: teal 12.23:1 / 11.15:1,
+       rust 10.73:1 / 9.78:1, violet 9.80:1 / 8.93:1, action 8.00:1 /
+       7.29:1 (against --color-bg / --color-bg-subtle respectively).
+       Action (#fb923c, a saturated pure orange) stays distinguishable
+       from warning (#f0a868, a lighter, more muted peach) for the same
+       collision-avoidance reason as the light-mode pair above. */
+    --accent-evidence: #5eead4;
+    --accent-evidence-bg: #16302c;
+    --accent-history: #fdba74;
+    --accent-history-bg: #2b1a10;
+    --accent-future: #c4b5fd;
+    --accent-future-bg: #241b34;
+    --accent-action: #fb923c;
+    --accent-action-bg: #2e2013;
   }
 }

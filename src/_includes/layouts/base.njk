@@ -17,6 +17,14 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self'; style-src 'self'; script-src 'self'; frame-src https://www.youtube-nocookie.com; base-uri 'none'; form-action 'self'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
 
+  {# Preloads the one weight guaranteed to render above the fold on every
+     page (the header brand + every h1 use font-weight 700). The 500
+     weight (journey-pager label) isn't preloaded — it's below the fold
+     on every page it appears. Same-origin file, but browsers still
+     require the preload hint to fetch it early instead of waiting on
+     tokens.css to parse. #}
+  <link rel="preload" href="/assets/fonts/SpaceGrotesk-Bold.woff2" as="font" type="font/woff2" crossorigin>
+
   <link rel="stylesheet" href="/assets/css/tokens.css">
   <link rel="stylesheet" href="/assets/css/base.css">
   {% for href in extraCss %}

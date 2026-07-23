@@ -69,10 +69,11 @@ current_state:
         payroll records.
 
     - claim: >-
-        Robots already had a measurable effect on jobs before generative
-        AI even existed: for every additional robot per 1,000 U.S.
-        workers, wages fell by about 0.42% and employment fell by about
-        0.2 percentage points.
+        Robots already had a measurable effect on jobs before
+        <a href="/glossary/#generative-ai">generative AI</a> even
+        existed: for every additional robot per 1,000 U.S. workers, wages
+        fell by about 0.42% and employment fell by about 0.2 percentage
+        points.
       primary_citation: "acemoglu2020"
       corroborating_citation: null
       note: >-
@@ -99,8 +100,9 @@ current_state:
         citations: ["richmond2026", "massenkoff2026"]
 
     - claim: >-
-        Only about 18% of jobs fall into the "high near-term automation
-        risk" category, and 46% show little immediate change. That's an
+        Only about 18% of jobs fall into the "high near-term
+        <a href="/glossary/#automation-of-work">automation</a> risk"
+        category, and 46% show little immediate change. That's an
         important counterweight to the more alarming statistics: most jobs
         aren't about to disappear.
       primary_citation: "richmond2026"
@@ -352,6 +354,20 @@ protective_factors:
   # human's content has a distinct heading + explanation + "jobs
   # protected" line + citation(s) per barrier, plus an outlook block that
   # isn't itself a barrier.
+  # Section-level pacing stat_callout (Batch 4 Task 5) — named to match
+  # the existing item/barrier-level field, not "callout" (that name is
+  # already used below for a different thing: point.callout, a plain-text
+  # highlight paragraph in counterarguments). Reuses Barrier 2's own
+  # already-cited 9% figure (see barriers[1].stat_callout below) rather
+  # than a new number, framed as this section's headline stat rather than
+  # a duplicate of that barrier's own callout. The same number appearing
+  # twice on one page (a preview up top, the in-context detail further
+  # down) matches how the homepage hero previews the 13-16% stat that
+  # current_state's own item callout also shows.
+  stat_callout:
+    numeral: "9%"
+    label: "Jobs protected by a hard legal or licensing requirement — the narrowest of the four protective factors"
+    citations: ["richmond2026"]
   lead_figure:
     id: "protective-human-necessity"
     image: "/assets/img/human-necessity-workers-remain-vital.png"
@@ -463,6 +479,16 @@ counterarguments:
     workers. Some smart, well-respected researchers say we should slow
     down before assuming the worst. Here are the three strongest reasons
     to be skeptical.
+  # Section-level pacing stat_callout (Batch 4 Task 5) — the 55% growth
+  # figure is already in points[0]'s own paragraphs below, under that
+  # point's existing citations (byju2024, stempniak2026); this doesn't add
+  # a new claim or citation, just gives it the same display treatment
+  # protective_factors' callout gets, since this section had no callout
+  # of any kind yet.
+  stat_callout:
+    numeral: "55%"
+    label: "Growth in the Mayo Clinic's radiology team in the decade after AI was predicted to replace radiologists"
+    citations: ["byju2024", "stempniak2026"]
   # Custom shape (not the generic counterargument/explanation/citation
   # list) since this content has multi-paragraph points, one with its own
   # sub-list and closing line, plus a callout and a trailing outro that
