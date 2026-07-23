@@ -513,9 +513,14 @@ button:focus-visible {
 .citation {
   display: inline-block;
   font-size: var(--font-size-sm);
+  line-height: 1.6;
   color: var(--color-text-muted);
   text-decoration: none;
-  padding: 0.05em 0.2em;
+  /* Fit-check (Citation Marker Text batch, Task D): labels shortened from
+     a full author list to "Surname Year" are much shorter now, so the tap
+     target got smaller too — padding (not font-size) makes up the
+     difference rather than shrinking further at mobile widths. */
+  padding: 0.2em 0.3em;
   border-radius: var(--radius-base);
 }
 
