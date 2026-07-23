@@ -349,3 +349,88 @@ none of that proves it *looks* or *feels* right to an actual reader.
       merged with exactly the token names this fallback anticipated, so
       the math should already be correct — but confirm the actual landing
       position in a real browser rather than trusting the calc() alone.
+
+## 14. Citations & References — marker text, consolidation, and naming
+
+> **Note:** a separate branch may also append its own new section(s) to
+> this file around the same time. If both merge, renumber whichever merges
+> second rather than leaving two different sections with the same number.
+
+This batch shortened every marker's visible text from a full author list to
+just first-author surname + year (e.g. `Brynjolfsson 2025`), consolidated
+one list section's repeated identical markers into a single section-level
+note, and renamed the reader-facing "Sources" label to "References"
+site-wide. Mechanically verified (build green, all internal links/anchors
+resolve, sitewide marker count dropped by exactly the number Task B's
+consolidation removed, no citation id disappeared, every marker still has a
+non-empty `title`, no bare numbers or semicolon-joined marker clusters
+remain) — but none of that proves the shorter labels are still readable and
+unambiguous to an actual reader, or that the site "feels" less cluttered
+rather than just differently cluttered.
+
+**Marker behavior**
+
+- [ ] On **The Evidence**, **Take Action**, and the **homepage**: markers
+      read as `Surname Year` — short and quiet, not competing with body
+      text for attention.
+- [ ] Hover a marker: the tooltip shows the full author list and year (not
+      just the short label repeated).
+- [ ] Click a marker: lands on References with the correct entry
+      highlighted and fully visible below the sticky header.
+- [ ] Use the browser's back button: returns you to your original reading
+      position, not somewhere else on the page.
+- [ ] Find two adjacent markers on one claim (The Evidence and Take Action
+      both have these): confirm they're visibly separate links with a
+      comma between them, and that each goes to a *different* entry, not
+      the same one twice.
+- [ ] Find a `Source needed` marker if one exists (none do as of this
+      batch, but confirm the class still renders correctly if you
+      temporarily add one): visibly distinct from a real marker, and not
+      clickable.
+- [ ] Keyboard: Tab reaches each marker with a visible focus ring; Enter
+      follows the link.
+- [ ] On a real phone: markers are tappable without needing to zoom in
+      first, and no citation-heavy paragraph causes horizontal scrolling.
+
+**Consolidated sections**
+
+- [ ] In **Most Exposed Occupations** (The Evidence, under "Industries &
+      Jobs Most at Risk"): a single source note appears once, directly
+      under the section's intro paragraphs, and *no* individual occupation
+      row carries its own source line. The note's two links go to
+      Massenkoff 2026 and Richmond 2026 specifically — not some other pair.
+- [ ] That note reads as a statement about the whole list ("Sources for
+      every occupation below: …"), not like one more item in the list
+      itself.
+- [ ] The per-occupation notes that already existed (e.g. "This is the
+      single most AI-used job on both companies' lists") are still present
+      under their occupation — consolidation removed the source line only,
+      not the note.
+- [ ] Every *other* list section on The Evidence (Current State of
+      Displacement, the barriers under Why Some Jobs Are Safer, the
+      counterarguments) still shows its own per-item/per-point source
+      line — confirm consolidation didn't leak into a section whose items
+      actually cite different sources.
+
+**Reference list sanity (spot-check, do not skip — automated checks
+cannot catch a mis-wired id)**
+
+- [ ] Pick five markers from different pages. For each, confirm the entry
+      you land on is genuinely the source for *that* specific claim —
+      author, year, and title match what the sentence next to the marker
+      asserts.
+- [ ] On References, confirm every entry's own link opens the actual
+      original source — not a search results page, and not a paywall stub
+      where a free version was supposed to be linked instead.
+- [ ] Confirm no two entries show the same `Surname Year` label without an
+      `a`/`b` suffix distinguishing them (three pairs currently share a
+      label and should show suffixes: the two undated Karpathy citations,
+      the two undated Ng/DeepLearning.AI citations, and the two undated
+      Latent Space citations — each should read `…n.d.-a` / `…n.d.-b`).
+- [ ] Confirm no reference entry sits completely unlinked-to from anywhere
+      else on the site (a section-level source note counts as a link in).
+- [ ] Confirm every entry shows a full APA 7 record — authors, year,
+      title, publisher/source, and a link — not a bare URL or a partial
+      line.
+- [ ] Confirm the nav item, footer link, page `<h1>`, and browser tab title
+      all read "References," not "Sources," anywhere on the site.
