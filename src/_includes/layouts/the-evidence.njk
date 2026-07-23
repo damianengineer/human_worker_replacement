@@ -7,12 +7,9 @@ extraCss:
 
 {% macro dualSourceLine(primary, corroborating, note) %}
 {% if primary %}
-<p class="evidence-list__source">{{ primary | citeLink | safe }}</p>
+<p class="evidence-list__source">{{ primary | citeLink | safe }}{% if corroborating %}, {{ corroborating | citeLink | safe }}{% endif %}</p>
 {% else %}
 <p class="evidence-list__source evidence-list__source--missing">Source: citation needed</p>
-{% endif %}
-{% if corroborating %}
-<p class="evidence-list__source">Corroborated by: {{ corroborating | citeLink | safe }}</p>
 {% endif %}
 {% if note %}<p class="evidence-list__note">{{ note }}</p>{% endif %}
 {% endmacro %}
