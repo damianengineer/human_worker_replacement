@@ -114,12 +114,22 @@ extraCss:
     <h3>{{ exposed.heading }}</h3>
     {% for para in exposed.intro %}<p class="evidence-section__intro">{{ para }}</p>{% endfor %}
 
+    {% if exposed.section_citations %}
+    <p class="evidence-section__source-note">
+      Sources for every occupation below: {{ exposed.section_citations.primary_citation | citeLink | safe }}, corroborated by {{ exposed.section_citations.corroborating_citation | citeLink | safe }}.
+    </p>
+    {% endif %}
+
     <ul class="evidence-list evidence-list--two-col">
       {% for item in exposed.items %}
       <li class="evidence-list__item">
         <h4>{{ item.industry }}</h4>
         <p>{{ item.risk_summary }}</p>
+        {% if item.primary_citation or not exposed.section_citations %}
         {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
+        {% elif item.note %}
+        <p class="evidence-list__note">{{ item.note }}</p>
+        {% endif %}
       </li>
       {% endfor %}
     </ul>
