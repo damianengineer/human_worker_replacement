@@ -106,6 +106,23 @@ categories:
           label: "See current displacement data"
           url: "/the-evidence/#current-state"
 
+      - term: "Enshittification"
+        definition: >-
+          A term coined by writer Cory Doctorow for a pattern where a
+          platform or service gets worse over time: a company first makes
+          a product good for its users, then squeezes users to benefit
+          its business customers, then squeezes those business customers
+          too, until it's just extracting as much value for itself as it
+          can. It's a useful word for cases where a company swaps out a
+          good option for a worse one — like replacing human customer
+          service with AI — not because it's better for the people using
+          it, but because it's cheaper for the company.
+        origin: ["doctorow2023"]
+        current: ["doctorow2024defcon"]
+        see_also:
+          label: "See where this shows up in customer service jobs"
+          url: "/the-evidence/#at-risk"
+
   - category: "Policy Terms"
     terms:
       - term: "Universal Basic Income (UBI)"
