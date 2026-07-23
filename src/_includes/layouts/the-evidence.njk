@@ -125,15 +125,12 @@ extraCss:
     </p>
     {% endif %}
 
-    <ul class="evidence-list evidence-list--two-col">
+    <ul class="evidence-list evidence-list--two-col evidence-list--compact">
       {% for item in exposed.items %}
-      <li class="evidence-list__item">
-        <h4>{{ item.industry }}</h4>
-        <p>{{ item.risk_summary }}</p>
+      <li class="evidence-list__item evidence-list__item--compact">
+        <p><strong>{{ item.industry }}</strong> — {{ item.risk_summary }}{% if item.note %} <span class="evidence-list__note-inline">{{ item.note }}</span>{% endif %}</p>
         {% if item.primary_citation or not exposed.section_citations %}
-        {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
-        {% elif item.note %}
-        <p class="evidence-list__note">{{ item.note }}</p>
+        {{ dualSourceLine(item.primary_citation, item.corroborating_citation, null) }}
         {% endif %}
       </li>
       {% endfor %}
