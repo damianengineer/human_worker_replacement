@@ -304,22 +304,68 @@ button:focus-visible {
   text-decoration: underline;
 }
 
+/* Sitemap footer (Nav Redesign Task 4) — replaces the old flat 3-link
+   list. Stacked (1 column) by default, mobile-first; grid columns at
+   desktop, matching the site's other mobile-first breakpoints. */
 .site-footer {
   border-top: 1px solid var(--color-border);
   color: var(--color-text-muted);
   font-size: var(--font-size-sm);
-  padding: var(--space-4);
-  text-align: center;
+  padding: var(--space-5) var(--space-4);
 }
 
-.site-footer__links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: var(--space-3);
+.site-footer__sitemap {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  text-align: left;
+}
+
+@media (min-width: 40rem) {
+  .site-footer__sitemap {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.site-footer__heading {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-text-muted);
   margin: 0 0 var(--space-2);
+}
+
+.site-footer__list {
+  list-style: none;
+  margin: 0;
   padding: 0;
+}
+
+.site-footer__list li {
+  margin-bottom: var(--space-2);
+}
+
+.site-footer__list a {
+  font-size: var(--font-size-base);
+  color: var(--color-primary);
+}
+
+.site-footer__note {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+}
+
+.site-footer__copyright {
+  max-width: var(--content-max-width);
+  margin: var(--space-5) auto 0;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
 }
 
 /* Shared styling for the `citeLink` filter's output — used on any page that

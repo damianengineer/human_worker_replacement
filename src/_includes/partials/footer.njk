@@ -1,10 +1,18 @@
 <footer class="site-footer">
-  {% if site.footer.links %}
-  <ul class="site-footer__links">
-    {% for link in site.footer.links %}
-    <li><a href="{{ link.url }}">{{ link.label }}</a></li>
+  <nav class="site-footer__sitemap" aria-label="Sitemap">
+    {% for group in site.footer.groups %}
+    <div class="site-footer__group">
+      <h2 class="site-footer__heading">{{ group.heading }}</h2>
+      <ul class="site-footer__list">
+        {% for link in group.links %}
+        <li>
+          <a href="{{ link.url }}">{{ link.label }}</a>
+          {% if link.note %}<span class="site-footer__note">{{ link.note }}</span>{% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
     {% endfor %}
-  </ul>
-  {% endif %}
-  <p>{{ site.footer.copyright }}</p>
+  </nav>
+  <p class="site-footer__copyright">{{ site.footer.copyright }}</p>
 </footer>

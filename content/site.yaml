@@ -41,15 +41,40 @@ nav:
 # batch — they were footer-only then and remain footer-only now, via
 # footer.groups below.
 
+# Complete sitemap (Nav Redesign Task 4) — every page except Home appears
+# in exactly one group; Home is reachable via the header brand link on
+# every page, the same reasoning that already exempts it from primary
+# nav above, so it's not duplicated here either.
 footer:
   copyright: "This site is a student-focused educational resource."
-  links:
-    - label: "About"
-      url: "/about/"
-    - label: "AI Disclosure"
-      url: "/ai-disclosure/"
-    - label: "References"
-      url: "/references/"
+  groups:
+    - heading: "The argument"
+      links:
+        - label: "The Evidence"
+          url: "/the-evidence/"
+          note: "What the data shows right now"
+        - label: "History"
+          url: "/history/"
+          note: "Four earlier moments to learn from"
+        - label: "Take Action"
+          url: "/take-action/"
+          note: "Plan B, AI literacy, policy"
+    - heading: "Reference"
+      links:
+        - label: "Glossary"
+          url: "/glossary/"
+          note: "Plain-language definitions"
+        - label: "Sources & References"
+          url: "/references/"
+          note: "Every citation in full (APA)"
+    - heading: "About this site"
+      links:
+        - label: "About"
+          url: "/about/"
+          note: "Who this is for and why"
+        - label: "AI Disclosure"
+          url: "/ai-disclosure/"
+          note: "How this site was made"
 
 # Guided prev/next order for the "journey pager" partial
 # (src/_includes/partials/pager.njk), rendered at the end of <main> on any
