@@ -134,6 +134,9 @@ directories so a non-technical editor can update copy without touching code.
 ├── README.md                  # human-facing setup/contribution guide
 ├── package.json
 ├── .eleventy.js                # build config
+├── QA-CHECKLIST.md             # human QA test steps — see Section 13;
+│                                 update every batch, not just batches
+│                                 that mention it
 ├── content/                    # ALL editable copy lives here — Markdown/YAML only
 │   ├── index.md                 # landing page (routes to site root "/")
 │   ├── home.yaml                 # landing page's structured content
@@ -394,6 +397,10 @@ a public-facing informational site:
   unrelated files in the same change.
 - Run `npm run build`, the a11y check, and the link checker locally before
   presenting a change as complete.
+- **Update `QA-CHECKLIST.md` in every batch of changes** — see Section 13.
+  This is not optional or only-when-asked: add checks for whatever the
+  batch introduced or changed, and prune checks for whatever it removed
+  or replaced, before presenting the batch as complete.
 
 ---
 
@@ -407,3 +414,77 @@ a public-facing informational site:
   commit is what actually goes live, so don't merge content/template
   changes without also refreshing `docs/`. PRs trigger `ci.yml` (build,
   `npm audit`, a11y check, link check) and must pass before merge.
+
+---
+
+## 13. QA Checklist Maintenance (`QA-CHECKLIST.md`)
+
+This site has no automated visual regression testing, and Claude Code
+cannot verify visual outcomes directly — no browser is available in this
+environment. `QA-CHECKLIST.md` (repo root) is the standing bridge between
+what a change makes and what a human confirms actually looks right on a
+real device. It is living documentation of the site's *current*
+visual/interactive surface, not a historical log of every batch that ever
+touched it — maintain it that way in every batch, not just batches whose
+own instructions happen to mention it.
+
+**Update it every batch, without being asked:**
+
+- **Add checks for what's new or changed.** Any new or materially changed
+  visual/interactive feature — a new component, a new page treatment, a
+  new color/accent, a changed layout, a new breakpoint — needs a
+  corresponding checklist item: what to look at, at what viewport(s) and
+  color scheme(s), and what "correct" looks like in concrete, observable
+  terms.
+- **Prune checks for what's gone.** When a batch removes or replaces a
+  feature, remove or rewrite the checklist items that tested the old
+  version. A stale item asking a tester to verify something that no
+  longer exists (a deleted component, a superseded token, an old
+  interaction pattern) wastes tester time and undermines trust in the
+  rest of the checklist — don't leave it in "just in case."
+- Batch-specific section headings (e.g., "Nav Redesign checks") are fine
+  for organizing the file, but the *behavior described inside each item*
+  must reflect the current codebase at the time of the batch, not the
+  state when that section was first written. If a later batch changes
+  something an earlier section checks, update that earlier section —
+  don't just append a new, possibly-contradictory one next to it.
+
+**Write every item for a human QA tester, not for a future agent or a
+developer.** Assume the reader has a browser, devtools, and possibly a
+phone, but no access to — or need to read — the source code. Each item
+should be:
+
+- An exact, executable step ("open `/the-evidence/`, click the third
+  pill in the sticky bar"), not a vague prompt ("check the jump bar").
+- Scoped to a specific viewport and color scheme where that matters
+  (e.g., "at 375px, in dark mode").
+- Paired with a concrete, observable expected result ("the heading lands
+  fully below both sticky bars, with no overlap"), not a subjective one
+  ("looks right").
+
+**Standing checks — present every batch that touches layout, tokens,
+colors, or images, not only when directly touched:**
+
+This project has repeatedly introduced visual regressions in two specific
+areas across otherwise-unrelated batches. Both need a checklist item
+re-verified fresh every time, never assumed still correct from a prior
+batch's pass:
+
+- **Background shading consistency.** Every background tint, band, or
+  card surface — newly introduced, or pre-existing but adjacent to
+  something this batch changed — checked in both light and dark mode
+  against its neighboring surfaces: does it read as a deliberate,
+  distinct-but-subtle layer? Not invisible (blending into its neighbor),
+  not a harsh seam, not accidentally identical to a surface it's
+  supposed to be distinguishable from.
+- **Graphics and image alignment.** Every image, icon, chart, or
+  decorative graphic touched or newly placed this batch — correct
+  crop/object-position, no stretching or squashing, consistent alignment
+  relative to surrounding text/cards across breakpoints, nothing
+  overlapping, clipped, or shifted by layout changes elsewhere on the
+  page.
+
+Do not treat either category as "fine, already checked in an earlier
+batch" — a token rename, a new component, or an unrelated layout change
+can silently shift something upstream that a prior batch's checklist item
+never anticipated.
