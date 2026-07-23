@@ -434,3 +434,32 @@ cannot catch a mis-wired id)**
       line.
 - [ ] Confirm the nav item, footer link, page `<h1>`, and browser tab title
       all read "References," not "Sources," anywhere on the site.
+
+## 15. Most Exposed Occupations — compact one-line rows
+
+The six-item list under Industries & Jobs Most at Risk was rewritten from
+a heading + summary + separate note per item into a single flowing line
+each, to reduce how much vertical space the list takes up. Same text,
+same citations, same section-level source note — this is a density
+change only.
+
+- [ ] On The Evidence, confirm all six occupations render as one line
+      each (wrapping to a second line on narrow phone widths is fine —
+      each item should not otherwise look broken or overlapping).
+- [ ] Confirm the four occupations with a note (Computer Programmers and
+      Software Developers, Customer Service Representatives, Data Entry
+      Keyers) still show their note text, inline right after the summary
+      in a visibly muted/italic style — not missing, not identical-looking
+      to the summary text.
+- [ ] Confirm the two-column layout at desktop width (≥ 640px) still
+      looks balanced — six short rows split 3/3 (or close to it) across
+      columns, not an awkward, uneven split.
+- [ ] Confirm the single section-level source note above the list ("Sources
+      for every occupation below: …") still appears once, and no
+      individual row shows its own separate source line (unless a future
+      item has its own distinct citation — see the exception-handling
+      rule in CLAUDE.md Section 13).
+- [ ] Confirm this list is now visibly more compact than the page's other
+      list sections above it (Current State of Displacement) that still
+      use the heading + paragraph layout — if it looks about the same
+      height as before, the compaction likely didn't take effect.
