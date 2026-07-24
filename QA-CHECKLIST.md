@@ -576,3 +576,39 @@ the batch report). None of this was visually verified in a browser.
     inside a closed accordion (expected, documented trade-off — not a
     bug) but **does** find the visible summary line itself.
 11. Both color schemes; one real-phone pass.
+
+## 19. Homepage edits (hero removal, Short Version, retitle, glossary, figures)
+
+1. Homepage loads: no oversized percentage at the top; the page opens
+   with the title, then the intro paragraph, then The Short Version.
+2. The h1 looks consistent in size with the h1 on The Evidence and
+   History (all three should now use the same base h1 size — none of
+   the three pages sets its own h1 override any more).
+3. The Short Version reads as a complete thought: the 13–16% statistic
+   stated up front, the chart explained next to it, then a sentence
+   connecting both to the timeline section below.
+4. The chart description matches what the chart actually shows: bars
+   comparing theoretical AI capability to observed exposure, not a
+   scatter plot or a single trend line.
+5. "Entry-level jobs" in the homepage's intro paragraph (the first
+   sentence, before The Short Version) is a link; clicking it lands on
+   the new glossary entry, highlighted and fully visible below the
+   sticky header.
+6. Header brand, browser tab title, and any social/link preview all read
+   "AI & Your Job" — not "AI & Your First Job" anywhere.
+7. Header still fits on one row at 375px (this should be easier than
+   before, not harder — the new title is shorter).
+8. **Figure sizing:** on a laptop (~1440px wide), the homepage chart
+   spans the text column and its left edge lines up with the body text
+   above and below it — it should read as filling the column, not
+   floating small and centered. The image should not look blurry or
+   stretched. Repeat this same check on History (all four case images)
+   and on The Evidence (the "Human necessity" chart under Protective
+   Factors) — all six lead images share this one CSS rule.
+9. **Figure at 375px:** every lead figure above still fits without
+   horizontal scrolling, and its caption/credit line sits directly
+   beneath it, not stranded off to one side.
+10. Clicking any lead figure still opens the lightbox at a clearly larger
+    size than the inline version, and closing it returns you to the same
+    scroll position.
+11. Both color schemes; one real-phone pass.
