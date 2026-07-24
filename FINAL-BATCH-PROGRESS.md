@@ -77,6 +77,33 @@ batch whose safety protocol explicitly rules out layout/template
 redesign. Left both terms unlinked on this page; they're still fully
 defined and findable via the Glossary page itself.
 
+## Task 5b summary (date durability)
+
+Swept all content for time-anchored language. Findings:
+- Sanders S.4825 bill claim: already hedged ("As of this research...").
+  Checked congress.gov via search + govinfo.gov's bulk XML: still
+  Introduced-in-Senate, referred to Finance, zero cosponsors. Accurate,
+  no change needed.
+- McGarvey H.R.3116 bill claim: checked GovTrack/congress.gov via
+  search: still just "Introduced," no major status change. Accurate,
+  no change needed. Minor unrelated nit noticed in passing: the
+  citation id "mcgarvey2026" doesn't match its own year field (2025,
+  date 2025-04-30) -- flagging, not renaming (a rename touches every
+  reference to the id and isn't what this task asked for).
+- Social Security 2034 depletion claim: verified against the actual
+  2026 OASDI Trustees Report (released 2026-06-09) -- combined trust
+  funds still projected depleted in 2034. Accurate, no change needed.
+- All other "right now"/"currently" instances in evidence.yaml/home.yaml/
+  site.yaml describe specific cited studies' own findings (anchored by
+  an adjacent citation marker to that study's fixed snapshot) or are
+  evergreen relative framing (the homepage timeline's "Right now" era
+  label, footer/journey teaser blurbs) that stays accurate regardless
+  of read date. No edits made -- editing these would risk violating the
+  "may not otherwise reword" constraint for no real durability gain.
+
+**Zero content edits from this task** -- the existing copy was already
+well-hedged.
+
 ## Status: Task 5a done, starting Task 5b
 
 - [x] Branch created from up-to-date `main`; web access confirmed available.
