@@ -117,9 +117,31 @@
    larger than the old neutral tint's was: light 0.127 vs. the old
    0.088, dark 0.013 vs. the old 0.006 — so the band is more detectable
    than before, not less. */
+/* Evidence Figure Stack batch (bug fix, reported after shipping) — a
+   fixed 100vmax spread doesn't just reach the viewport edges, it also
+   extends 100x the viewport's largest dimension ABOVE and BELOW the
+   section's own box, since box-shadow spread is uniform on all four
+   sides. Nothing ever repaints over that huge overshoot in the page's
+   outer gutters (outside <main>'s own column), so it showed through as
+   a colored sliver at unrelated scroll positions elsewhere on the page
+   — confirmed via devtools: the affected area hit-tested to <body>,
+   not any real element box, meaning it was this shadow's paint, not a
+   layout overflow.
+   Fix: size the spread with calc() to reach the actual current gutter
+   width (half the viewport minus the content column, plus main's own
+   side padding) instead of a value 100x larger than necessary. This
+   keeps every property from the box-shadow rationale above (no
+   scrollWidth/layout participation, no containing-block risk for the
+   Protective Factors lightbox) while capping the vertical overshoot to
+   the same modest width as the horizontal gutter it's covering, instead
+   of the width of the observable universe. max() floors it at 0 so it
+   never goes negative and shrinks the band below viewports where
+   --content-max-width doesn't apply (<main> already fills the width
+   there, so no gutter exists to bleed into, and 0 spread still exactly
+   covers the section's own box). */
 .evidence-section:nth-of-type(odd) {
   padding: var(--space-5) 0;
-  box-shadow: 0 0 0 100vmax var(--accent-evidence-bg);
+  box-shadow: 0 0 0 max(0px, calc((100vw - var(--content-max-width)) / 2 + var(--space-4))) var(--accent-evidence-bg);
 }
 
 /* Color Re-skin v2, Task 4.2: section headings take their own section's
