@@ -534,3 +534,45 @@ lightbox, credit line beneath).
 - [ ] Confirm both images still look reasonable in dark mode (the
       light-colored image frame/border around each should still read as
       a frame, not clash with the photo).
+
+## 18. Take Action hub and progressive disclosure
+
+The page was restructured around a three-card topic hub plus native
+`<details>`/`<summary>` disclosure, dropping the visible-by-default word
+count from ~2,630 to ~1,310 (mechanically counted, not estimated — see
+the batch report). None of this was visually verified in a browser.
+
+1. Page loads: three topic cards visible without scrolling at desktop;
+   the page reads as three choices, not a wall of text.
+2. Click each card's button: lands on the correct section, heading fully
+   visible below the sticky header (not clipped by it).
+3. Keyboard: Tab reaches each card's button with a visible focus ring;
+   Enter follows it.
+4. Mobile 375px: cards stack, tappable, no horizontal scroll; the hub
+   occupies roughly one screen or less before the first CTA section
+   starts (icon+title share a row by design — if the hub feels taller
+   than that, the compact layout didn't render as intended).
+5. Accordions open on click and on keyboard (Enter/Space on a focused
+   `<summary>`); the first AI Literacy group (In-Person Events) is open
+   by default, the other five are closed; every plan_b/policy item whose
+   text is behind a `<summary>` opens the same way.
+6. With everything closed: the AI Privacy & Security caution section and
+   "First, understand the debate" (the two UBI/SWF proposals) are fully
+   visible without opening anything.
+7. Deep links land correctly and the target content is visible, not
+   hidden in a closed accordion: the homepage's "build a Plan B" link,
+   "Improve your AI literacy" link, and "Start with the debate" link;
+   the journey pager's link into this page from Take Action's own
+   "next" card loop.
+8. Deep-link a *closed* AI Literacy resource group directly (e.g. open
+   `/take-action/#ai-literacy-videos` in a fresh tab) — the page should
+   scroll to that group's row even though it's still collapsed; clicking
+   its summary should then reveal the videos inside.
+9. Collapsed-state read-through: with every `<details>` closed, skim the
+   page top to bottom — it should still clearly communicate all three
+   actions. If any collapsed summary reads as meaningless or vague on
+   its own, flag it — the summary text is doing the wrong job.
+10. Confirm in-page Ctrl+F/Find does **not** find text that's currently
+    inside a closed accordion (expected, documented trade-off — not a
+    bug) but **does** find the visible summary line itself.
+11. Both color schemes; one real-phone pass.
