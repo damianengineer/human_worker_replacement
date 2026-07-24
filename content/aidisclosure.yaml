@@ -226,3 +226,20 @@ entries:
       which turned out to be mixed (majority Title Case, not consistently
       sentence case as might be assumed), so this aligns the homepage
       with the majority rather than against it.
+
+  - date: "2026-07-24"
+    summary: "The Evidence clarity pass: examples, plain-language gloss, visual separation"
+    ai_did:
+      - "Added a short, clearly-hypothetical example illustrating how the hiring-slowdown claim plays out (a small firm not replacing a departing bookkeeper), styled and positioned so it can never be mistaken for sourced data."
+      - "Rewrote the vague 'hasn't fully played out yet' sentence to explain what actually has to happen for AI's capability-vs-use gap to close (workflow redesign, retraining, budget changes) without predicting how fast it will."
+      - "Added a plain-language gloss for the researchers' term 'high near-term automation risk' right where it's first used, plus a new glossary entry explaining it's one research group's category system, not a prediction about any individual job."
+      - "Wrapped the two 'Industries & Jobs' subsections in visually separate cards, and split the Theoretical vs. Observed paragraph into its general concept and its specific law example, without rewriting or reordering any sentence."
+      - "Reworded the two identical 9% protective-factors callout labels so each states its own job (section preview vs. this barrier's own number) instead of reading as an accidental repeat."
+    human_did:
+      - "Supplied the readability standard (8th-10th grade, short sentences) and the specific student-facing questions this batch had to make answerable without a click."
+    notes: >-
+      Verified mechanically: all pre-existing anchor ids survived, no
+      nested <a> tags, citations.yaml untouched, and the sentence count
+      before/after the Theoretical vs. Observed split matched exactly —
+      see the batch's own report for the full sentence-by-sentence
+      mapping.

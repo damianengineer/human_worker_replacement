@@ -269,6 +269,39 @@ and citations.
   known limitation of native disclosure, not something to work around
   with JavaScript — the site stays zero-JS by design.
 
+### 5b. The Evidence Page: Illustrative Examples vs. Sourced Notes
+
+Adopted in the Evidence Clarity batch, after reviewer feedback that the
+page asserted things ("hiring slows, nobody gets fired") without ever
+showing what that looks like, and that a long theoretical-vs-observed
+paragraph mixed a general concept with one specific data disagreement.
+
+- **`current_state` items may carry an optional `example` field, which is
+  not the same field as `note`.** `note` explains what a corroborating
+  source shows and is sourcing apparatus attached to the claim above it;
+  `example` is a short (40–70 word), plain-language, recognizably
+  hypothetical scenario illustrating what the claim looks like in
+  practice, with no sourcing role of its own — it carries no citations,
+  since the claim above it already carries them. Both fields may exist on
+  the same item; the template renders them as visually distinct blocks
+  (`.evidence-list__note` vs. `.evidence-example`) and never merges them.
+  `example` always renders after the claim's own citation markers and
+  `note`, so it can never read as part of the sourced material.
+- **A subsection's long prose may split into `concept` and `example`
+  fields** where a single paragraph mixes a general point with one
+  specific supporting case (the pattern used in `at_risk.
+  theoretical_vs_observed`: the general capability-vs-use gap is
+  `concept`, the law-industry data disagreement between the two AI labs
+  is a nested `example: {heading, text, citations}`). Splitting an
+  existing paragraph this way must preserve every sentence — same
+  sentences, same order, same meaning; only connective phrasing or a
+  pronoun-antecedent fix may change. The `example`'s own citations render
+  inside its block, never orphaned above it. This is a different pattern
+  from `current_state`'s item-level `example` above (a real, cited
+  example splitting off a concept, vs. a hypothetical, uncited
+  illustration) — don't conflate the two when adding a similar field
+  elsewhere.
+
 ---
 
 ## 6. Content & Citation Guidelines (APA style)
