@@ -153,6 +153,24 @@ would need each paper's real DOI confirmed via search first, which
 ran up against this batch's remaining scope. Flagged for a follow-up
 pass.
 
+## Task 5d summary (media attribution audit)
+
+Full inventory: 11 image files (9 charts/photos + 2 YouTube thumbnails)
+and 2 embedded YouTube videos (privacy-respecting youtube-nocookie.com
+iframes, both with descriptive titles). Every single image has real,
+meaningful alt text -- none missing, none empty except where
+intentional (n/a here, no decorative images on this site). Every
+image/embed has appropriate attribution: 5 charts cite their source
+study (massenkoff2026/richmond2026), 2 historical/photo images cite
+their source (luddite1812engraving, amazonroboticsphoto2025), 1 is a
+documented no-attribution-needed AI-generated illustration
+(telephone-operator-switchboard.png), 1 carries a documented plain-text
+fair-use credit (mad-men-office-typing-pool.jpeg, not a References
+entry by design), and both YouTube thumbnails/embeds sit inside
+resource items that already carry their own citation
+(karpathyzerotohero, threeblue1brown). **Zero fixes needed** -- prior
+batches already did this correctly.
+
 ## Status: Task 5a done, starting Task 5b
 
 - [x] Branch created from up-to-date `main`; web access confirmed available.
