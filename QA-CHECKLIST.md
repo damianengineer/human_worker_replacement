@@ -463,3 +463,54 @@ change only.
       list sections above it (Current State of Displacement) that still
       use the heading + paragraph layout — if it looks about the same
       height as before, the compaction likely didn't take effect.
+
+## 16. Color re-skin (Gradient Blues)
+
+Every ratio in this batch was computed with a WCAG-formula script, not
+eyeballed — see the batch report for the full contrast and luminance
+tables. None of that substitutes for actually looking at the result.
+
+- [ ] Homepage, light mode: hero stat, brand, and links read as blue/
+      indigo; the page reads noticeably more colorful than before, not
+      gray.
+- [ ] Homepage timeline: the four era cards show a **visible**
+      progression indigo → aqua on their top border; adjacent cards are
+      clearly different, not four similar blues. The two cards with a
+      photo (The past, Right now) show a matching tint on the photo
+      itself, not a mismatched color from the border.
+- [ ] The Evidence: alternating bands read as lightly blue-tinted,
+      clearly distinguishable from the untinted sections in between; body
+      text on the tint is comfortable to read, not washed out.
+- [ ] Section identity: open The Evidence, History, Take Action in turn —
+      each still feels like a different-colored section (cool blue / warm
+      rust / warm amber), not shades of one blue. Each page's own section
+      heading (not just its border) now shows in that section's color.
+- [ ] Repeat the above four checks in **dark mode**: every accent legible,
+      no ramp step lost to the background, progression still visible.
+- [ ] Take Action: the policy-debate "case for / case against" cards are
+      the most visually assertive element on the page (accent border +
+      tinted background), not the plain gray cards they were before.
+- [ ] **Journey pager wayfinding:** at the bottom of The Evidence, the
+      "next" card should be colored like **History** (rust), not Evidence
+      blue — it's pointing to History next. At the bottom of History, the
+      "next" card should be colored like **Take Action** (amber). At the
+      bottom of Take Action, the "next" card (looping back to Evidence's
+      Stark State section) should be colored like **Evidence** (blue).
+      If any of these three shows its *own* page's color instead of the
+      destination's, that's the bug this batch fixed regressing.
+- [ ] **Focus check:** Tab through the homepage and The Evidence — every
+      focused link, button, pill, and `<summary>` shows a clearly visible
+      focus ring in both schemes (the focus ring color itself wasn't
+      changed by this batch, but re-confirm nothing else now overlaps or
+      obscures it).
+- [ ] **Meaning-without-color check:** confirm certainty tags, any
+      "source needed" marker, and the current-page nav item are each
+      identifiable by text/shape/border, not color alone — squint, or use
+      a grayscale screenshot filter.
+- [ ] **Outdoor/brightness check:** view the homepage and The Evidence on
+      a phone at ~50% brightness — the band tint and the ramp's lighter
+      steps must still read as colored, not wash out to white/gray.
+- [ ] Confirm no gradient appears anywhere except the homepage timeline's
+      per-card border progression (no second gradient was added anywhere
+      else in this batch).
+- [ ] One real-phone pass, both schemes, covering all of the above.
