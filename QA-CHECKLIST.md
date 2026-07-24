@@ -612,3 +612,43 @@ the batch report). None of this was visually verified in a browser.
     size than the inline version, and closing it returns you to the same
     scroll position.
 11. Both color schemes; one real-phone pass.
+
+## 20. The Evidence clarity pass (examples, plain-language gloss, cards)
+
+1. Current State: the hiring-slowdown item ("Hiring of young workers...")
+   has a clearly-marked "What this looks like in practice" example that
+   reads as illustration, not data — no source links appear inside it,
+   and it sits below the claim's own citation line.
+2. The 58–68 pts item explains what closing the capability-vs-use gap
+   would actually require (workflow redesign, retraining, budget/job
+   description changes) and does not predict when that will happen.
+3. "High near-term automation risk" is understandable from its own
+   sentence: the researchers' term is followed by a plain-language gloss
+   that links to a new glossary entry, and the 18%/46% figures read as
+   two buckets of one system.
+4. Industries & Jobs: Theoretical versus Observed and Most Exposed
+   Occupations now read as two clearly separated bounded cards (tinted
+   background, top accent border) rather than one continuous block.
+5. Inside Theoretical versus Observed, the law-disagreement example
+   ("One example: the labs disagree about law") appears as a distinct
+   bordered callout, visually separate from the general concept
+   paragraph above it.
+6. The "Sources for every occupation below:" line is still directly
+   under the Most Exposed Occupations intro, inside its card, unchanged.
+7. Jump-bar/"On this page" links (Most at risk, Stark State majors, etc.)
+   still land with their heading fully visible below the sticky header,
+   even with the new card padding above them.
+8. Protective factors: the 9% stat callout (top of section) and the lead
+   "Human necessity" figure below it share the same left edge, with no
+   dead space at lower left. **Check dark mode specifically.**
+9. The two 9% callouts (section-level, and Barrier 2's own) now read as
+   making two different points, not an accidental repeat.
+10. Charts are not blurry or upscaled; the lightbox still opens and
+    closes normally.
+11. At 375px: the new subsection cards don't crush their charts, and
+    there's no horizontal scrolling anywhere on the page.
+12. **Read-aloud check:** read the hiring-slowdown example, the rewritten
+    58–68 pts sentence, and the new "high near-term automation risk"
+    gloss aloud. Any sentence you stumble over or have to re-read is too
+    complex — note it for revision.
+13. Both color schemes; one real-phone pass.
