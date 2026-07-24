@@ -374,6 +374,55 @@ a public-facing informational site:
 - No console.log or debug code committed.
 - Comment *why*, not *what*, in template/config files.
 
+### 10a. Color System (Gradient Blues, adopted in the Color Re-skin v2 batch)
+
+- **The ramp is the spine, not the section-identity system.** The site's
+  brand/link/UI color (`--color-primary`) and a set of `--ramp-1`…`--ramp-4`
+  tokens draw from one *sequential* 10-step indigo→aqua palette
+  (`#7400b8 → #6930c3 → #5e60ce → #5390d9 → #4ea8de → #48bfe3 → #56cfe1 →
+  #64dfdf → #72efdd → #80ffdb`). Sequential ramps are for things that should
+  blend into each other (a brand color, a gradient) — never for telling two
+  categories apart. Only **one** gradient feature exists site-wide: the
+  homepage era timeline's four-step card-border progression
+  (`--ramp-1`…`--ramp-4`, one step per card). Don't add a second.
+- **Section accents stay perceptually distinct, on purpose.** Cool sections
+  (The Evidence) draw a color from the same ramp family; History and Take
+  Action deliberately stay warm (rust/amber) as counterpoints. Never recolor
+  all sectioned pages onto the ramp — a reader must be able to tell which
+  section they're on by color alone (in addition to, never instead of, the
+  page heading/nav).
+- **Text-safe vs. vivid/fill-only tokens.** The ramp's bright end
+  (`--ramp-3`/`--ramp-4`, and any accent derived from that end, e.g.
+  `--accent-evidence-vivid`) reads well as a border, fill, or large display
+  text, but fails 4.5:1 as small text on a light background. Where an accent
+  needs to work as body-adjacent text *and* as a bold fill/border, it splits
+  into two tokens: the plain name (`--accent-evidence`) is darkened enough to
+  clear 4.5:1 as text; the `-vivid` suffix keeps the brighter ramp-adjacent
+  value for fills, borders, and large display text (3:1 floor). Only add the
+  split where the plain ramp value actually fails 4.5:1 — don't split a token
+  that already clears it.
+- **Contrast thresholds by element type, always computed, never eyeballed:**
+  body/small text ≥ 4.5:1; large text (≥ 24px, or ≥ 18.66px bold) ≥ 3:1;
+  non-text UI that conveys state (borders, icons, focus rings, chart/graph
+  strokes) ≥ 3:1; purely decorative fills with no informational role, no
+  fixed minimum (but must not drop *adjacent* text below its own floor).
+  Compute every ratio with the standard WCAG relative-luminance formula
+  (`c ≤ 0.03928 ? c/12.92 : ((c+0.055)/1.055)^2.4`, then
+  `0.2126R + 0.7152G + 0.0722B`, then `(lighter+0.05)/(darker+0.05)`) — round
+  down when deciding pass/fail (4.49 fails 4.5). Never state a ratio you
+  haven't actually computed this way.
+- **Color never carries meaning alone** (WCAG 1.4.1). Anything that
+  communicates state through color — certainty tags, `citation--todo` /
+  `citation--unverified`, warning/caution styling, `aria-current` on nav —
+  keeps a text, icon, or border channel too. This rule overrides any
+  aesthetic instruction that would simplify a state indicator to color only.
+- **Dark mode is not an inversion.** Every token needs an independently
+  chosen dark-mode value, picked for legibility against the dark background —
+  not derived by algorithmically flipping the light value. It's normal for a
+  dark-mode value to sit at a different position on the ramp than its
+  light-mode counterpart (a color that reads fine as a border on white can be
+  nearly invisible on the dark background, and vice versa).
+
 ---
 
 ## 11. Working Rules for Claude Code in This Repo
