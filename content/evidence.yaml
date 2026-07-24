@@ -399,7 +399,7 @@ protective_factors:
   # item callout also shows.
   callout:
     numeral: "9%"
-    label: "Jobs protected by a hard legal or licensing requirement — the narrowest of the four protective factors"
+    label: "The narrowest of the four protective factors below: jobs protected by a legal or licensing requirement"
     citations: ["richmond2026"]
   lead_figure:
     id: "protective-human-necessity"
@@ -445,7 +445,7 @@ protective_factors:
         the outcome.
       stat_callout:
         numeral: "9%"
-        label: "Jobs protected by legal or licensing accountability requirements"
+        label: "This barrier's own number: jobs protected by legal or licensing accountability requirements"
         citations: ["richmond2026"]
       citations: ["richmond2026"]
 
