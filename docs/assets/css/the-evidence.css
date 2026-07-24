@@ -340,6 +340,19 @@
 
 .evidence-figure {
   margin: 0;
+  /* Grid items default to min-width: auto, which resolves to the item's
+     content's intrinsic minimum size, not 0. Without this reset, a figure
+     whose <img> has a large native width (the radar chart in
+     Theoretical vs. Observed is 3840px natively) can force its grid
+     track — and the .evidence-figures container itself — wider than the
+     content column, even though width: 100%/max-width on the image and
+     figure both look correct; that mismatch is what showed up as a
+     colored sliver bleeding into the page's outer gutters at that row's
+     height, independent of the .evidence-figures--stacked/radar-cap
+     work in the same batch. Applies to every figure in this grid, not
+     just the radar, since any future wide-native-resolution chart would
+     hit the same bug. */
+  min-width: 0;
 }
 
 /* Evidence Figure Stack batch — the radar/square chart
