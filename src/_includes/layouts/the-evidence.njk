@@ -108,7 +108,15 @@ extraCss:
   {% set tvo = evidence.at_risk.theoretical_vs_observed %}
   <div class="evidence-subsection">
     <h3>{{ tvo.heading }}</h3>
-    <p class="evidence-section__intro">{{ tvo.intro }}</p>
+    <p class="evidence-section__intro">{{ tvo.concept }}</p>
+
+    {% if tvo.example %}
+    <aside class="evidence-subsection-example">
+      <p class="evidence-subsection-example__label">{{ tvo.example.heading }}</p>
+      <p>{{ tvo.example.text }}</p>
+      <p class="evidence-list__source">{{ citeList(tvo.example.citations) }}</p>
+    </aside>
+    {% endif %}
 
     {% if tvo.methodology_note %}
     <p class="evidence-methodology-note">

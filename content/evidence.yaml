@@ -141,7 +141,13 @@ at_risk:
   # most_exposed (the industry-by-industry breakdown, still placeholder).
   theoretical_vs_observed:
     heading: "Theoretical versus Observed"
-    intro: >-
+    # Evidence Clarity batch, Change 5 — split at the existing paragraph's
+    # own natural seam: the first 4 sentences (the general concept) vs.
+    # the last 2 (the specific law example). Sentence-preservation check:
+    # 6 sentences before, 6 after (4 in concept + 2 in example), same
+    # order, same wording — no rewriting, merging, or reordering. See the
+    # batch report for the full sentence-by-sentence mapping.
+    concept: >-
       AI could theoretically handle the most tasks in office and
       knowledge-work jobs — fields like computer and math work, business
       and finance, management, engineering, and law. Two different AI
@@ -151,12 +157,17 @@ at_risk:
       — meaning most of what AI could do hasn't actually happened yet.
       Right now, real use is concentrated in computer/math and
       business/finance jobs on both platforms, which is the strongest
-      sign of where disruption is happening right now. Law is an
-      interesting exception: one company's data shows it as the single
-      most AI-used field, while the other's data shows barely any real
-      use there, even though both rate its theoretical risk equally high.
-      That's a reminder that even trustworthy sources using similar
-      methods can disagree sharply about one specific field.
+      sign of where disruption is happening right now.
+    example:
+      heading: "One example: the labs disagree about law"
+      text: >-
+        Law is an interesting exception: one company's data shows it as
+        the single most AI-used field, while the other's data shows
+        barely any real use there, even though both rate its theoretical
+        risk equally high. That's a reminder that even trustworthy
+        sources using similar methods can disagree sharply about one
+        specific field.
+      citations: ["massenkoff2026", "richmond2026"]
     methodology_note: >-
       Both companies base their measure of AI's theoretical reach on the
       same underlying research, and both back up their methods with

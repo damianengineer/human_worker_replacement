@@ -243,6 +243,24 @@
   margin: 0;
 }
 
+/* Concept/example split (Evidence Clarity batch, Change 5) — this example
+   is a real, cited data point (unlike the hypothetical .evidence-example
+   from Change 1), so it takes the accent border + subtle background
+   already used for callouts elsewhere on this page, not the neutral
+   muted-border treatment. */
+.evidence-subsection-example {
+  margin: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--accent-evidence);
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-base);
+}
+
+.evidence-subsection-example__label {
+  margin: 0 0 var(--space-1);
+  font-weight: 700;
+}
+
 .evidence-figures-intro {
   color: var(--color-text-muted);
 }
