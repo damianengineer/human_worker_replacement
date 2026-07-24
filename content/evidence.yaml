@@ -180,7 +180,9 @@ at_risk:
       - "borusyakhulljaravel2022"
       - "graetzmichaels2018"
     figures:
-      # Rendered as a two-column, side-by-side grid. Each figure:
+      # Rendered as a stacked grid for this pair (Evidence Figure Stack
+      # batch — see .evidence-figures--stacked in the-evidence.css), one
+      # figure per row instead of side-by-side. Each figure:
       #   id: a page-unique id (used for the zoom/lightbox anchor — must
       #     be unique across the WHOLE page, not just this figure list,
       #     since two different charts can cite the same source)
@@ -192,14 +194,17 @@ at_risk:
       #   citation: citation ID from content/citations.yaml — the caption
       #     pulls authors/date/publisher/url directly from that entry, so
       #     credit and the source link can't drift out of sync with it
-      - id: "tvo-massenkoff"
-        image: "/assets/img/theoretical-capability-vs-observed-exposure.webp"
-        alt: >-
-          Bar chart comparing each occupational category's theoretical AI
-          capability to how much AI exposure has actually been observed
-          in the workforce.
-        title: "Theoretical capability and observed exposure by occupational category"
-        citation: "massenkoff2026"
+      #   modifier_class: OPTIONAL per-figure CSS class (Evidence Figure
+      #     Stack batch). Only tvo-massenkoff (the 3840x3840 square/radar
+      #     chart) uses one — evidence-figure--radar-cap — so it caps to
+      #     a sane diagram width at wide viewports without upscaling or
+      #     dominating the page; the horizontal bar chart needs no cap,
+      #     since it already fills the column at its own native width.
+      #
+      # Order: bar chart first (tvo-eloundou), radar/square chart second
+      # (tvo-massenkoff) — the bar chart is the more legible of the two
+      # and directly illustrates the capability-vs-use gap the preceding
+      # paragraph describes; the radar is a second view of the same gap.
       - id: "tvo-eloundou"
         image: "/assets/img/capability-overhang-by-occupation.png"
         alt: >-
@@ -208,6 +213,15 @@ at_risk:
           different occupations.
         title: "The capability overhang by occupation"
         citation: "richmond2026"
+      - id: "tvo-massenkoff"
+        image: "/assets/img/theoretical-capability-vs-observed-exposure.webp"
+        alt: >-
+          Bar chart comparing each occupational category's theoretical AI
+          capability to how much AI exposure has actually been observed
+          in the workforce.
+        title: "Theoretical capability and observed exposure by occupational category"
+        citation: "massenkoff2026"
+        modifier_class: "evidence-figure--radar-cap"
   most_exposed:
     heading: "Most Exposed Occupations"
     # Every item below shares this exact citation pair (verified — see the
