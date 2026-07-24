@@ -181,3 +181,17 @@ entries:
       No visual/browser verification was possible in this environment;
       QA-CHECKLIST.md was updated with the specific visual checks a human
       still needs to do.
+
+  - date: "2026-07-23"
+    summary: "Two new History banner images (telephone operators, office typists)"
+    ai_did:
+      - "Added a lead image to History's two remaining image-less cases (Automation of Telephone Operators, Computerization of Office Work), moving both supplied files into place and writing alt text after viewing each image directly."
+      - "Extended the shared figure-credit template to support a plain-text image credit (no citation link) alongside the existing citeLink-based one, since neither new image fits the site's usual bibliographic-citation pattern: one is AI-generated with no source to credit, and the other is a copyrighted TV still credited under fair use rather than cited as a source."
+    human_did:
+      - "Supplied both image files and the exact fair-use attribution text for the Mad Men still; confirmed the AI-generated telephone-operator image needs no attribution."
+    notes: >-
+      The Mad Men still depicts a 1960s office, not the case's own
+      1980s-2000s window — captioned as illustrating the kind of
+      typing-pool clerical work computerization went on to replace,
+      rather than presented as a period-exact photo, so the caption
+      doesn't overstate what the image actually shows.

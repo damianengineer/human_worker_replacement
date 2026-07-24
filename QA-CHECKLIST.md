@@ -514,3 +514,23 @@ tables. None of that substitutes for actually looking at the result.
       per-card border progression (no second gradient was added anywhere
       else in this batch).
 - [ ] One real-phone pass, both schemes, covering all of the above.
+
+## 17. History's two new banner images
+
+Both of History's remaining image-less cases now have a lead image,
+matching the existing Luddite/Amazon treatment (click-to-enlarge
+lightbox, credit line beneath).
+
+- [ ] Automation of Telephone Operators shows the new AI-generated
+      switchboard-operator image, correctly proportioned (portrait, not
+      stretched or cropped oddly) — and shows **no** source/credit line
+      beneath it (none is needed for this image).
+- [ ] Computerization of Office Work shows the new Mad Men still, and
+      the line beneath it reads the fair-use attribution text plainly —
+      confirm it is **not** a clickable link (unlike every citation
+      marker elsewhere on the site).
+- [ ] Click each image to confirm the lightbox opens, shows the full
+      image, and closes correctly — both light and dark mode.
+- [ ] Confirm both images still look reasonable in dark mode (the
+      light-colored image frame/border around each should still read as
+      a frame, not clash with the photo).

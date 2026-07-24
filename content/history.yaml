@@ -33,6 +33,16 @@ cases:
   - name: "Automation of Telephone Operators"
     icon: "☎️"
     years: "1920s–1930s"
+    figure:
+      id: "history-telephone-operator"
+      image: "/assets/img/telephone-operator-switchboard.png"
+      alt: >-
+        AI-generated illustration of a 1920s telephone operator wearing a
+        headset, seated at a manual switchboard and plugging in a call,
+        with a "Long Distance Telephone Company" sign on the wall behind
+        her.
+      title: "A telephone operator at a manual switchboard (AI-generated illustration)"
+      # No citation/credit field: AI-generated image, no attribution needed.
     impact:
       - "One of the biggest white-collar jobs held by young American women at the time — telephone operator — mostly disappeared as automatic switching equipment took over."
       - "Experienced operators were often able to move into other jobs, but newcomers entering the workforce had to settle for lower-paying work."
@@ -41,6 +51,15 @@ cases:
   - name: "Computerization of Office Work"
     icon: "🖥️"
     years: "1980s–2000s"
+    figure:
+      id: "history-office-typists"
+      image: "/assets/img/mad-men-office-typing-pool.jpeg"
+      alt: >-
+        Promotional still from the TV show Mad Men showing a mid-century
+        advertising office, with women typing at desks while several men
+        in suits stand nearby.
+      title: "A 1960s office typing pool — the kind of clerical work computerization would go on to replace"
+      credit: "Image: Promotional still from Mad Men. Courtesy of AMC / Lionsgate Television. Used for educational purposes under Fair Use."
     impact:
       - "Typists, bookkeepers, filing clerks, and bank tellers doing routine back-office work were replaced as spreadsheets, word processors, and databases took over routine cognitive tasks."
       - "This fundamentally changed how office work was done, and it's often seen as the closest historical parallel to what generative AI could do to office and entry-level cognitive work today."
