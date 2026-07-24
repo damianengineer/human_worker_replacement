@@ -149,6 +149,26 @@
   margin-bottom: var(--space-2);
 }
 
+/* Bounded card treatment (Evidence Clarity batch, Change 4) — separates the
+   two "Industries & Jobs" subsections (Theoretical vs. Observed, Most
+   Exposed Occupations) visually, so they read as distinct blocks instead of
+   one undifferentiated scroll. Scoped to --card only: Stark State keeps its
+   own plain .evidence-subsection (out of scope for this change — see
+   CLAUDE.md's scope fence). The existing margin-top on .evidence-subsection
+   already supplies the vertical gap between the two cards. */
+.evidence-subsection--card {
+  padding: var(--space-4);
+  background: var(--accent-evidence-bg);
+  border-top: 3px solid var(--accent-evidence);
+  border-radius: var(--radius-base);
+}
+
+@media (max-width: 30rem) {
+  .evidence-subsection--card {
+    padding: var(--space-2);
+  }
+}
+
 .evidence-list {
   list-style: none;
   margin: 0;
@@ -217,6 +237,48 @@
 .evidence-list__note-inline {
   color: var(--color-text-muted);
   font-style: italic;
+}
+
+/* Illustrative example (Evidence Clarity batch, Change 1) — a hypothetical
+   scenario, not sourced data, so it must never look like the claim/note/
+   stat-callout apparatus above it. A left border in the neutral text color
+   (not the accent) keeps it from reading as "another citation-backed fact,"
+   while still setting it apart from plain body text. */
+.evidence-example {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) var(--space-4);
+  border-left: 3px solid var(--color-text-muted);
+}
+
+.evidence-example__label {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.evidence-example p:last-child {
+  margin: 0;
+}
+
+/* Concept/example split (Evidence Clarity batch, Change 5) — this example
+   is a real, cited data point (unlike the hypothetical .evidence-example
+   from Change 1), so it takes the accent border + subtle background
+   already used for callouts elsewhere on this page, not the neutral
+   muted-border treatment. */
+.evidence-subsection-example {
+  margin: var(--space-3) 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--accent-evidence);
+  background: var(--color-bg-subtle);
+  border-radius: var(--radius-base);
+}
+
+.evidence-subsection-example__label {
+  margin: 0 0 var(--space-1);
+  font-weight: 700;
 }
 
 .evidence-figures-intro {
