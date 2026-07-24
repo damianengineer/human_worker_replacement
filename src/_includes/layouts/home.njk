@@ -8,22 +8,13 @@ extraCss:
 
 <h1>{{ title }}</h1>
 
-<div class="home-hero">
-  <p class="home-hero__stat">{{ home.hero.stat }}</p>
-  <p class="home-hero__label">{{ home.hero.stat_label }}</p>
-  <p class="home-hero__source">
-    {{ home.hero.source_note }}
-    {% for id in home.hero.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
-  </p>
-</div>
-
 <div class="home-intro">
   {{ content | safe }}
 </div>
 
 <section class="home-section" id="short-version" aria-labelledby="short-version-heading">
   <h2 id="short-version-heading">{{ home.short_version.heading }}</h2>
-  <p>{{ home.short_version.text }}</p>
+  {% for para in home.short_version.text %}<p>{{ para }}</p>{% endfor %}
   <p class="home-section__source">
     {% for id in home.short_version.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
   </p>

@@ -210,3 +210,19 @@ entries:
       report for the exact counts. Collapsed content is not searchable
       via in-page Ctrl+F until opened; an accepted trade-off of using
       native disclosure instead of JavaScript, documented in CLAUDE.md.
+
+  - date: "2026-07-24"
+    summary: "Homepage edits: hero removal, Short Version rewrite, retitle, new glossary term, figure sizing"
+    ai_did:
+      - "Removed the homepage's oversized hero stat block (the same '13-16%' figure already appears on The Evidence), restoring the homepage h1 to the site's standard size in the process, and rewrote The Short Version so it states that same statistic itself, explains the chart next to it in plain language, and connects both to the timeline section below."
+      - "Retitled the site from 'AI & Your First Job' to 'AI & Your Job' everywhere a reader sees it (header, tab title, README), since 'first job' read as excluding the career-changers in the audience who already have work experience, just not in their new field."
+      - "Added an 'Entry-Level Jobs' glossary entry — the concept that makes the site relevant to career-changers, not just first-time job seekers — covering what the term actually means, why these roles are most AI-exposed, and an honest caveat that the site's headline statistic measures an age group while the exposure research measures roles generally. Linked the term's first homepage occurrence to it, all citations already existed."
+      - "Widened the shared lead-figure CSS rule (used by every single-figure caption site-wide, not just the homepage) after reading each lead image's actual pixel dimensions, so figures fill the text column instead of floating small and centered, without upscaling any image past its own resolution."
+    human_did:
+      - "Specified all five changes, including the required order for the Short Version rewrite and the exact reasoning for the retitle and the new glossary term's honest caveat."
+    notes: >-
+      Capitalized "The short version" heading to "The Short Version"
+      while at it — checked the site's own heading conventions first,
+      which turned out to be mixed (majority Title Case, not consistently
+      sentence case as might be assumed), so this aligns the homepage
+      with the majority rather than against it.

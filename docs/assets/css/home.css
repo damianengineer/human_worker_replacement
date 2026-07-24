@@ -1,54 +1,6 @@
 /* Landing page ("/") — three sections: the short version, where to go
    next, and background reading. */
 
-/* home.css loads only on "/" (extraCss in home.njk's front matter), so a
-   bare h1 selector here is already page-scoped — no wrapper class needed.
-   Task 2 (the stat hero) supersedes Task 1's original --font-size-4xl
-   homepage h1: once the hero exists, the hero stat is the page's largest
-   element and the h1 becomes a masthead sitting above it, not a
-   competitor — so it's sized down to 2xl here instead. --font-size-4xl
-   remains a valid token for the general "h1 on the homepage" case Task 1
-   defined; this page just no longer uses it now that Task 2 changed
-   this page's specific hierarchy. */
-h1 {
-  font-size: var(--font-size-2xl);
-}
-
-/* The stat hero: the largest, highest-contrast element on the page by
-   design. Uses --accent-evidence-vivid (Color Re-skin v2, Task 4.1)
-   rather than --color-primary — this stat is literally an Evidence-page
-   figure, so it carries that page's accent instead of the site's general
-   link/brand color. Vivid rather than the text-safe accent because this
-   text is huge (clamp 3.5rem-6rem, always far past the large-text
-   threshold), so the 3:1 floor applies, not 4.5:1 — vivid clears it
-   (light 3.56:1, dark 11.34:1) while reading brighter/bolder than the
-   darkened text-safe value would. */
-.home-hero {
-  margin: var(--space-4) 0 var(--space-5);
-}
-
-.home-hero__stat {
-  font-family: var(--font-display);
-  font-size: clamp(3.5rem, 2rem + 7vw, 6rem);
-  line-height: var(--line-height-tight);
-  font-weight: 700;
-  color: var(--accent-evidence-vivid);
-  margin: 0;
-}
-
-.home-hero__label {
-  font-size: var(--font-size-lg);
-  color: var(--color-text);
-  max-width: 36rem;
-  margin: var(--space-1) 0 0;
-}
-
-.home-hero__source {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  margin: var(--space-2) 0 0;
-}
-
 .home-intro {
   font-size: var(--font-size-lg);
   color: var(--color-text-muted);

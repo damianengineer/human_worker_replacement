@@ -8,27 +8,32 @@
 # uses to return raw links) — rendered with the `safe` filter in
 # home.njk. This keeps all prose in this data file, not the template.
 
-# Rendered between the h1 and the markdown intro (index.md's `content`).
-# The stat is the largest element on the page by design — the h1 stays
-# the document's h1 for semantics, but home.css sizes it down to
-# --font-size-2xl on this page so it reads as a masthead above the hero,
-# not a competitor with it.
-hero:
-  stat: "13–16%"
-  stat_label: >-
-    decline in employment for young workers (22–25) in AI-exposed jobs
-    since ChatGPT launched
-  source_note: "Concentrated in entry-level hiring — not senior layoffs."
-  citations: ["brynjolfsson2025", "massenkoff2026"]
-
 short_version:
-  heading: "The short version"
-  # Trimmed to drop the stat sentence now that the hero states it above —
-  # this is the caveat paragraph (plus the chart) that follows it, not a
-  # restatement.
-  text: >-
-    That's the clearest single finding in the data — but it's far from
-    the whole picture.
+  heading: "The Short Version"
+  # Homepage Edits v2: restores the stat sentence the old hero block used
+  # to carry (Change 1 removed that block), explains the chart in plain
+  # language (it's a bar chart of theoretical AI capability vs. observed
+  # exposure, not a scatter plot), then ties both to the timeline section
+  # below. A list of paragraphs, not one string — same pattern as
+  # evidence.yaml's most_exposed.intro/counterarguments.points.paragraphs.
+  text:
+    - >-
+      Since ChatGPT launched, employment for young workers (ages 22–25)
+      in AI-exposed jobs has fallen by roughly 13–16% — concentrated in
+      entry-level hiring, not senior layoffs. That's the clearest single
+      finding in the data so far.
+    - >-
+      The chart below shows why the story isn't simple, though. Each bar
+      pair compares what AI could theoretically do in a job category
+      against how much AI use is actually showing up in the workforce.
+      The gap between the two bars is large almost everywhere — meaning
+      the disruption is real, but slower and more uneven than the
+      headlines suggest.
+    - >-
+      This is the "right now" on the timeline below: a measured present
+      sitting between a documented past and an uncertain future. Head to
+      The Evidence page for the complete picture, including the
+      strongest counterarguments.
   citations: ["brynjolfsson2025", "massenkoff2026"]
   link_label: "Read the full evidence"
   link_url: "/the-evidence/"
