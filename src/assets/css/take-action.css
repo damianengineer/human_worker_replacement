@@ -217,9 +217,90 @@
   scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
-.takeaction-subsection h3 {
+/* Take Action v2, Task 2.2/2.7: each resource group is now a <details>
+   (the id lives on this element, not an inner one — see the template
+   comment). Styled to match the Stark State accordions on The Evidence
+   (same rotating-triangle marker, same hover/focus treatment) rather
+   than inventing a second accordion look. */
+.takeaction-subsection__summary {
   font-size: var(--font-size-lg);
+  font-weight: 700;
+  cursor: pointer;
+  list-style: none;
   margin-bottom: var(--space-2);
+}
+
+.takeaction-subsection__summary::-webkit-details-marker {
+  display: none;
+}
+
+.takeaction-subsection__summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: var(--space-2);
+  color: var(--accent-action);
+}
+
+.takeaction-subsection[open] > .takeaction-subsection__summary::before {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .takeaction-subsection__summary::before {
+    transition: transform 150ms ease;
+  }
+}
+
+.takeaction-subsection__summary:hover {
+  color: var(--accent-action);
+}
+
+.takeaction-subsection__summary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Take Action v2, Task 2.1: item-level disclosure inside plan_b/policy.
+   Same marker/hover/focus treatment as the resource-group accordions
+   above, at a smaller (item, not section) scale. */
+.takeaction-item__details summary {
+  cursor: pointer;
+  list-style: none;
+  font-weight: 700;
+}
+
+.takeaction-item__details summary::-webkit-details-marker {
+  display: none;
+}
+
+.takeaction-item__details summary::before {
+  content: "▶";
+  display: inline-block;
+  margin-right: var(--space-2);
+  color: var(--accent-action);
+}
+
+.takeaction-item__details[open] summary::before {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .takeaction-item__details summary::before {
+    transition: transform 150ms ease;
+  }
+}
+
+.takeaction-item__details summary:hover {
+  color: var(--accent-action);
+}
+
+.takeaction-item__details summary:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.takeaction-item__details p {
+  margin-top: var(--space-2);
 }
 
 .takeaction-list__empty {
