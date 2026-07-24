@@ -243,3 +243,20 @@ entries:
       before/after the Theoretical vs. Observed split matched exactly —
       see the batch's own report for the full sentence-by-sentence
       mapping.
+
+  - date: "2026-07-24"
+    summary: "Theoretical vs. Observed: stacked figures, consolidated methods citations"
+    ai_did:
+      - "Stacked the pair's two charts (previously side by side) after measuring their native pixel dimensions and finding a mismatched aspect ratio — 1:1 square vs. 1.62:1 landscape — was leaving dead space under the shorter chart. Reordered the pair to lead with the more legible bar chart, and capped the square chart's width only at wide viewports so it reads as a diagram instead of a page-dominating poster, without upscaling either image or touching the image files themselves."
+      - "Moved the six methods-citation markers that were glued to the end of one sentence onto their own line directly beneath it, reusing the page's existing small-muted-note style rather than inventing a new one. The sentence's own wording didn't change."
+    human_did:
+      - "Supplied the measured native dimensions for both charts and the specific responsive behavior required (uncapped on phones and tablets, capped only on wider screens)."
+    notes: >-
+      Verified mechanically: the shared .evidence-figures grid rule (used
+      by Most Exposed Occupations too) is untouched — the stacking is a
+      separate modifier class; all pre-existing anchor ids and both
+      charts' zoom/lightbox affordances survived; no image file was
+      touched; all six methods-citation ids still resolve to their
+      References entries. The chosen radar-cap breakpoint (60rem) is
+      wider than this batch's own ~55rem suggestion, chosen instead to
+      satisfy its own tablet QA check — see the batch report.
