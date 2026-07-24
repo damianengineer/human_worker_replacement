@@ -341,11 +341,11 @@ ctas:
       - type: "Online Communities"
         items:
           - text: >-
-              Many of the resources above — courses, conferences, and
-              tools alike — also run their own Discord or Slack
-              communities once you look for them. Joining the community
-              around whatever you're already using is often the fastest
-              way to get real help when you're stuck.
+              Joining the community around whatever you're already using
+              is often the fastest way to get real help when you're
+              stuck. Many of the resources above — courses, conferences,
+              and tools alike — also run their own Discord or Slack
+              communities once you look for them.
             citations: []
             links: []
           - text: >-
