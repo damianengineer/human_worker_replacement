@@ -49,8 +49,35 @@ doesn't count against the budget):
 Full human-only list (with one-clause reasons each) compiled for the
 final report rather than duplicated here.
 
-## Status: Task 4 done, starting Task 5 (this section is stale-ordered in
-## this scratch file — see the real up-to-date status at the very end)
+## Task 5a summary (glossary completeness)
+
+Swept every page's rendered text for unglossed technical terms. Found two
+strong, clearly load-bearing candidates — both used as bare chart titles
+on The Evidence with zero inline explanation anywhere: "Capability
+Overhang" and "Scale Effects". Added both (richmond2026-sourced, plus
+massenkoff2026 as corroboration for Capability Overhang). Well under the
+8-term cap — chose not to pad with weaker candidates (considered and
+rejected "Prompt Injection": already self-explained inline where it
+appears on Take Action, and doesn't fit cleanly into any existing
+glossary category).
+
+**Could not link either new term's first occurrence on The Evidence,
+and am flagging this rather than silently skipping it:** both terms'
+only occurrence is inside a chart figure's `title` field, which the
+shared `figuresGrid` macro renders in TWO places — once via
+`figureCredit` (the caption) and once directly inside an `aria-label`
+attribute on the zoom link. Embedding an `<a>` tag in the title string
+would render correctly in the caption but show literal, garbled
+`<a href=...>` text inside the aria-label for screen-reader users — a
+real accessibility regression, not a stylistic quibble. Fixing this
+properly would need a schema change (a separate plain-text field for
+the aria-label vs. a richer one for the caption) across a macro shared
+by three pages — out of proportion for two glossary links in an audit
+batch whose safety protocol explicitly rules out layout/template
+redesign. Left both terms unlinked on this page; they're still fully
+defined and findable via the Glossary page itself.
+
+## Status: Task 5a done, starting Task 5b
 
 - [x] Branch created from up-to-date `main`; web access confirmed available.
 - [x] Task 1: Citation QA (1a sample, 1b missing-citation sweep, 1c
