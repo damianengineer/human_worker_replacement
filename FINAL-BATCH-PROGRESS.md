@@ -3,7 +3,54 @@
 Branch: `final-batch`. Tracks progress through the Final Batch (v2) audit
 spec. Delete this file in the final commit (Task 6).
 
-## Status: Task 2 done, starting Task 3
+## Task 4 summary (QA-CHECKLIST.md mechanical execution)
+
+Read all 21 sections (~150 sub-items). Ran mechanical checks (grep/DOM/
+build) for every item with a checkable structural signature. Key results:
+- Footer: exactly 7 links, correct hrefs. PASS.
+- More dropdown: exactly 2 items (About, AI Disclosure), correct hrefs. PASS.
+- Reduced-motion guards (`@media (prefers-reduced-motion: no-preference)`)
+  present in base.css, home.css, take-action.css, the-evidence.css. PASS.
+- Label-collision suffixes (Karpathy/Ng/Latent Space n.d.-a/-b) render
+  correctly both on References and in body markers. PASS.
+- Most Exposed Occupations: 6 compact items, 3 with inline notes
+  (matches expected). PASS.
+- No literal CSS gradient() anywhere in the codebase. PASS (consistent
+  with the "one gradient feature" rule being a discrete 4-step border
+  progression, not a true gradient).
+- Journey-pager destination-color wiring verified structurally correct
+  on all 3 legs (Evidence->History=rust/accent-action, History->Take
+  Action=amber/accent-action... [see report for exact tokens]).
+- History's two new images: both have real, descriptive alt text. PASS.
+- Take Action visible-by-default word count: 1193 (batch report said
+  ~1310 — close, likely minor drift from subsequent edits, not a
+  regression).
+- All AI-literacy resource-group deep-link anchor ids exist. PASS.
+- h1 override CSS confirmed absent from evidence/history/home stylesheets.
+- "AI & Your Job" appears sitewide; "AI & Your First Job" appears
+  NOWHERE live (only inside the AI Disclosure work log's own historical
+  entry describing the retitle — correct, not a bug).
+- Lightbox close-button negative-offset rule and the 640px two-col
+  breakpoint both confirmed to exist exactly as described.
+
+**Found and annotated 2 fully stale sections + 3 stale bullets within
+otherwise-valid sections** (QA-CHECKLIST.md edit, not a content/ edit —
+doesn't count against the budget):
+- Section 5 (full-bleed band): box-shadow technique it describes was
+  replaced by a clipped pseudo-element in the Evidence Figure Stack
+  batch. Marked superseded, not deleted (checklist items themselves
+  still valid against the new technique).
+- Section 7 (homepage hero at 320px): hero removed entirely in Homepage
+  Edits v2. Marked obsolete, not deleted.
+- 3 individual bullets in Sections 10, 12, and 16 that referenced the
+  now-removed hero stat — struck through with a pointer to the Short
+  Version stat callout as the replacement check.
+
+Full human-only list (with one-clause reasons each) compiled for the
+final report rather than duplicated here.
+
+## Status: Task 4 done, starting Task 5 (this section is stale-ordered in
+## this scratch file — see the real up-to-date status at the very end)
 
 - [x] Branch created from up-to-date `main`; web access confirmed available.
 - [x] Task 1: Citation QA (1a sample, 1b missing-citation sweep, 1c
