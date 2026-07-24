@@ -3,10 +3,20 @@
    pattern (originally built for the-evidence.njk, reused wherever else a
    chart appears so the pattern isn't hand-duplicated per page). #}
 
-{% macro figureCredit(figTitle, citationId) %}
+{# citationId is the normal case: a real, citable source, rendered via
+   citeLink like every other marker on the site. plainCredit is for images
+   that aren't a bibliographic source in that sense — a fair-use
+   attribution notice, for instance — and renders as plain text with no
+   link. If neither is given (e.g. an AI-generated image needing no
+   attribution at all), no credit line renders. #}
+{% macro figureCredit(figTitle, citationId, plainCredit) %}
 <figcaption>
   <p class="evidence-figure__title">{{ figTitle }}</p>
+  {% if citationId %}
   <p class="evidence-figure__credit">{{ citationId | citeLink | safe }}</p>
+  {% elif plainCredit %}
+  <p class="evidence-figure__credit">{{ plainCredit }}</p>
+  {% endif %}
 </figcaption>
 {% endmacro %}
 
@@ -16,7 +26,7 @@
   <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
     <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
   </a>
-  {{ figureCredit(figure.title, figure.citation) }}
+  {{ figureCredit(figure.title, figure.citation, figure.credit) }}
 </figure>
 <div class="evidence-lightbox" id="fig-{{ figure.id }}">
   <a class="evidence-lightbox__backdrop" href="{{ closeHref }}" aria-label="Close larger image"></a>

@@ -46,7 +46,7 @@ extraCss:
     <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
       <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
     </a>
-    {{ figures.figureCredit(figure.title, figure.citation) }}
+    {{ figures.figureCredit(figure.title, figure.citation, figure.credit) }}
   </figure>
   {% endfor %}
 </div>
