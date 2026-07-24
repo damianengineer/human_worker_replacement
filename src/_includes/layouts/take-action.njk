@@ -47,6 +47,23 @@ extraCss:
 <div class="takeaction-intro">
   {{ content | safe }}
 </div>
+
+{% if takeaction.hub %}
+<nav class="takeaction-hub" aria-label="Take Action topics">
+  <p class="takeaction-hub__lead">{{ takeaction.hub.lead }}</p>
+  <ul class="takeaction-hub__cards">
+    {% for card in takeaction.hub.cards %}
+    <li class="takeaction-hub__card takeaction-hub__card--{{ card.key | slugify }}">
+      <span class="takeaction-hub__icon" aria-hidden="true">{{ card.icon }}</span>
+      <p class="takeaction-hub__title">{{ card.title }}</p>
+      <p class="takeaction-hub__blurb">{{ card.blurb }}</p>
+      <a class="takeaction-hub__button" href="{{ card.href }}">{{ card.cta_label }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endif %}
+
 {% for cta in takeaction.ctas %}
 <section class="takeaction-section" id="{{ cta.key | slugify }}" aria-labelledby="{{ cta.key | slugify }}-heading">
   <h2 id="{{ cta.key | slugify }}-heading">{% if cta.icon %}<span aria-hidden="true">{{ cta.icon }}</span> {% endif %}{{ cta.heading }}</h2>

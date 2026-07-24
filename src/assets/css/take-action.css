@@ -5,6 +5,126 @@
   color: var(--color-text-muted);
 }
 
+/* Topic hub (Take Action v2, Task 1) — a compact wayfinding summary above
+   the three CTAs. Grid/card structure reuses the homepage timeline's
+   pattern (home.css: 1 col mobile, single jump to N columns at desktop)
+   rather than inventing a new layout primitive; 3 columns instead of 4,
+   and the jump happens at the timeline's own widest breakpoint (60rem)
+   since 3 cards each carrying a title+blurb+button need at least as much
+   room as the timeline's shorter cards did. */
+.takeaction-hub {
+  margin: var(--space-4) 0 var(--space-6);
+}
+
+.takeaction-hub__lead {
+  font-size: var(--font-size-lg);
+  margin: 0 0 var(--space-3);
+}
+
+.takeaction-hub__cards {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-4);
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 60rem) {
+  .takeaction-hub__cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* One accent per card, all from the existing token set (no new colors) —
+   plan_b takes the Evidence accent (checking your major against the
+   exposure data), ai_literacy takes the Future/indigo accent, and policy
+   takes Take Action's own amber, so the three cards read as distinct at
+   a glance. Both the light (text-safe) and dark accent values already
+   clear 4.5:1 against --color-bg-subtle (this card's own background) —
+   verified in the Color Re-skin batch, not re-derived here. */
+.takeaction-hub__card--plan-b {
+  --hub-accent: var(--accent-evidence);
+  --hub-accent-bg: var(--accent-evidence-bg);
+}
+
+.takeaction-hub__card--ai-literacy {
+  --hub-accent: var(--accent-future);
+  --hub-accent-bg: var(--accent-future-bg);
+}
+
+.takeaction-hub__card--policy {
+  --hub-accent: var(--accent-action);
+  --hub-accent-bg: var(--accent-action-bg);
+}
+
+/* Compact by design (Task 1.8's mobile-height check): icon and title
+   share a row instead of stacking, so three cards stand a real chance of
+   fitting in roughly one 375px-wide viewport height stacked. Equal-height
+   cards come for free from the grid (each <li> stretches to the tallest
+   sibling in its row). */
+.takeaction-hub__card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--hub-accent);
+  border-radius: var(--radius-base);
+  padding: var(--space-3) var(--space-4);
+}
+
+.takeaction-hub__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--font-size-lg);
+  background: var(--hub-accent-bg);
+  border-radius: 50%;
+  margin-bottom: var(--space-2);
+}
+
+.takeaction-hub__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--font-size-base);
+  color: var(--hub-accent);
+  margin: 0 0 var(--space-1);
+}
+
+.takeaction-hub__blurb {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  margin: 0 0 var(--space-3);
+  /* Grows to fill remaining space so every card's button lines up on the
+     same row regardless of blurb length (equal-height cards). */
+  flex-grow: 1;
+}
+
+.takeaction-hub__button {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--hub-accent);
+  color: var(--color-primary-contrast);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: var(--font-size-sm);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-base);
+}
+
+.takeaction-hub__button:hover {
+  text-decoration: underline;
+}
+
+/* --color-primary-contrast (white in light mode, near-black in dark) is
+   reused here rather than adding new tokens: verified against all three
+   accent values used as a solid button fill, it clears 4.5:1 in both
+   directions (white on the light-mode accents: 5.26-7.47:1; near-black
+   on the dark-mode accents: 5.84-8.35:1) — the fence for this batch rules
+   out touching tokens.css, and this pairing already does the job. */
+
 /* Tier 2 pill hover/current-accent color, scoped to this page (Task 3's
    "per-page hook"): the shared hover *rule* lives once in base.css
    (.site-tier2__list a:hover) — this only sets the two custom

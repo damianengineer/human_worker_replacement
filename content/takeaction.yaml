@@ -17,6 +17,35 @@
 #   advanced: true only on the one item flagged as a level-up/bonus
 #     resource rather than a starting point
 
+# Topic hub (Take Action v2, Task 1) — a compact wayfinding summary
+# rendered above the three CTAs, one card per CTA. Not a replacement for
+# the sections below it: one topic, one plain-language line, one jump
+# link per card. `icon` duplicates that CTA's own emoji (see `ctas` below)
+# rather than the template cross-referencing it, since Nunjucks has no
+# reliable built-in way to look up a matching entry in another list —
+# keep the two in sync if either ever changes.
+hub:
+  lead: "Choose a topic below to get started."
+  cards:
+    - key: "plan_b"
+      icon: "🛟"
+      title: "Build a Plan B"
+      blurb: "Check your major against the data, then stack a certificate or skill that AI is unlikely to replace."
+      href: "#plan-b-heading"
+      cta_label: "Explore"
+    - key: "ai_literacy"
+      icon: "🧠"
+      title: "Improve Your AI Literacy"
+      blurb: "Free courses, videos, podcasts, and communities that make you the person directing AI tools."
+      href: "#ai-literacy-heading"
+      cta_label: "Explore"
+    - key: "policy"
+      icon: "🏛️"
+      title: "Be an Informed Citizen"
+      blurb: "Understand the UBI and sovereign wealth fund debate, then track the bills that affect you."
+      href: "#policy-heading"
+      cta_label: "Explore"
+
 ctas:
   - key: "plan_b"
     icon: "🛟"
