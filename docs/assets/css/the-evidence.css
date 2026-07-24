@@ -262,9 +262,25 @@
   margin: 0;
 }
 
+/* Homepage Edits v2, Change 7: this rule is shared by every single/lead
+   figure site-wide (singleFigure in partials/figures.njk applies
+   --lead), not just the homepage chart — a 28rem cap read as small and
+   floating inside a ~57rem text column on a laptop (main's 60rem
+   max-width minus 1.5rem padding on each side), and did nothing at all
+   on phones (an image already fills the width below 448px). Left-aligns
+   and fills the column instead of centering in a fixed narrow box.
+   max-width is capped at the narrowest native pixel width among every
+   lead image on the site — 909px (56.8125rem), the Luddite engraving —
+   so no lead image is ever upscaled past its own resolution at 1x DPR.
+   That value is still slightly less than the ~57rem column, so it's an
+   explicit rem value here, not 100%: every wider lead image (all five
+   others, from 952px up to the 3840px chart) also caps at this same
+   width, leaving a few px of unused column width in exchange for a
+   single shared, safe ceiling. See the batch report for every lead
+   image's native width. */
 .evidence-figure--lead {
-  max-width: 28rem;
-  margin: 0 auto var(--space-5);
+  max-width: 56.8125rem;
+  margin: 0 0 var(--space-5);
 }
 
 .evidence-figure__zoom {
