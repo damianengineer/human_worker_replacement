@@ -231,6 +231,44 @@ Requirements:
   `TODO(2026-07-22): outstanding — HTML sitemap page + sitemap.xml not yet
   implemented; required for navigability/SEO.`
 
+### 5a. Take Action: Topic Hub & Progressive Disclosure
+
+Adopted in the Take Action v2 batch, after the page grew to ~2,740 words
+with 38 citation markers on one scroll — long enough that its actual
+message (three things a student can do) was getting buried under prose
+and citations.
+
+- **`content/takeaction.yaml`'s `hub` block** is a compact wayfinding
+  summary rendered directly after the page intro, before the three CTAs:
+  a `lead` line plus one `card` per CTA (`key`, `icon`, `title`, `blurb`,
+  `href`, `cta_label`). It's additive, not a replacement — each CTA
+  section keeps its own heading and emoji. Card titles render as styled
+  `<p>`, not `<h3>`: a heading there would skip a level, since the hub
+  sits above the page's first `<h2>`.
+- **The `summary` field** is optional on any flat `items` entry (`plan_b`,
+  `policy`). Where present, the template wraps the item's existing `text`
+  in `<details>`/`<summary>` — the summary is a short, imperative,
+  action-first line (in practice, the item's own opening sentence,
+  reused rather than freshly written). Items without `summary` render
+  exactly as before. The same `<details>` pattern wraps each
+  `ai_literacy` resource group, with `<summary>` reading "Type (count)".
+- **Safety cautions and the policy debate are never collapsed by
+  default.** Any caution/warning subsection (e.g. `caution_section`) and
+  `#policy-debate` stay in the fully visible layer — supporting detail
+  around them may be disclosed, but the caution itself or the debate's
+  two proposals and site stance never sit behind a click a reader has to
+  choose to make.
+- **An anchor id must never end up unreachable inside a collapsed
+  `<details>`.** If a group/section that already has (or needs) an id is
+  collapsed by default, the id goes on the `<details>` element itself,
+  not on an inner wrapper — a browser can still navigate to a closed
+  `<details>` by id even though its content stays hidden until opened.
+  Moving an id like this is the sanctioned fix, not leaving it buried.
+- **Accepted trade-off:** content inside a closed `<details>` is invisible
+  to the browser's in-page Ctrl+F/Find until a reader opens it. This is a
+  known limitation of native disclosure, not something to work around
+  with JavaScript — the site stays zero-JS by design.
+
 ---
 
 ## 6. Content & Citation Guidelines (APA style)
