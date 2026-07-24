@@ -267,7 +267,7 @@ eckhardtgoldschlag2025:
 eloundou2023:
   authors: "Eloundou, T., Manning, S., Mishkin, P., & Rock, D."
   year: 2023
-  title: "GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models"
+  title: "GPTs are GPTs: An early look at the labor market impact potential of large language models"
   publisher: "arXiv:2303.10130"
   url: "https://arxiv.org/abs/2303.10130"
   type: "working paper"
@@ -516,10 +516,13 @@ learnaitogether:
   year: "n.d."
   title: "Learn AI Together (Discord community)"
   publisher: "Towards AI"
-  url: "https://towardsai.net/"
+  url: "https://towardsai.com/"
   type: "website"
   potential_conflict: "None disclosed"
   note: >-
+    URL updated (Final Batch, Task 5c) from towardsai.net, which now
+    301-redirects permanently to this .com domain — same organization,
+    confirmed via the new site's own content, not a substitute source.
     Points to Towards AI's main site, not a direct Discord invite —
     Discord invite links expire/rotate, so hardcoding one risks going
     stale. Get a current invite link directly from Towards AI before
@@ -687,7 +690,7 @@ paine1797:
 richmond2026:
   authors: "Richmond, A. M."
   year: 2026
-  title: "The AI Jobs Transition Framework: Mapping AI's Near-Term Impact on Jobs"
+  title: "The AI Jobs Transition Framework: Mapping AI's near-term impact on jobs"
   publisher: "OpenAI Economic Research"
   url: "https://cdn.openai.com/pdf/the-ai-jobs-transition-framework_report.pdf"
   type: "report"
@@ -901,7 +904,7 @@ russellnorvig2021:
 morris2024:
   authors: "Morris, M. R., et al."
   year: 2024
-  title: "Levels of AGI for Operationalizing Progress on the Path to AGI"
+  title: "Levels of AGI for operationalizing progress on the path to AGI"
   publisher: "Google DeepMind (ICML 2024); arXiv:2311.02462"
   url: "https://arxiv.org/abs/2311.02462"
   type: "article"
@@ -958,7 +961,7 @@ vivalt2024:
   authors: "Vivalt, E., Rhodes, E., Bartik, A. W., Broockman, D. E., Krause, P., & Miller, S."
   year: 2024
   date: "2024-07-23"
-  title: "The Employment Effects of a Guaranteed Income: Experimental Evidence from Two U.S. States"
+  title: "The employment effects of a guaranteed income: Experimental evidence from two U.S. states"
   publisher: "NBER Working Paper No. 32719"
   url: "https://www.nber.org/papers/w32719"
   type: "working paper"
@@ -1000,7 +1003,7 @@ blsdisplacedworkers:
 acemoglu2022:
   authors: "Acemoglu, D., Autor, D., Hazell, J., & Restrepo, P."
   year: 2022
-  title: "Artificial Intelligence and Jobs: Evidence from Online Vacancies"
+  title: "Artificial intelligence and jobs: Evidence from online vacancies"
   publisher: "Journal of Labor Economics, 40(S1), S293–S340"
   url: "https://doi.org/10.1086/718327"
   type: "article"
@@ -1009,7 +1012,7 @@ acemoglu2022:
 autordornhanson2013:
   authors: "Autor, D. H., Dorn, D., & Hanson, G. H."
   year: 2013
-  title: "The China Syndrome: Local Labor Market Effects of Import Competition in the United States"
+  title: "The China syndrome: Local labor market effects of import competition in the United States"
   publisher: "American Economic Review, 103(6), 2121–2168"
   url: "https://www.aeaweb.org/articles?id=10.1257/aer.103.6.2121"
   type: "article"
@@ -1018,7 +1021,7 @@ autordornhanson2013:
 borusyakhulljaravel2022:
   authors: "Borusyak, K., Hull, P., & Jaravel, X."
   year: 2022
-  title: "Quasi-Experimental Shift-Share Research Designs"
+  title: "Quasi-experimental shift-share research designs"
   publisher: "Review of Economic Studies, 89(1), 181–213"
   url: "https://academic.oup.com/restud/article-abstract/89/1/181/6294942"
   type: "article"

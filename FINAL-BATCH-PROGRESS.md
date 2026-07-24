@@ -104,6 +104,55 @@ Swept all content for time-anchored language. Findings:
 **Zero content edits from this task** -- the existing copy was already
 well-hedged.
 
+## Task 5c summary (APA 7 formatting + external link integrity)
+
+**Sentence-case titles:** manually reviewed every flagged title (crude
+regex found ~28 candidates; most were false positives once proper
+nouns/acronyms/branded titles were accounted for). Fixed 7 confirmed,
+unambiguous Title Case violations in journal-article/working-paper
+titles: eloundou2023, morris2024, vivalt2024, acemoglu2022,
+autordornhanson2013, borusyakhulljaravel2022, richmond2026 (subtitle
+portion only -- "The AI Jobs Transition Framework" kept capitalized as
+the report's own proper name). Left genuinely debatable cases
+untouched and reported as a class: well-known book titles (bostrom2014,
+kurzweil2005, russellnorvig2021, etc. -- de-capitalizing risks
+unrecognizability even though strict APA7 technically wants sentence
+case), legal/bill citations (sanders2026, mcgarvey2026, euaiact --
+APA7's legal-citation conventions diverge from regular sentence case),
+and branded course/podcast titles (karpathyzerotohero, fastai,
+latentspacepodcast, mitreatlas -- proper names of specific products).
+
+**Italics:** references.njk had ZERO italics anywhere. Added `<em>`
+around the title for standalone-work types (book, report, working
+paper) only -- safe, unambiguous per APA7. Did NOT attempt italicizing
+just the journal-name portion of "article" entries' publisher field
+(would need string-parsing the "Journal, Vol(Issue), pages" pattern,
+which breaks for at least 2 real entries -- good1965 is a book chapter,
+morris2024 is a conference/preprint item, both formatted differently)
+-- reported as a data-model limitation, not fixed.
+
+**External link sweep:** checked all 74 URLs via HTTP HEAD/status
+(politely, 10 concurrent, 15s timeout, browser UA). Result: **zero
+dead links (no 404s or connection failures)**. 18 return 403 (bot-walled
+-- mostly academic publishers [Oxford, Wiley, UChicago Press, MIT
+Press], congress.gov, ssa.gov, bls.gov, worldcat.org -- all block
+non-browser requests but were independently confirmed real/live via
+search in Tasks 1 and 5b); marked verify-by-hand, none swapped. 1
+entry (bostrom2014) returned 202, treated as effectively OK. Several
+DOI links correctly redirect to their publisher's current page --
+expected DOI behavior, left as doi.org per APA7 preference, not
+"fixed" to the redirected URL. One genuine domain-migration redirect
+found and updated: learnaitogether's towardsai.net -> towardsai.com
+(confirmed permanent 301, same organization, not a substitute source).
+
+**DOI-preference gap (reported, not fixed):** autor2003,
+borusyakhulljaravel2022, graetzmichaels2018, and autordornhanson2013
+use a direct publisher URL where a DOI likely exists, instead of a
+doi.org link. Did not guess/fabricate any DOI number to fix this --
+would need each paper's real DOI confirmed via search first, which
+ran up against this batch's remaining scope. Flagged for a follow-up
+pass.
+
 ## Status: Task 5a done, starting Task 5b
 
 - [x] Branch created from up-to-date `main`; web access confirmed available.
