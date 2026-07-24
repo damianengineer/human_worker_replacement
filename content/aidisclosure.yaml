@@ -195,3 +195,18 @@ entries:
       typing-pool clerical work computerization went on to replace,
       rather than presented as a period-exact photo, so the caption
       doesn't overstate what the image actually shows.
+
+  - date: "2026-07-24"
+    summary: "Take Action restructure: topic hub and progressive disclosure"
+    ai_did:
+      - "Added a three-card topic hub above Take Action's three CTAs, so a reader sees three clear choices before a wall of prose and citations, and wrapped the page's longer items and every AI Literacy resource group in native <details>/<summary> so the visible-by-default reading dropped from about 2,630 words to about 1,310, without deleting any content."
+      - "Checked every group/section on the page for citations that repeat identically across every item (the same consolidation rule already applied to The Evidence's Most Exposed Occupations) — none qualified here, since this page's citations are almost all distinct, one-off sources rather than a few repeated studies."
+      - "Reordered one item's two sentences so its actual suggestion leads instead of trailing — no wording changed, nothing else on the page was reworded to be 'punchier.'"
+    human_did:
+      - "Supplied the approved stakeholder mockup and the specific rules for what must stay visible (the AI privacy caution, the policy debate) and what must never break (existing anchors linked from the homepage and the journey pager)."
+    notes: >-
+      Verified mechanically that no existing anchor id became unreachable
+      and no citation id disappeared from the page — see the batch's own
+      report for the exact counts. Collapsed content is not searchable
+      via in-page Ctrl+F until opened; an accepted trade-off of using
+      native disclosure instead of JavaScript, documented in CLAUDE.md.

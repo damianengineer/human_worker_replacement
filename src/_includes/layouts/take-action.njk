@@ -5,7 +5,14 @@ extraCss:
 ---
 {% macro takeactionItem(item) %}
 <li class="takeaction-item{% if item.advanced %} takeaction-item--advanced{% endif %}">
+  {% if item.summary %}
+  <details class="takeaction-item__details">
+    <summary>{{ item.summary }}</summary>
+    <p>{{ item.text | safe }}</p>
+  </details>
+  {% else %}
   <p>{{ item.text | safe }}</p>
+  {% endif %}
 
   {% set previewLinks = item.links | withImage %}
   {% if previewLinks.length %}
@@ -47,6 +54,23 @@ extraCss:
 <div class="takeaction-intro">
   {{ content | safe }}
 </div>
+
+{% if takeaction.hub %}
+<nav class="takeaction-hub" aria-label="Take Action topics">
+  <p class="takeaction-hub__lead">{{ takeaction.hub.lead }}</p>
+  <ul class="takeaction-hub__cards">
+    {% for card in takeaction.hub.cards %}
+    <li class="takeaction-hub__card takeaction-hub__card--{{ card.key | slugify }}">
+      <span class="takeaction-hub__icon" aria-hidden="true">{{ card.icon }}</span>
+      <p class="takeaction-hub__title">{{ card.title }}</p>
+      <p class="takeaction-hub__blurb">{{ card.blurb }}</p>
+      <a class="takeaction-hub__button" href="{{ card.href }}">{{ card.cta_label }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</nav>
+{% endif %}
+
 {% for cta in takeaction.ctas %}
 <section class="takeaction-section" id="{{ cta.key | slugify }}" aria-labelledby="{{ cta.key | slugify }}-heading">
   <h2 id="{{ cta.key | slugify }}-heading">{% if cta.icon %}<span aria-hidden="true">{{ cta.icon }}</span> {% endif %}{{ cta.heading }}</h2>
@@ -95,8 +119,15 @@ extraCss:
     {% endif %}
 
     {% for group in cta.resource_groups %}
-    <div class="takeaction-subsection" id="{{ cta.key | slugify }}-{{ group.type | slugify }}">
-      <h3>{{ group.type }}</h3>
+    {# The id lives on <details> itself, not an inner element: a closed
+       <details> still resolves a same-page anchor id to it, so the
+       subnav link above always finds this group whether or not it's
+       open (Take Action v2 Task 2.5). Only the first group is open by
+       default; the h3 that used to head each group is gone because a
+       <summary> can't contain a heading (Task 2.6) — an accepted trade-
+       off of native disclosure, not an oversight. #}
+    <details class="takeaction-subsection" id="{{ cta.key | slugify }}-{{ group.type | slugify }}"{% if loop.first %} open{% endif %}>
+      <summary class="takeaction-subsection__summary">{{ group.type }} ({{ group.items.length }})</summary>
       {% if group.items.length %}
       <ul class="takeaction-list">
         {% for item in group.items %}{{ takeactionItem(item) }}{% endfor %}
@@ -104,7 +135,7 @@ extraCss:
       {% else %}
       <p class="takeaction-list__empty">{{ group.empty_note }}</p>
       {% endif %}
-    </div>
+    </details>
     {% endfor %}
 
     {% if cta.outro_items %}

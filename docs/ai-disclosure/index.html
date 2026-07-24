@@ -114,7 +114,7 @@ step — see the notes on each log entry below for exactly where things stand.</
 
 
 <p class="ai-disclosure-updated">
-  Last updated: <strong>2026-07-23</strong>
+  Last updated: <strong>2026-07-24</strong>
 </p>
 
 <h2>Work log</h2>
@@ -124,6 +124,27 @@ step — see the notes on each log entry below for exactly where things stand.</
 </p>
 
 <ol class="ai-disclosure-log">
+  
+  <li class="ai-disclosure-log__item">
+    <h3 class="ai-disclosure-log__date">2026-07-24: Take Action restructure: topic hub and progressive disclosure</h3>
+    <div class="ai-disclosure-log__cols">
+      <div>
+        <p class="ai-disclosure-log__col-label">AI did</p>
+        <ul>
+          <li>Added a three-card topic hub above Take Action&#39;s three CTAs, so a reader sees three clear choices before a wall of prose and citations, and wrapped the page&#39;s longer items and every AI Literacy resource group in native &lt;details&gt;/&lt;summary&gt; so the visible-by-default reading dropped from about 2,630 words to about 1,310, without deleting any content.</li><li>Checked every group/section on the page for citations that repeat identically across every item (the same consolidation rule already applied to The Evidence&#39;s Most Exposed Occupations) — none qualified here, since this page&#39;s citations are almost all distinct, one-off sources rather than a few repeated studies.</li><li>Reordered one item&#39;s two sentences so its actual suggestion leads instead of trailing — no wording changed, nothing else on the page was reworded to be &#39;punchier.&#39;</li>
+        </ul>
+      </div>
+      <div>
+        <p class="ai-disclosure-log__col-label">Human did</p>
+        <ul>
+          <li>Supplied the approved stakeholder mockup and the specific rules for what must stay visible (the AI privacy caution, the policy debate) and what must never break (existing anchors linked from the homepage and the journey pager).</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="ai-disclosure-log__notes">Verified mechanically that no existing anchor id became unreachable and no citation id disappeared from the page — see the batch&#39;s own report for the exact counts. Collapsed content is not searchable via in-page Ctrl+F until opened; an accepted trade-off of using native disclosure instead of JavaScript, documented in CLAUDE.md.</p>
+    
+  </li>
   
   <li class="ai-disclosure-log__item">
     <h3 class="ai-disclosure-log__date">2026-07-23: Two new History banner images (telephone operators, office typists)</h3>

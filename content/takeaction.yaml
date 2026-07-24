@@ -17,12 +17,42 @@
 #   advanced: true only on the one item flagged as a level-up/bonus
 #     resource rather than a starting point
 
+# Topic hub (Take Action v2, Task 1) — a compact wayfinding summary
+# rendered above the three CTAs, one card per CTA. Not a replacement for
+# the sections below it: one topic, one plain-language line, one jump
+# link per card. `icon` duplicates that CTA's own emoji (see `ctas` below)
+# rather than the template cross-referencing it, since Nunjucks has no
+# reliable built-in way to look up a matching entry in another list —
+# keep the two in sync if either ever changes.
+hub:
+  lead: "Choose a topic below to get started."
+  cards:
+    - key: "plan_b"
+      icon: "🛟"
+      title: "Build a Plan B"
+      blurb: "Check your major against the data, then stack a certificate or skill that AI is unlikely to replace."
+      href: "#plan-b-heading"
+      cta_label: "Explore"
+    - key: "ai_literacy"
+      icon: "🧠"
+      title: "Improve Your AI Literacy"
+      blurb: "Free courses, videos, podcasts, and communities that make you the person directing AI tools."
+      href: "#ai-literacy-heading"
+      cta_label: "Explore"
+    - key: "policy"
+      icon: "🏛️"
+      title: "Be an Informed Citizen"
+      blurb: "Understand the UBI and sovereign wealth fund debate, then track the bills that affect you."
+      href: "#policy-heading"
+      cta_label: "Explore"
+
 ctas:
   - key: "plan_b"
     icon: "🛟"
     heading: "Call to Action: If Your Major Is at High Risk, Build a Plan B"
     items:
-      - text: >-
+      - summary: "Check your major against the exposure data first."
+        text: >-
           Check your major against the exposure data first. Use the
           Anthropic/OpenAI occupation tables and the Stark State tier
           list we built earlier — if your program falls in Tier 1
@@ -32,7 +62,8 @@ ctas:
         links:
           - label: "See the exposure data and Stark State tier list"
             url: "/the-evidence/#stark-state"
-      - text: >-
+      - summary: "Pair a credential with your current major instead of starting over."
+        text: >-
           A minor doesn't have to mean starting over. The goal is a
           credential that pairs with what you're already studying, not a
           second full degree. A Computer Programming major, for example,
@@ -59,7 +90,8 @@ ctas:
           hedge than switching majors outright.
         citations: []
         links: []
-      - text: >-
+      - summary: "Talk to your advisor about a minor or certificate pathway."
+        text: >-
           Talk to your academic advisor about a "minor" or "certificate"
           pathway specifically, not just a second major — advisors can
           often identify stackable credentials that share credits with
@@ -67,7 +99,8 @@ ctas:
           significantly.
         citations: []
         links: []
-      - text: >-
+      - summary: "Adapt your specialization within your interest, don't abandon it."
+        text: >-
           Reframe the goal: don't abandon your interest, adapt your
           specialization within it. If you love business but
           Administrative Office Professional work is exposed, consider
@@ -76,7 +109,8 @@ ctas:
           keeps your interest intact while reducing risk.
         citations: []
         links: []
-      - text: >-
+      - summary: "Revisit this plan every year or two."
+        text: >-
           Revisit this plan every year or two. The exposure data itself
           is a moving target — a field considered safe today could look
           different in two years, and vice versa. Build in a habit of
@@ -307,11 +341,11 @@ ctas:
       - type: "Online Communities"
         items:
           - text: >-
-              Many of the resources above — courses, conferences, and
-              tools alike — also run their own Discord or Slack
-              communities once you look for them. Joining the community
-              around whatever you're already using is often the fastest
-              way to get real help when you're stuck.
+              Joining the community around whatever you're already using
+              is often the fastest way to get real help when you're
+              stuck. Many of the resources above — courses, conferences,
+              and tools alike — also run their own Discord or Slack
+              communities once you look for them.
             citations: []
             links: []
           - text: >-
@@ -436,7 +470,8 @@ ctas:
         conclude, conclude it from the evidence. That's what the steps below are
         for.
     items:
-      - text: >-
+      - summary: "Track real bills yourself — don't rely on headlines."
+        text: >-
           Track real bills yourself — don't rely on headlines.
           Congress.gov is the official, nonpartisan source for bill text
           and status. As of this research, Senator Bernie Sanders'
@@ -447,7 +482,8 @@ ctas:
           news.
         citations: ["sanders2026"]
         links: []
-      - text: >-
+      - summary: "Know there's more than one proposal on the table."
+        text: >-
           Know there's more than one proposal on the table. A related
           bill, the American Sovereign Wealth Fund Exploration Act (H.R.
           3116), has separately been introduced in the House by Rep.
@@ -455,7 +491,8 @@ ctas:
           or single-bill issue.
         citations: ["mcgarvey2026"]
         links: []
-      - text: >-
+      - summary: "Understand what's actually being proposed before forming an opinion."
+        text: >-
           Understand what's actually being proposed before forming an
           opinion. Read the plain differences between a Universal Basic
           Income (regular cash payments to everyone) and a Sovereign
@@ -469,7 +506,8 @@ ctas:
             url: "/glossary/#universal-basic-income-ubi"
           - label: "Sovereign Wealth Fund (glossary)"
             url: "/glossary/#sovereign-wealth-fund"
-      - text: >-
+      - summary: "Connect the policy debate to something concrete: Social Security."
+        text: >-
           Connect the policy debate to something concrete: Social
           Security. The Social Security Trust Fund is projected to run
           short of money around 2034, according to the latest official
@@ -477,7 +515,8 @@ ctas:
           affects your own retirement, not just an abstract future.
         citations: ["ssatrustees"]
         links: []
-      - text: >-
+      - summary: "Read multiple sources before deciding what you think."
+        text: >-
           Read multiple sources before deciding what you think. Go back
           to the evenhanded evidence we gathered earlier — the strongest
           research (like the Stanford "Canaries" study) shows real but
@@ -497,7 +536,8 @@ ctas:
           substantive than national media coverage.
         citations: []
         links: []
-      - text: >-
+      - summary: "Vote with the long-term stakes in mind, not just today's headlines."
+        text: >-
           Vote with the long-term stakes in mind, not just today's
           headlines. Whatever you think about specific proposals like a
           sovereign wealth fund or UBI, the underlying question — how
