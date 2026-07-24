@@ -3,12 +3,15 @@
 Branch: `final-batch`. Tracks progress through the Final Batch (v2) audit
 spec. Delete this file in the final commit (Task 6).
 
-## Status: Task 1 done, starting Task 2
+## Status: Task 2 done, starting Task 3
 
 - [x] Branch created from up-to-date `main`; web access confirmed available.
 - [x] Task 1: Citation QA (1a sample, 1b missing-citation sweep, 1c
       bidirectional integrity) — see report notes below.
-- [ ] Task 2: Documentation refresh
+- [x] Task 2: Documentation refresh (2a CLAUDE.md, 2b README.md, 2c About —
+      no factual staleness found, left untouched, proposal + attribution
+      flag saved for report, 2d AI Disclosure summary rewritten and
+      checked against the work log).
 - [ ] Task 3: Repo hygiene
 - [ ] Task 4: QA checklist mechanical execution
 - [ ] Task 5: Carried-over Final Review items (5a/5b/5c/5d)
@@ -16,7 +19,9 @@ spec. Delete this file in the final commit (Task 6).
 
 ## Content edit budget
 
-6 / 25 content/ edits used so far:
+7 / 25 content/ edits used so far (Task 1's 6 + Task 2d's 1 AI Disclosure
+summary rewrite; Task 2a/2b are CLAUDE.md/README.md, not content/, so they
+don't count against this budget):
 1. citations.yaml — dissent2026 todo note updated (resolved, points to new entry)
 2. citations.yaml — added wiggin2025 (new, verified, not yet wired into any page)
 3. citations.yaml — weise2025 todo note updated (further corroboration, still no URL)
@@ -37,6 +42,18 @@ spec. Delete this file in the final commit (Task 6).
   repeated attempts across sessions; left as unverified/null per policy
   (never fabricate a URL). Substance and byline further corroborated
   this session via Forbes/NPR.
+- About page: "we"/authorship stays ambiguous (no named individual or
+  org anywhere on the site) — left untouched per Task 2c's explicit
+  instruction; flagging as a pending human decision, not fixing it.
+- About page: a proposed (not committed) addition mentioning /history/
+  alongside /the-evidence/ in the "How we handle sources and bias"
+  section — see final report for exact draft text.
+- AI Disclosure summary: one clause ("chose the audience") isn't
+  explicitly action-logged in aidisclosure.yaml's per-batch entries
+  (the log's granularity is per-batch content work, not the original
+  project-setup decision) — kept it since it's true per CLAUDE.md's own
+  foundational spec and not contradicted anywhere, but flagging the
+  weaker evidentiary basis in the report per the task's own instruction.
 
 ## Task 1 summary (full detail in final report)
 

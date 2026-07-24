@@ -12,11 +12,16 @@ did what, kept up to date as a running log below.
 
 ## The short version
 
-The AI assistant drafts most of the first pass: template code, page
-structure, organizing data, and first-draft copy from material a human
-provides or approves. A human directs the project, supplies source material,
-reviews the assistant's work, and makes the final call on what gets
-published.
+Humans set the agenda for this site and the argument it makes, chose who
+it's written for, and picked and checked every source. A human directed
+each round of work on this site, reviewed it to decide what needed fixing,
+asked for a rewrite or a different approach when something didn't serve
+the argument, caught mistakes the AI introduced, and signed off on every
+change before it went live.
+
+AI was used to rewrite copy at a reading level that fits this site's
+audience, to write the code that builds the pages, and to carry out the
+specific edits a human asked for.
 
 **AI-drafted claims are meant to be checked against primary sources by a
 human before publication.** That review is an ongoing process, not a one-time
