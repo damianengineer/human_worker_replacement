@@ -8,19 +8,6 @@
 # uses to return raw links) — rendered with the `safe` filter in
 # home.njk. This keeps all prose in this data file, not the template.
 
-# Rendered between the h1 and the markdown intro (index.md's `content`).
-# The stat is the largest element on the page by design — the h1 stays
-# the document's h1 for semantics, but home.css sizes it down to
-# --font-size-2xl on this page so it reads as a masthead above the hero,
-# not a competitor with it.
-hero:
-  stat: "13–16%"
-  stat_label: >-
-    decline in employment for young workers (22–25) in AI-exposed jobs
-    since ChatGPT launched
-  source_note: "Concentrated in entry-level hiring — not senior layoffs."
-  citations: ["brynjolfsson2025", "massenkoff2026"]
-
 short_version:
   heading: "The short version"
   # Trimmed to drop the stat sentence now that the hero states it above —
