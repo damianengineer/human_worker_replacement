@@ -111,11 +111,24 @@ h1 {
   }
 }
 
-/* Top border tinted by destination (Task 3 step 4) — relies on the fixed,
-   documented era order in home.yaml (past, right now, near future, open
-   future), not a per-era class, since all four cards render from one
-   loop with no era-specific markup hook. If home.yaml's era order or
-   count ever changes, these nth-child rules need to move with it. */
+/* Top border: the site's one sanctioned gradient feature (Color Re-skin
+   v2, Task 3) — a successive step of the Gradient Blues ramp per card,
+   indigo at "The past" through aqua at "Open future", replacing the old
+   per-destination section-accent tinting (history/evidence/future) this
+   card used before. This is a deliberate trade-off: the border no longer
+   previews which section-accent color a card's "read more" link leads
+   to — it now shows the ramp's own progression instead, which is the
+   point of this specific feature. Purely decorative — the label,
+   certainty tag, and date range still communicate each card's order and
+   meaning with no color involved (Task 3.5) — so it isn't held to a
+   contrast floor, but the four steps still keep a clearly visible
+   luminance gap from each other in both color schemes (light: 0.09 / 0.27
+   / 0.44 / 0.61; dark: 0.15 / 0.35 / 0.52 / 0.71 — see the batch report).
+   Relies on the fixed, documented era order in home.yaml (past, right
+   now, near future, open future), not a per-era class, since all four
+   cards render from one loop with no era-specific markup hook. If
+   home.yaml's era order or count ever changes, these nth-child rules
+   need to move with it. */
 .home-timeline__card {
   background: var(--color-bg-subtle);
   border: 1px solid var(--color-border);
@@ -125,16 +138,19 @@ h1 {
 }
 
 .home-timeline__card:nth-child(1) {
-  border-top-color: var(--accent-history);
+  border-top-color: var(--ramp-1);
 }
 
 .home-timeline__card:nth-child(2) {
-  border-top-color: var(--accent-evidence);
+  border-top-color: var(--ramp-2);
 }
 
-.home-timeline__card:nth-child(3),
+.home-timeline__card:nth-child(3) {
+  border-top-color: var(--ramp-3);
+}
+
 .home-timeline__card:nth-child(4) {
-  border-top-color: var(--accent-future);
+  border-top-color: var(--ramp-4);
 }
 
 /* Hover lift (Task 6) — entirely inside the no-preference guard, so a
@@ -191,12 +207,16 @@ h1 {
   opacity: 0.3;
 }
 
+/* Tint matches this card's own ramp step (above), not the old
+   history/evidence section-accent pairing — keeps the photo tint and the
+   top border reading as the same idea on each card instead of two
+   unrelated colors. */
 .home-timeline__card:nth-child(1) .home-timeline__image-wrap::after {
-  background: var(--accent-history);
+  background: var(--ramp-1);
 }
 
 .home-timeline__card:nth-child(2) .home-timeline__image-wrap::after {
-  background: var(--accent-evidence);
+  background: var(--ramp-2);
 }
 
 /* Duotone is a stylistic choice, not informational — the photo/engraving
