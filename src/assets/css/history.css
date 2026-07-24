@@ -47,8 +47,11 @@
   border-top: 1px solid var(--color-border);
 }
 
+/* Color Re-skin v2, Task 4.2: same treatment as The Evidence and Take
+   Action — accent as text color, not just the border underline. */
 .history-case h2 {
   font-size: var(--font-size-xl);
+  color: var(--accent-history);
   border-bottom: 2px solid var(--accent-history);
   padding-bottom: var(--space-2);
   margin-bottom: var(--space-2);
@@ -81,10 +84,20 @@
 }
 
 /* History has no jump bar and no existing left-border card treatment to
-   retint — only its per-case h2 (above) and the journey-pager get the
-   rust accent. Scoped through .history-list, unique to this page's own
-   markup, for the same shared-stylesheet cascade reason documented in
-   the-evidence.css (this page also loads that file, for figure reuse). */
+   retint — only its per-case h2 (above) gets the rust accent; the
+   journey-pager below is scoped through .history-list, unique to this
+   page's own markup, for the same shared-stylesheet cascade reason
+   documented in the-evidence.css (this page also loads that file, for
+   figure reuse).
+
+   Color Re-skin v2, Task 4.4: the pager card takes the *destination*
+   page's accent (History's "next" leads to Take Action), not History's
+   own rust — same wayfinding-not-current-page correction as Evidence's
+   pager override. */
 .history-list ~ .journey-pager .journey-pager__next {
-  border-color: var(--accent-history);
+  border-color: var(--accent-action);
+}
+
+.history-list ~ .journey-pager .journey-pager__label {
+  color: var(--accent-action);
 }

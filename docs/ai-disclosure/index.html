@@ -126,6 +126,27 @@ step — see the notes on each log entry below for exactly where things stand.</
 <ol class="ai-disclosure-log">
   
   <li class="ai-disclosure-log__item">
+    <h3 class="ai-disclosure-log__date">2026-07-23: Color re-skin: Gradient Blues palette</h3>
+    <div class="ai-disclosure-log__cols">
+      <div>
+        <p class="ai-disclosure-log__col-label">AI did</p>
+        <ul>
+          <li>Re-skinned the site&#39;s color tokens around a &#39;Gradient Blues&#39; indigo-to-aqua ramp, in response to stakeholder feedback that the palette read as drab. The brand/link color and a new set of ramp tokens draw from this sequential palette; History and Take Action deliberately kept their warm rust/amber accents as counterpoints, so sections stay visually distinguishable rather than the whole site turning one shade of blue.</li><li>Applied the ramp as the site&#39;s one gradient feature (the homepage era timeline&#39;s four-card border progression), raised color presence on the homepage hero stat, The Evidence/History/Take Action section headings, The Evidence&#39;s alternating bands, and Take Action&#39;s policy-debate cards, and fixed a pre-existing mismatch where each page&#39;s &#39;next&#39; journey-pager card was colored with its own section&#39;s accent instead of the destination page&#39;s.</li><li>Computed every contrast ratio and luminance value with a WCAG-formula script (validated against known reference pairs before use, then deleted) rather than estimating any of them, and darkened a couple of ramp-derived accent values just enough to clear the relevant text/UI contrast floor where the raw ramp color fell short.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="ai-disclosure-log__col-label">Human did</p>
+        <ul>
+          <li>Requested the re-skin based on stakeholder feedback, and specified the palette, the constraint that section wayfinding colors stay distinct, and the accessibility floors to hold.</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="ai-disclosure-log__notes">Verified mechanically (build, contrast/luminance tables, token grep) — see the batch&#39;s own report for the full before/after tables. No visual/browser verification was possible in this environment; QA-CHECKLIST.md was updated with the specific visual checks a human still needs to do.</p>
+    
+  </li>
+  
+  <li class="ai-disclosure-log__item">
     <h3 class="ai-disclosure-log__date">2026-07-23: Citation marker text, consolidation, and References naming</h3>
     <div class="ai-disclosure-log__cols">
       <div>
