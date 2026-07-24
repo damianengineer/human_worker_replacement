@@ -122,6 +122,20 @@ outside-click or Esc-key dismissal. That's expected, not a bug.
 
 ## 5. Full-bleed Evidence band (Batch 4, re-confirm after Nav Redesign)
 
+> **PARTIALLY SUPERSEDED (Final Batch, Task 4):** the `box-shadow: 0 0 0
+> 100vmax` technique this section describes no longer exists — the
+> Evidence Figure Stack batch replaced it with a clipped
+> absolutely-positioned pseudo-element (`.evidence-section:nth-of-type(odd)
+> ::before` in `the-evidence.css`) after discovering the box-shadow
+> version bled vertically into neighboring sections. The specific
+> "no-scrollbar" mechanical reasoning below no longer describes the live
+> code, but the checklist items themselves (no horizontal scrollbar, tier
+> 1/2 behavior while scrolling over a band, the Protective Factors
+> lightbox) are still valid checks against the *current* technique — left
+> below rather than deleted, per this project's own preference for a
+> visible history over a tidied one. Left unstruck for the human reviewer
+> to re-run against the new implementation.
+
 The Evidence's alternating section bands (Current State, Protective
 Factors) bleed edge-to-edge via a `box-shadow: 0 0 0 100vmax` technique
 chosen specifically because it can't cause the horizontal-scrollbar bug the
@@ -130,7 +144,9 @@ mechanically (no ancestor sets `overflow`, no other `100vw` usage exists
 anywhere else in the CSS, `box-shadow` doesn't contribute to an element's
 scrollable-overflow area) both when it was built and again after the Nav
 Redesign's header/footer changes — but a real browser is the only way to
-actually confirm no scrollbar appears.
+actually confirm no scrollbar appears. (Historical: this paragraph
+describes the technique as it stood before the Evidence Figure Stack
+batch — see the notice above.)
 
 - [ ] On **The Evidence** at 320px and 375px, in both light and dark mode,
       scroll the full length of the page. Confirm no horizontal scrollbar
@@ -166,6 +182,15 @@ Glossary, References, About, AI Disclosure.
       covers this in more depth).
 
 ## 7. Homepage hero at 320px
+
+> **OBSOLETE (Final Batch, Task 4):** the homepage hero stat block this
+> section tests was removed entirely in the Homepage Edits v2 batch (its
+> "13–16%" figure moved into The Short Version instead), and the site was
+> retitled from "AI & Your First Job" to "AI & Your Job" in the same
+> batch — mechanically confirmed neither string nor `.home-hero` exists
+> anywhere in the live site. Nothing below describes current content;
+> left in place rather than deleted as a record of what was once tested.
+> See Section 19 for this batch's replacement checks.
 
 - [ ] At 320px width (not just 375px — the narrowest common phone width),
       confirm the hero stat ("13–16%"), its label, and its source line
@@ -227,8 +252,10 @@ convenience.
 
 ## 10. Dark-mode spot check of every accent
 
-- [ ] Homepage: hero stat (teal/`--accent-evidence`), timeline card top
-      borders (rust / teal / violet / violet), era-image duotone overlays.
+- [ ] ~~Homepage: hero stat (teal/`--accent-evidence`)~~ **(hero removed,
+      see Section 7's obsolescence notice — check the Short Version's
+      stat callout instead)**, timeline card top borders (rust / teal /
+      violet / violet), era-image duotone overlays.
 - [ ] The Evidence: h2 underline, tier-2 pill hover (teal —
       `.site-tier2__list--evidence`), stat callouts (both the two
       section-level ones and the existing item/barrier ones), pull quote
@@ -297,8 +324,10 @@ differently than desktop emulation.
       brand (not silently falling back to the system font) — check the
       Network tab or just eyeball whether headings look visually distinct
       from body text.
-- [ ] Confirm the homepage hero stat doesn't overflow at your phone's
-      actual width (not just an emulated 320/375px).
+- [ ] ~~Confirm the homepage hero stat doesn't overflow at your phone's
+      actual width (not just an emulated 320/375px).~~ **(hero removed,
+      see Section 7's obsolescence notice — check the Short Version
+      section's stat callout at your phone's actual width instead.)**
 
 ## 13. Citation Policy — markers now link to References
 
@@ -470,9 +499,10 @@ Every ratio in this batch was computed with a WCAG-formula script, not
 eyeballed — see the batch report for the full contrast and luminance
 tables. None of that substitutes for actually looking at the result.
 
-- [ ] Homepage, light mode: hero stat, brand, and links read as blue/
-      indigo; the page reads noticeably more colorful than before, not
-      gray.
+- [ ] Homepage, light mode: ~~hero stat,~~ **(hero removed since this was
+      written — check the Short Version stat callout instead)** brand,
+      and links read as blue/indigo; the page reads noticeably more
+      colorful than before, not gray.
 - [ ] Homepage timeline: the four era cards show a **visible**
       progression indigo → aqua on their top border; adjacent cards are
       clearly different, not four similar blues. The two cards with a

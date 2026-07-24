@@ -158,7 +158,11 @@ directories so a non-technical editor can update copy without touching code.
 ├── src/
 │   ├── _includes/
 │   │   ├── layouts/             # one Nunjucks layout per page (no prose here)
-│   │   └── partials/            # header, footer, nav
+│   │   └── partials/            # site-chrome-top.njk (two-tier sticky nav,
+│   │                              see Section 5d), footer.njk, pager.njk
+│   │                              ("journey" prev/next), figures.njk
+│   │                              (shared chart figure + lightbox macros,
+│   │                              see Section 5c)
 │   ├── assets/
 │   │   ├── css/                 # tokens.css + one stylesheet per page
 │   │   └── img/
@@ -327,6 +331,44 @@ it in the base two-column `.evidence-figures` grid.
   order by reordering the list, never by adding template logic to
   reorder at render time.
 
+### 5d. Two-Tier Sticky Navigation
+
+Adopted in the Nav Redesign batch, replacing an older single-row nav plus
+each long page's own in-content jump bar. Implemented entirely in
+`src/_includes/partials/site-chrome-top.njk`, driven by `content/site.yaml`
+plus each page's own frontmatter — no JavaScript.
+
+- **Tier 1** (`.site-tier1`, always present) is the site-wide row: the
+  brand link (`site.title`/`site.short_title`, the latter shown only at
+  narrow widths), the primary nav (`site.nav`, each item optionally
+  carrying a `short_label` for narrow widths), and a "More ▾" dropdown
+  (`site.nav_more`, native `<details>`, no JS) holding About and AI
+  Disclosure — the two pages that don't earn a full-width tier 1 slot.
+- **Tier 2** (`.site-tier2`, "On this page:") renders only when the current
+  page's frontmatter sets a `sections` list (`{href, label}` pairs) —
+  see `the-evidence.md`, `take-action.md`, and `index.md` for the
+  pattern. A page with no `sections` frontmatter simply gets no tier 2 row.
+  `tier2_accent` (frontmatter, optional) sets `.site-tier2__list--<value>`
+  so a page's pills can take that page's own section accent color instead
+  of the shared default hover style — see `the-evidence.css`'s
+  `.site-tier2__list--evidence` for the pattern to copy on another page.
+- Both tiers are `position: sticky`, sized from real box-model tokens
+  (`--nav-h1`, `--nav-h2` in `base.css`) rather than an estimate — every
+  page's own `scroll-margin-top` on jump targets is computed from these
+  two tokens so an anchor jump (tier 2 pill, or a cross-page deep link)
+  never lands a heading underneath either sticky row.
+- **In-page TOC completeness (see Section 5 above) is enforced through
+  `sections`:** if another page deep-links to `/some-page/#anchor`, that
+  anchor's label must appear in `some-page.md`'s own `sections` list too,
+  or a reader arriving via that link sees no tier 2 pill for where they
+  landed.
+- `content/site.yaml` also carries `footer.groups` (the footer's full
+  sitemap, three headed groups covering every non-Home page) and
+  `journey` (the ordered prev/next "journey pager" sequence rendered by
+  `src/_includes/partials/pager.njk` at the end of `<main>` on any page
+  whose `url` appears in that list) — both are separate from tier 1/2 nav
+  and edited in the same file.
+
 ---
 
 ## 6. Content & Citation Guidelines (APA style)
@@ -418,7 +460,10 @@ access). Apply the subset that still applies to static/front-end delivery:
 - **V10 (Malicious Code):** Never fetch or `eval()` remote code at runtime.
   No dynamically constructed script tags.
 - **V14.2 (Dependencies):** Keep `package-lock.json` committed; run `npm audit`
-  in CI (`ci.yml`) and fail the build on high/critical vulnerabilities. Pin
+  manually before merging any change that touches `package.json` or the
+  lockfile, and treat any high/critical finding as a blocker. (`ci.yml` is
+  still planned, not built — see Section 4 and Section 12; there is no
+  automated gate yet, so this is a manual discipline until one exists.) Pin
   dependency versions; do not use `latest`/unpinned ranges.
 - **Secrets management:** No API keys, tokens, or credentials in the repo,
   ever — including in `content/*.yaml` or comments. If a build step needs a
@@ -455,7 +500,10 @@ a public-facing informational site:
   identical heading text that makes screen-reader heading-navigation
   ambiguous (e.g., the same label repeated once per list entry) must be
   disambiguated (WCAG 2.1 AA, SC 2.4.6 Headings and Labels).
-- Run an automated a11y check (e.g., `pa11y` or `axe-core`) in `ci.yml`.
+- Run an automated a11y check (e.g., `pa11y` or `axe-core`) manually before
+  merging a change with layout/markup impact — no CI runner exists yet to
+  do this automatically (see Section 4/12); this is currently a discipline,
+  not an enforced gate.
 
 ---
 
@@ -550,8 +598,19 @@ a public-facing informational site:
 - Deploys are manual, not automatic: after merging to `main`, run
   `npm run build` locally and commit the resulting `docs/` output — that
   commit is what actually goes live, so don't merge content/template
-  changes without also refreshing `docs/`. PRs trigger `ci.yml` (build,
-  `npm audit`, a11y check, link check) and must pass before merge.
+  changes without also refreshing `docs/`.
+- **There is no CI runner in this environment** (`ci.yml` is planned, not
+  built — see Section 4). Every batch instead runs its own mechanical
+  checks locally before a PR is opened: `npm run build`, an internal
+  link/anchor-id checker (every `href`/`src` pointing within the site
+  resolves to a real file and, where present, a real `id`), and a diff-scope
+  check confirming the change touched only the files the task described.
+  Checks needing a real browser, screen reader, or phone (visual
+  regressions, contrast-as-rendered, focus order) are written into
+  `QA-CHECKLIST.md` instead of claimed as done — see Section 9's a11y
+  requirements and Section 8's V14.2 dependency-audit note for the two
+  checks that still need a human to actually run them. **A human reviews
+  and merges every PR by hand** — nothing merges to `main` automatically.
 
 ---
 

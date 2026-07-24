@@ -93,6 +93,12 @@ timeline:
         their jobs. By 2025, Amazon ran roughly a million warehouse robots.
         Technology reshaping who gets hired isn't new — we have four earlier
         cases to learn from.
+      # Final Batch, Task 1b — this summary restates two facts from
+      # /history/'s own fully-cited cases without carrying its own citation;
+      # reuses the exact same ids already established there (see
+      # content/history.yaml's Luddite Rebellion and Amazon Warehouse
+      # Robotics cases) rather than a new source.
+      citations: ["nationalarchivesuk", "weise2025"]
       link_label: "Read the history"
       link_url: "/history/"
       # Same file, alt text, title, and citation as /history/'s own
@@ -113,6 +119,9 @@ timeline:
         Since ChatGPT launched, employment for young workers in AI-exposed
         jobs has fallen about 13–16% — concentrated in entry-level hiring.
         Not mass layoffs: a door quietly closing.
+      # Final Batch, Task 1b — same 13-16% figure already cited in this
+      # page's own Short Version section; reused here rather than left bare.
+      citations: ["brynjolfsson2025", "massenkoff2026"]
       link_label: "See the evidence"
       link_url: "/the-evidence/"
       # Same file/credit as /history/'s Amazon Warehouse Robotics figure.

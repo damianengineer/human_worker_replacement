@@ -31,8 +31,9 @@ extraCss:
       </p>
       {% if entry.todo %}<p class="reference-list__todo">{{ entry.todo }}</p>{% endif %}
       {% else %}
+      {% set standaloneTitle = entry.type in ["book", "report", "working paper"] %}
       <p class="reference-list__citation{% if entry.status == 'unverified' %} reference-list__citation--unverified{% endif %}">
-        {{ entry.authors }}{% if entry.year %} ({{ entry.year }}{{ entry.markerSuffix }}){% endif %}. {{ entry.title }}{{ entry.title | sentencePeriod }}
+        {{ entry.authors }}{% if entry.year %} ({{ entry.year }}{{ entry.markerSuffix }}){% endif %}. {% if standaloneTitle %}<em>{{ entry.title }}</em>{% else %}{{ entry.title }}{% endif %}{{ entry.title | sentencePeriod }}
         {%- if entry.publisher %} {{ entry.publisher }}.{% endif %}
         {% if entry.url %} <a href="{{ entry.url }}">{{ entry.url }}</a>{% endif %}
         {%- if entry.status == 'unverified' %} <strong>(unverified)</strong>{% endif %}

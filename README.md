@@ -10,15 +10,23 @@ All page text lives under [content/](content/) as Markdown (`.md`) or
 structured data (`.yaml`). You don't need to touch anything under `src/` to
 change what a page says.
 
-- `content/site.yaml` — site title, nav labels, and footer links.
-- `content/citations.yaml` — sources, keyed by citation ID.
+- `content/site.yaml` — site title, the two-tier nav (top nav + the "On
+  this page" pills each page opts into via its own `sections` frontmatter),
+  footer sitemap, and the prev/next "journey" order.
+- `content/citations.yaml` — sources, keyed by citation ID. `content/references.md`
+  (the References page) is rendered from this file, not hand-edited per entry.
 - `content/index.md` / `content/home.yaml` — the landing page (served at `/`).
 - `content/glossary.md` / `content/glossary.yaml` — the glossary page and its term list.
 - `content/the-evidence.md` / `content/evidence.yaml`, `content/history.md` / `content/history.yaml`,
   `content/take-action.md` / `content/takeaction.yaml` — same intro-text/structured-data split for
   each of those pages.
 - `content/about.md`, `content/ai-disclosure.md` / `content/aidisclosure.yaml` — About and AI
-  Disclosure pages.
+  Disclosure pages; `aidisclosure.yaml` is a running work log, appended to, not rewritten.
+
+See `QA-CHECKLIST.md` at the repo root for the running list of checks that
+need a real browser/phone/screen reader to verify (this environment has
+none of those, so every batch of changes leaves its visual checks there
+for a human to run before merging).
 
 ## Local development
 

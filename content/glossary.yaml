@@ -148,6 +148,42 @@ categories:
           label: "See which jobs and majors are most exposed"
           url: "/the-evidence/#at-risk"
 
+      - term: "Capability Overhang"
+        # Final Batch, Task 5a — used as a bare chart title on The Evidence
+        # ("The capability overhang by occupation") with no inline
+        # explanation anywhere on the page. origin/current both point to
+        # richmond2026 since that's the specific report this site's usage
+        # comes from; this entry describes how the term is used here, not
+        # a claim about who coined it more broadly.
+        definition: >-
+          The gap between what AI could theoretically do in a job and how
+          much that ability is actually being used. A large capability
+          overhang means AI's technical skill is running well ahead of
+          real-world adoption — the same gap this site's own charts show
+          when they compare theoretical AI capability to observed use.
+        origin: ["richmond2026"]
+        current: ["richmond2026", "massenkoff2026"]
+        see_also:
+          label: "See the theoretical-vs-observed charts"
+          url: "/the-evidence/#at-risk"
+
+      - term: "Scale Effects"
+        # Final Batch, Task 5a — used as a bare chart title on The Evidence
+        # ("...whether scale effects offset direct labor savings") with no
+        # inline explanation anywhere on the page.
+        definition: >-
+          When a lower price or cost from AI leads to more total demand
+          for something, not less — which can offset, or even cancel out,
+          the labor-saving effect AI would otherwise have. If AI makes a
+          service cheaper, more people might buy it, so roughly the same
+          number of workers can stay busy even though each one is now more
+          productive.
+        origin: ["richmond2026"]
+        current: ["richmond2026"]
+        see_also:
+          label: "See which exposed occupations this affects"
+          url: "/the-evidence/#at-risk"
+
       - term: "Job Displacement"
         definition: >-
           Losing a job because technology now performs the work.
