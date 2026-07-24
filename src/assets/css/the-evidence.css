@@ -149,6 +149,26 @@
   margin-bottom: var(--space-2);
 }
 
+/* Bounded card treatment (Evidence Clarity batch, Change 4) — separates the
+   two "Industries & Jobs" subsections (Theoretical vs. Observed, Most
+   Exposed Occupations) visually, so they read as distinct blocks instead of
+   one undifferentiated scroll. Scoped to --card only: Stark State keeps its
+   own plain .evidence-subsection (out of scope for this change — see
+   CLAUDE.md's scope fence). The existing margin-top on .evidence-subsection
+   already supplies the vertical gap between the two cards. */
+.evidence-subsection--card {
+  padding: var(--space-4);
+  background: var(--accent-evidence-bg);
+  border-top: 3px solid var(--accent-evidence);
+  border-radius: var(--radius-base);
+}
+
+@media (max-width: 30rem) {
+  .evidence-subsection--card {
+    padding: var(--space-2);
+  }
+}
+
 .evidence-list {
   list-style: none;
   margin: 0;

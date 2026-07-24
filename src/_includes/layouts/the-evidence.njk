@@ -106,7 +106,7 @@ extraCss:
   <h2 id="at-risk-heading">{{ evidence.at_risk.title }}</h2>
 
   {% set tvo = evidence.at_risk.theoretical_vs_observed %}
-  <div class="evidence-subsection">
+  <div class="evidence-subsection evidence-subsection--card">
     <h3>{{ tvo.heading }}</h3>
     <p class="evidence-section__intro">{{ tvo.concept }}</p>
 
@@ -129,7 +129,7 @@ extraCss:
   </div>
 
   {% set exposed = evidence.at_risk.most_exposed %}
-  <div class="evidence-subsection">
+  <div class="evidence-subsection evidence-subsection--card">
     <h3>{{ exposed.heading }}</h3>
     {% for para in exposed.intro %}<p class="evidence-section__intro">{{ para }}</p>{% endfor %}
 
