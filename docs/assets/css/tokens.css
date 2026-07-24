@@ -9,7 +9,21 @@
   --color-bg-subtle: #f4f5f7;
   --color-text: #1a1a1a;
   --color-text-muted: #46494f;
-  --color-primary: #1b4b91;
+  /* Color Re-skin (Gradient Blues, v2): the site's brand/link/UI color
+     moves from flat navy onto the ramp's mid-range. #5e60ce ("slate
+     indigo") clears 5.20:1 against --color-bg and 4.76:1 against
+     --color-bg-subtle — both above the 4.5:1 AA floor for text, so no
+     darkening substitution was needed (unlike some of the section
+     accents below). Every current consumer of --color-primary (global
+     links, footer links, citation hover/focus, the journey-pager label,
+     the References group-letter heading + its border/:target accent, the
+     skip-link and CTA-button pairs via --color-primary-contrast, the
+     tier-2 nav hover fallback) was individually re-checked against this
+     new value in both schemes — all clear their applicable threshold
+     (every one of them turned out to need/clear the full 4.5:1 text
+     floor, not just the 3:1 non-text floor, so no per-consumer exception
+     was needed). */
+  --color-primary: #5e60ce;
   --color-primary-contrast: #ffffff;
   --color-border: #d7d9de;
   --color-focus: #ffb703;
@@ -21,34 +35,81 @@
      against a dark page. */
   --color-chart-bg: #f4f5f7;
 
-  /* Per-section accent colors (Batch 4 Task 3) — teal/rust/violet/action,
-     one per argument page, applied to borders, tags, and small
-     heading-adjacent details, never to body text or as the sole carrier
-     of meaning. Each has a light-mode value, a subtle background tint for
-     bands/cards, and a dark-mode override below. Contrast computed with
-     the same relative-luminance formula as the rest of this file, against
-     both --color-bg and --color-bg-subtle (light mode): teal 5.47:1 /
-     5.02:1, rust 7.31:1 / 6.70:1, violet 7.10:1 / 6.51:1, action 7.09:1 /
-     6.50:1 — all clear the 4.5:1 AA floor.
+  /* The "Gradient Blues" ramp (indigo -> aqua) is *sequential*, not
+     categorical — adjacent steps blend into each other, which is exactly
+     wrong for telling section accents apart but exactly right for a
+     spine color and for the one gradient feature this batch allows
+     (the homepage era timeline, home.css). --ramp-1..4 sample four
+     non-adjacent steps of the underlying 10-step palette for a visibly
+     stepped progression rather than a mushy blend. These are
+     used as decorative border/bar color only (the timeline cards'
+     meaning never depends on them — see home.css) and are not held to a
+     text contrast floor as a result; the dark-mode values below are
+     picked one step lighter across the board (rather than reusing the
+     light values) specifically so the darkest step (indigo) doesn't sink
+     into the dark background — see the batch report for the full
+     luminance table proving each step stays visibly distinct from its
+     neighbor in both schemes. */
+  --ramp-1: #6930c3;
+  --ramp-2: #5390d9;
+  --ramp-3: #48bfe3;
+  --ramp-4: #64dfdf;
 
-     Amber collision rule: --accent-action is defined as clearly distinct
-     from --color-warning (the option chosen over unifying the two into
-     one shared token), so Take Action's debate cards — left-bordered in
-     --color-warning, unchanged — still read as their own caution signal
-     rather than blending into the section accent. "Distinct" here means
-     lightness/saturation, not hue: both stay in the same amber/orange
-     family (HSL hue ~23-27° in both schemes, ~3° apart) — a deeper, more
-     muted orange-brown (light #92400e, HSL 23°/82%/31%) against the
-     warning's brighter, lighter amber (light #b45309, HSL 26°/90%/37%;
-     dark #f0a868 vs. #fb923c is the same relationship) — so the two read
-     as a coordinated pair rather than two unrelated colors that happen
-     to both be orange. */
-  --accent-evidence: #0f766e;
-  --accent-evidence-bg: #e6f5f3;
+  /* Per-section accent colors (Batch 4 Task 3; re-skinned by Color
+     Re-skin v2). Cool sections (Evidence, and the former "future" era
+     accent) now draw from the same ramp as the spine above; History and
+     Take Action deliberately stay warm (rust/amber) as counterpoints —
+     the design intent is "tell sections apart at a glance," which a
+     four-way blue palette would defeat. Accents apply to borders, tags,
+     and small heading-adjacent details, never to body text at large or
+     as the sole carrier of meaning.
+
+     Text-safe vs. vivid split: the ramp's bright end reads well as a
+     border/fill but fails 4.5:1 as small text on a light background (the
+     same reason design intent #3 restricts the lightest ramp stops to
+     backgrounds/tints/gradient-stops only). --accent-evidence is
+     darkened enough off the ramp's "fresh sky" step to clear 4.5:1 as
+     text; --accent-evidence-vivid keeps a brighter, closer-to-the-ramp
+     value for fills, borders, and large display text (3:1 floor) — e.g.
+     the homepage hero stat. --accent-future's ramp value ("indigo
+     bloom") already clears 4.5:1 as text on its own, so it has no vivid
+     counterpart — the split is added only where the ramp value actually
+     needs it, not applied uniformly for consistency's sake.
+
+     Light-mode contrast (text-safe values only, vs --color-bg /
+     --color-bg-subtle): evidence 5.26:1 / 4.82:1, future 7.47:1 / 6.85:1,
+     history 7.31:1 / 6.70:1 (unchanged), action 7.09:1 / 6.50:1
+     (unchanged) — all clear 4.5:1. Vivid values (evidence-vivid 3.56:1
+     vs --color-bg) clear the 3:1 non-text/large-text floor they're
+     actually used at, not the text floor.
+
+     Perceptual distinctness (Task 2.3): relative luminance, light mode —
+     evidence 0.1495, future 0.0906, history 0.0937, action 0.0981.
+     Future/history/action cluster close in luminance, but each stays in
+     a clearly different hue family (blue-cyan ~198° vs violet ~263° vs
+     rust ~15-20° vs amber ~23-27°), and history/action's own closeness is
+     the pre-existing, intentional "coordinated warm pair" this file
+     already documented — not something this batch changed. Evidence
+     separates from future by both hue and luminance. Dark mode: evidence
+     0.3490, future 0.2742, history 0.5726, action 0.4139 — no two
+     collapse.
+
+     Amber collision rule (unchanged relationship, re-verified after the
+     re-skin): --accent-action stays clearly distinct from --color-warning
+     — same amber/orange hue family in both schemes (~23-27°), different
+     lightness/saturation, so Take Action's --color-warning-bordered
+     debate cards still read as their own caution signal rather than
+     blending into the section accent. Light: action lum 0.0981 vs.
+     warning 0.1591. Dark: action 0.4139 vs. warning 0.4753 — closer, but
+     this pairing was already this close before the re-skin (neither
+     token changed), so it's a re-verification, not a regression. */
+  --accent-evidence: #1e72a3;
+  --accent-evidence-vivid: #268fce;
+  --accent-evidence-bg: #e7f2f8;
   --accent-history: #9a3412;
   --accent-history-bg: #fdf1ea;
-  --accent-future: #6d28d9;
-  --accent-future-bg: #f3ecfd;
+  --accent-future: #6930c3;
+  --accent-future-bg: #f1edf8;
   --accent-action: #92400e;
   --accent-action-bg: #f7ead9;
 
@@ -121,7 +182,16 @@
     --color-bg-subtle: #1c1f26;
     --color-text: #e8e6e3;
     --color-text-muted: #a9adb5;
-    --color-primary: #7fb2e5;
+    /* Dark is not an inversion of the light spine — #5390d9 ("blue
+       energy") was chosen directly for legibility against #14161b/#1c1f26
+       (5.48:1 / 4.99:1), not by flipping #5e60ce. It's the next step up
+       the ramp from the light-mode primary: dark enough to still read as
+       "indigo/blue" rather than washing out to pale sky, light enough to
+       clear 4.5:1 with real margin. --color-primary-contrast keeps its
+       near-black value (still 5.72:1 against the new primary — a lighter
+       contrast color, e.g. white, would only manage 3.30:1 against this
+       particular blue and fail the text floor). */
+    --color-primary: #5390d9;
     --color-primary-contrast: #0f1115;
     --color-border: #2c2f38;
     --color-warning: #f0a868;
@@ -130,19 +200,43 @@
        amber focus ring and the light chart-image card already read well
        against the dark background. */
 
-    /* Dark-mode accents — lighter, more saturated versions so each still
-       clears 4.5:1 against both dark backgrounds: teal 12.23:1 / 11.15:1,
-       rust 10.73:1 / 9.78:1, violet 9.80:1 / 8.93:1, action 8.00:1 /
-       7.29:1 (against --color-bg / --color-bg-subtle respectively).
-       Action (#fb923c) and warning (#f0a868) keep the same close-hue,
-       different-lightness/saturation relationship as the light-mode
-       pair above — same amber family, still distinguishable. */
-    --accent-evidence: #5eead4;
-    --accent-evidence-bg: #16302c;
+    /* Dark-mode ramp: each step shifted one position lighter through the
+       10-step palette than its light-mode counterpart (index 2/4/6/8
+       instead of 1/3/5/7), not the same hex values re-used. The
+       light-mode --ramp-1 (#6930c3) only clears 2.42:1 against this dark
+       background — visibly close to disappearing — while the shifted
+       --ramp-1 below (#5e60ce) clears 3.48:1 and keeps a comparable
+       luminance gap to its neighbors (see the batch report's luminance
+       table). Since these are decorative border/bar values with no text
+       contrast floor, "keep them clearly visible against the dark page
+       and against each other" was the actual design goal, not a fixed
+       ratio. */
+    --ramp-1: #5e60ce;
+    --ramp-2: #4ea8de;
+    --ramp-3: #56cfe1;
+    --ramp-4: #72efdd;
+
+    /* Dark-mode accents — re-verified/re-picked for this re-skin.
+       Evidence and future are genuinely new hues (not the old teal/violet
+       flipped): evidence 6.88:1 / 6.27:1, future 5.59:1 / 5.09:1 (against
+       --color-bg / --color-bg-subtle). History and action are unchanged
+       from before this batch: rust 10.73:1 / 9.78:1, action 8.00:1 /
+       7.29:1. Action (#fb923c) and warning (#f0a868) keep the same
+       close-hue, different-lightness/saturation relationship as the
+       light-mode pair — same amber family, still distinguishable (though
+       this pairing is closer in dark mode than light — re-verified as an
+       already-existing relationship, not something this batch changed).
+       --accent-evidence-vivid (#64dfdf, "pearl aqua") is brighter still,
+       for fills/large text — 11.34:1 / 10.34:1, comfortably past even
+       the text floor here since dark mode's bright-on-dark direction
+       doesn't create the same text-vs-vivid tension light mode does. */
+    --accent-evidence: #4ea8de;
+    --accent-evidence-vivid: #64dfdf;
+    --accent-evidence-bg: #192a34;
     --accent-history: #fdba74;
     --accent-history-bg: #2b1a10;
-    --accent-future: #c4b5fd;
-    --accent-future-bg: #241b34;
+    --accent-future: #a27cdf;
+    --accent-future-bg: #261b37;
     --accent-action: #fb923c;
     --accent-action-bg: #2e2013;
   }
