@@ -39,6 +39,13 @@ current_state:
     #   note: explains what the corroboration shows (e.g. a different
     #     dataset reaching the same conclusion), or why no second source
     #     is needed for this one
+    #   example: OPTIONAL. Not the same field as `note` — `note` explains
+    #     what a corroborating source shows and is sourcing apparatus;
+    #     `example` is a short, concrete, clearly hypothetical illustration
+    #     of what a claim looks like in practice, with no sourcing role of
+    #     its own (no citations inside it — the claim above already carries
+    #     them). Both fields can exist on the same item; they render as
+    #     visually distinct blocks and are never merged.
     - claim: >-
         Young workers (ages 22–25) in AI-exposed jobs have seen employment
         fall by about 13–16% since ChatGPT was released. This is the
@@ -67,6 +74,13 @@ current_state:
         Reached the same conclusion — that slower hiring, not firing,
         drives the effect — using a completely separate data source: ADP
         payroll records.
+      example: >-
+        Picture a small accounting firm with four junior bookkeepers. One
+        leaves for another job. Instead of hiring a replacement, the firm
+        gives the remaining three AI tools that handle the routine data
+        entry. Nobody was laid off — but next spring, there's one fewer
+        job posting for graduates. Repeat that across thousands of firms
+        and you get the pattern in the data.
 
     - claim: >-
         Robots already had a measurable effect on jobs before

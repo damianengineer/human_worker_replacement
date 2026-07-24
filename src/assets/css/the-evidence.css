@@ -219,6 +219,30 @@
   font-style: italic;
 }
 
+/* Illustrative example (Evidence Clarity batch, Change 1) — a hypothetical
+   scenario, not sourced data, so it must never look like the claim/note/
+   stat-callout apparatus above it. A left border in the neutral text color
+   (not the accent) keeps it from reading as "another citation-backed fact,"
+   while still setting it apart from plain body text. */
+.evidence-example {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-2) var(--space-4);
+  border-left: 3px solid var(--color-text-muted);
+}
+
+.evidence-example__label {
+  margin: 0 0 var(--space-1);
+  font-size: var(--font-size-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.evidence-example p:last-child {
+  margin: 0;
+}
+
 .evidence-figures-intro {
   color: var(--color-text-muted);
 }

@@ -91,6 +91,12 @@ extraCss:
       {% else %}
       {{ dualSourceLine(item.primary_citation, item.corroborating_citation, item.note) }}
       {% endif %}
+      {% if item.example %}
+      <aside class="evidence-example">
+        <p class="evidence-example__label">What this looks like in practice</p>
+        <p>{{ item.example }}</p>
+      </aside>
+      {% endif %}
     </li>
     {% endfor %}
   </ul>
