@@ -35,14 +35,14 @@ extraCss:
 {% endif %}
 {% endmacro %}
 
-{% macro figuresGrid(figuresList, figuresIntro, closeHref) %}
+{% macro figuresGrid(figuresList, figuresIntro, closeHref, gridModifier) %}
 {% if figuresList %}
 {% if figuresIntro %}
 <p class="evidence-figures-intro">{{ figuresIntro }}</p>
 {% endif %}
-<div class="evidence-figures">
+<div class="evidence-figures{% if gridModifier %} {{ gridModifier }}{% endif %}">
   {% for figure in figuresList %}
-  <figure class="evidence-figure">
+  <figure class="evidence-figure{% if figure.modifier_class %} {{ figure.modifier_class }}{% endif %}">
     <a class="evidence-figure__zoom" href="#fig-{{ figure.id }}" aria-label="View a larger version of: {{ figure.title }}">
       <img src="{{ figure.image }}" alt="{{ figure.alt }}" loading="lazy">
     </a>
@@ -119,13 +119,16 @@ extraCss:
     {% endif %}
 
     {% if tvo.methodology_note %}
-    <p class="evidence-methodology-note">
-      {{ tvo.methodology_note }}
-      {% for id in tvo.methodology_citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
-    </p>
+    <p class="evidence-methodology-note">{{ tvo.methodology_note }}</p>
+    {# Evidence Figure Stack batch, Change 2 — the six methods-source
+       markers move to their own line, reusing the same
+       .evidence-methodology-note treatment as the sentence above rather
+       than staying glued to the end of it. Wording of the sentence above
+       is unchanged; only marker placement moved. #}
+    <p class="evidence-methodology-note">{{ citeList(tvo.methodology_citations) }}</p>
     {% endif %}
 
-    {{ figuresGrid(tvo.figures, tvo.figures_intro, "#at-risk") }}
+    {{ figuresGrid(tvo.figures, tvo.figures_intro, "#at-risk", "evidence-figures--stacked") }}
   </div>
 
   {% set exposed = evidence.at_risk.most_exposed %}

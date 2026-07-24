@@ -302,6 +302,31 @@ paragraph mixed a general concept with one specific data disagreement.
   illustration) — don't conflate the two when adding a similar field
   elsewhere.
 
+### 5c. The Evidence Page: Paired Figure Layout
+
+Adopted in the Evidence Figure Stack batch, after a mismatched native
+aspect ratio between `theoretical_vs_observed`'s two charts (1:1 square vs.
+1.62:1 landscape) left the shorter chart floating with dead space beneath
+it in the base two-column `.evidence-figures` grid.
+
+- **A figure entry may carry an optional `modifier_class` field** — a CSS
+  class appended to that figure's own `<figure>` element (e.g.
+  `evidence-figure--radar-cap`, which caps a figure's width only at wide
+  viewports so an unusually tall/square chart doesn't dominate the page).
+  Leave it unset for any figure that should render at the grid's default
+  sizing.
+- **A figure *list* may pass a grid modifier as `figuresGrid`'s 4th
+  argument** (e.g. `evidence-figures--stacked`, which forces one column at
+  every viewport width instead of the base rule's two-column layout above
+  40rem). This is scoped per call site in the template, not per page — the
+  base `.evidence-figures` rule stays the shared default for any figure
+  pair that doesn't need this treatment (Most Exposed Occupations' pair
+  uses the unmodified base rule).
+- **Reordering a figure pair is a content-level change**, not a template
+  one: `figures` is an ordered list in `evidence.yaml`, so change display
+  order by reordering the list, never by adding template logic to
+  reorder at render time.
+
 ---
 
 ## 6. Content & Citation Guidelines (APA style)
