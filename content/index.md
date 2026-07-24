@@ -14,8 +14,9 @@ sections:
     label: "Two clocks"
 ---
 
-AI replacement of human workers is already underway — and entry-level
-jobs are where it's hitting first. This site isn't here to talk you out
+AI replacement of human workers is already underway — and
+<a href="/glossary/#entry-level-jobs">entry-level jobs</a> are where
+it's hitting first. This site isn't here to talk you out
 of your major or your passion. It's here to show you the real evidence,
 from peer-reviewed research to the AI labs' own data to one independent,
 skeptical economist's review — so you can build a backup plan and make

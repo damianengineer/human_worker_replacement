@@ -63,6 +63,37 @@ categories:
 
   - category: "Terms About AI and Jobs"
     terms:
+      - term: "Entry-Level Jobs"
+        # Homepage Edits v2, Change 5 — added because the site's whole
+        # argument depends on this term, and it's the concept that makes
+        # the site relevant to career-changers, not just first-time job
+        # seekers. origin (autor2003) is the classic routine-task
+        # automation framework underlying "why these roles concentrate
+        # the tasks AI handles best." current pairs the site's own
+        # age-cohort research (brynjolfsson2025/massenkoff2026) with the
+        # role-based exposure research (freyosborne2017/felten2021) on
+        # purpose, since the definition's own honest caveat is about the
+        # gap between those two things.
+        definition: >-
+          The first job in a specific career field — one that doesn't
+          require much (or any) previous experience in that field. This
+          describes the position, not the worker's age: someone with
+          twenty years of experience in one career is still taking an
+          entry-level job the moment they switch into a brand-new one.
+          These roles are some of the most exposed to AI because they're
+          built around routine, well-documented tasks with close
+          supervision — often the same tasks a beginner would otherwise
+          be hired to learn on the job. One honest caveat: this site's
+          headline statistic (the 13–16% drop) measures a specific age
+          group, workers 22–25, while the research on which tasks AI can
+          do covers entry-level roles generally, at any age. The two
+          overlap a lot, but they aren't exactly the same thing.
+        origin: ["autor2003"]
+        current: ["brynjolfsson2025", "massenkoff2026", "freyosborne2017", "felten2021"]
+        see_also:
+          label: "See the current data on entry-level hiring"
+          url: "/the-evidence/#current-state"
+
       - term: "Automation (of work)"
         definition: >-
           When technology performs a task instead of a person. Current
