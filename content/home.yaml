@@ -9,7 +9,7 @@
 # home.njk. This keeps all prose in this data file, not the template.
 
 short_version:
-  heading: "The short version"
+  heading: "The Short Version"
   # Homepage Edits v2: restores the stat sentence the old hero block used
   # to carry (Change 1 removed that block), explains the chart in plain
   # language (it's a bar chart of theoretical AI capability vs. observed

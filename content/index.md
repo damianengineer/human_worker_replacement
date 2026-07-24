@@ -7,7 +7,7 @@ layout: "layouts/home.njk"
 # Evidence/Take Action), so its pills use the shared default hover style.
 sections:
   - href: "#short-version"
-    label: "The short version"
+    label: "The Short Version"
   - href: "#timeline"
     label: "Where this story is"
   - href: "#where-to-go"
