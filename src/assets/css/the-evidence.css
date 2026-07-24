@@ -108,13 +108,29 @@
    at all, for a simpler reason than before: it now lives in the shared
    header, entirely outside <main>, so it was never a descendant of any
    section, banded or not, even before this concern applied. */
+/* Color Re-skin v2, Task 4.3: the band tint is now the Evidence accent's
+   own -bg tint rather than the neutral --color-bg-subtle, so alternating
+   bands read as lightly blue-tinted instead of plain gray. Body text on
+   the tint clears 15.29:1 (light) / 11.86:1 (dark) — nowhere near the
+   4.5:1 floor's actual constraint. The tint-vs-page-background luminance
+   gap (the thing that makes the band visible at all) is if anything
+   larger than the old neutral tint's was: light 0.127 vs. the old
+   0.088, dark 0.013 vs. the old 0.006 — so the band is more detectable
+   than before, not less. */
 .evidence-section:nth-of-type(odd) {
   padding: var(--space-5) 0;
-  box-shadow: 0 0 0 100vmax var(--color-bg-subtle);
+  box-shadow: 0 0 0 100vmax var(--accent-evidence-bg);
 }
 
+/* Color Re-skin v2, Task 4.2: section headings take their own section's
+   accent as text color, not just as a border underline — the same
+   treatment ships on The Evidence, History, and Take Action (not mixed
+   page-to-page), since the accent clears the 3:1 large-text floor as
+   text color on all three (h2 is bold at font-size-xl/24px, comfortably
+   "large text" either way). */
 .evidence-section h2 {
   font-size: var(--font-size-xl);
+  color: var(--accent-evidence);
   border-bottom: 2px solid var(--accent-evidence);
   padding-bottom: var(--space-2);
 }
@@ -589,8 +605,19 @@
    Previously scoped through .evidence-jump (deleted in the nav
    redesign); .evidence-intro is the same kind of anchor — a class that
    only exists in this page's own markup and still sits as a sibling of
-   .journey-pager inside <main> — so it keeps the teal accent on
-   Evidence only, same as before. */
+   .journey-pager inside <main> — so it stays scoped to Evidence only.
+
+   Color Re-skin v2, Task 4.4: the pager card takes the *destination*
+   page's accent, not the current page's own — this is wayfinding to
+   where the link leads, not a repeat of where you already are. The
+   Evidence page's "next" card leads to History (content/site.yaml's
+   journey order), so it takes --accent-history, on both the border and
+   the link label text (previously border-only, and previously the
+   current page's own accent — a real mismatch this batch corrects). */
 .evidence-intro ~ .journey-pager .journey-pager__next {
-  border-color: var(--accent-evidence);
+  border-color: var(--accent-history);
+}
+
+.evidence-intro ~ .journey-pager .journey-pager__label {
+  color: var(--accent-history);
 }

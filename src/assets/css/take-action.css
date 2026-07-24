@@ -56,8 +56,11 @@
   scroll-margin-top: calc(var(--nav-h1) + var(--nav-h2) + var(--space-4));
 }
 
+/* Color Re-skin v2, Task 4.2: same treatment as The Evidence and
+   History — accent as text color, not just the border underline. */
 .takeaction-section h2 {
   font-size: var(--font-size-xl);
+  color: var(--accent-action);
   border-bottom: 2px solid var(--accent-action);
   padding-bottom: var(--space-2);
 }
@@ -222,9 +225,16 @@
   }
 }
 
+/* Color Re-skin v2, Task 4.5: an accent border + accent-tinted background
+   instead of the neutral card treatment every other card on the site
+   uses — Take Action's CTA cards are meant to be the most visually
+   assertive element on the page. Body text on the tint clears 14.69:1 /
+   12.66:1 (light/dark), muted text 7.62:1 / 7.00:1, and the accent
+   border itself 5.98:1 / 6.97:1 against the tint — all well past their
+   floors. */
 .takeaction-debate__card {
-  background: var(--color-bg-subtle);
-  border: 1px solid var(--color-border);
+  background: var(--accent-action-bg);
+  border: 1px solid var(--accent-action);
   border-radius: var(--radius-base);
   padding: var(--space-4);
 }
@@ -263,7 +273,17 @@
 
 /* This stylesheet isn't shared with any other page, so unlike the
    Evidence/History pager overrides, no sibling-combinator scoping is
-   needed here — a plain selector can't leak. */
+   needed here — a plain selector can't leak.
+
+   Color Re-skin v2, Task 4.4: the pager card takes the *destination*
+   page's accent — Take Action's "next" loops back to Evidence's Stark
+   State section (content/site.yaml's journey order), so it takes
+   --accent-evidence, not Take Action's own amber. Same wayfinding
+   correction as the Evidence/History pager overrides above. */
 .journey-pager__next {
-  border-color: var(--accent-action);
+  border-color: var(--accent-evidence);
+}
+
+.journey-pager__label {
+  color: var(--accent-evidence);
 }
