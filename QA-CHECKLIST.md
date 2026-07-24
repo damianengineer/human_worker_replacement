@@ -652,3 +652,34 @@ the batch report). None of this was visually verified in a browser.
     gloss aloud. Any sentence you stumble over or have to re-read is too
     complex — note it for revision.
 13. Both color schemes; one real-phone pass.
+
+## 21. Theoretical vs. Observed: stacked figures, consolidated methods citations
+
+1. On a laptop (~1440px), Theoretical versus Observed's two charts appear
+   stacked one above the other — bar chart ("The capability overhang by
+   occupation") first, then the square/radar chart ("Theoretical
+   capability and observed exposure by occupational category") — not
+   side by side.
+2. **Left-edge check:** hold a straightedge (or use a browser ruler) down
+   the left side — the paragraph text, the bar chart, its caption, the
+   radar chart, and its caption all start at the same x-position.
+3. The radar chart reads as a diagram, not a page-dominating poster, at
+   laptop width — it should look noticeably narrower than the bar chart
+   above it.
+4. No empty wedge of dead space beside or beneath either chart.
+5. Each caption and credit line sits directly beneath its own chart, not
+   stretched wider than the image.
+6. **Tablet check (~900px wide):** the radar is *not* conspicuously
+   narrower than the bar chart above it — at this width both should fill
+   the column edge-to-edge, same as each other.
+7. Neither chart is blurry or upscaled; clicking either opens the
+   lightbox at a clearly larger size; closing it returns you to the same
+   scroll position.
+8. The methods sentence ("Both companies base their measure...") now
+   shows as its own line, with a second short line directly beneath it
+   containing all six source markers — not six markers glued to the end
+   of the sentence. Every marker links to its own References entry.
+9. 375px: both charts fill the width edge-to-edge, no horizontal
+   scrolling, captions directly beneath each — the radar is not
+   artificially shrunk at this width.
+10. Both color schemes; one real-phone pass.
