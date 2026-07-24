@@ -126,6 +126,27 @@ step — see the notes on each log entry below for exactly where things stand.</
 <ol class="ai-disclosure-log">
   
   <li class="ai-disclosure-log__item">
+    <h3 class="ai-disclosure-log__date">2026-07-24: Theoretical vs. Observed: stacked figures, consolidated methods citations</h3>
+    <div class="ai-disclosure-log__cols">
+      <div>
+        <p class="ai-disclosure-log__col-label">AI did</p>
+        <ul>
+          <li>Stacked the pair&#39;s two charts (previously side by side) after measuring their native pixel dimensions and finding a mismatched aspect ratio — 1:1 square vs. 1.62:1 landscape — was leaving dead space under the shorter chart. Reordered the pair to lead with the more legible bar chart, and capped the square chart&#39;s width only at wide viewports so it reads as a diagram instead of a page-dominating poster, without upscaling either image or touching the image files themselves.</li><li>Moved the six methods-citation markers that were glued to the end of one sentence onto their own line directly beneath it, reusing the page&#39;s existing small-muted-note style rather than inventing a new one. The sentence&#39;s own wording didn&#39;t change.</li>
+        </ul>
+      </div>
+      <div>
+        <p class="ai-disclosure-log__col-label">Human did</p>
+        <ul>
+          <li>Supplied the measured native dimensions for both charts and the specific responsive behavior required (uncapped on phones and tablets, capped only on wider screens).</li>
+        </ul>
+      </div>
+    </div>
+    
+    <p class="ai-disclosure-log__notes">Verified mechanically: the shared .evidence-figures grid rule (used by Most Exposed Occupations too) is untouched — the stacking is a separate modifier class; all pre-existing anchor ids and both charts&#39; zoom/lightbox affordances survived; no image file was touched; all six methods-citation ids still resolve to their References entries. The chosen radar-cap breakpoint (60rem) is wider than this batch&#39;s own ~55rem suggestion, chosen instead to satisfy its own tablet QA check — see the batch report.</p>
+    
+  </li>
+  
+  <li class="ai-disclosure-log__item">
     <h3 class="ai-disclosure-log__date">2026-07-24: The Evidence clarity pass: examples, plain-language gloss, visual separation</h3>
     <div class="ai-disclosure-log__cols">
       <div>

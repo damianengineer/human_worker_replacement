@@ -320,8 +320,51 @@
   }
 }
 
+/* Evidence Figure Stack batch — Theoretical vs. Observed's two figures have
+   mismatched native aspect ratios (1.00 square vs. 1.62 landscape), which in
+   the base two-column grid left the shorter chart floating at the top of a
+   tall cell with dead space beneath it. This modifier forces one column at
+   every width (never switching to two columns at 40rem like the base rule),
+   so the pair reads as two stacked exhibits instead of a mismatched row.
+   Only Most Exposed Occupations' figures use the base .evidence-figures
+   grid unmodified — this class has exactly one consumer, this pair.
+   Specificity (two classes) beats the base rule's one-class selector at
+   every breakpoint regardless of source order, so a single rule outside
+   any media query is enough — no need to re-declare inside the 40rem
+   query above. A larger gap than the base row's --space-4 gives the two
+   stacked charts clearer separation as distinct exhibits. */
+.evidence-figures.evidence-figures--stacked {
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
 .evidence-figure {
   margin: 0;
+}
+
+/* Evidence Figure Stack batch — the radar/square chart
+   (theoretical-capability-vs-observed-exposure.webp, 3840x3840 native) has
+   no resolution problem, only a height problem: at full column width
+   (~57rem) it becomes a ~57rem-tall square that dominates the page. Below
+   the chosen breakpoint it still fills the column like the bar chart above
+   it (no cap, explicit max-width: 100% so both rules are easy to verify);
+   at/above the breakpoint it caps to a sane diagram width.
+   Breakpoint choice: the task's own "~55rem" guidance would engage this cap
+   at the ~900px (56.25rem) tablet width this batch's own QA check requires
+   to stay UNCAPPED (matching the bar chart above it) — so the nearest
+   existing token that doesn't contradict that QA requirement is used
+   instead: --space-driven breakpoints aside, 60rem (960px, already used by
+   home.css/take-action.css) is the closest existing value above 900px,
+   not 48rem (768px, which would cap at the 900px tablet check and fail
+   it). See the batch report for this reasoning in full. */
+.evidence-figure--radar-cap {
+  max-width: 100%;
+}
+
+@media (min-width: 60rem) {
+  .evidence-figure--radar-cap {
+    max-width: 34rem;
+  }
 }
 
 /* Homepage Edits v2, Change 7: this rule is shared by every single/lead
