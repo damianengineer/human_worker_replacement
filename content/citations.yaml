@@ -199,11 +199,31 @@ dissent2026:
     Good for the Bessemer, Alabama algorithmic-management/union angle, not
     for statistics.
   todo: >-
-    Attributes the Bessemer algorithmic-management research to "a
-    Northwestern researcher" via secondary paraphrase only, with no name or
-    publication given. If a peer-reviewed or working-paper version of that
-    research is wanted, we need the researcher's name and the actual
-    publication, not just this magazine's summary of it.
+    RESOLVED (Final Batch, citation QA pass): the "Northwestern researcher"
+    is Teke Wiggin; the peer-reviewed publication is now entered as
+    wiggin2025 below. Not yet cited anywhere in content — a human editor
+    can decide whether to wire it in alongside or in place of this magazine
+    summary for the Bessemer/algorithmic-management claim specifically.
+
+wiggin2025:
+  authors: "Wiggin, T."
+  year: 2025
+  title: >-
+    Weaponizing the workplace: How algorithmic management shaped Amazon's
+    antiunion campaign in Bessemer, Alabama
+  publisher: "Socius, 11"
+  url: "https://doi.org/10.1177/23780231251318389"
+  type: "article"
+  potential_conflict: "None disclosed"
+  note: >-
+    Added during the Final Batch citation QA pass while verifying
+    dissent2026 — the peer-reviewed source that magazine article's
+    "Northwestern researcher" paraphrase was referring to (confirmed via
+    Northwestern's own sociology department news page, since the SAGE
+    journal page itself blocked automated fetching). Not yet cited in any
+    page content; available if a human editor wants to cite the Bessemer
+    algorithmic-management research directly rather than via secondary
+    summary.
 
 doctorow2023:
   authors: "Doctorow, C."
@@ -837,6 +857,14 @@ weise2025:
     publication date still couldn't be confirmed despite repeated
     search attempts across sessions; note this is reportage on a
     corporate plan, not an independent empirical finding.
+    Final Batch citation QA pass: made one more attempt, still no
+    canonical nytimes.com URL found. Substance further corroborated,
+    though — Forbes (2025-10-22) independently confirms both the exact
+    "600,000 jobs by 2033" figure and the Karen Weise/NYT byline; NPR's
+    own 2025-10-22 interview with Weise about this same reporting
+    corroborates the ~75% automation goal and the underlying story.
+    Confidence in the claim's accuracy is now higher; the URL itself
+    remains unverified.
 
 zapier:
   authors: "Zapier"

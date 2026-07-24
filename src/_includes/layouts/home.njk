@@ -37,6 +37,11 @@ extraCss:
       <p class="home-timeline__label">{{ era.label }}</p>
       <span class="home-timeline__tag{% if era.certainty == 'Forecast — contested' or era.certainty == 'Speculative' %} home-timeline__tag--caution{% endif %}">{{ era.certainty }}</span>
       <p>{{ era.text }}</p>
+      {% if era.citations %}
+      <p class="home-section__source">
+        {% for id in era.citations %}{{ id | citeLink | safe }}{% if not loop.last %}, {% endif %}{% endfor %}
+      </p>
+      {% endif %}
       <p><a href="{{ era.link_url }}">{{ era.link_label }}</a></p>
     </li>
     {% endfor %}
