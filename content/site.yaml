@@ -2,13 +2,16 @@
 # page (site title, nav labels, footer). Page-specific copy belongs in that
 # page's own content/*.md file instead.
 
-title: "AI & Your First Job"
-# Same value as `title` for now — the retitle to the longer "AI & Your Job
-# After Graduation" is a separate batch. This field exists so the header's
-# narrow-width brand span has something to switch to the day that lands,
-# without touching the header component again. Update this to an actual
-# shortened form when the retitle happens.
-short_title: "AI & Your First Job"
+title: "AI & Your Job"
+# Retitled from "AI & Your First Job" (Homepage Edits v2) — "first job"
+# read as excluding the career-changers/retraining students in the
+# audience who already have work experience, just not in their new
+# field. Same value as `title`: this title is actually shorter than the
+# old one, not longer, so the anticipated need for a distinct short form
+# (see the git history for this comment) never materialized — the header's
+# narrow-width brand span still falls back to this field when set, it
+# just happens to be identical to the full title right now.
+short_title: "AI & Your Job"
 tagline: "What AI means for entry-level work — and how to get ready"
 
 # Nav entries are added here as each page is built (see CLAUDE.md Section 11:

@@ -1,5 +1,5 @@
 ---
-title: "AI & Your First Job"
+title: "AI & Your Job"
 description: "A student's guide to AI's effect on entry-level jobs — the evidence, the history behind it, and what to do next."
 layout: "layouts/home.njk"
 # Drives the header's tier 2 — replaces the old in-content .home-jump nav.

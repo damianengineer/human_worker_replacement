@@ -1,4 +1,4 @@
-# AI & Your First Job
+# AI & Your Job
 
 A static informational site (built with [Eleventy](https://www.11ty.dev/))
 about AI's effect on entry-level jobs, aimed at community college students.
