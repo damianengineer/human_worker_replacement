@@ -60,54 +60,72 @@
    (1st and 3rd: Current State, Protective Factors) without being thrown
    off by the unrelated siblings before/between them.
 
-   Deliberately NOT the classic width:100vw + negative-margin breakout
-   (or the position:relative; left/right:50%; margin:-50vw version) —
-   both need to be paired with overflow-x:hidden somewhere to avoid a
-   horizontal-scrollbar bug (100vw doesn't subtract the scrollbar's own
-   width), and this site's sticky elements (.site-tier1, .site-tier2) all
-   live under <body>: setting overflow-x on any ancestor between <body>
-   and a sticky element forces the browser to compute the OTHER overflow
-   axis (overflow-y) to non-visible too, which turns that ancestor into
-   its own scroll container and breaks position: sticky for every
-   descendant. That's real, not theoretical — it's exactly the risk an
-   earlier pass through this same task flagged before dropping the
-   full-bleed requirement instead of solving it.
+   HISTORY — two techniques tried here, in order:
 
-   The box-shadow technique below sidesteps this entirely: the section's
-   actual layout box never changes size (no width, margin, or position
-   change at all) — a huge box-shadow spread paints the tinted background
-   out to the edges as a pure visual effect that doesn't participate in
-   layout or scrollWidth calculations, so there's nothing for a
-   scrollbar-width mismatch to catch on and no ancestor needs overflow-x
-   touched. Because the section's box is unchanged, the text column
-   already sits exactly where it did before (inside <main>'s existing
-   max-width + padding) — no inner wrapper div needed for that part of
-   the requirement, and scroll-margin-top (above) still holds without
-   adjustment for the same reason.
+   1. The classic width:100vw + negative-margin breakout (or the
+      position:relative; left/right:50%; margin:-50vw version) was
+      rejected first: 100vw doesn't subtract the vertical scrollbar's own
+      width, so on non-overlay-scrollbar systems (mostly older
+      Windows/Linux) it registers as real horizontal scrollable overflow.
+      That either needs overflow-x:hidden somewhere up the tree, or a
+      visible horizontal scrollbar/shift appears. overflow-x:hidden was
+      ruled out because this site's sticky elements (.site-tier1,
+      .site-tier2) live under <body>, and setting overflow-x on any
+      ancestor between <body> and a sticky element forces the browser to
+      compute the OTHER overflow axis (overflow-y) to non-visible too,
+      turning that ancestor into its own scroll container and breaking
+      position: sticky for every descendant.
 
-   Deliberately no clip-path here, even though an earlier pass through
-   this rule included one (to keep the shadow from being clipped by an
-   ancestor's own overflow): checked every ancestor up to <body> and none
-   sets overflow to anything but the default visible, so there's nothing
-   for clip-path to protect against. Dropping it also removes a real
-   structural risk instead of leaving it in "just in case" — clip-path is
-   in the same family as transform/filter/perspective/will-change/
-   contain, several of which are spec-confirmed to establish a new
-   containing block for position:fixed/absolute descendants (and
-   clip-path's own behavior here has been inconsistent across browser
-   engines historically). That matters concretely on this page:
-   Protective Factors (the 3rd, odd/banded section) renders a figure via
-   figures.singleFigure(), which includes a position:fixed .evidence-
-   lightbox modal as a direct descendant of this same banded section.
-   With clip-path removed, box-shadow is the only property this rule
-   sets, and box-shadow does not establish a containing block for
-   anything — so that lightbox (and any other fixed/sticky element that
-   might end up inside a banded section later) still positions itself
-   against the real viewport, not against this section's box. Tier 2
-   (the nav redesign's "On this page" pills) doesn't share this exposure
-   at all, for a simpler reason than before: it now lives in the shared
-   header, entirely outside <main>, so it was never a descendant of any
-   section, banded or not, even before this concern applied. */
+   2. box-shadow: 0 0 0 <spread> was adopted instead, since box-shadow
+      doesn't participate in layout/scrollWidth calculations at all — no
+      scrollbar risk, no overflow-x needed anywhere. It shipped first
+      with a fixed 100vmax spread (reaches the viewport edge at any
+      width), then, after a bug report, with a calc()'d spread sized to
+      the actual gutter width. Both versions shared a structural flaw
+      neither fix could address: box-shadow spread is ONE value applied
+      uniformly on all four sides, so any spread large enough to bleed
+      sideways to the viewport edge bleeds that *same* amount above and
+      below the section's own box too, into its neighbors. At 100vmax
+      that showed up as a colored sliver at unrelated scroll positions
+      anywhere on the page (confirmed via devtools: the affected area
+      hit-tested to <body>, not any element's real box — shadow paint,
+      not layout overflow). Shrinking the spread to the gutter's actual
+      width made the overshoot small, but didn't remove it: with the
+      shorter, unbanded "At-Risk" section sandwiched between two banded
+      neighbors, its own gutter still showed a blue leak bleeding down
+      from Current State above and up from Protective Factors below,
+      with a visible white gap between them — a "zebra stripe" that
+      visibly moved as the viewport resized, since the calc()'d spread
+      (and thus the leak) grows and shrinks with viewport width.
+
+   Given box-shadow structurally cannot bleed sideways while stopping
+   exactly at its own top/bottom edge, technique 1 is used after all —
+   but as an absolutely-positioned pseudo-element, not by resizing the
+   section itself, so everything technique 2's rationale said about the
+   section's own box still holds: no width/margin/position change on
+   the section, no inner wrapper div, the text column stays exactly
+   where it was, and scroll-margin-top needs no adjustment.
+   position: relative on the section (below) gives the pseudo-element
+   its containing block; position: relative alone does NOT establish a
+   new containing block for position: fixed descendants (only
+   transform/filter/perspective/will-change/contain do), so Protective
+   Factors' position: fixed lightbox is unaffected — it still positions
+   against the real viewport. top: 0; bottom: 0 on the pseudo-element
+   sizes it to exactly the section's own padding-box height: zero
+   vertical overshoot into neighboring sections, which is the actual bug
+   this fixes.
+
+   Accepted, deliberate tradeoff: this reintroduces the scrollbar-width
+   risk technique 1 was originally rejected for — a few pixels of
+   horizontal scroll capability on non-overlay-scrollbar systems only
+   (macOS, iOS, Android, and modern Windows overlay scrollbars are
+   unaffected, since 100vw truly equals 100% there). Chosen because that
+   risk is small, bounded, and narrow-audience, against the zebra-
+   striping bug above, which was visible to every desktop user who
+   resized the window. No overflow-x is added anywhere to guard against
+   it: adding it to <main> would re-clip the intended bleed at <main>'s
+   own edge, defeating the point; adding it to <body>/<html> reopens
+   exactly the sticky-header risk described in technique 1 above. */
 /* Color Re-skin v2, Task 4.3: the band tint is now the Evidence accent's
    own -bg tint rather than the neutral --color-bg-subtle, so alternating
    bands read as lightly blue-tinted instead of plain gray. Body text on
@@ -117,31 +135,21 @@
    larger than the old neutral tint's was: light 0.127 vs. the old
    0.088, dark 0.013 vs. the old 0.006 — so the band is more detectable
    than before, not less. */
-/* Evidence Figure Stack batch (bug fix, reported after shipping) — a
-   fixed 100vmax spread doesn't just reach the viewport edges, it also
-   extends 100x the viewport's largest dimension ABOVE and BELOW the
-   section's own box, since box-shadow spread is uniform on all four
-   sides. Nothing ever repaints over that huge overshoot in the page's
-   outer gutters (outside <main>'s own column), so it showed through as
-   a colored sliver at unrelated scroll positions elsewhere on the page
-   — confirmed via devtools: the affected area hit-tested to <body>,
-   not any real element box, meaning it was this shadow's paint, not a
-   layout overflow.
-   Fix: size the spread with calc() to reach the actual current gutter
-   width (half the viewport minus the content column, plus main's own
-   side padding) instead of a value 100x larger than necessary. This
-   keeps every property from the box-shadow rationale above (no
-   scrollWidth/layout participation, no containing-block risk for the
-   Protective Factors lightbox) while capping the vertical overshoot to
-   the same modest width as the horizontal gutter it's covering, instead
-   of the width of the observable universe. max() floors it at 0 so it
-   never goes negative and shrinks the band below viewports where
-   --content-max-width doesn't apply (<main> already fills the width
-   there, so no gutter exists to bleed into, and 0 spread still exactly
-   covers the section's own box). */
 .evidence-section:nth-of-type(odd) {
+  position: relative;
   padding: var(--space-5) 0;
-  box-shadow: 0 0 0 max(0px, calc((100vw - var(--content-max-width)) / 2 + var(--space-4))) var(--accent-evidence-bg);
+  --band-bleed: max(0px, calc((100vw - var(--content-max-width)) / 2 + var(--space-4)));
+}
+
+.evidence-section:nth-of-type(odd)::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: calc(-1 * var(--band-bleed));
+  right: calc(-1 * var(--band-bleed));
+  background: var(--accent-evidence-bg);
 }
 
 /* Color Re-skin v2, Task 4.2: section headings take their own section's
