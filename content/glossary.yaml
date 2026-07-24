@@ -105,6 +105,28 @@ categories:
           label: "See current automation data"
           url: "/the-evidence/#current-state"
 
+      - term: "High Near-Term Automation Risk"
+        # Evidence Clarity batch, Change 3 — the researchers' own quoted
+        # phrase needed a plain-language definition since the page uses it
+        # (and the paired 18%/46% figures) without ever explaining what
+        # puts a job in this bucket. origin/current both point to
+        # richmond2026 since that's the source of this specific category
+        # system; only existing citation used, none invented.
+        definition: >-
+          A category from one researcher's framework for sorting jobs by
+          how much AI might change them soon. It's not a prediction about
+          any single job — it's a way of grouping jobs by combining a few
+          things: how much of the job's tasks AI can already do, and
+          whether protections like licensing rules or a need for a human
+          touch offset that risk. Other research groups build their own
+          versions of this kind of framework, and they don't always draw
+          the lines in the same place.
+        origin: ["richmond2026"]
+        current: ["richmond2026"]
+        see_also:
+          label: "See where this category shows up in the current data"
+          url: "/the-evidence/#current-state"
+
       - term: "Augmentation"
         definition: >-
           When technology helps a person do their job better or faster,

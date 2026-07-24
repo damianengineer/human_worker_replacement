@@ -118,9 +118,11 @@ current_state:
     - claim: >-
         Only about 18% of jobs fall into the "high near-term
         <a href="/glossary/#automation-of-work">automation</a> risk"
-        category, and 46% show little immediate change. That's an
-        important counterweight to the more alarming statistics: most jobs
-        aren't about to disappear.
+        category — <a href="/glossary/#high-near-term-automation-risk">researchers'
+        own label for the riskiest group in their framework</a> — and 46%
+        land in the opposite group, showing little immediate change.
+        That's an important counterweight to the more alarming
+        statistics: most jobs aren't about to disappear.
       primary_citation: "richmond2026"
       corroborating_citation: "shrm2026"
       note: >-
